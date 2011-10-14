@@ -2238,9 +2238,10 @@ function do_aeon()
  end
  if aeon_command ~= &quot;&quot; and not waiting.aeon and not waiting.sent then
   send(aeon_command)
+  aeon_command = &quot;&quot;
   waiting.sent = true
   tempTimer(1, [[waiting.sent = false]])
-  tempTimer(1.1, [[if not waiting.aeon then cure_aff(&quot;aeon&quot;) end]])
+  --tempTimer(1.1, [[if not waiting.aeon then cure_aff(&quot;aeon&quot;) end]])
  end 
 end
 
