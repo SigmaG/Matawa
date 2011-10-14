@@ -1,0 +1,257 @@
+
+Matawa Changelog:
+
+v1.1
+o Added remaining soldier attack aliases. -Shlean
+o Added rogue attack aliases. -Shlean
+o Expanded bashing area list.
+o Enabled GMCP for vitals tracking and target loading for bashing. -keneanung
+o Added off-hand balance to prompt for soldiers who can dual-wield.
+o Added experience toward next level to the prompt.
+o Added entanglement status character to the prompt.
+o Converted magic on prompt to a percentage.
+o Fixed a bug with off-hand attack queuing. -Shlean
+o Fixed some incorrect affliction lines. -Agravain (though he doesn't know!)
+o Fixed a bug that made attack queuing not work for non-soldier classes. -Vilnearo
+o Fixed a small bug in fishing that made it not work for some kinds of bait. -Valdar
+o Added a FISHING TEASE immediately after casting to the fishing script. -Valdar
+o Converted download to a mudlet package for easier importing. -Vadi
+
+v1.2
+o Cleaned up bashing script, removed old debugging echoes.
+o Added can variables for bashing skills.
+o Fixed a small bug that disabled magician bashing. -Vilnearo
+o Priests will now heal themselves while bashing.
+o Cleaned up priest use of holy fire.
+o Fixed an error preventing the loading of area targets.
+o Expanded the bashing area table, again.
+o Changed the color of the defending echoes, there was too much brown.
+o Added magic, guile, and faith to GMCP tracking, cleaning up prompt triggers (You must now CONFIG PROMPT ALL). -keneanung
+o Fixed a tiny bug that disabled the fishing script.
+
+v2.0
+o Added defense tracking and keeping!
+o Added cadence tracking to the prompt. -Shlean
+o Fixed a bug showing the wrong value for guile and faith. -keneanung
+o Attached a changelog and FAQ file along with the mudlet package in the .zip file download.
+
+v2.1
+o Added GMCP name and class tracking, you no longer need to modify these in the variables script.
+o Fixed a bug with magic/faith change on prompt. -Vilnearo
+o Fixed a bug in the CFS that caused it to spam you every time you used it.
+o Attack aliases will now only work if that attack suits your class. This is to avoid any overlap.
+o Added some priest attack aliases. -Veda
+o Cleaned up all attack alises.
+o Removed a debugging echo when afflicted.
+o Added diagnose queuing for 'unknown' afflictions.
+o Fixed a small, rare bug that caused standing to sometimes not work. -Gurtrud
+
+v2.2
+o Fixed a small error that caused the system to pause for a moment after failing to focus due to concussion, epilepsy, or impatience.
+o Added queue diagnose after blackout cure.
+o Added some rogue attack echoes.
+o Added your attack time echo to those attacks with echoes.
+o Fixed a small bug with attack echoes and failing to complete an attack.
+o Changed attack echoes color, there was too much blue.
+o Fixed a bug that showed your weapon as the target for some soldier attack echoes.
+o Fixed a minor bug that caused the system to pause for a moment after sending WHO HERE.
+o Re-did the fasthunt function to fire off GMCP. It will no longer send WHO HERE when you squint or glance or look.
+o Fixed an error that caused the basher to use fleche over and over on female targets.
+o Expanded the defenses table a bit.
+o Fasthunt mode will now work for hidden rogues.
+o Fixed a bug that caused the basher not to recognize targets with special characters in their IH lines.
+o Fixed a small bug that caused the system to pause for a moment if you moved too quickly with fasthunt on.
+o Made the system account for the recovery skill in fencing. It will no longer use a defense if you are already using that defense.
+o Expanded the auto-learning script, it now works for tutors as well as players.
+o Added auto turn-in script for corpses and other quest items. Only works for imps at the moment.
+o Fixed a tiny bug with off-hand balance and bashing.
+o Added a landmarks feature with the mp <wherever> alias. Currently works for crypt, th, and imps.
+o Added faith aliases. They work for self or allies. For instance, hlm will heal you, while hlm someone will heal Someone. -Veda
+o Priests may use hlm alias to queue healing themselves or an ally while bashing as well.
+o Also included a bless alias to queue full blessings on self or target. -Veda
+
+v2.3
+o Fixed a small bug with fasthunt mode that made it sometimes send IH twice or more if you lag.
+o Generally cleaned up bashing script a bit more, just made it run more smoothly when getting target.
+o Changed the landmark alias to lm <whatever> so it no longer conflicts with people who run the mudbot mapper.
+o Expanded the landmark table a bit.
+o Fixed a bug with the blessing alias, it should now work to bless allies. -Veda
+o Now includes pyromania attack aliases. -Veda
+o You can now create and load defense option tables. Still very Limited! I don't know enough defenses to test it properly.
+o Create your own defense table in the scripts->system->defenses->options script, and load it with ldd <table name>, like ldd soldier.
+
+v2.4
+o Fixed up defense resetting script, it should look neater now when resetting defenses.
+o Added a currently simple anachronize check. May not work effectively in group combat. Will expand later!
+o Improved the anti-theft. Grin should find it much harder to steal from people now. -Grin
+o Expanded the defense table, mostly for rogues.
+o Added a few more landmarks.
+o Fixed some errors in bashing area list.
+o Thief rogues may now toggle can_shadowmend and toggles.shadowmending on to use it while bashing. This will work without deathmask, but is much better with it.
+o If you do not have shadowmend on when you start bashing, system will put it on for you, and then turn it off and hide if you are low on guile when you clear the room. If you do have it on before starting bashing, system will not turn it off after clearing room.
+o Did more cleaning up, minor fixing of things that make script simpler but do not change how system runs.
+o Fixed a small bug that made it send overdrive after coming back from being dead, before you had adrenaline.
+o Fixed a bug that disabled priest bashing. -Veda
+o Fixed a tiny bug that messed with targeting if you leave combat without killing your target.
+o Added spellshield as a defense, it should now track off the prompt and DEF.
+o Fixed a fishing bug with fish stealing bait, and added fdis alias to set casting distance to medium or long. -Veda
+o Added Thanatology defend and affliction lines. Untested, so let me know of any problem or bugs with it.
+
+v2.5
+o Fixed a small bug that caused the basher to send IH only once, ever.
+o Fixed a small bug that sometimes caused bashing to kill one mob, and then stop.
+o Fixed looting function, it should work much more smoothly and consistently now.
+o Added many of the rogue attack echoes.
+o Added a few more defenses.
+o The system will now display the actual telegraph time at the end of an attack, if it has a accurate one to show.
+o Added some demonology affliction lines.
+o Fixed a typo in the judgment alias. It should work now! -Veda
+o Fixed a typo in the balestra hit line.
+o Fixed a major bug that would sometimes cause the system to spam a defense if it didn't see an attack hit, miss, or get defended. It should now reset the attack after 5 seconds.
+o Fixed the Thanatology lines to work for order of the Veil too. Sorry about that! -Aodh
+o Added disarm to tracking of grip defense.
+o Fixed a small error in attack echo coloring.
+o Fixed a small bug with berserking, the bashing should no longer try to use it while off balance.
+o Added queue earthquake for magicians seeing hostage.
+o Added the rift interrupt line to toggle healing back on. -Vilnearo
+o Fixed the reckoning alias, it should work now! -Veda
+o Fixed a small bug that made it keep defending if healing was toggled off. -Draco
+o Added bloodlore defense lines. Yay!
+
+v2.6
+o Fixed a bug that prevented the prompt from showing spellshield properly. -Orsyn
+o Added a toggle for curing bleeding, to allow priests of Guis-wan to switch it off at will. The default is on, you can tbld to turn it off. -Khyvar
+o Updated righteousness attack lines. They should work for priests with spears now as well! -Khyvar
+o Increased the faith check for use of heresy, to avoid the basher using up all your faith and leaving you with none. Zealous mandate will still fire at lower faith, however. -Khyvar
+o Added the affliction lines for the succubus. -Vilnearo
+o Added some utility features, like automatically turning healing on when timewarp ends.
+o Added a can_contort variable, and added it to the writhing function.
+o Added a healing priority feature. You can now set the priority values in the afflictions table to dictate what order you try to heal things in. Useful for healing blackout before vomiting with cheap shot!
+o Added some shadoweaving defense lines.
+o Added pyromania affliction lines, the defense ones were already in.
+o Expanded the FAQ.txt included in the download! It now includes the fixes for major bugs with setting up and updating the system.
+
+v3.0
+o Added dynamic defending! That is, the system will now store the telegraph times when people hit you with attacks, and will call them to determine delay for the next time that person uses that attack.
+o Added demon lord affliction lines. -Ethon
+o Fixed a typo with chill, it should track it better. -the Wraith
+o Fixed some errors in some priest defense lines.
+o Tidied some other triggers, mostly attack echo ones.
+o Added selfishness defense.
+o Added a defending toggle, you can now use dnfd to toggle defending on and off. This should help with timewarp, as well as testing purposes.
+o Fixed a bug that caused system to show you queued an attack when killing mode was toggled off.
+o Fixed a bug that caused illusions, emotes, or reading scrolls with attack lines to loop defenses infinitely. It will now only loop for five seconds, then reset. -Vasilisa
+o Did some adjusting of how afflictions are healed, and healing priority, to improve performance in inferno. With glacier tattoo, you can be at least competetive now. -Vanon, Veda
+o Added thievery attack aliases. -Dysse
+o Changed ice spikes temperature threshold. -Orsyn
+
+v3.1
+o Fixed a small bug that stopped focusing if you regain focus balance under blackout. -Shlean
+o Fixed Thanatology! For real this time! I had been missing 'the' in titles of Lims-Kragma. -Aodh
+o Added puncture as a defense strip. You will need to make sure the 'defense' column of defenses table is accurate for this to work.
+o Added shatter limb aliases. There now is one for each limb (rleg, larm, etc).
+o Added many missing soldier attack echoes.
+o I had assume you cannot defend while entangle, seems I was wrong, and have remove this check from system.
+o Added channel parsing. You can now use alias, ctells, otells, gtells, gntells, sctells. Stores last 20 tells to that channel. Alias sctells will work for CURRENT society. May need check society list to set current society. -Ethon
+o Added and fixed some lines that was missing or wrong, just small cleaning up.
+o Added table.save and table.load to store attack_times table across sessions, should not reset all your store times now! -Christoff, Kando
+
+v3.2
+o Fixed a bug with overdrive balance coming back under blackout.
+o Added teleport as a cure for all entanglement. -Karic
+o Fixed small bug in channel parsing not working for some channel. Missing quotes!
+o Fixed the bleeding curing toggle, it should actually work now! -Khyvar
+o Fixed a few other small bugs in affliction healing, should not be huge difference.
+o Fixed off-hand balance tracking and blackout. -Urdaine
+o Fixed small typo in resetting defense options on login. -Rosalia
+o Changed thrust default delay time back! Sorry, forgot to do this after testing dynamic defending with thrust. -Rosalia
+o Changed and tweaked for inferno, increasing performance even more. -Vanon
+o Fixed some bugs with contort, it should now work properly. Sorry, didn't know the skill, so couldn't test until someone told me it was broke! -Rosalia
+o Added and fixed a few random telegraph, hit, miss, and defend lines to improve dynamic defense tracking.
+o Fixed a tiny bug that made it reset your attack_times table if you saved the variables script. Opps!
+o Added a check for low-adrenaline contortion attempts. It will now WRITHE instead of CONTORT if your adrenaline is critically low.
+o Tweaked healing priority and handling of chill, studidity, and paralysis afflictions. They should mess you up less! -Agravain
+o Added more landmarks.
+o Added lots of bashing areas...yay greathunt.
+o Added some priest defenses. You can now ldd priest. -Sappho
+o Fixed the deffing up functions, should be fewer failed attempts now.
+o Changed some coloring around, combat should be even easier to follow now. -Erpeo
+o Added vampire skill, feed, as an entanglement. -Ugralitan
+o Added an equilibrium queue in addition to the balance one. Sorry about liturgy! -Veda
+o Added lust rejection. You need to check ALLIES to trigger it, since rejecting lust takes long balance, and I didn't want it messing you up in combat. -Vanon
+
+v3.3
+o Fixed the lust rejection! It actually works now! -Shlean
+o Fixed a small typo with the echo for when someone misses you. -Dysse
+o Fixed a typo with glorious word, it should track and use it properly now.
+o Fixed the gathering toggle in the looting function, you can properly stop picking up coins now. -Firengaud
+o Added some magician defenses. -Nivek, Firengaud
+o Added stormfury checks to the magician bashing function. It will now use lance instead of spikes if you have stormfury up, even if the temperature is right, unless you have low magic. With low magic and stormfury, it will use ice spikes if possible, and stormfury release if not. -Nivek, Firengaud, Ethon
+o Fixed a bug with continuing to cast melting ice spikes, it should stop doing that now. -Nivek
+o Added a fleeing queue, it will now turn bashing and fasthunting off automatically when you FLEE, as well as send MAP the next time you change rooms after sending it. -Sutao
+o Started to add some bloodlore aliases. -Veda
+o Cleaned up some GMCP functions. It shouldn't be anything visible, but I promise the script looks nicer!
+o Tweaked and corrected some shadoweaving things that were wrong. -Ayla
+o Added the new magician stuff. -Grin, Karic, Djett
+o Fixed and added some affliction lines.
+o Added a halp alias that displays the list of commands for quick reference. -Roma
+o Updated the FAQ with some new questions I've been hearing a lot of.
+
+v3.4
+o Fixed typos in the stormfury and divine armor defenses, they should work now! -Sappho
+o Fixed a major bug that disabled most of the system for priests...sorry about that! -Aodh
+o Fixed a bug with holy fire not working in the priest bashing function...hopefully? -Sappho
+o Incorporated some of Savil's anti-theft updates, and some other nifty things inspired by it. Thanks! -Savil
+ **NOTE** I did NOT include Savil's retaliate function because I feel this is pushing too close to making bashing a bit too automated. Feel free to cannibalize it from Savil's update, but I'm not going to add it to the public version.
+o You now have a closing toggle, tcl, to toggle keeping your container closed or not.
+o Added a marching toggle. If marching is on and you're a soldier, sending directions will now MARCH instead of just go.
+o Added some more magician defenses. -Tethys, Savil
+o Finally fixed that stupid shield rune bug. I changed the way the system tracks defending completely, it should now track times more accurately as well.
+o Fixed a typo and missing line with sun allergy. -spiders
+o Cleaned up and fine tuned soldier defending. A LOT. If you lose to me now it's your own fault and nothing else! Specifically, the system should track telegraph times against dual wielding much more accurately now, and shouldn't get confused about multiple shatters, as well as a few other fixes.
+o Changed the can_ variables to a can table. This is so you can save them across updates in the future.
+o The system now saves you settings across updates and sessions. The my, can, and toggles tables are saved every time you qq now and loaded from your hard drive on starting up the system's mudlet profile. I also moved them out to their own script, instead of sharing the variables one.
+o Fixed the bug that caused the load times script to show bugged the first time you loaded the system on your computer. It now checks if you have the tables saved before trying to load them.
+o Updated the halp alias to reflect the new changes and additions.
+o Fixed a conflict with priest aliases. Firecall consumption and divine censure had the same name. Firecall consumption is now fcn instead of cns. -Arica
+o Finally fixed the q alias. You can now manually load temporary target lists. For instance, in the Greenheart, using q boar deer rabbit and then turning hunting on and walking around will kill only the boars, deers, and rabbits, until you SURVEY or leave the area.
+o The system will now display colored percentages for health and endurance when you ASSESS someone.
+o The system will now display colored echoes of a target's afflictions when you ASSESS them, as well as echo some useful information based on what it sees. -spiders
+o Added an automated nighthawk killer. -Orsyn
+o Added a new toggle, you can now switch between percents and numbers in your prompt (for magic and health). -Orsyn
+o Added some basic weapon tracking. If you have a weapon with a standard weapon type in the short_desc, the system will now set my.weapon to that weapon type when you're disarmed, etc. -Ignorance
+ **NOTE** This won't work for things other than weapons, and obviously is a little bit sketchy. I might take another look at it later and clean it up some.
+
+v3.4.1
+o Finished changing the priest tert defend lines. Whoops.
+
+v3.5
+o Fixed a major bug that um...sort of disabled the entire system. Oopsie!
+o The diag and assess function should now show burn levels instead of simple that the burns are there. -Sappho
+
+v3.6
+o Added blood to the prompt for vampires (hopefully).
+o Fixed a bug with removing items. -Vanko
+o Added bloodlore aliases. -spiders
+o Set the stupid class tracking back to how I had it that worked. Grr.
+o Added some warning echoes for instant kills that could land on you. Still limited, due to my laziness. -Vanko
+
+v4.0
+o Fixed a bug in the vampire blood tracking that was messing up the prompt for most people. -spiders
+o Added anachronize as a magician defense, and added a toggle for it in the basher. -Vader
+o Fixed the CFS trigger to work with the do_pack alias.
+o The magician bashing function will now use ice spikes if you have stormfury up and low magic, instead of releasing stormfury or continuing to use high-cost stormlances. -Firengaud
+o The system may or may not work in timewarp now. Honestly no idea. I imported and tweaked the setup I have working in Lusternia, and it works there, so it should work here in theory. I'm sure there will be lots of bugs, so test away.
+o The system has a semi-mapper now. That is, it won't walk anywhere, but it does record information on every new room you enter, and store it on your computer. You can now use: area list, room find <string>, room list, room list <area>, and any numbers displayed in the lists you can use to PATH FIND to places. You will need to type msave after logging in the first time, then it should work bug free-ish...hopefully.
+**NOTE** People who have another mapper, or don't want this feature, can disable the mapper folders in aliases, scripts, and triggers under the utility ones in each.
+o I made toggles capitalize the first letter! Yay!
+o Fixed a small bug with mutilate, and another with blacken. -Zona
+o Toggling sundering on for soldiers should now work...but it's a waste of time, I'm telling you! -Akaxi
+o Magicians can now toggle immolating on to immolate bashing targets with 25% health or less, if they are ignited. -Mardosi
+**NOTE** People updating from previous versions may need to add immolate and anachronize to the can table, and immolating and anachronizing to the toggles table, since the system stores your settings on your computer and may not automatically add them.
+o Updated the FAQ with some new common questions and instructions for some new features.
+o Changed it so the vital stat changes on the prompt only show if they're not 0. Let me know if popular demand wants this changed back.
+
+v4.1
+o Fixed a bug in the set_send function that caused the system not to send anything, ever.
+o Fixed a bug in the magician bashing that caused it to stop working completely under certain circumstances. -Firengaud
