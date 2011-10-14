@@ -8506,7 +8506,8 @@ end
                             <script>reset_waiting()
 waiting.aeon = true
 tempTimer(1, [[waiting.aeon = false]])
-tempTimer(1.1, do_all)</script>
+tempTimer(1.1, do_all)
+timewarp = true</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -8518,7 +8519,7 @@ tempTimer(1.1, do_all)</script>
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>You turgid flow of time drags against you, making you move infuriatingly slowly.</string>
+                                <string>The turgid flow of time drags against you, making you move infuriatingly slowly.</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>3</integer>
@@ -8559,9 +8560,11 @@ tempTimer(1.1, do_all)</script>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>^(\w+) weaves (his|her) hands together and multicolored light begins to form into a sphere before (him|her), spinning faster and faster. A high-pitched keening rings in your ears as the spinning sphere of prismatic light expands and soaks into the surroundings, making everything around you blur and the air grow turgid.</string>
+                                <string>You weave your hands together and multicolored light begins to form into a sphere before you, spinning faster and faster. A high-pitched keening rings in your ears as the spinning sphere of prismaticlight expands and soaks into the surroundings, making everything around you blur and the air grow turgid.</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>1</integer>
+                                <integer>3</integer>
                             </regexCodePropertyList>
                         </Trigger>
                     </TriggerGroup>
