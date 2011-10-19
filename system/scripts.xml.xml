@@ -373,6 +373,8 @@ depression = {type = &quot;mind&quot;, state = &quot;healed&quot;, priority = 4}
 tainted_aura = {type = &quot;spirit&quot;, state = &quot;healed&quot;, priority = 4},
 recklessness = {type = &quot;spirit&quot;, state = &quot;healed&quot;, priority = 4},
 heart_palpitations = {type = &quot;body&quot;, state = &quot;healed&quot;, priority = 4},
+exhausted = {type = &quot;body&quot;, state = &quot;healed&quot;, priority = 4},
+infirm = {type = &quot;spirit&quot;, state = &quot;healed&quot;, priority = 4},
 fear = {type = &quot;mind&quot;, state = &quot;healed&quot;, priority = 4},
 --STOP DEFENDING
 cataplexy = {type = &quot;mind&quot;, state = &quot;healed&quot;, priority = 5},
@@ -946,6 +948,11 @@ howlofterror = {def = &quot;duck&quot;, class = &quot;mage&quot;, getting_hit = 
 puncture = {def = &quot;block&quot;, class = &quot;rogue&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1},
 heartstrike = {def = &quot;duck&quot;, class = &quot;soldier&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1},
 --OTHER AFFLICTIONS
+enervating_jab = {def = &quot;dodge&quot;, class = &quot;soldier&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 2.7},
+rupture = {def = &quot;jump&quot;, class = &quot;soldier&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1.9},
+mutilating_hack = {def = &quot;block&quot;, class = &quot;soldier&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 2.1},
+enfeeble = {def = &quot;duck&quot;, class = &quot;soldier&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1.7},
+wildstrike = {def = &quot;parry&quot;, class = &quot;soldier&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1.9},
 skylash = {def = &quot;parry&quot;, class = &quot;mage&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1},
 shatter = {def = &quot;dodge&quot;, class = &quot;mage&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1},
 shatter_left_leg = {def = &quot;parry&quot;, class = &quot;soldier&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1.5},
@@ -2231,16 +2238,17 @@ end</script>
 
 
 function do_aeon()
- if (next_action and next_action ~= &quot;none&quot;) and balance.bal and not waiting.balance and not prone and not entangled then
+ if next_action ~= &quot;none&quot; and balance.bal and not waiting.balance and not prone and not entangled then
   do_attack()
  else
-  do_aeon_queue()
+  aeon_queue()
  end
  if aeon_command ~= &quot;&quot; and not waiting.aeon and not waiting.sent then
   send(aeon_command)
   aeon_command = &quot;&quot;
   waiting.sent = true
   tempTimer(1, [[waiting.sent = false]])
+--  tempTimer(1.1, [[if not waiting.aeon then cure_aff(&quot;aeon&quot;) end]])
  end 
 end
 
@@ -2386,7 +2394,6 @@ function set_send(command)
  if not timewarp then
   send(command)
  else
-  send(&quot; &quot;)
   if aeon_command == &quot;&quot; then
    aeon_command = command
   end

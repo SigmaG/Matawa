@@ -4632,6 +4632,62 @@ reset_waiting()</script>
                                 </regexCodePropertyList>
                             </Trigger>
                         </TriggerGroup>
+                        <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                            <name>exhausted</name>
+                            <script></script>
+                            <triggerType>0</triggerType>
+                            <conditonLineDelta>99</conditonLineDelta>
+                            <mStayOpen>0</mStayOpen>
+                            <mCommand></mCommand>
+                            <packageName></packageName>
+                            <mFgColor>#ff0000</mFgColor>
+                            <mBgColor>#ffff00</mBgColor>
+                            <mSoundFile></mSoundFile>
+                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                            <regexCodeList/>
+                            <regexCodePropertyList/>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>diag</name>
+                                <script>diag_aff(&quot;exhausted&quot;)</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>0</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>^physically exhausted.$</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>1</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>heal</name>
+                                <script>cure_aff(&quot;exhausted&quot;)</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>99</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>^The wearying weight of exhaustion fades.$</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>1</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                        </TriggerGroup>
                     </TriggerGroup>
                     <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>mind</name>
@@ -8142,6 +8198,82 @@ waiting.focus = false</script>
                                 </regexCodePropertyList>
                             </Trigger>
                         </TriggerGroup>
+                        <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                            <name>infirm</name>
+                            <script></script>
+                            <triggerType>0</triggerType>
+                            <conditonLineDelta>99</conditonLineDelta>
+                            <mStayOpen>0</mStayOpen>
+                            <mCommand></mCommand>
+                            <packageName></packageName>
+                            <mFgColor>#ff0000</mFgColor>
+                            <mBgColor>#ffff00</mBgColor>
+                            <mSoundFile></mSoundFile>
+                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                            <regexCodeList/>
+                            <regexCodePropertyList/>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>diag</name>
+                                <script>diag_aff(&quot;infirm&quot;)</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>99</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>^infirm.$</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>1</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>heal</name>
+                                <script>cure_aff(&quot;infirm&quot;)</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>99</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>^You feel heartier and more hale.$</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>1</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>got</name>
+                                <script>got_aff(&quot;infirm&quot;)</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>99</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>^You feel frail and infirm.$</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>1</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                        </TriggerGroup>
                     </TriggerGroup>
                     <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                         <name>compulsion</name>
@@ -8503,11 +8635,10 @@ end
                         <regexCodePropertyList/>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>sent</name>
-                            <script>reset_waiting()
+                            <script>--reset_waiting()
 waiting.aeon = true
-tempTimer(1, [[waiting.aeon = false]])
-tempTimer(1.1, do_all)
-timewarp = true</script>
+tempTimer(1.1, [[waiting.aeon = false]])
+tempTimer(1.2, do_all)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -8519,7 +8650,7 @@ timewarp = true</script>
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>The turgid flow of time drags against you, making you move infuriatingly slowly.</string>
+                                <string>You turgid flow of time drags against you, making you move infuriatingly slowly.</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>3</integer>
@@ -8560,11 +8691,9 @@ timewarp = true</script>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>^(\w+) weaves (his|her) hands together and multicolored light begins to form into a sphere before (him|her), spinning faster and faster. A high-pitched keening rings in your ears as the spinning sphere of prismatic light expands and soaks into the surroundings, making everything around you blur and the air grow turgid.</string>
-                                <string>You weave your hands together and multicolored light begins to form into a sphere before you, spinning faster and faster. A high-pitched keening rings in your ears as the spinning sphere of prismaticlight expands and soaks into the surroundings, making everything around you blur and the air grow turgid.</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>1</integer>
-                                <integer>3</integer>
                             </regexCodePropertyList>
                         </Trigger>
                     </TriggerGroup>
@@ -12998,6 +13127,393 @@ give_aff(&quot;sundered_armor&quot;)</script>
                                 <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                 <regexCodeList/>
                                 <regexCodePropertyList/>
+                            </TriggerGroup>
+                            <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>enervating jab</name>
+                                <script></script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>0</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList/>
+                                <regexCodePropertyList/>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>attack</name>
+                                    <script>got_attack(matches[2], matches[3], &quot;enervating_jab&quot;)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>0</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) jabs towards your midsection with (.*).$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>hit</name>
+                                    <script>got_hit(matches[2], matches[3], &quot;enervating_jab&quot;)
+give_aff(&quot;exhausted&quot;)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>0</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) jabs (.*) into your stomach, and you turn pale in sudden exhaustion.$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>defend</name>
+                                    <script>got_defend(matches[2], matches[2], &quot;enervating_jab&quot;, matches[4])</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) jabs (.*) into your stomach. (.*)</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                            </TriggerGroup>
+                            <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>rupture</name>
+                                <script></script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>0</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList/>
+                                <regexCodePropertyList/>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>attack</name>
+                                    <script>got_attack(matches[2], matches[3], &quot;rupture&quot;)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>1</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) hews harshly at your wounds with (.*).$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>hit</name>
+                                    <script>got_hit(matches[2], matches[3], &quot;rupture&quot;)
+give_aff(&quot;bleeding&quot;)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string> ^(\w+) tears (.*) into your wounds, rupturing them into a bloody pulp.$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>defend</name>
+                                    <script>got_defend(matches[2], matches[3], &quot;rupture&quot;, matches[4])</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>0</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string> ^(\w+) hacks (.*) into your back, mutilating it. (.*)</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                            </TriggerGroup>
+                            <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>mutilating hack</name>
+                                <script></script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>99</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList/>
+                                <regexCodePropertyList/>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>attack</name>
+                                    <script>got_attack(matches[2], matches[3], &quot;mutilating_hack&quot;)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) hacks savagely at your back with (.*)$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>hit</name>
+                                    <script>got_hit(matches[2], matches[3], &quot;mutilating_hack&quot;)
+give_aff(&quot;cut_tendon&quot;)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) hacks (.*) into your back, mutilating it into ribbons of flesh.$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>defend</name>
+                                    <script>got_defend(matches[2], matches[2], &quot;mutilating_hack&quot;, matches[4])
+give_aff(&quot;cut_tendon&quot;)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(w+) hacks (.*) into your back, mutilating it. (.*)</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                            </TriggerGroup>
+                            <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>enfeeble</name>
+                                <script></script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>0</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList/>
+                                <regexCodePropertyList/>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>attack</name>
+                                    <script>got_attack(matches[2], matches[3], &quot;enfeeble&quot;)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>0</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) swipes at your head with (.*).$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>hit</name>
+                                    <script>got_hit(matches[2], matches[3], &quot;enfeeble&quot;)
+give_aff(&quot;infirm&quot;)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) blasts (.*) into your skull, sending bits of bone and skin flying.$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>defend</name>
+                                    <script>got_defend(matches[2], matches[3], &quot;enfeeble&quot;, matches[4])
+give_aff(&quot;infirm&quot;)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) blasts (.*) into the side of your skull. (.*)</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                            </TriggerGroup>
+                            <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>wildstrike</name>
+                                <script></script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>99</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList/>
+                                <regexCodePropertyList/>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>attack</name>
+                                    <script>got_attack(matches[2], matches[3], &quot;wildstrike&quot;)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>0</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) slashes (.*) at you with wild abandon.$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>hit</name>
+                                    <script>got_hit(matches[2], matches[3], &quot;wildstrike&quot;)
+give_aff(&quot;recklessness&quot;)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^With wild strength, (\w+) furiously slashes you with (.*).$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>defend</name>
+                                    <script>got_defend(matches[2], matches[2], &quot;wildstrike&quot;, matches[4])</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^With wild strength, (\w+) furiously slashes you with (.*). (.*)</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
                             </TriggerGroup>
                         </TriggerGroup>
                         <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
@@ -18078,6 +18594,62 @@ give_aff(&quot;hypersomnia&quot;)</script>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>defend</name>
+                                    <script>got_defend(matches[3], nil, &quot;timeshift&quot;, matches[4])</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>1</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^With a flourish of (his|her) hands, (\w+) wrenches you with an invisible force, causing the world to briefly disappear and reappear. (.*)</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                            </TriggerGroup>
+                            <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>singularity</name>
+                                <script></script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>99</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList/>
+                                <regexCodePropertyList/>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>hit</name>
+                                    <script>give_aff(&quot;aurawarp&quot;)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>A terrible thunderclap shatters the air and rocks your hearing as the singularity explodes in a violent supernova of brilliant color and light that sears the flesh from your bones and knocks you completely senseless.</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>3</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
                             </TriggerGroup>

@@ -1842,7 +1842,7 @@ end</script>
 end</script>
                             <command></command>
                             <packageName></packageName>
-                            <regex>^und$</regex>
+                            <regex>^undo$</regex>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>singularity</name>
@@ -1899,6 +1899,238 @@ end</script>
                             <packageName></packageName>
                             <regex>^rift (\w+)$</regex>
                         </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>mirror image</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast mirror image &quot;)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^mirror$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>spellshield</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast spellshield &quot;)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^shield$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>warding</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast warding &quot;)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^ward$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>riftsense</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;riftsense &quot;)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^sense$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>invisibility</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast invisibility &quot;)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^invis$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>timeshift</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast timeshift &quot;..targ)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^shift$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>distort</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast distort &quot;)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^distort$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>timequake</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast timequake &quot;)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tiq$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>arcane power</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast arcane power &quot;)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^power$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>astral tether</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast tether &quot;..targ)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^teth$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>astral warp</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast warp &quot;..targ)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^asw$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>supernova</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast supernova 20 &quot;..targ)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^nova%</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>distortion field</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast distortion field &quot;..targ)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^field$</regex>
+                        </Alias>
+                        <AliasGroup isActive="yes" isFolder="yes">
+                            <name>Teleport</name>
+                            <script></script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex></regex>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>teleport north</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast teleport north &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^telen$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>teleport northeast</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast teleport northeast &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^telene$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>teleport northwest</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast teleport northwest &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^telenw$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>teleport west</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast teleport west &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^telew$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>teleport east</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast teleport east &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^telee$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>teleport southeast</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast teleport southeast &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^telese$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>teleport southwest</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast teleport southwest &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^telesw$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>teleport south</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast teleport south &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^teles$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>teleport in</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast teleport in &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^telei$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>teleport out</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast teleport out &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^teleo$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>teleport up</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast teleport up &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^teleu$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>teleport down</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast teleport down &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^teled$</regex>
+                            </Alias>
+                        </AliasGroup>
                     </AliasGroup>
                     <AliasGroup isActive="yes" isFolder="yes">
                         <name>thaumaturgy</name>
@@ -2023,6 +2255,448 @@ end</script>
                             <packageName></packageName>
                             <regex>^shd$</regex>
                         </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>windweave</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast windweave &quot;)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^weave$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>waterbreathing</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast waterbreathing &quot;)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^wat$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>levitate</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast levitate &quot;)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^levi$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>lodestone</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast lodestone &quot;)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^lode$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>lightball</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast lightball &quot;)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^light$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>static discharge</name>
+                            <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast static discharge &quot;..targ)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^disc$</regex>
+                        </Alias>
+                        <AliasGroup isActive="yes" isFolder="yes">
+                            <name>Firewall</name>
+                            <script></script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex></regex>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>firewall north</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast firewall north &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^firen$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>firewall northeast</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast firewall northeast &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^firene$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>firewall northwest</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast firewall northwest &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^firenw$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>firewall west</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast firewall west &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^firew$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>firewall east</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast firewall east &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^firee$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>firewall southwest</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast firewall southwest &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^firesw$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>firewall southeast</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast firewall southeast &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^firese$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>firewall south</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast firewall south &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^fires$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>firewall in</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast firewall in &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^firei$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>firewall out</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast firewall out &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^fireo$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>firewall up</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast firewall up &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^fireu$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>firewall down</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast firewall down &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^fired$</regex>
+                            </Alias>
+                        </AliasGroup>
+                        <AliasGroup isActive="yes" isFolder="yes">
+                            <name>Icewall</name>
+                            <script></script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex></regex>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>icewall north</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast icewall north &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^icen$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>icewall northeast</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast icewall northeast &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^icene$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>icewall northwest</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast icewall northwest &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^icenw$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>icewall west</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast icewall west &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^icew$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>icewall east</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast icewall east &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^icee$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>icewall southwest</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast icewall southwest &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^icesw$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>icewall southeast</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast icewall southeast &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^icese$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>icewall south</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast icewall south &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^ices$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>icewall in</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast icewall in &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^icei$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>icewall out</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast icewall out &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^iceo$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>icewall up</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast icewall up &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^iceu$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>icewall down</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast icewall down &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^iced$</regex>
+                            </Alias>
+                        </AliasGroup>
+                        <AliasGroup isActive="yes" isFolder="yes">
+                            <name>Elemental Shield</name>
+                            <script></script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex></regex>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>elementshield arcane</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast elementshield arcane &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^elea$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>elementshield fire</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast elementshield fire &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^elef$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>elementshield frost</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast elementshield frost &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^elet$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>elementshield electric</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast elementshield electric &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^elec$</regex>
+                            </Alias>
+                        </AliasGroup>
+                        <AliasGroup isActive="yes" isFolder="yes">
+                            <name>Magelock</name>
+                            <script></script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex></regex>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>magelock north</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast magelock north &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^lockn$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>magelock northeast</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast magelock northeast &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^lockne$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>magelock northwest</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast magelock northwest &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^locknw$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>magelock west</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast magelock west &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^lockw$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>magelock east</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast magelock east &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^locke$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>magelock southeast</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast magelock southeast &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^lockse$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>magelock southwest</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast magelock southwest &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^locksw$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>magelock south</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast magelock south &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^locks$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>magelock in</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast magelock in &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^locki$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>magelock out</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast magelock out &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^locko$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>magelock up</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast magelock up &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^locku$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>magelock down</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast magelock down &quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^lockd$</regex>
+                            </Alias>
+                        </AliasGroup>
                     </AliasGroup>
                     <AliasGroup isActive="yes" isFolder="yes">
                         <name>demonology</name>
