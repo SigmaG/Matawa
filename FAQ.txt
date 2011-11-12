@@ -8,9 +8,9 @@ A:
 o Make sure you have CONFIG SCREENWITDH OFF
 o Make sure you have CONFIG PROMPT REMOVE VERBOSE
 o Make sure you have CONFIG PROMPT ALL
-o After importing the mudlet package into a new profile in mudlet, go to scripts->system->misc->variables.
+o After importing the mudlet package into a new profile in mudlet, go to scripts->system->vitals->variables->options.
 o Adjust the values of the first two tables to reflect your character and your skills.
-o Make sure you set your weapon, mount, and the can and toggles variables!
+o Make sure you set your weapon, mount, container, and the can and toggles variables!
 o Make sure you have GMCP enabled.
 o All set! System will track everything else through GMCP!
 
@@ -33,6 +33,22 @@ o In mudlet, go to settings, and click 'Enable GMCP' in the general tab.
 o Reconnect to the game.
 
 --NOTE! GMCP enabled has a compatability issue with Midkemia's html tags. You can CONFIG MXP ON to cause html tags to be sent as mxp tags instead and avoid this issue. If you don't, any output between < and > will always be gagged, and the client won't receive it.
+
+
+Q:
+I found a bug! What can I do to help you fix it?
+
+A:
+o If possible, try to save a log of the bug occuring.
+o If the main mudlet window displays a lua error, make sure to copy that error down somewhere!
+o If the main mudlet window doesn't have an error, open the scripting window, and then the debug window.
+o Having the debug window will cause gmcp events to display in the main window, this is normal.
+o Watch the debug window and try to recreate the bug. Errors are displayed in white text on a red background in the debug window.
+o If you do get an error message, you can highlight and then right-click and select copy to save it.
+o Once you've got an error message, or can positively say there isn't one, write me up a report!
+o Include the error message, as much detail about the circumstances of the error as possible, and any logs or records you have of the error occurring.
+o Send me a letter or message in game, or post on the system's forum thread, or send me a forum pm.
+o I might get back with you asking you to try or test or change things and looking for more feedback, but I promise to work on it as soon as possible!
 
 
 Q:
@@ -72,12 +88,23 @@ o Click extract. This should create three .xml files in the place of the old .mp
 o You can now import the missing settings, which should be the scripts.xml and the triggers.xml.
 
 
+Q:
+It keeps double sending everything! I can't toggle anything off because it toggles it on immediately! Why does it do that?
+
+A:
+o You somehow managed to import the aliases twice!
+o Go to aliases and delete one of the two system folders there. This should fix the problem.
+o If there's only one system folder, but it's definitely doubling commands, try exiting mudlet and entering again. This should reveal any hidden folders.
+o If you exit and re-enter mudlet and there's still only one folder, make sure it really is double sending. It could just be echoing the alias name and the command send, which might be the same.
+o If it is just double-echoing and this bothers you, you can go to mudlet's settings and un-click the 'Show text I send' box to make it no longer display these things.
+
+
 Q: What's with my prompt?
 
 A:
 This system replaces the standard prompt with one that I feel is more helpful. The new prompt looks like this:
 
-100%h, 340e, 0g, 83x xb-pl A:50% - [zorn] H:0 E:0
+100%h, 340e, 0g, 83x xb-pl A:50% - [zorn] H:+16
 
 o Health, by percentage.
 o Endurance, standard numeric.
@@ -120,7 +147,7 @@ o The alias ff will toggle fasthunt on or off. With fasthunt on, changing rooms 
 o The alias gg will gather coins and any items that may be dropped in the area you're in.
 o The alias tgg will toggle gathering of coins when they drop.
 o The alias ast will stop running the bashing script.
-o You can toggle your ability to use various class skills in the list of can variables under scripts->system->misc->variables.
+o You can toggle your ability to use various class skills in the list of can variables under scripts->system->vitals->variables->misc.
 o The toggles for using class skills are listed under aliases->system->toggles.
 
 
@@ -138,7 +165,7 @@ Q:
 How do I add new bashing areas?
 
 A:
-o Go to scripts->system->bashing->area list.
+o Go to scripts->system->utilities->bashing->area list.
 o Look at the table there.
 o Insert a new line in the table with the information for your area.
 o Let me know so I can add that line to future updates!
@@ -150,7 +177,7 @@ Why won't fasthunt mode work?
 A:
 o Fasthunt mode will only work if you are bashing alone.
 o It will always check that you are alone in a room before hitting.
-o This is on purpose and I will not change it in future update, because I do not want people to turn fasthunt on, follow someone else, and walk away.
+o This is on purpose and I will not change it in future update, because I do not want people to turn fasthunt on, follow someone else, and walk away from the computer.
 
 
 Q:
@@ -178,7 +205,7 @@ How do I make it keep up defenses?
 A:
 o The alias kd <defense> will toggle keeping up specific defenses. Like, kd insomnia.
 o You can also use the ldd <table> alias to load defense options tables.
-o You can create your own defense option tables in scripts->system->defenses->options.
+o You can create your own defense option tables in scripts->system->healing->defenses->options.
 
 
 Q:
@@ -191,9 +218,18 @@ o If you have balance and are able to attack (not prone, stunned, entangled, etc
 o If you are not able to attack, you should get a message saying you queued that attack.
 o You may only queue one attack in advance.
 o Attack queuing will only work if killing is toggled on.
-o The alias tkil will toggle killing on and off.
+o The alias kil will toggle killing on and off.
 o The attack aliases will try to hit your targ variable, which is your PvP target.
 o You can set targ with the t <target> alias. Like, t zorn.
+
+
+Q:
+I don't like your alias names. They're not intuitive or easy to remember for me.
+
+A:
+o So change them! Just change the pattern box to something easier for you to remember.
+o If you do change them, make sure to move the folders containing the aliases you changed outside the main system folder.
+o When you update later, just delete the new versions of the folders you altered. If you keep the old one, your aliases will remain the same.
 
 
 Q:
@@ -205,22 +241,11 @@ o It will work exactly the same! Will send attack if able, or queue it if not.
 
 
 Q:
-Does this thing have a mapper of some sort?
-
-A:
-o Sort of, the system stores a map database that you can search, but it doesn't generate a map or speedwalk yet.
-o You can use the aliases: area list, room find <string>, room list, room list <area>
-o Any numbers displayed in the lists are numbers you can use to PATH FIND to places.
-o You will need to type msave after logging in the first time, then it should work bug free-ish...hopefully.
-**NOTE** People who have another mapper, or don't want this feature, can disable the mapper folders in aliases, scripts, and triggers under the utility ones in each.
-
-
-Q:
 What other toggles and commands do I need to know?
 
 A:
 o The alias hl will toggle healing on and off. Healing off will make the system send nothing but bashing and fishing commands.
-o The alias mnt will mount your mount, as defined in scripts->system->misc->variables, under the my. table.
+o The alias mnt will mount your mount, as defined in scripts->system->vitals->variables->options, under the my. table.
 o The alias dm will dismount.
 o The alias folm will attempt to lead your set mount.
 o The alias cfs will send credits for sale, and will automatically try to buy any credits under 6000 copper.

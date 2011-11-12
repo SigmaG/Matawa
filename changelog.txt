@@ -255,3 +255,75 @@ o Changed it so the vital stat changes on the prompt only show if they're not 0.
 v4.1
 o Fixed a bug in the set_send function that caused the system not to send anything, ever.
 o Fixed a bug in the magician bashing that caused it to stop working completely under certain circumstances. -Firengaud
+
+v4.2
+o Added the new soldier attacks and afflictions. -Sutao
+o Made supernova give aurawarp.
+o Sort of fixed the slowcuring bug. It's spammy since it still echoes what it's not sending, but it only actually sends one thing at a time now. Will fix this with next big update. -Firengaud
+o If priest class tracking doesn't work now, I give up. So it better work.
+o Added Firengaud's magician aliases. -Firenguad
+
+v5.0
+o Completely rewrote all the functions. ALL of them. The system has all the same features, but is now neater, cleaner, hopefully faster, and definitely easier to change and update. Sorry to people who were just puzzling out the script! At least it will be easier to learn new version.
+o The system is now structured differently, broken into easier to modify modules separated by folders.
+o With all the rewrites come new features, including a priority list which you can tweak to personalize the system. Almost all actions now fall in this queue, which dictates the order the system will try to do things. This is most important in slowcuring (timewarp/divine censure) Big thanks to Vanko for writing the default priority list.
+o A side effect of this is that slowcuring is now much less spammy, though may not be quite perfect yet.
+o Added balance timers. The system will now display the balance time, in seconds up to 1/1000, of each balance you regain. This also allows the system to reset balances that exceed their cap values.
+o Tweaked some of the coloring to better suit the new layout of the system. The colors now relate to the different modules.
+o You can now toggle fullprompt on and off, doing so will switch between the old method of display a 0 for vitals changes and the new method of only displaying if there is a non-0 change. -Auston
+o Read through and updated the FAQ with all the new stuff and new paths to things, as well as adding explanations for some new features and recent bugs people have asked about. -Ged
+o Made the auto turnin function easier to find and modify.
+o Changed a lot of triggers to faster capture types. This should speed the system up quite a bit, though it may only be noticeable in large groups of rapid attacks.
+o Big thanks to Draco for updating ALL the affliction triggers with the more intuitive function names! -Draco
+o Added a premonition highlighting and echo. If you don't notice it while bashing now, not my fault! -Ged
+o Thanks to Auston and Draco for converting most of the afflictions table to the new format! -Draco/Auston
+o Fixed a rare bug that caused the prompt to display wrong if you logged on a vampire, then a non-vampire. -Ehlana
+o Thanks to Draco again for reformatting the defenses table! -Draco
+
+v5.1
+o Fixed minor bugs in the magician and priest bashing functions. -Draco
+o Fixed a bug in the diagnose funcion that made it clear all afflictions if you sent diag. -Vilnearo
+o Fixed some bugs with resetting afflictions after focusing and having nothing to cure. -Caes
+o Changed the idiocy affliction to 'stupidity'. It should now actually cure it!
+o Added impale, grab, and earthbind attacks to the priorities table. It should now defend these!
+o Fixed another bug with diagnose that sometimes made it not recognize any afflictions. -Elaisa
+o Recreated the attack echoes for soldiers and rogues, and expanded them to include some missing from earlier versions. As a result, dual-wield should now work properly!
+o Similarly, added aliases for the new soldier attacks.
+o Fixed a bug with afflictions not resetting after failed commands.
+o Fixed a major bug with timewarp that caused it to stop healing compeltely in certain circumstances. -Elaisa
+o Fixed a bug with the deffing up functions, it should be less spammy now.
+o Fixed some bugs with sleep, timewarp, and lust tracking.
+o Added the diag for stacks of infirm. -Sutao
+
+v5.2
+o Fixed a small typo that made attack queuing hell for dual-wielding soldiers. Oopsie.
+o Fixed the bug that sometimes caused the system to loop defenses when reading scrolls, seeing illusions, or when attacks don't complete. -Auston
+o Fixed a bug with tracking entanglement, it should be much smoother and more accurate now.
+o Fixed a small typo that was creating most of the bugs with timewarp.
+o Finally worked out how to reset afflictions on stupidity, paralysis, chill, amnesia ticks without sending a lot of uncessary commands. The system should now handle these much much better, especially in timewarp.
+o Added a passive recklessness check. It's currently limited and only works in PvP, but is easily expanable and will be working on it.
+o Fixed a major bug that sometimes made the system spam you to hell on blacken hitting, to the point you had to close mudlet. -Caes, Firengaud
+o Tweaked the set_attack function so that queuing an attack no longer overwrites curing commands in timewarp. This should clean up timewarp performance a LOT.
+o Added a 'looping' toggle. While active, the system will keep queuing your last attack instead of clearing it after sending. The no target lines clear your attack, to prevent spamming. -Stye
+o Tweaked the magician bashing function some more. You can now toggle the use of ice spikes and eldritch barrage with tis and tbrg respectively. -Firengaud
+o Adjusted the healing priority a bit. I still haven't spent a lot of time with it, but I moved some of the big things around. Like blackout. It should be noticeably better, just not perfect yet.
+o Fixed melt and puncture, the system should now recognize them as stripping defenses, and reapply those defenses if you have them toggled 'on'.
+o Fixed a major bug with tracking missed attacks. These should now be recognized and no longer cause loops or confusion. -Draco
+p Fixed a less major bug with tracking defended attacks. It should now properly show what defense you used when you do so.
+o Removed batter as an attack and battered as an affliction.
+o You can now toggle atkecho and defecho to toggle on and off the colored echoes on incoming and outgoing attacks respectively with the tdef and tatk aliases.
+o Added some of the magician attack echoes. -Firengaud
+o Added an attack alias to queue touch serpent. Damn you Sappho!
+o Updated the full inferno alias to change the order of the effects and add some missing ones. -Sappho
+
+v5.3
+o ACUTALLY fixed the major bug that sometimes made the system spam you to hell on blacken hitting, to the point you had to close mudlet. For real this time! -Caes, Auston
+o Fixed a bug that sometimes caused rogue prompts to disappear after sending IH. -Orsyn, Shlean
+o Fixed a bug that caused the bashing for rogues to only hit once per target. -Erwing
+o Updated the FAQ again with some details on how you can help me track and fix bugs you find.
+o Started rewriting all the incoming attack lines to prevent hit and defend ones from both firing at once. -temporaneous
+o Set the cure for impatience to spirit instead of mind. Whoops.
+o Got a list of all the missing triggers from Vanko, and started working on collecting them up. -Vanko
+o Fixed some typos in, and messed about more with the order of, the priority table.
+o The soldier bashing function will no longer use offhand balance if the mob target is very low health. Because wasting offhand balance sucks.
+o You should no longer keep trying to put coins in a pack or container when you don't have balance. -Vanko
