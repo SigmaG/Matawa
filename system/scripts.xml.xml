@@ -42,6 +42,10 @@
 -------------------------------------------------
 
 function prompt_function()
+ xp_string=gmcp.Char.Status.level
+ percent_index=string.find(xp_string,&quot;%%&quot;)
+ space_index=string.find(xp_string,&quot; &quot;)
+ current_xp=tonumber(string.sub(xp_string,space_index+2,percent_index-1))
 --display(afflictions)
  did_diag = false
  if sent.assess then
@@ -54,23 +58,24 @@ function prompt_function()
   elseif not targeted then
    toggles.bashing = false
    if toggles.shadowmending and my.class == &quot;rogue&quot; then
-    if bashing_shadowmend and have_def(&quot;shadowmend&quot;) then
+    if bashing_shadowmend and have_def(&quot;shadowmend&quot;) and balance.equilibrium and not waiting.equilibrium then
      set_send(&quot;shadowmend&quot;)
      bashing_shadowmend = false
     end
-    if defenses.def_hiding.state ~= &quot;deffed&quot; and percents.guile &lt;= 80 then
+    if balance.balance and not waiting.balance and defenses.def_hiding.state ~= &quot;deffed&quot; and (percents.guile &lt;= 80 or toggles.hiding) then
      set_send(&quot;hide&quot;)
     end
    end
   end
  end
  sent.ih = false
+ sent.wp = false
  if ashfall then
-  aff_have(&quot;asthma&quot;)
+  aff_have(&quot;asthmatic&quot;)
   ashfall = false
  end
  if check_reckless and percents.health == 100 and percents.endurance == 100 and vitals.adrenaline == 100 then
-  aff_have(&quot;recklessness&quot;)
+  aff_have(&quot;reckless&quot;)
  end
  check_reckless = false
  if string.find(my.stats, &quot;b&quot;) then
@@ -110,10 +115,14 @@ function prompt_function()
   vitals.cadence = 0
  end
  if not delete_prompt then
+  echo(&quot;\n&quot;)
+  if toggles.timestamps then
+   cecho(&quot;&lt;dark_green&gt;&quot;..tostring(getTime(true,&quot;hh:mm:ss:zzz| &quot;)))
+  end
   if toggles.percents then
-   cecho(color_it(percents.health)..&quot;\n&quot;..percents.health..&quot;%h, &quot;)
+   cecho(color_it(percents.health)..percents.health..&quot;%h, &quot;)
   else
-   cecho(color_it(percents.health)..&quot;\n&quot;..vitals.health..&quot;h, &quot;)
+   cecho(color_it(percents.health)..vitals.health..&quot;h, &quot;)
   end
   cecho(color_it(percents.endurance)..vitals.endurance..&quot;e, &quot;)
   if my.class == &quot;magician&quot; then
@@ -127,9 +136,13 @@ function prompt_function()
   elseif my.class == &quot;priest&quot; then
    cecho(color_it(percents.faith)..vitals.faith..&quot;f, &quot;)
   end
-  cecho(&quot;&lt;dark_green&gt;&quot;..gmcp.Char.Vitals.nl..&quot;x &quot;)
+  cecho(&quot;&lt;dark_green&gt;&quot;..current_xp..&quot;x &quot;)
   for i = 1,vitals.cadence do
-   cecho(&quot;&lt;purple&gt;*&quot;)
+   if my.class == &quot;rogue&quot; then
+    cecho(&quot;&lt;purple&gt;*&quot;)
+   elseif my.class == &quot;magician&quot; then
+    cecho(&quot;&lt;blue&gt;*&quot;)
+   end
   end
   if balance.equilibrium then
    echo(&quot;x&quot;)
@@ -141,9 +154,23 @@ function prompt_function()
   else
    echo(&quot;-&quot;)
   end
-  if my.class == &quot;soldier&quot; and can.dual then
-   if balance.offhand then
-    echo(&quot;2&quot;)
+  if my.class == &quot;soldier&quot; then
+   if can.dual then
+    if balance.offhand then
+     echo(&quot;2&quot;)
+    else
+     echo(&quot;-&quot;)
+    end
+   end
+   if balance.roar then
+    echo(&quot;r&quot;)
+   else
+    echo(&quot;-&quot;)
+   end
+  end
+  if my.class == &quot;rogue&quot; then
+   if have_def(&quot;hiding&quot;) then
+    echo(&quot;h&quot;)
    else
     echo(&quot;-&quot;)
    end
@@ -154,9 +181,16 @@ function prompt_function()
    else
     echo(&quot;-&quot;)
    end
+   if my.tert == &quot;psionics&quot; then
+    if balance.psi then
+     echo(&quot;#&quot;)
+    else
+     echo(&quot;-&quot;)
+    end
+   end
   end
   if riding then
-   echo(&quot;r&quot;)
+   echo(&quot;m&quot;)
   else
    echo(&quot;-&quot;)
   end
@@ -188,6 +222,9 @@ function prompt_function()
    echo(&quot; - [&quot;..targ..&quot;]&quot;)
   end
   cecho(enemy_health)
+  if toggles.poisondisplay and my.class == &quot;rogue&quot; and poisons[my.rogue_weapon] ~= nil then
+   cecho(&quot;&lt;purple&gt; :&lt;white&gt;&quot;..poison_affs[poisons[my.rogue_weapon][1]]..&quot;&lt;purple&gt;:&quot;)
+  end
   if vitals.health_loss &gt; 0 then
    echo(&quot; H:+&quot;..vitals.health_loss)
   elseif vitals.health_loss &lt; 0 then
@@ -220,6 +257,9 @@ function prompt_function()
     echo(&quot; F:0&quot;)
    end
   end
+  if not toggles.healing then
+   cecho(&quot;&lt;blue&gt;~-+-~&lt;grey&gt;HEALING OFF&lt;blue&gt;~-+-~&quot;)
+  end
  else
   delete_prompt = false
  end
@@ -232,6 +272,457 @@ function prompt_function()
  end
  do_all()
 end</script>
+                        <eventHandlerList/>
+                    </Script>
+                </ScriptGroup>
+                <ScriptGroup isActive="yes" isFolder="yes">
+                    <name>variables</name>
+                    <packageName></packageName>
+                    <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+</script>
+                    <eventHandlerList/>
+                    <Script isActive="yes" isFolder="no">
+                        <name>options</name>
+                        <packageName></packageName>
+                        <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+--OPTIONS
+my = {
+name = &quot;&quot;,
+stats = &quot;&quot;,
+weapon = &quot;&quot;,
+rogue_weapon = &quot;&quot;,
+container = &quot;pack&quot;,
+class = &quot;&quot;,
+mount = &quot;27872&quot;,
+area = &quot;&quot;,
+room = &quot;&quot;
+}
+
+can = {
+vault = true,
+contort = true,
+repulse = true,
+counter = true,
+dual = false,
+berserk = true,
+sunder = false,
+laststand = false,
+inquartata = true,
+shadowmend = true,
+canto = false,
+requiem = false,
+barrage = true,
+ignite = true,
+icespikes = true,
+anachronize = true,
+immolate = false,
+savage = false,
+holyfire = true,
+lash = false,
+exorcism = false,
+holysword = false
+}
+
+--TOGGLES
+toggles = {
+healing = true,
+paused = false,
+gathering = true,
+defending = true,
+standing = true,
+killing = true,
+bleeding = true,
+countering = false,
+berserking = false,
+threatening = false,
+retreating = false,
+sundering = false,
+fleching = false,
+cantoing = true,
+requieming = false,
+savaging = false,
+lashing = false,
+shadowmending = false,
+hiding = false,
+hereticing = false,
+igniting = false,
+anachronizing = true,
+immolating = false,
+mindblasting = false,
+spiking = false,
+barraging = true,
+bashing = false,
+fishing = false,
+looting = true,
+generics = false,
+fasthunt = false,
+ratting = false,
+closing = false,
+marching = false,
+percents = true,
+fullprompt = false,
+timestamp = false,
+looping = false,
+poisondisplay = false,
+affdisplay = false,
+defecho = true,
+atkecho = true
+}</script>
+                        <eventHandlerList/>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>status</name>
+                        <packageName></packageName>
+                        <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+status = {
+waking = false,
+writhing = false,
+shielding = false,
+clotting = false
+}
+
+vitals = {
+adrenaline = 0,
+cadence = 0,
+health = 0,
+endurance = 0,
+magic = 0,
+guile = 0,
+faith = 0,
+old_health = 0,
+old_endurance = 0,
+old_magic = 0,
+old_guile = 0,
+old_faith = 0,
+health_loss = 0,
+endurance_loss = 0,
+magic_loss = 0,
+guile_loss = 0,
+faith_loss = 0,
+charge_number = 0,
+bleeding = 0
+}
+
+max = {
+health = 0,
+endurance = 0,
+magic = 0,
+guile = 0,
+faith = 0
+}
+
+percents = {
+health = 100,
+endurance = 100,
+magic = 100,
+guile = 100,
+faith = 100
+}
+
+balance = {
+balance = true,
+equilibrium = true,
+psi = true,
+offhand = true,
+roar = true,
+overdrive = true,
+focus = true,
+anachronize = true,
+recover = true,
+concentrate = true
+}
+
+waiting = {
+balance = false,
+offhand = false,
+psi = false,
+equilibrium = false,
+focus = false,
+wake = false,
+stand = false,
+writhe = false,
+overdrive = false,
+ih = false,
+slow = false,
+sent = false,
+clotting = false,
+recover = false
+}
+
+balance_timers = {
+balance = {timer = createStopWatch(), cap = 0},
+equilibrium = {timer = createStopWatch(), cap = 0},
+offhand = {timer = createStopWatch(), cap = 22},
+overdrive = {timer = createStopWatch(), cap = 5},
+focus = {timer = createStopWatch(), cap = 5},
+anachronize = {timer = createStopWatch(), cap = 100},
+recover = {timer = createStopWatch(), cap = 0},
+concentrate = {timer = createStopWatch(), cap = 0},
+psi = {timer = createStopWatch(), cap = 15}
+}
+
+last = {
+focus = &quot;none&quot;,
+overdrive = &quot;none&quot;,
+stand = &quot;none&quot;,
+writhe = &quot;none&quot;,
+special = &quot;none&quot;,
+balance = &quot;none&quot;,
+equilibrium = &quot;none&quot;,
+balanceequilibrium = &quot;none&quot;,
+balancetake = &quot;none&quot;,
+equilibriumtake = &quot;none&quot;,
+needybalancetake = &quot;none&quot;,
+needyequilibriumtake = &quot;none&quot;,
+balanceequilibriumtake = &quot;none&quot;
+}
+
+sent = {
+def = false,
+diag = false,
+assess = false,
+ih = false,
+wp = false
+}
+
+reject = {
+mage = &quot;none&quot;,
+psion = &quot;none&quot;,
+priest = &quot;none&quot;,
+lust = &quot;none&quot;
+}
+
+--OTHER STATUSES
+riding = false
+bolero = false
+need_wield = false
+need_last_stand = false
+need_heal = false
+ashfall = false
+recent_defend = false
+fleeing = false
+opening = false
+removing = false
+slow_command = &quot;&quot;
+heal_priority = 10000
+vampire = false</script>
+                        <eventHandlerList/>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>landmarks</name>
+                        <packageName></packageName>
+                        <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+landmarks = {
+kron = 567,
+ssg = 2044,
+elv = 5790,
+silb = 5868,
+imps = 4718,
+crypt = 4594,
+th = 2343,
+mmc = 5954,
+uru = 5830,
+dam = 3458,
+egg = 4890,
+sed = 7117,
+yar = 5719,
+fval = 7027,
+igt = 3151,
+swamp = 4008,
+bndt = 3669,
+beach = 1331
+}</script>
+                        <eventHandlerList/>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>misc</name>
+                        <packageName></packageName>
+                        <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+assess_value = 0
+assess_color = &quot;&quot;
+last_type = &quot;none&quot;
+last_item = &quot;none&quot;
+check_reckless = false
+shielding = false
+shielded = &quot;none&quot;
+galdur = false
+
+
+--DEFENDING STUFF
+enemy_attack = &quot;none&quot;
+enemy_attacker = &quot;none&quot;
+enemy_class = &quot;none&quot;
+enemy_weapon = &quot;none&quot;
+next_defense = &quot;dodge&quot;
+current_defense = &quot;none&quot;
+defending = false
+current_delay = 0
+next_attack = &quot;none&quot;
+next_equil = &quot;none&quot;
+next_psi = &quot;none&quot;
+targ = &quot;none&quot;
+ally = nil
+blessed = &quot;none&quot;
+charge_number = 0
+repulsed = {}
+
+--BASHING STUFF
+target = &quot;none&quot;
+targeted = false
+have_target = false
+target_word = &quot;&quot;
+target_number = &quot;&quot;
+target_desc = &quot;&quot;
+target_type = &quot;long&quot;
+target_priority = 10000
+area_found = false
+have_offerings = false
+possible_targets = {}
+corpses = {}
+gathering = {}
+need_loot = false
+temperature = nil
+threatened = false
+sundered = false
+fleched = false
+savaged = false
+ignited = false
+hereticed = false
+barrage = true
+canto = true
+requiem = true
+inquartata = false
+new_area = false
+new_room = false
+stopping_bashing = false</script>
+                        <eventHandlerList/>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>load options</name>
+                        <packageName></packageName>
+                        <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+attack_times = {}
+attack_timers = {}
+if string.char(getMudletHomeDir():byte()) == &quot;/&quot; then
+ sep = &quot;/&quot;
+else
+ sep = &quot;\\&quot;
+end
+if getMudletHomeDir()..sep..&quot;times&quot; ~= nil then
+ local DB = getMudletHomeDir()..sep..&quot;times&quot;
+ table.load(DB, attack_times)
+end
+if getMudletHomeDir()..sep..&quot;my&quot; ~= nil then
+ local DB = getMudletHomeDir()..sep..&quot;my&quot;
+ table.load(DB, my)
+end
+if getMudletHomeDir()..sep..&quot;can&quot; ~= nil then
+ local DB = getMudletHomeDir()..sep..&quot;can&quot;
+ table.load(DB, can)
+end
+if getMudletHomeDir()..sep..&quot;toggles&quot; ~= nil then
+ local DB = getMudletHomeDir()..sep..&quot;toggles&quot;
+ table.load(DB, toggles)
+end</script>
+                        <eventHandlerList/>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>tables</name>
+                        <packageName></packageName>
+                        <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+--FISHING STUFF
+fishing = {
+fastfish = true,
+stat = &quot;baiting&quot;,
+bait = &quot;octopus&quot;,
+baited = false,
+distance = &quot;&quot;,
+dir = &quot;n&quot;
+}
+
+--POISON STUFF
+poisons = {
+
+}
+
+--POISON AFFS
+poison_affs = {
+curonin = &quot;paranoia&quot;,
+spironin = &quot;asthma&quot;
+}
+
+--AUTO-LEARNING LIST
+tutors = {
+&quot;Tovan&quot;,
+&quot;Niobe&quot;,
+&quot;Tileh&quot;,
+&quot;Edram&quot;,
+&quot;Cocoamel&quot;,
+&quot;Narul&quot;,
+&quot;Gravis&quot;,
+&quot;Jingo&quot;,
+&quot;Calin&quot;,
+&quot;Fingers&quot;,
+&quot;Orina&quot;,
+&quot;Lathfain&quot;,
+&quot;Vhati&quot;,
+&quot;Aislyn&quot;,
+&quot;Elliandre&quot;,
+&quot;Kelly&quot;,
+&quot;Enric&quot;
+}
+
+--WEAPON TYPES LIST
+weapons = {
+&quot;dagger&quot;,
+&quot;poniard&quot;,
+&quot;saber&quot;,
+&quot;longsword&quot;,
+&quot;rapier&quot;,
+&quot;flail&quot;,
+&quot;mace&quot;,
+&quot;morning star&quot;,
+&quot;claymore&quot;,
+&quot;axe&quot;,
+&quot;spear&quot;,
+&quot;maul&quot;,
+&quot;warhammer&quot;,
+&quot;club&quot;
+}</script>
                         <eventHandlerList/>
                     </Script>
                 </ScriptGroup>
@@ -321,8 +812,17 @@ end
 
 function can_overdrive()
  if not_entangled() and
-    not_aff(&quot;depression&quot;) and
+    not_aff(&quot;depressed&quot;) and
     not_aff(&quot;tainted_aura&quot;) then
+  return true
+ else
+  return false
+ end
+end
+
+function can_clot()
+ if not_aff(&quot;hemophilia&quot;) and
+    not bolero then
   return true
  else
   return false
@@ -391,6 +891,7 @@ function regain_balance(type)
   echo(&quot; &quot;..x)
  end
  gain_balance(type)
+ aff_remove(&quot;blackout&quot;)
 end
 
 function take_balance(type)
@@ -477,9 +978,13 @@ function soft_reset()
  bolero = false
  enemy_mage = &quot;none&quot;
  enemy_priest = &quot;none&quot;
+ enemy_lust = &quot;none&quot;
+ enemy_psion = &quot;none&quot;
  status.writhing = false
  defending = false
  current_defense = &quot;none&quot;
+ shielding = false
+ shielded = &quot;none&quot;
 
  reset_waiting()
  reset_balance()
@@ -558,10 +1063,10 @@ function enemy_afflictions()
  if enemy_affs.atoning and enemy_affs.heretic and enemy_affs.retribution then
   echo(&quot;\nEnemy can be judged!&quot;)
  end
- if enemy_affs.tainted_aura or enemy_affs.depression then
+ if enemy_affs.tainted_aura or enemy_affs.depressed then
   echo(&quot;\nEnemy can't overdrive!&quot;)
  end
- if enemy_affs.concussion and enemy_affs.epilepsy and enemy_affs.impatience then
+ if enemy_affs.concussion and enemy_affs.epileptic and enemy_affs.impatient then
   echo(&quot;\nEnemy can't focus!&quot;)
  end
 end</script>
@@ -586,404 +1091,6 @@ end</script>
                     </Script>
                 </ScriptGroup>
                 <ScriptGroup isActive="yes" isFolder="yes">
-                    <name>variables</name>
-                    <packageName></packageName>
-                    <script>-------------------------------------------------
---         Put your Lua functions here.        --
---                                             --
--- Note that you can also use external Scripts --
--------------------------------------------------
-</script>
-                    <eventHandlerList/>
-                    <Script isActive="yes" isFolder="no">
-                        <name>options</name>
-                        <packageName></packageName>
-                        <script>-------------------------------------------------
---         Put your Lua functions here.        --
---                                             --
--- Note that you can also use external Scripts --
--------------------------------------------------
-
---OPTIONS
-my = {
-name = &quot;&quot;,
-stats = &quot;&quot;,
-weapon = &quot;longsword&quot;,
-container = &quot;pack&quot;,
-class = &quot;&quot;,
-mount = &quot;9816&quot;,
-area = &quot;&quot;,
-room = &quot;0&quot;
-}
-
-can = {
-vault = true,
-contort = true,
-repulse = true,
-counter = false,
-dual = false,
-berserk = true,
-sunder = false,
-laststand = false,
-inquartata = false,
-shadowmend = false,
-barrage = false,
-ignite = false,
-icespikes = false,
-anachronize = false,
-immolate = false,
-savage = false,
-holyfire = false,
-holysword = false
-}
-
---TOGGLES
-toggles = {
-healing = true,
-paused = false,
-gathering = true,
-defending = true,
-standing = true,
-killing = true,
-bleeding = true,
-berserking = false,
-threatening = false,
-sundering = false,
-fleching = false,
-savaging = false,
-shadowmending = true,
-hereticing = false,
-igniting = false,
-anachronizing = false,
-immolating = false,
-spiking = false,
-barraging = false,
-bashing = false,
-fishing = false,
-looting = true,
-generics = false,
-fasthunt = false,
-ratting = false,
-closing = false,
-marching = false,
-percents = true,
-fullprompt = false,
-looping = false,
-defecho = true,
-atkecho = true
-}</script>
-                        <eventHandlerList/>
-                    </Script>
-                    <Script isActive="yes" isFolder="no">
-                        <name>status</name>
-                        <packageName></packageName>
-                        <script>-------------------------------------------------
---         Put your Lua functions here.        --
---                                             --
--- Note that you can also use external Scripts --
--------------------------------------------------
-
-status = {
-waking = false,
-writhing = false,
-shielding = false
-}
-
-vitals = {
-adrenaline = 0,
-cadence = 0,
-health = 0,
-endurance = 0,
-magic = 0,
-guile = 0,
-faith = 0,
-old_health = 0,
-old_endurance = 0,
-old_magic = 0,
-old_guile = 0,
-old_faith = 0,
-health_loss = 0,
-endurance_loss = 0,
-magic_loss = 0,
-guile_loss = 0,
-faith_loss = 0
-}
-
-max = {
-health = 0,
-endurance = 0,
-magic = 0,
-guile = 0,
-faith = 0
-}
-
-percents = {
-health = 100,
-endurance = 100,
-magic = 100,
-guile = 100,
-faith = 100
-}
-
-balance = {
-balance = true,
-equilibrium = true,
-offhand = true,
-overdrive = true,
-focus = true,
-anachronize = true,
-recover = true,
-concentrate = true
-}
-
-waiting = {
-balance = false,
-offhand = false,
-equilibrium = false,
-focus = false,
-wake = false,
-stand = false,
-writhe = false,
-overdrive = false,
-ih = false,
-slow = false,
-sent = false
-}
-
-balance_timers = {
-balance = {timer = createStopWatch(), cap = 0},
-equilibrium = {timer = createStopWatch(), cap = 0},
-offhand = {timer = createStopWatch(), cap = 0},
-overdrive = {timer = createStopWatch(), cap = 0},
-focus = {timer = createStopWatch(), cap = 0},
-anachronize = {timer = createStopWatch(), cap = 0},
-recover = {timer = createStopWatch(), cap = 0},
-concentrate = {timer = createStopWatch(), cap = 0}
-}
-
-last = {
-focus = &quot;none&quot;,
-overdrive = &quot;none&quot;,
-stand = &quot;none&quot;,
-writhe = &quot;none&quot;,
-special = &quot;none&quot;,
-balance = &quot;none&quot;,
-equilibrium = &quot;none&quot;,
-balanceequilibrium = &quot;none&quot;,
-balancetake = &quot;none&quot;,
-equilibriumtake = &quot;none&quot;,
-needybalancetake = &quot;none&quot;,
-needyequilibriumtake = &quot;none&quot;,
-balanceequilibriumtake = &quot;none&quot;
-}
-
-sent = {
-def = false,
-diag = false,
-assess = false,
-ih = false
-}
-
-reject = {
-mage = &quot;none&quot;,
-priest = &quot;none&quot;,
-lust = &quot;none&quot;
-}
-
---OTHER STATUSES
-riding = false
-bolero = false
-need_wield = false
-need_last_stand = false
-need_heal = false
-ashfall = false
-recent_defend = false
-fleeing = false
-opening = false
-removing = false
-slow_command = &quot;&quot;
-heal_priority = 10000
-vampire = false</script>
-                        <eventHandlerList/>
-                    </Script>
-                    <Script isActive="yes" isFolder="no">
-                        <name>landmarks</name>
-                        <packageName></packageName>
-                        <script>-------------------------------------------------
---         Put your Lua functions here.        --
---                                             --
--- Note that you can also use external Scripts --
--------------------------------------------------
-
-landmarks = {
-kron = 567,
-ssg = 2044,
-elv = 5790,
-silb = 5868,
-imps = 4718,
-crypt = 4594,
-th = 2343,
-mmc = 5954,
-uru = 5830,
-dam = 3458,
-egg = 4890,
-sed = 7117,
-yar = 5719,
-fval = 7027,
-igt = 3151,
-swamp = 4008,
-rob1 = 6129,
-rob2 = 166,
-bosun = 6757
-}</script>
-                        <eventHandlerList/>
-                    </Script>
-                    <Script isActive="yes" isFolder="no">
-                        <name>misc</name>
-                        <packageName></packageName>
-                        <script>-------------------------------------------------
---         Put your Lua functions here.        --
---                                             --
--- Note that you can also use external Scripts --
--------------------------------------------------
-
-assess_value = 0
-assess_color = &quot;&quot;
-last_type = &quot;none&quot;
-last_item = &quot;none&quot;
-check_reckless = false
-
-
---DEFENDING STUFF
-enemy_attack = &quot;none&quot;
-enemy_attacker = &quot;none&quot;
-enemy_class = &quot;none&quot;
-enemy_weapon = &quot;none&quot;
-next_defense = &quot;dodge&quot;
-current_defense = &quot;none&quot;
-defending = false
-current_delay = 0
-next_attack = &quot;none&quot;
-next_equil = &quot;none&quot;
-targ = &quot;none&quot;
-ally = nil
-blessed = &quot;none&quot;
-
---BASHING STUFF
-target = &quot;none&quot;
-targeted = false
-have_target = false
-target_word = &quot;&quot;
-target_number = &quot;&quot;
-target_desc = &quot;&quot;
-target_type = &quot;long&quot;
-target_priority = 10000
-area_found = false
-have_offerings = false
-possible_targets = {}
-corpses = {}
-gathering = {}
-need_loot = false
-temperature = nil
-threatened = false
-sundered = false
-fleched = false
-savaged = false
-ignited = false
-hereticed = false
-barrage = true
-inquartata = false
-new_area = false
-new_room = false</script>
-                        <eventHandlerList/>
-                    </Script>
-                    <Script isActive="yes" isFolder="no">
-                        <name>load options</name>
-                        <packageName></packageName>
-                        <script>-------------------------------------------------
---         Put your Lua functions here.        --
---                                             --
--- Note that you can also use external Scripts --
--------------------------------------------------
-
-attack_times = {}
-attack_timers = {}
-if string.char(getMudletHomeDir():byte()) == &quot;/&quot; then
- sep = &quot;/&quot;
-else
- sep = &quot;\\&quot;
-end
-if getMudletHomeDir()..sep..&quot;times&quot; ~= nil then
- local DB = getMudletHomeDir()..sep..&quot;times&quot;
- table.load(DB, attack_times)
-end
-if getMudletHomeDir()..sep..&quot;my&quot; ~= nil then
- local DB = getMudletHomeDir()..sep..&quot;my&quot;
- table.load(DB, my)
-end
-if getMudletHomeDir()..sep..&quot;can&quot; ~= nil then
- local DB = getMudletHomeDir()..sep..&quot;can&quot;
- table.load(DB, can)
-end
-if getMudletHomeDir()..sep..&quot;toggles&quot; ~= nil then
- local DB = getMudletHomeDir()..sep..&quot;toggles&quot;
- table.load(DB, toggles)
-end</script>
-                        <eventHandlerList/>
-                    </Script>
-                    <Script isActive="yes" isFolder="no">
-                        <name>tables</name>
-                        <packageName></packageName>
-                        <script>-------------------------------------------------
---         Put your Lua functions here.        --
---                                             --
--- Note that you can also use external Scripts --
--------------------------------------------------
-
---FISHING STUFF
-fishing = {
-stat = &quot;baiting&quot;,
-bait = &quot;shrimp&quot;,
-distance = &quot;&quot;,
-dir = &quot;n&quot;
-}
-
---AUTO-LEARNING LIST
-tutors = {
-&quot;Tovan&quot;,
-&quot;Niobe&quot;,
-&quot;Tileh&quot;,
-&quot;Edram&quot;,
-&quot;Cocoamel&quot;,
-&quot;Narul&quot;,
-&quot;Gravis&quot;,
-&quot;Jingo&quot;,
-&quot;Calin&quot;,
-&quot;Fingers&quot;,
-&quot;Orina&quot;,
-&quot;Lathfain&quot;,
-&quot;Vhati&quot;
-}
-
---WEAPON TYPES LIST
-weapons = {
-&quot;saber&quot;,
-&quot;longsword&quot;,
-&quot;rapier&quot;,
-&quot;flail&quot;,
-&quot;mace&quot;,
-&quot;morning star&quot;,
-&quot;claymore&quot;,
-&quot;axe&quot;,
-&quot;spear&quot;,
-&quot;maul&quot;,
-&quot;warhammer&quot;,
-&quot;club&quot;
-}</script>
-                        <eventHandlerList/>
-                    </Script>
-                </ScriptGroup>
-                <ScriptGroup isActive="yes" isFolder="yes">
                     <name>gmcp</name>
                     <packageName></packageName>
                     <script>-------------------------------------------------
@@ -1003,18 +1110,6 @@ weapons = {
 -------------------------------------------------
 
 function gmcp_vitals()
- if string.find(gmcp.Char.Status.class, &quot;Soldier&quot;) then 
-  my.class = &quot;soldier&quot; 
- elseif string.find(gmcp.Char.Status.class, &quot;Rogue&quot;) then 
-  my.class = &quot;rogue&quot; 
- elseif string.find(gmcp.Char.Status.class, &quot;Magician&quot;) then 
-  my.class = &quot;magician&quot; 
- elseif string.find(gmcp.Char.Status.class, &quot;Priest&quot;) then 
-  my.class = &quot;priest&quot; 
- else 
-  my.class = &quot;none&quot; 
- end 
- my.name = gmcp.Char.Status.name
 
  vitals.adrenaline = tonumber(gmcp.Char.Vitals.ap)/10
  vitals.health = tonumber(gmcp.Char.Vitals.hp)
@@ -1065,7 +1160,7 @@ end
 -------------------------------------------------
 
 function gmcp_room()
---send(&quot;get scarf&quot;)
+--send(&quot;get flag&quot;, false)
 
  if my.room ~= gmcp.Room.Info.num then
   aff_remove(&quot;timewarp&quot;)
@@ -1075,33 +1170,65 @@ function gmcp_room()
    new_room = true
   end
   if fleeing then
-   send(&quot;map&quot;)
+   send(&quot;map&quot;, false)
    fleeing = false
   end
   do_turnin()
   my.room = gmcp.Room.Info.num
  end
-
  if my.area ~= gmcp.Room.Info.area then
-  my.area = gmcp.Room.Info.area
-  new_area = true
+  if my.area ~= &quot;MoteHunt&quot; and my.area ~= &quot;pumpkins&quot; then
+   my.area = gmcp.Room.Info.area
+   new_area = true
+  end
  end
-
- if map[gmcp.Room.Info.area] == nil then
-  map[gmcp.Room.Info.area] = {}
-  cecho(&quot;&lt;green&gt;New Area: &quot;..gmcp.Room.Info.area..&quot;\n&quot;)
- end
- if map[gmcp.Room.Info.area][gmcp.Room.Info.num] == nil then
-  map[gmcp.Room.Info.area][gmcp.Room.Info.num] = {}
-  map[gmcp.Room.Info.area][gmcp.Room.Info.num].name = gmcp.Room.Info.name
-  map[gmcp.Room.Info.area][gmcp.Room.Info.num].terrain = gmcp.Room.Info.environment
-  map[gmcp.Room.Info.area][gmcp.Room.Info.num].exits = gmcp.Room.Info.exits
-  cecho(&quot;&lt;green&gt;New Room: &quot;..gmcp.Room.Info.num)
+-- if map[gmcp.Room.Info.area] == nil then
+--  map[gmcp.Room.Info.area] = {}
+--  cecho(&quot;&lt;green&gt;New Area: &quot;..gmcp.Room.Info.area..&quot;\n&quot;)
+-- end
+-- if map[gmcp.Room.Info.area][gmcp.Room.Info.num] == nil then
+--  map[gmcp.Room.Info.area][gmcp.Room.Info.num] = {}
+--  map[gmcp.Room.Info.area][gmcp.Room.Info.num].name = gmcp.Room.Info.name
+--  map[gmcp.Room.Info.area][gmcp.Room.Info.num].terrain = gmcp.Room.Info.environment
+--  map[gmcp.Room.Info.area][gmcp.Room.Info.num].exits = gmcp.Room.Info.exits
+--  cecho(&quot;&lt;green&gt;New Room: &quot;..gmcp.Room.Info.num)
 --  display(map[gmcp.Room.Info.area][gmcp.Room.Info.num])
- end
+-- end
 end</script>
                         <eventHandlerList>
                             <string>gmcp.Room.Info</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_status</name>
+                        <packageName></packageName>
+                        <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+function gmcp_status()
+ if string.find(gmcp.Char.Status.class, &quot;Soldier&quot;) then 
+  my.class = &quot;soldier&quot; 
+ elseif string.find(gmcp.Char.Status.class, &quot;Rogue&quot;) then 
+  my.class = &quot;rogue&quot; 
+ elseif string.find(gmcp.Char.Status.class, &quot;Magician&quot;) then 
+  my.class = &quot;magician&quot; 
+  if string.find(gmcp.Char.Status.class, &quot;Psion&quot;) then
+   my.tert = &quot;psionics&quot;
+  else
+   my.tert = nil
+  end
+ elseif string.find(gmcp.Char.Status.class, &quot;Priest&quot;) then 
+  my.class = &quot;priest&quot; 
+ else 
+  my.class = &quot;none&quot; 
+ end 
+ my.name = gmcp.Char.Status.name
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Char.Status</string>
                         </eventHandlerList>
                     </Script>
                 </ScriptGroup>
@@ -1147,6 +1274,7 @@ end</script>
 
 function do_all()
  balance_check()
+ defending_check()
  aff_check()
  def_check()
  if not toggles.paused then
@@ -1156,6 +1284,10 @@ function do_all()
   else
    if toggles.healing then
     do_healing()
+   end
+   if am_functional() and not_aff(&quot;sleep&quot;) then
+    do_attack()
+    do_equil()
    end
    if toggles.bashing then
     do_bashing()
@@ -1189,15 +1321,20 @@ function do_healing()
    if need_wield and balance.balance and balance.equilibrium and not_entangled() then
     set_send(&quot;wield &quot;..my.weapon)
    end
-   if need_loot then
+   if need_loot and toggles.gathering then
     do_loot()
    end
    do_overdrive()
    do_diag()
+   do_counter()
    do_queue()
    do_stuff()
-   do_attack()
-   do_equil()
+   if my.tert == &quot;psionics&quot; then
+    do_psi()
+   end
+   if have_aff(&quot;command&quot;) and balance.equilibrium and not waiting.equilibrium then
+    queue_diag()
+   end
   end
  end
 end</script>
@@ -1218,15 +1355,30 @@ function do_bashing()
   gathering = {}
   set_send(&quot;ih&quot;)
   waiting.ih = true
- elseif targeted then
-  for i in ipairs(professions) do
-   if professions[i].class == my.class then
-    professions[i].bashfunc()
-   end
-  end
  end
-end
-</script>
+ if my.class == &quot;rogue&quot; and have_target and can.shadowmend and defenses.def_shadowmend.state ~= &quot;deffed&quot; and toggles.shadowmending and (tonumber(gmcp.Char.Vitals.gp) &gt;= 50) and balance.equilibrium and not waiting.equilibrium then
+  set_send(&quot;shadowmend&quot;)
+  bashing_shadowmend = true
+  waiting.equilibrium = true
+  tempTimer(1, [[waiting.equilibrium = false]])
+ end
+ if balance.balance and not waiting.balance then
+  if targeted then
+   waiting.balance = true
+   tempTimer(1, [[waiting.balance = false]])
+   bashing_function()
+  end
+ elseif balance.offhand and not waiting.offhand and my.class == &quot;soldier&quot; and can.dual and targeted and have_target and enemy_health ~= &quot;&lt;red&gt; 0-10%&quot; and enemy_health ~= &quot;&lt;red&gt; 10-25%&quot; then
+  waiting.offhand = true
+  tempTimer(1, [[waiting.offhand = false]])
+  bashing_function()
+ end
+ if balance.psi and not waiting.psi and my.tert == &quot;psionics&quot; and targeted and have_target and enemy_health ~= &quot;&lt;red&gt; 0-10%&quot; and enemy_health ~= &quot;&lt;red&gt; 10-25%&quot; and toggles.mindblasting then
+  waiting.psi = true
+  tempTimer(1, [[waiting.psi = false]])
+  set_send(&quot;psi mindblast &quot;..target)
+ end
+end</script>
                             <eventHandlerList/>
                         </Script>
                         <Script isActive="yes" isFolder="no">
@@ -1241,14 +1393,16 @@ end
 function do_fishing()
  if balance.balance and balance.equilibrium and (not waiting.balance) then
   if fishing.stat == &quot;baiting&quot; then
-   send(&quot;vout &quot;..fishing.bait)
-   send(&quot;fishing bait with &quot;..fishing.bait)
+   send(&quot;vout &quot;..fishing.bait, false)
+   send(&quot;fishing bait with &quot;..fishing.bait, false)
   elseif fishing.stat == &quot;casting&quot; then
-   send(&quot;fishing cast &quot;..fishing.dir..&quot; &quot;..fishing.distance)
+   send(&quot;fishing cast &quot;..fishing.dir..&quot; &quot;..fishing.distance, false)
   elseif fishing.stat == &quot;teasing&quot; then
-   send(&quot;fishing tease&quot;)
+   send(&quot;fishing tease&quot;, false)
   elseif fishing.stat == &quot;reeling&quot; then
-   send(&quot;fishing reel&quot;)
+   send(&quot;fishing reel&quot;, false)
+  elseif fishing.stat == &quot;cutting&quot; then
+   send(&quot;fishing cut&quot;, false)
   end
   waiting.balance = true
   tempTimer( 1, [[waiting.balance = false]] )
@@ -1278,9 +1432,9 @@ end</script>
 
 function do_turnin()
  if gmcp.Room.Info.num == 4718 then
-  send(&quot;give imp to tracker&quot;)
+  send(&quot;give imp to tracker&quot;, false)
  elseif gmcp.Room.Info.num == 6009 then
-  send(&quot;give ore to galdur&quot;)
+  send(&quot;give ore to galdur&quot;, false)
  end
 end</script>
                             <eventHandlerList/>
@@ -1308,7 +1462,7 @@ end</script>
 
 function do_special(current)
  echo(&quot; (&quot;..defenses[current].balance.special..&quot;)&quot;)
- send(defenses[current].balance.special)
+ set_send(defenses[current].balance.special)
  defenses[current].state = &quot;waiting&quot;
  startStopWatch(defenses[current].timer)
 end
@@ -1316,7 +1470,7 @@ end
 function do_balance_need(current)
  if balance.balance and (not waiting.balance) and not_entangled() then
   echo(&quot; (&quot;..defenses[current].balance.balanceneed..&quot;)&quot;)
-  send(defenses[current].balance.balanceneed)
+  set_send(defenses[current].balance.balanceneed)
   defenses[current].state = &quot;waiting&quot;
   startStopWatch(defenses[current].timer)
  end
@@ -1325,7 +1479,7 @@ end
 function do_equilibrium_need(current)
  if balance.equilibrium and (not waiting.equilibrium) and not_entangled() then
   echo(&quot; (&quot;..defenses[current].balance.equilibriumneed..&quot;)&quot;)
-  send(defenses[current].balance.equilibriumneed)
+  set_send(defenses[current].balance.equilibriumneed)
   defenses[current].state = &quot;waiting&quot;
   startStopWatch(defenses[current].timer)
  end
@@ -1334,7 +1488,7 @@ end
 function do_balance_equilibrium_need(current)
  if balance.balance and (not waiting.balance) and balance.equilibrium and (not waiting.equilibrium) and not_entangled() then
   echo(&quot; (&quot;..defenses[current].balance.balanceequilibriumneed..&quot;)&quot;)
-  send(defenses[current].balance.balanceequilibriumneed)
+  set_send(defenses[current].balance.balanceequilibriumneed)
   defenses[current].state = &quot;waiting&quot;
   startStopWatch(defenses[current].timer)
  end
@@ -1343,7 +1497,7 @@ end
 function do_balance_take(current)
  if balance.balance and (not waiting.balance) and not_entangled() then
   echo(&quot; (&quot;..defenses[current].balance.balancetake..&quot;)&quot;)
-  send(defenses[current].balance.balancetake)
+  set_send(defenses[current].balance.balancetake)
   defenses[current].state = &quot;waiting&quot;
   waiting.balance = true
   startStopWatch(defenses[current].timer)
@@ -1354,7 +1508,7 @@ end
 function do_equilibrium_take(current)
  if balance.equilibrium and (not waiting.equilibrium) and not_entangled() then
   echo(&quot; (&quot;..defenses[current].balance.equilibriumtake..&quot;)&quot;)
-  send(defenses[current].balance.equilibriumtake)
+  set_send(defenses[current].balance.equilibriumtake)
   defenses[current].state = &quot;waiting&quot;
   startStopWatch(defenses[current].timer)
   waiting.equilibrium = true
@@ -1365,7 +1519,7 @@ end
 function do_needy_balance_take(current)
  if balance.balance and (not waiting.balance) and balance.equilibrium and (not waiting.equilibrium) and not_entangled() then
   echo(&quot; (&quot;..defenses[current].balance.needybalancetake..&quot;)&quot;)
-  send(defenses[current].balance.needybalancetake)
+  set_send(defenses[current].balance.needybalancetake)
   defenses[current].state = &quot;waiting&quot;
   startStopWatch(defenses[current].timer)
   waiting.balance = true
@@ -1376,7 +1530,7 @@ end
 function do_needy_equilibrium_take(current)
  if balance.balance and (not waiting.balance) and balance.equilibrium and (not waiting.equilibrium) and not_entangled() then
   echo(&quot; (&quot;..defenses[current].balance.needyequilibriumtake..&quot;)&quot;)
-  send(defenses[current].balance.needyequilibriumtake)
+  set_send(defenses[current].balance.needyequilibriumtake)
   defenses[current].state = &quot;waiting&quot;
   startStopWatch(defenses[current].timer)
   waiting.equilibrium = true
@@ -1387,7 +1541,7 @@ end
 function do_balance_equilibrium_take(current)
  if balance.balance and (not waiting.balance) and balance.equilibrium and (not waiting.equilibrium) and not_entangled() then
   echo(&quot; (&quot;..defenses[current].balance.balanceequilibrium..&quot;)&quot;)
-  send(defenses[current].balance.balanceequilibrium)
+  set_send(defenses[current].balance.balanceequilibrium)
   defenses[current].state = &quot;waiting&quot;
   startStopWatch(defenses[current].timer)
   waiting.balance = true
@@ -1465,19 +1619,17 @@ end</script>
 function do_focus(current)
  if have_aff(current) then
   if balance.focus and not waiting.focus and vitals.adrenaline &gt; 20 then
-   if afflictions[current].cures.focus == &quot;body&quot; and not_aff(&quot;impatience&quot;) then
-    if current == &quot;aff_bleeding&quot; then
-     if toggles.bleeding and not bolero and not_aff(&quot;hemophilia&quot;) then
-      focus(current)
-     end
-    else
-     focus(current)
-    end
+   if afflictions[current].cures.focus == &quot;body&quot; and not_aff(&quot;impatient&quot;) then
+    focus(current)
    elseif afflictions[current].cures.focus == &quot;mind&quot; and not_aff(&quot;concussion&quot;) then
     focus(current)
-   elseif afflictions[current].cures.focus == &quot;spirit&quot; and not_aff(&quot;epilepsy&quot;) then
+   elseif afflictions[current].cures.focus == &quot;spirit&quot; and not_aff(&quot;epileptic&quot;) and not (have_aff(&quot;mindmeld&quot;) and have_aff(&quot;tethered&quot;)) then
     if current == &quot;aff_ill_omen&quot; then
      if not_aff(&quot;blood_omen&quot;) then
+      focus(current)
+     end
+    elseif current == &quot;aff_tethered&quot; then
+     if not_aff(&quot;mindmeld&quot;) then
       focus(current)
      end
     else
@@ -1510,14 +1662,24 @@ end</script>
 -------------------------------------------------
 
 function do_overdrive()
- if percents.magic &lt; 80 and vitals.adrenaline &gt; 25 and balance.overdrive and (not waiting.overdrive) and have_def(&quot;spellshield&quot;) and can_overdrive() then
-  set_send(&quot;overdrive&quot;)
-  waiting.overdrive = true
-  tempTimer( delay(), [[waiting.overdrive = false]] )
- elseif percents.health &lt; 80 and vitals.adrenaline &gt; 25 and balance.overdrive and (not waiting.overdrive) and defenses.def_spellshield.state ~= &quot;deffed&quot; and can_overdrive() then
-  set_send(&quot;overdrive&quot;)
-  waiting.overdrive = true
-  tempTimer( delay(), [[waiting.overdrive = false]] )
+ if balance.overdrive and not waiting.overdrive and can_overdrive() then
+  if have_def(&quot;spellshield&quot;) then
+   if percents.magic &lt; 80 and vitals.adrenaline &gt; 10 then
+    set_send(&quot;overdrive&quot;)
+    waiting.overdrive = true
+    tempTimer(delay(), [[waiting.overdrive = false]])
+   end
+  else
+   if percents.health &lt; 80 and vitals.adrenaline &gt; 25 then
+    set_send(&quot;overdrive&quot;)
+    waiting.overdrive = true
+    tempTimer( delay(), [[waiting.overdrive = false]] )
+   elseif percents.magic &lt; 80 and my.class == &quot;magician&quot; and vitals.adrenaline &gt; 10 then
+    set_send(&quot;overdrive magic&quot;)
+    waiting.overdrive = true
+    tempTimer( delay(), [[waiting.overdrive = false]] )
+   end
+  end
  end
 end</script>
                         <eventHandlerList/>
@@ -1534,11 +1696,21 @@ end</script>
 function do_reject(current)
  if have_aff(current) then
   if balance.balance and balance.equilibrium and (not waiting.balance) and (not waiting.equilibrium) then
-   set_send(&quot;reject &quot;..reject[afflictions[current].cures.reject])
-   startStopWatch(afflictions[current].timer)
-   afflictions[current].state = &quot;waiting&quot;
-   waiting.equilibrium = true
-   tempTimer( delay(), [[waiting.equilibrium = false]] )
+   if current == &quot;aff_mindmeld&quot; then
+    if not_aff(&quot;dizzy&quot;) then
+     set_send(&quot;reject &quot;..reject[afflictions[current].cures.reject])
+     startStopWatch(afflictions[current].timer)
+     afflictions[current].state = &quot;waiting&quot;
+     waiting.equilibrium = true
+     tempTimer( delay(), [[waiting.equilibrium = false]] )
+    end
+   else
+    set_send(&quot;reject &quot;..reject[afflictions[current].cures.reject])
+    startStopWatch(afflictions[current].timer)
+    afflictions[current].state = &quot;waiting&quot;
+    waiting.equilibrium = true
+    tempTimer( delay(), [[waiting.equilibrium = false]] )
+   end
   end
  end
 end
@@ -1556,17 +1728,60 @@ end
 
 function do_def(current)
  if toggles.defending and attacks[current].defend_now then
-  def(attacks[current].def)
+  if getStopWatchTime(attack_timers[attacks[current][&quot;attacker&quot;]][current]) &lt;= 5 then
+   def(attacks[current].def)
+  else
+   ended(current)
+  end
  end
 end
 
 function def(defense)
- if (defense == &quot;parry&quot;) and (my.class == &quot;soldier&quot;) and can.repulse then
-  next_defense = &quot;repulse&quot;
- else
-  next_defense = defense
+ if defense == &quot;parry&quot; then
+  if not_aff(&quot;dystonia&quot;) then
+   next_defense = &quot;parry&quot;
+  elseif not_aff(&quot;cataplexy&quot;) then
+   next_defense = &quot;block&quot;
+  else
+   next_defense = &quot;none&quot;
+  end
+ elseif defense == &quot;block&quot; then
+  if not_aff(&quot;cataplexy&quot;) then
+   next_defense = &quot;block&quot;
+  elseif not_aff(&quot;dystonia&quot;) then
+   next_defense = &quot;parry&quot;
+  else
+   next_defense = &quot;none&quot;
+  end
+ elseif defense == &quot;jump&quot; then
+  if not_aff(&quot;ataxia&quot;) then
+   next_defense = &quot;jump&quot;
+  elseif not_aff(&quot;maladroitness&quot;) then
+   next_defense = &quot;dodge&quot;
+  else
+   next_defense = &quot;none&quot;
+  end
+ elseif defense == &quot;duck&quot; then
+  if not_aff(&quot;anemic&quot;) then
+   next_defense = &quot;duck&quot;
+  elseif not_aff(&quot;maladroitness&quot;) then
+   next_defense = &quot;dodge&quot;
+  else
+   next_defense = &quot;none&quot;
+  end
+ elseif defense == &quot;dodge&quot; then
+  if not_aff(&quot;maladroitness&quot;) then
+   next_defense = &quot;dodge&quot;
+  elseif not_aff(&quot;dystonia&quot;) then
+   next_defense = &quot;parry&quot;
+  else
+   next_defense = &quot;none&quot;
+  end
  end
- if balance.equilibrium and (not waiting.equilibrium) and not_aff(&quot;prone&quot;) then
+ if (next_defense == &quot;parry&quot;) and (my.class == &quot;soldier&quot;) and can.repulse then
+  next_defense = &quot;repulse&quot;
+ end
+ if next_defense ~= &quot;none&quot; and balance.equilibrium and (not waiting.equilibrium) and not_aff(&quot;prone&quot;) then
   if defending and current_defense == next_defense then
    echo(&quot;Already defending!&quot;)
   else
@@ -1575,6 +1790,68 @@ function def(defense)
    waiting.equilibrium = true
    tempTimer( 0.5, [[waiting.equilibrium = false]] )
   end
+ end
+end</script>
+                        <eventHandlerList/>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>clot</name>
+                        <packageName></packageName>
+                        <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+function modify_bleeding(amount)
+ vitals.bleeding = vitals.bleeding + amount
+ set_bleeding(vitals.bleeding)
+end
+
+function set_bleeding(amount)
+ vitals.bleeding = amount
+ aff_remove(&quot;bleeding&quot;)
+ aff_remove(&quot;bleeding_heavy&quot;)
+ if vitals.bleeding &gt;= 300 then
+  aff_have(&quot;bleeding_heavy&quot;)
+ elseif vitals.bleeding &gt; 0 then
+  aff_have(&quot;bleeding&quot;)
+ end
+end
+
+function do_clot(current)
+ if can_clot() and not waiting.clotting and toggles.bleeding then
+  if current == &quot;aff_bleeding&quot; and not status.clotting and vitals.adrenaline &gt;= 20 then
+   set_send(&quot;clot&quot;)
+   waiting.clotting = true
+   tempTimer( delay(), [[waiting.clotting = false]] )
+  elseif current == &quot;aff_bleeding_heavy&quot; and vitals.adrenaline &gt;= 50 then
+   set_send(&quot;clot&quot;)
+   waiting.clotting = true
+   tempTimer( delay(), [[waiting.clotting = false]] )
+  end
+ end
+end</script>
+                        <eventHandlerList/>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>recover</name>
+                        <packageName></packageName>
+                        <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+function do_recover(current)
+ if current == &quot;aff_balance_loss&quot; and not recovering_balance and not waiting.recover then
+  set_send(&quot;recover balance&quot;)
+  waiting.recover = true
+  tempTimer(delay(), [[waiting.recover = false]])
+ elseif current == &quot;aff_equilibrium_loss&quot; and not recovering_equilibrium and not waiting.recover then
+  set_send(&quot;recover equilibrium&quot;)
+  waiting.recover = true
+  tempTimer(delay(), [[waiting.recover = false]])
  end
 end</script>
                         <eventHandlerList/>
@@ -1602,91 +1879,98 @@ end</script>
 queue = {}
 
 priorities = {
+&quot;def_immunity&quot;,
 &quot;aff_divine_censure&quot;,
-&quot;aff_impatience&quot;,
-&quot;aff_epilepsy&quot;,
-&quot;aff_concussion&quot;,
-&quot;aff_malaise&quot;,
 &quot;aff_impale&quot;,
 &quot;aff_grab&quot;,
 &quot;aff_earthbind&quot;,
 &quot;aff_feed&quot;,
 &quot;aff_hogtie&quot;,
+&quot;aff_balance_loss&quot;,
+&quot;aff_equilibrium_loss&quot;,
+&quot;aff_malaise&quot;,
+&quot;aff_mindmeld&quot;,
+&quot;aff_blackout&quot;,
+&quot;aff_warped&quot;,
+&quot;aff_impatient&quot;,
+&quot;aff_epileptic&quot;,
+&quot;aff_concussion&quot;,
 &quot;aff_broken_right_arm&quot;,
 &quot;aff_broken_left_arm&quot;,
 &quot;aff_burst_organs&quot;,
-&quot;aff_blackout&quot;,
+&quot;aff_hypersomnia&quot;,
 &quot;aff_compulsion&quot;,
-&quot;aff_bleeding_5&quot;,
+&quot;aff_lust&quot;,
+&quot;aff_bleeding_heavy&quot;,
 &quot;aff_atoning&quot;,
 &quot;aff_retribution&quot;,
 &quot;aff_unstable&quot;,
 &quot;aff_heretic&quot;,
-&quot;aff_bleeding&quot;,
 &quot;aff_burns&quot;,
 &quot;aff_on_fire&quot;,
 &quot;aff_burns_5&quot;,
-&quot;aff_bleeding_4&quot;,
 &quot;aff_burns_4&quot;,
-&quot;aff_bleeding_3&quot;,
+&quot;aff_neural_charge&quot;,
 &quot;aff_burns_3&quot;,
 &quot;aff_health_10&quot;,
-&quot;aff_recklessness&quot;,
+&quot;aff_reckless&quot;,
+&quot;aff_bleeding&quot;,
 &quot;aff_blind&quot;,
-&quot;aff_dizziness&quot;,
-&quot;aff_bleeding_2&quot;,
+&quot;aff_dizzy&quot;,
 &quot;aff_burns_2&quot;,
-&quot;aff_bleeding_1&quot;,
 &quot;aff_burns_1&quot;,
-&quot;aff_tethered&quot;,
-&quot;aff_warped&quot;,
+&quot;aff_horror&quot;,
 &quot;aff_chilled&quot;,
 &quot;aff_stupidity&quot;,
-&quot;aff_paralysis&quot;,
+&quot;aff_paralyzed&quot;,
+&quot;aff_brain_damage&quot;,
 &quot;aff_broken_left_leg&quot;,
 &quot;aff_broken_right_leg&quot;,
 &quot;aff_health_35&quot;,
-&quot;aff_depression&quot;,
+&quot;aff_depressed&quot;,
 &quot;aff_tainted_aura&quot;,
 &quot;aff_heart_palpitations&quot;,
 &quot;aff_health_55&quot;,
 &quot;aff_fear&quot;,
+&quot;aff_infirm&quot;,
 &quot;aff_cataplexy&quot;,
-&quot;aff_maladtroitness&quot;,
+&quot;aff_maladroitness&quot;,
 &quot;aff_dystonia&quot;,
 &quot;aff_ataxia&quot;,
-&quot;aff_anemia&quot;,
+&quot;aff_hypochondria&quot;,
+&quot;aff_anemic&quot;,
 &quot;aff_crippled&quot;,
 &quot;aff_ill_omen&quot;,
-&quot;aff_brain_damage&quot;,
-&quot;aff_vomiting&quot;,
+&quot;aff_nausea&quot;,
 &quot;aff_blurry_sight&quot;,
-&quot;aff_cut_tendons&quot;,
-&quot;aff_clumsiness&quot;,
+&quot;aff_cut_tendon&quot;,
+&quot;aff_clumsy&quot;,
 &quot;aff_hamstrung&quot;,
 &quot;aff_weak_legs&quot;,
 &quot;aff_disoriented&quot;,
-&quot;aff_collapsed_lugs&quot;,
+&quot;aff_collapsed_lungs&quot;,
 &quot;aff_agrophobia&quot;,
-&quot;aff_claustrophobia&quot;,
+&quot;aff_claustrophobic&quot;,
 &quot;aff_terror&quot;,
 &quot;aff_sensitivity&quot;,
 &quot;aff_health_75&quot;,
 &quot;aff_severed_nerves&quot;,
 &quot;aff_sundered_armor&quot;,
 &quot;aff_headache&quot;,
-&quot;aff_hemophelia&quot;,
+&quot;aff_exhausted&quot;,
+&quot;aff_hemophilia&quot;,
 &quot;aff_sun_allergy&quot;,
-&quot;aff_commanded&quot;,
+&quot;aff_command&quot;,
 &quot;aff_holy_shock&quot;,
 &quot;aff_disloyalty&quot;,
 &quot;aff_deaf&quot;,
-&quot;aff_dementia&quot;,
+&quot;aff_demented&quot;,
 &quot;aff_broken_limb&quot;,
 &quot;aff_slit_throat&quot;,
 &quot;aff_faithrot&quot;,
 &quot;aff_manaleech&quot;,
 &quot;aff_burnt_tongue&quot;,
+&quot;aff_aphasia&quot;,
 &quot;aff_amnesia&quot;,
 &quot;aff_vindication&quot;,
 &quot;aff_curse_of_tongues&quot;,
@@ -1694,13 +1978,14 @@ priorities = {
 &quot;aff_prone&quot;,
 &quot;aff_scabies&quot;,
 &quot;aff_plague&quot;,
-&quot;aff_asthma&quot;,
+&quot;aff_asthmatic&quot;,
 &quot;aff_black_lung&quot;,
 &quot;aff_weariness&quot;,
 &quot;aff_nightmares&quot;,
 &quot;aff_confusion&quot;,
+&quot;aff_tethered&quot;,
+&quot;aff_anorexic&quot;,
 &quot;aff_paranoia&quot;,
-&quot;aff_hypersomnia&quot;,
 &quot;aff_indiscriminate_trust&quot;,
 &quot;aff_repenting&quot;,
 &quot;aff_porphyria&quot;,
@@ -1726,6 +2011,7 @@ priorities = {
 &quot;def_tree&quot;,
 &quot;def_grip&quot;,
 &quot;def_warcry&quot;,
+&quot;def_tenacity&quot;,
 &quot;def_hiding&quot;,
 &quot;def_arrowsense&quot;,
 &quot;def_shadowmend&quot;,
@@ -1748,6 +2034,10 @@ priorities = {
 &quot;def_radiant&quot;,
 &quot;def_blessed&quot;,
 &quot;def_righteous&quot;,
+&quot;def_deathsight&quot;,
+&quot;def_deathwhisper&quot;,
+&quot;def_deathsdoor&quot;,
+&quot;def_refuge&quot;,
 --ATTACKS
 &quot;atk_censure&quot;,
 &quot;atk_omen&quot;,
@@ -1881,7 +2171,7 @@ priorities = {
 &quot;atk_betrayal&quot;,
 &quot;atk_lash&quot;,
 &quot;atk_disgust&quot;,
-&quot;atk_decieve&quot;,
+&quot;atk_deceive&quot;,
 &quot;atk_scarab&quot;,
 &quot;atk_horrify&quot;,
 &quot;atk_kneel&quot;,
@@ -1931,21 +2221,21 @@ end</script>
 -------------------------------------------------
 
 function do_stuff()
- for i in pairs(priorities) do
-  for h in pairs(queue) do
-   if priorities[i] == queue[h] then
-    for z in ipairs(method_priority) do
-     if afflictions[priorities[i]] ~= nil then
-      if afflictions[priorities[i]].cures[method_priority[z].balance] ~= nil then
-       method_priority[z].func(priorities[i])
+ for _,i in ipairs(priorities) do
+  for _,h in pairs(queue) do
+   if i == h then
+    for _,z in pairs(method_priority) do
+     if afflictions[i] ~= nil then
+      if afflictions[i].cures[z.balance] ~= nil then
+       z.func(i)
       end
-     elseif defenses[priorities[i]] ~= nil then
-      if defenses[priorities[i]].balance[method_priority[z].balance] ~= nil then
-       method_priority[z].func(priorities[i])
+     elseif defenses[i] ~= nil then
+      if defenses[i].balance[z.balance] ~= nil then
+       z.func(i)
       end
-     elseif attacks[priorities[i]] ~= nil then
-      if method_priority[z].balance == &quot;defend&quot; then
-       method_priority[z].func(priorities[i])
+     elseif attacks[i] ~= nil then
+      if z.balance == &quot;defend&quot; then
+       z.func(i)
       end
      end
     end
@@ -1970,10 +2260,12 @@ method_priority = {
 {balance = &quot;equilibriumneed&quot;, func = function(current) do_equilibrium_need(current) end},
 {balance = &quot;balanceequilibrium&quot;, func = function(current) do_balance_equilibrium_need(current) end},
 {balance = &quot;reject&quot;, func = function(current) do_reject(current) end},
+{balance = &quot;recover&quot;, func = function(current) do_recover(current) end},
 {balance = &quot;focus&quot;, func = function(current) do_focus(current) end},
 {balance = &quot;overdrive&quot;, func = function(current) do_overdrive(current) end},
 {balance = &quot;stand&quot;, func = function(current) do_stand(current) end},
 {balance = &quot;writhe&quot;, func = function(current) do_writhe(current) end},
+{balance = &quot;clot&quot;, func = function(current) do_clot(current) end},
 {balance = &quot;defend&quot;, func = function(current) do_def(current) end},
 {balance = &quot;balancetake&quot;, func = function(current) do_balance_take(current) end},
 {balance = &quot;equilibriumtake&quot;, func = function(current) do_equilibrium_take(current) end},
@@ -2044,6 +2336,29 @@ function do_equil()
  end
 end
 
+function set_psi(my_psi)
+ next_psi = my_psi
+ if balance.psi and not waiting.psi and not_aff(&quot;brain_damage&quot;) then
+  set_send(next_psi)
+  waiting.psi = true
+  tempTimer(delay(), [[waiting.psi = false]])
+  next_psi = &quot;none&quot;
+ else
+  cecho(&quot;&lt;purple&gt;You: QUEUE &quot;..next_psi..&quot;!&quot;)
+  send(&quot; &quot;)
+ end
+end
+function do_psi()
+ if toggles.killing and (next_psi ~= &quot;none&quot;) and not_aff(&quot;brain_damage&quot;) then
+  if balance.psi and not waiting.psi then
+   set_send(next_psi)
+   waiting.psi = true
+   tempTimer(delay(), [[waiting.psi = false]])
+   next_psi = &quot;none&quot;
+  end
+ end
+end
+
 function queue_diag()
  if balance.equilibrium and not waiting.equilibrium and am_functional() then
   send_diag()
@@ -2097,7 +2412,7 @@ function set_send(command)
    last_type = &quot;none&quot;
    last_item = &quot;none&quot;
   end
-  send(command)
+  send(command, false)
  end
 end</script>
                         <eventHandlerList/>
@@ -2124,13 +2439,15 @@ end</script>
 function do_slow()
  if next_attack ~= &quot;none&quot; and balance.balance and not waiting.balance and not_aff(&quot;prone&quot;) and not_entangled() then
   do_attack()
+ elseif next_psi ~= &quot;none&quot; and balance.psi and not waiting.psi and not_aff(&quot;brain_damage&quot;) then
+  do_psi()
  elseif next_equil ~= &quot;none&quot; and balance.equilibrium and not waiting.equilibrium and not_aff(&quot;prone&quot;) and not_entangled() then
   do_equil()
  else
   slow_queue()
  end
  if slow_command ~= &quot;&quot; and not waiting.slow and not waiting.sent then
-  send(slow_command)
+  send(slow_command, false)
   slow_command = &quot;&quot;
   waiting.sent = true
   tempTimer(1, [[waiting.sent = false]])
@@ -2205,6 +2522,9 @@ aff_stun = {state = &quot;healed&quot;, cures = {}, timer = createStopWatch()},
 aff_unconscious = {state = &quot;healed&quot;, cures = {}, timer = createStopWatch()},
 aff_prone = {state = &quot;healed&quot;, cures = {stand = &quot;send&quot;}, timer = createStopWatch()},
 
+aff_balance_loss = {state = &quot;healed&quot;, cures = {recover = &quot;balance&quot;}, timer = createStopWatch()},
+aff_equilibrium_loss = {state = &quot;healed&quot;, cures = {recover = &quot;equilibrium&quot;}, timer = createStopWatch()},
+
 aff_grab = {state = &quot;healed&quot;, cures = {writhe = &quot;send&quot;}, timer = createStopWatch()},
 aff_impale = {state = &quot;healed&quot;, cures = {writhe = &quot;send&quot;}, timer = createStopWatch()},
 aff_earthbind = {state = &quot;healed&quot;, cures = {writhe = &quot;send&quot;}, timer = createStopWatch()},
@@ -2218,84 +2538,91 @@ aff_blackout = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, 
 aff_compulsion = {state = &quot;healed&quot;, cures = {reject = &quot;mage&quot;, focus = &quot;spirit&quot;}, timer = createStopWatch()},
 aff_command = {state = &quot;healed&quot;, cures = {reject = &quot;priest&quot;, focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_lust = {state = &quot;healed&quot;, cures = {reject = &quot;lust&quot;}, timer = createStopWatch()},
+aff_mindmeld = {state = &quot;healed&quot;, cures = {reject = &quot;psion&quot;}, timer = createStopWatch()},
 
 aff_timewarp = {state = &quot;healed&quot;, cures = {}, timer = createStopWatch()},
 aff_divine_censure = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
 
 aff_blood_omen = {state = &quot;healed&quot;, cures = {}, timer = createStopWatch()},
 --STOP FOCUS BODY
-aff_impatience = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;},timer = createStopWatch()},
+aff_impatient = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;},timer = createStopWatch()},
 --STOP FOCUS SPIRIT
-aff_epilepsy = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;},timer = createStopWatch()},
+aff_epileptic = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;},timer = createStopWatch()},
 --STOP FOCUS MIND
+aff_hardwired = {state = &quot;healed&quot;, cures = {}, timer = createStopWatch()},
 aff_concussion = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;},timer = createStopWatch()},
 --INCREASE FOCUS COST
 aff_malaise = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;},timer = createStopWatch()},
 --HINDER HEALING
+aff_hypochondria = {state= &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
+aff_horror = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_tethered = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;},timer = createStopWatch()},
 aff_warped = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;},timer = createStopWatch()},
 aff_stupidity = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
-aff_chilled = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;},timer = createStopWatch()},
-aff_paralysis = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;},timer = createStopWatch()},
+aff_chilled = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, stacks = 0, timer = createStopWatch()},
+aff_paralyzed = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;},timer = createStopWatch()},
 --DEADLY
-aff_bleeding = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;},timer = createStopWatch()},
 aff_burst_organs = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;},timer = createStopWatch()},
 aff_heretic = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;},timer = createStopWatch()},
 aff_atoning = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;},timer = createStopWatch()},
 aff_retribution = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;},timer = createStopWatch()},
 aff_unstable = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;},timer = createStopWatch()},
 aff_on_fire = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
-aff_burns = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
+aff_burns = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, stacks = 0, timer = createStopWatch()},
 --STOP ATTACKING
 aff_broken_left_arm = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 aff_broken_right_arm = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 aff_broken_left_leg = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 aff_broken_right_leg = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 --POTENTIALLY DEADLY
-aff_depression = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
+aff_neural_charge = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, stacks = 0, timer = createStopWatch()},
+aff_depressed = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_tainted_aura = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
-aff_recklessness = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
+aff_reckless = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
+aff_bleeding = {state = &quot;healed&quot;, cures = {clot = &quot;send&quot;}, stacks = 0, timer = createStopWatch()},
+aff_bleeding_heavy = {state = &quot;healed&quot;, cures = {clot = &quot;send&quot;}, timer = createStopWatch()},
 aff_heart_palpitations = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 aff_exhausted = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
-aff_infirm = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
+aff_infirm = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, stacks = 0, timer = createStopWatch()},
 aff_fear = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 --STOP DEFENDING
 aff_cataplexy = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_maladroitness = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
 aff_dystonia = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
 aff_ataxia = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
-aff_anemia = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
+aff_anemic = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 --POTENTIALLY ANNOYING
 aff_crippled = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
-aff_ill_omen = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
-aff_brain_damage = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
-aff_vomiting = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
+aff_ill_omen = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, stacks = 0, timer = createStopWatch()},
+aff_brain_damage = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, stacks = 0, timer = createStopWatch()},
+aff_nausea = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 --HINDER ATTACKING
 aff_blind = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 aff_blurry_sight = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_cut_tendon = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
-aff_clumsiness = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
+aff_clumsy = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 --HINDER FLEEING
 aff_hamstrung = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 aff_weak_legs = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 aff_disoriented = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
-aff_dizziness = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
+aff_dizzy = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_collapsed_lungs = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 aff_agoraphobia = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
-aff_claustrophobia = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
+aff_claustrophobic = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_terror = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 --DAMAGE OR INCREASE DAMAGE
 aff_sensitivity = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
-aff_severed_nerves = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
+aff_severed_nerves = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, stacks = 0, timer = createStopWatch()},
 aff_sundered_armor = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
 aff_headache = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_hemophilia = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
 aff_sun_allergy = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
 --DON'T CARE OR DOESN'T LAST
+aff_aphasia = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_holy_shock = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
 aff_disloyalty = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_deaf = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
-aff_dementia = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
+aff_demented = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, stacks = 0, timer = createStopWatch()},
 aff_broken_limb = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 aff_slit_throat = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 aff_faithrot = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&quot;}, timer = createStopWatch()},
@@ -2309,14 +2636,14 @@ aff_waking_dreams = {state = &quot;healed&quot;, cures = {focus = &quot;spirit&q
 --NOT SURE OF PRIORITY
 aff_scabies = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 aff_plague = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
-aff_asthma = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
+aff_asthmatic = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 aff_black_lung = {state = &quot;healed&quot;, cures = {focus = &quot;body&quot;}, timer = createStopWatch()},
 aff_weariness = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 
 aff_nightmares = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_confusion = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_paranoia = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
-aff_anorexia = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
+aff_anorexic = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_hypersomnia = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 aff_indiscriminate_trust = {state = &quot;healed&quot;, cures = {focus = &quot;mind&quot;}, timer = createStopWatch()},
 
@@ -2391,7 +2718,7 @@ function aff_remove(affliction)
  if afflictions[affliction].cures.writhe ~= nil then
   status.writhing = false
  end
- if afflictions.aff_blackout.state == &quot;afflicted&quot; and affliction ~= &quot;aff_prone&quot; then
+ if have_aff(&quot;blackout&quot;) and affliction ~= &quot;aff_prone&quot; and affliction ~= &quot;aff_reckless&quot; then
   queue_diag()
   soft_reset()
  end
@@ -2412,9 +2739,9 @@ enemy_affs = {
 divine_censure = false,
 blackout = false,
 --STOP FOCUS BODY
-impatience = false,
+impatient = false,
 --STOP FOCUS SPIRIT
-epilepsy = false,
+epileptic = false,
 --STOP FOCUS MIND
 concussion = false,
 --INCREASE FOCUS COST
@@ -2424,10 +2751,9 @@ tethered = false,
 warped = false,
 chilled = false,
 stupidity = false,
-paralysis = false,
+paralyzed = false,
 --DEADLY
 compulsion = false,
-bleeding = false,
 burst_organs = false,
 heretic = false,
 atoning = false,
@@ -2441,9 +2767,10 @@ broken_right_arm = false,
 broken_left_leg = false,
 broken_right_leg = false,
 --POTENTIALLY DEADLY
-depression = false,
+depressed = false,
 tainted_aura = false,
-recklessness = false,
+bleeding = false,
+reckless = false,
 heart_palpitations = false,
 enfeeble = false,
 infirm = false,
@@ -2454,25 +2781,25 @@ maladroitness = false,
 --STOP PARRY
 dystonia = false,
 ataxia = false,
-anemia = false,
+anemic = false,
 --POTENTIALLY ANNOYING
 crippled = false,
 ill_omen = false,
 brain_damage = false,
-vomiting = false,
+nausea = false,
 --HINDER ATTACKING
 blind = false,
 blurry_sight = false,
 cut_tendon = false,
-clumsiness = false,
+clumsy = false,
 --HINDER FLEEING
 hamstrung = false,
 weak_legs = false,
 disoriented = false,
-dizziness = false,
+dizzy = false,
 collapsed_lungs = false,
 agoraphobia = false,
-claustrophobia = false,
+claustrophobic = false,
 terror = false,
 --DAMAGE OR INCREASE DAMAGE
 sensitivity = false,
@@ -2486,7 +2813,7 @@ commanded = false,
 holy_shock = false,
 disloyalty = false,
 deaf = false,
-dementia = false,
+demented = false,
 broken_limb = false,
 slit_throat = false,
 faithrot = false,
@@ -2502,14 +2829,14 @@ prone = false,
 --NOT SURE OF PRIORITY
 scabies = false,
 plague = false,
-asthma = false,
+asthmatic = false,
 black_lung = false,
 weariness = false,
 
 nightmares = false,
 confusion = false,
 paranoia = false,
-anorexia = false,
+anorexic = false,
 hypersomnia = false,
 indiscriminate_trust = false,
 
@@ -2575,34 +2902,40 @@ less_defs = {}
 
 defenses = {
 --VIGILANCE
-def_notice = {defense = &quot;increased notice&quot;, balance = {equilibriumtake = &quot;notice&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
-def_skywatch = {defense = &quot;skywatch&quot;, balance = {equilibriumtake = &quot;skywatch on&quot;}, state= &quot;down&quot;, needit=false, timer = createStopWatch()},
+def_notice = {defense = &quot;increased notice&quot;, balance = {equilibriumtake= &quot;notice&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_skywatch = {defense = &quot;skywatch&quot;, balance = {equilibriumtake= &quot;skywatch on&quot;}, state= &quot;down&quot;, needit=false, timer = createStopWatch()},
 def_deathsense = {defense = &quot;deathsense&quot;, balance = {needyequilibriumtake= &quot;deathsense on&quot;}, state=&quot;down&quot;, needit = false, timer = createStopWatch()},
 def_nightvision = {defese = &quot;nightvision&quot;, balance = {needybalancetake= &quot;nightvision on&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 def_insomnia = {defense = &quot;insomnia&quot;, balance = {equilibriumtake= &quot;insomnia&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
---def_forboding = {defense = &quot;forboding&quot;
---def_premonition =
+def_awareness = {defense = &quot;awareness&quot;, balance = {needyequilibriumtake= &quot;awareness on&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_forboding = {defense = &quot;forboding&quot;, balance = {needybalancetake= &quot;forboding on&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_premonition = {defense = &quot;premonition&quot;, balance = {needyequilibriumtake= &quot;premonition on&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 --Fighting
-def_selfishness = {defense = &quot;selfishness&quot;, balance =  {balancetake= &quot;selfishness&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_selfishness = {defense = &quot;selfishness&quot;, balance = {needybalancetake= &quot;selfishness&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_combatfocus = {defense = &quot;combat focus&quot;, balance = {needyequilibriumtake= &quot;combatfocus on&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 --def_lantern =
 --def_sun =
---def_thirdeye =
---def_skull =
+def_thirdeye = {defense = &quot;increased perception&quot;, balance = {needybalancetake= &quot;touch thirdeye&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_dragon = {defense = &quot;increased repute&quot;, balance = {needybalancetake= &quot;touch dragon&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_compass = {defense = &quot;ready to haggle&quot;, balance = {needybalancetake= &quot;touch compass&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_skull = {defense = &quot;protected from loss&quot;, balance = {needybalancetake= &quot;touch skull&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 --def_lotus =
 --def_hourglass =
-def_rose = {defense = &quot;scent of roses&quot;, balance = {balancetake= &quot;touch rose&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
---def_owl =
+def_rose = {defense = &quot;scent of roses&quot;, balance = {needybalancetake= &quot;touch rose&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_owl = {defense = &quot;sense of wonder&quot;, balance = {needybalancetake= &quot;touch owl&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 --def_tree =
 --Soldier
 def_grip = {defense = &quot;solid grip&quot;, balance = {balanceneed=&quot;grip&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 def_warcry = {defense = &quot;call to war&quot;, balance = {balancetake=&quot;warcry&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
---def_tenacity = {defense = &quot;focused tenacity&quot;, balance = {
+def_tenacity = {defense = &quot;focused tenacity&quot;, balance = {equilibriumtake = &quot;tenacity&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_immunity = {defense = &quot;charged immune system&quot;, balance = {equilibriumtake = &quot;immunity&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 --Rogue 
 def_hiding = {defense = &quot;hide&quot;, balance = {balancetake=&quot;hide&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 def_arrowsense = {defense = &quot;arrowsense&quot;, balance = {balancetake=&quot;arrowsense&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 def_shadowmend = {defense = &quot;shadowmend&quot;, balance = {equilibriumtake=&quot;shadowmend&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 --Mage
 def_windweave = {defense = &quot;windweave&quot;, balance = {balancetake=&quot;cast windweave&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_water_breathing = {defense = &quot;water breathing&quot;, balance = {balancetake = &quot;cast waterbreathing&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 def_levitate = {defense = &quot;levitate&quot;, balance = {balancetake=&quot;cast levitate&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 def_mirror_image = {defense = &quot;mirror image&quot;, balance = {balancetake=&quot;cast mirror image&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 def_spellshield = {defense = &quot;golden spellshield&quot;, balance = {balancetake=&quot;cast spellshield&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
@@ -2614,15 +2947,19 @@ def_fireshield = {defense = &quot;fire elemental shield&quot;, balance = {needyb
 def_frostshield = {defense = &quot;frost elemental shield&quot;, balance = {needybalancetake= &quot;cast elementshield frost&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 def_arcaneshield = {defense = &quot;arcane elemental shield&quot;, balance = {needybalancetake= &quot;cast elementshield arcane&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 def_electricshield = {defense = &quot;electric elemental shield&quot;, balance = {needybalancetake= &quot;cast elementshield electric&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
-def_witchsight = {defense = &quot;witchsight&quot;, balance = {needybalancetake=&quot;witchsight&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+--def_witchsight = {defense = &quot;witchsight&quot;, balance = {needybalancetake=&quot;witchsight&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 --Priest 
 def_divine_armor = {defense = &quot;divine armor&quot;, balance = {needyequilibriumtake=&quot;pray for divine armor&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 def_glorious = {defense = &quot;glorious word&quot;, balance = {needybalancetake=&quot; pray for glorious word&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 def_illuminated = {defense = &quot;illuminated word&quot;, balance = {needybalancetake=&quot;pray for illuminated word&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 def_radiant = {defense = &quot;radiant word&quot;, balance = {needybalancetake=&quot;pray for radiant word&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
 def_blessed = {defense = &quot;blessed word&quot;, balance = {needybalancetake=&quot;pray for blessed word&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
-def_righteous = {defense = &quot;righteous word&quot;, balance = {needybalancetake= &quot;pray for righteous word&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()}
-
+def_righteous = {defense = &quot;righteous word&quot;, balance = {needybalancetake= &quot;pray for righteous word&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_deathsight = {defense = &quot;deathsight&quot;, balance = {balancetake = &quot;deathcall deathsight&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_witchsight = {defense = &quot;witchsight&quot;, balance = {needybalancetake = &quot;deathcall spectral vision&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_deathwhisper = {defense = &quot;aura of spectral whispers&quot;, balance = {balancetake = &quot;deathcall deathwhisper&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_deathsdoor = {defense = &quot;death's door&quot;, balance = {balanceequilibriumtake = &quot;deathcall death's door&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()},
+def_refuge = {defense = &quot;faithful refuge&quot;, balance = {equilibriumtake = &quot;pray for faithful refuge&quot;}, state = &quot;down&quot;, needit = false, timer = createStopWatch()}
 }</script>
                         <eventHandlerList/>
                     </Script>
@@ -2767,23 +3104,32 @@ def_deathsense = &quot;once&quot;,
 def_nightvision = &quot;once&quot;,
 def_insomnia = &quot;on&quot;,
 --def_selfishness = &quot;on&quot;,
+def_forboding = &quot;once&quot;,
 def_grip = &quot;on&quot;,
-def_warcry = &quot;on&quot;
+def_warcry = &quot;on&quot;,
+def_tenacity = &quot;on&quot;,
+def_immunity = &quot;once&quot;
 },
 
 rogue = {
-def_rose = &quot;on&quot;,
-def_insomnia = &quot;on&quot;,
+--def_rose = &quot;on&quot;,
+def_skywatch = &quot;once&quot;,
 def_deathsense = &quot;once&quot;,
+--def_nightvision = &quot;once&quot;,
+--def_insomnia = &quot;on&quot;,
+--def_selfishness = &quot;on&quot;,
 def_hiding = &quot;once&quot;
 },
 
 thief = {
 def_rose = &quot;on&quot;,
---def_insomnia = &quot;on&quot;,
+def_skywatch = &quot;once&quot;,
 def_deathsense = &quot;once&quot;,
+def_nightvision = &quot;once&quot;,
+def_insomnia = &quot;on&quot;,
+--def_selfishness = &quot;on&quot;,
+def_forboding = &quot;once&quot;,
 def_hiding = &quot;once&quot;,
-def_sneaking = &quot;once&quot;,
 def_arrowsense = &quot;once&quot;
 },
 
@@ -2805,12 +3151,13 @@ mage = {
 def_rose = &quot;on&quot;,
 def_skywatch = &quot;once&quot;,
 def_deathsense = &quot;once&quot;,
-def_insomnia = &quot;on&quot;,
+--def_insomnia = &quot;on&quot;,
 def_nightvision = &quot;once&quot;,
 def_spellshield = &quot;on&quot;,
-def_arcane_power = &quot;on&quot;,
+def_arcanepower = &quot;on&quot;,
 def_windweave = &quot;on&quot;,
 def_levitate = &quot;once&quot;,
+def_waterbreathing = &quot;once&quot;,
 def_mirror_image = &quot;once&quot;
 }
 
@@ -2865,7 +3212,7 @@ atk_flourish = {def = &quot;parry&quot;, class = &quot;rogue&quot;, getting_hit 
 atk_bind = {def = &quot;block&quot;, class = &quot;soldier&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1},
 atk_immolate = {def = &quot;block&quot;, class = &quot;mage&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1},
 atk_glint = {def = &quot;jump&quot;, class = &quot;rogue&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 0.5},
-atk_blackeye = {def = &quot;jump&quot;, class = &quot;soldier&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 0.5},
+atk_blackeye = {def = &quot;jump&quot;, class = &quot;soldier&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 0.3},
 atk_avenging = {def = &quot;dodge&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1.5},
 atk_wristflick = {def = &quot;dodge&quot;, class = &quot;rogue&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1},
 atk_backslice = {def = &quot;duck&quot;, class = &quot;rogue&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1.5},
@@ -2896,6 +3243,7 @@ atk_lance = {def = &quot;duck&quot;, class = &quot;priest&quot;, getting_hit = f
 atk_vileblade = {def = &quot;dodge&quot;, class = &quot;rogue&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1.5},
 atk_lungstab = {def = &quot;dodge&quot;, class = &quot;rogue&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 0.5},
 atk_suckerpunch = {def = &quot;block&quot;, class = &quot;rogue&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1.3},
+atk_sleightofhand = {def = &quot;jump&quot;, class = &quot;rogue&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 2.4},
 atk_nervestrike = {def = &quot;parry&quot;, class = &quot;soldier&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1},
 atk_fleche = {def = &quot;duck&quot;, class = &quot;rogue&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 1.5},
 atk_sunder = {def = &quot;jump&quot;, class = &quot;soldier&quot;, getting_hit = false, attacker = &quot;none&quot;, weapon = nil, defend_now = false, delay = 0.8},
@@ -2942,7 +3290,7 @@ atk_illuminate = {def = &quot;jump&quot;, class = &quot;priest&quot;, getting_hi
 atk_bloodboil = {def = &quot;dodge&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1},
 atk_embers = {def = &quot;jump&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1},
 atk_melt = {def = &quot;parry&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1},
-atk_terror = {def = &quot;parry&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1},
+atk_terror = {def = &quot;dodge&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1},
 atk_soulspear = {def = &quot;dodge&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1},
 atk_burdensoul = {def = &quot;jump&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1},
 atk_withering = {def = &quot;block&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1},
@@ -2979,10 +3327,11 @@ atk_blackbile = {def = &quot;duck&quot;, class = &quot;priest&quot;, getting_hit
 atk_betrayal = {def = &quot;jump&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1},
 atk_lash = {def = &quot;jump&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1.3},
 atk_disgust = {def = &quot;dodge&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1.7},
-atk_deceive = {def = &quot;dodge&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1.7},
+atk_deceive = {def = &quot;dodge&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1.5},
 atk_scarab = {def = &quot;jump&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 2.7},
 atk_horrify = {def = &quot;duck&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delat = 3.7},
 --UNBLOCKABLE
+atk_command = {def = &quot;&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1},
 atk_kneel = {def = &quot;dodge&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1},
 atk_thunder = {def = &quot;duck&quot;, class = &quot;priest&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1},
 atk_earthquake = {def = &quot;jump&quot;, class = &quot;mage&quot;, getting_hit = false, attacker = &quot;none&quot;, defend_now = false, delay = 1},
@@ -3072,7 +3421,7 @@ function atk_start(attacker, weapon, attack)
  if current_delay &lt; 0 then
   current_delay = 0
  end
- if timewarp then
+ if have_slow() then
   if current_delay &gt;= 1 then
    current_delay = current_delay-1
   else
@@ -3097,9 +3446,23 @@ end</script>
 -------------------------------------------------
 
 function atk_need(attack)
- if attacks[attack][&quot;getting_hit&quot;] then
-  attacks[attack][&quot;defend_now&quot;] = true
-  defending = false
+ if have_def(&quot;mirror_image&quot;) or have_def(&quot;refuge&quot;) then
+ 
+ elseif attacks[attack][&quot;getting_hit&quot;] then
+  if attacks[attack][&quot;attacker&quot;] ~= nil then
+   if repulsed[attacks[attack][&quot;attacker&quot;]] ~= nil then
+    if getStopWatchTime(repulsed[attacks[attack][&quot;attacker&quot;]]) &gt; 5 then
+     attacks[attack][&quot;defend_now&quot;] = true
+     defending = false
+    end
+   else
+    attacks[attack][&quot;defend_now&quot;] = true
+    defending = false
+   end
+  else
+   attacks[attack][&quot;defend_now&quot;] = true
+   defending = false
+  end
  end
  do_all()
 end
@@ -3132,7 +3495,7 @@ function atk_miss(attacker, weapon, attack)
  end
  if toggles.defecho then
   if attacks[attack][&quot;class&quot;] == &quot;soldier&quot; then
-   if attacks[attack][&quot;gettinghit&quot;] then
+   if attacks[attack][&quot;getting_hit&quot;] then
     deleteLine()
     cecho(&quot;&lt;purple&gt;\n&quot;..attacker..&quot;: &quot;)
     cecho(&quot;&lt;green&gt;MISS &quot;)
@@ -3217,6 +3580,15 @@ function atk_end(attacker, weapon, attack)
  elseif attacks[attack].attacker == attacker then
   ended(attack)
  end
+ if attacker ~= nil then
+  if repulsed[attacker] ~= nil then
+   for i in pairs(repulsed) do
+    if i == attacker then
+     table.remove(repulsed, repulsed[i])
+    end
+   end
+  end
+ end
  aff_remove(&quot;blackout&quot;)
 end
 
@@ -3224,9 +3596,11 @@ function ended(attack)
  if not string.find(attack, &quot;atk_&quot;) then
   attack = &quot;atk_&quot;..attack
  end
- attacks[attack][&quot;getting_hit&quot;] = false
- attacks[attack][&quot;defend_now&quot;] = false
- attacks[attack][&quot;attacker&quot;] = &quot;none&quot;
+-- if attacks[attack][&quot;class&quot;] ~= &quot;soldier&quot; then
+  attacks[attack][&quot;getting_hit&quot;] = false
+  attacks[attack][&quot;defend_now&quot;] = false
+  attacks[attack][&quot;attacker&quot;] = &quot;none&quot;
+-- end
 end
 
 function defended(attacker, defense)
@@ -3237,14 +3611,22 @@ function defended(attacker, defense)
  end
  recent_defend = true
  tempTimer(5, [[recent_defend = false]])
+ if defense == &quot;REPULSE&quot; then
+  if repulsed[attacker] == nil then
+   repulsed[attacker] = createStopWatch()
+  else
+   resetStopWatch(repulsed[attacker])
+   startStopWatch(repulsed[attacker])
+  end
+ end
 end
 
 function do_counter()
- if recent_defend then
-  if toggles.healing and (my.class == &quot;soldier&quot;) and can.counter and balance.bal and not prone and not entangled then
+ if recent_defend and not_aff(&quot;timewarp&quot;) then
+  if toggles.healing and (my.class == &quot;soldier&quot;) and can.counter and toggles.countering and balance.balance and not_aff(&quot;prone&quot;) and not_entangled() then
    set_send(&quot;counter &quot;..targ)
    recent_defend = false
-  elseif toggles.healing and (my.class == &quot;rogue&quot;) and can.inquartata then
+  elseif toggles.healing and (my.class == &quot;rogue&quot;) and can.inquartata and toggles.countering then
    set_send(&quot;inquartata &quot;..targ)
    recent_defend = false
   end
@@ -3267,8 +3649,9 @@ duck = &quot;You partially duck under (.*) attack.&quot;,
 jump = &quot;You leap away, avoiding the full brunt of (.*) aggression.&quot;,
 parry = &quot;You deftly parry (.*) maneuver.&quot;,
 block = &quot;You skillfully block, mitigating (.*) full assault.&quot;,
-repulse = &quot;You strategically repulse (.*) manuever.&quot;,
+repulse = &quot;You strategically repulse (.*) maneuver.&quot;,
 shield = &quot;A scintillating shield of light blossoms before you, protecting you.&quot;,
+--perfect = 
 }</script>
                         <eventHandlerList/>
                     </Script>
@@ -3296,53 +3679,6 @@ shield = &quot;A scintillating shield of light blossoms before you, protecting y
                     <eventHandlerList/>
                 </ScriptGroup>
                 <ScriptGroup isActive="yes" isFolder="yes">
-                    <name>chat</name>
-                    <packageName></packageName>
-                    <script>-------------------------------------------------
---         Put your Lua functions here.        --
---                                             --
--- Note that you can also use external Scripts --
--------------------------------------------------
-</script>
-                    <eventHandlerList/>
-                    <Script isActive="yes" isFolder="no">
-                        <name>tables</name>
-                        <packageName></packageName>
-                        <script>-------------------------------------------------
---         Put your Lua functions here.        --
---                                             --
--- Note that you can also use external Scripts --
--------------------------------------------------
-
-channels = {
-citytells = {},
-ordertells = {},
-guildtells = {},
-novicetells = {},
-markettells = {},
-newbietells = {}
-}</script>
-                        <eventHandlerList/>
-                    </Script>
-                    <Script isActive="yes" isFolder="no">
-                        <name>parsing</name>
-                        <packageName></packageName>
-                        <script>-------------------------------------------------
---         Put your Lua functions here.        --
---                                             --
--- Note that you can also use external Scripts --
--------------------------------------------------
-
-function parse_chat(channel, message)
- if #channels[channel] &gt;= 20 then
-  table.remove(channels[channel], 1)
- end
- table.insert(channels[channel], message)
-end</script>
-                        <eventHandlerList/>
-                    </Script>
-                </ScriptGroup>
-                <ScriptGroup isActive="yes" isFolder="yes">
                     <name>bashing</name>
                     <packageName></packageName>
                     <script>-------------------------------------------------
@@ -3360,40 +3696,20 @@ end</script>
 --                                             --
 -- Note that you can also use external Scripts --
 -------------------------------------------------
-function do_bashing()
- if (not targeted) and (not waiting.ih) then
-  set_send(&quot;ih&quot;)
-  waiting.ih = true
- end
- if my.class == &quot;rogue&quot; and have_target and can.shadowmend and defenses.def_shadowmend.state ~= &quot;deffed&quot; and toggles.shadowmending and (tonumber(gmcp.Char.Vitals.gp) &gt;= 50) and balance.equil and not waiting.equilibrium then
-  set_send(&quot;shadowmend&quot;)
-  bashing_shadowmend = true
-  waiting.equilibrium = true
-  tempTimer(1, [[waiting.equilibrium = false]])
- end
- if balance.balance and not waiting.balance then
-  if targeted then
-   waiting.balance = true
-   tempTimer(1, [[waiting.balance = false]])
-   bashing_function()
-  end
- elseif balance.offhand and not waiting.offhand and my.class == &quot;soldier&quot; and can.dual and targeted and have_target and enemy_health ~= &quot;&lt;red&gt; 0-10%&quot; and enemy_health ~= &quot;&lt;red&gt; 10-25%&quot; then
-  waiting.offhand = true
-  tempTimer(1, [[waiting.offhand = false]])
-  bashing_function()
- end
-end
+
 function bashing_function()
- if my.class == &quot;soldier&quot; then
-  soldier_bash()
- elseif my.class == &quot;magician&quot; then
-  magician_bash()
- elseif my.class == &quot;rogue&quot; then
-  rogue_bash()
- elseif my.class == &quot;priest&quot; then
-  priest_bash()
- else
-  set_send(&quot;attack &quot;..target)
+ if am_functional() then
+  if my.class == &quot;soldier&quot; then
+   soldier_bash()
+  elseif my.class == &quot;magician&quot; then
+   magician_bash()
+  elseif my.class == &quot;rogue&quot; then
+   rogue_bash()
+  elseif my.class == &quot;priest&quot; then
+   priest_bash()
+  else
+   set_send(&quot;attack &quot;..target)
+  end
  end
 end
 function soldier_bash()
@@ -3431,11 +3747,14 @@ function magician_bash()
  end
 end
 function rogue_bash()
- if (not fleched) and toggles.fleching then
-  set_send(&quot;fleche &quot;..target)
-  inquartata = false
- elseif inquartata and can.inquartata then
+ if inquartata and can.inquartata then
   set_send(&quot;inq &quot;..target)
+ elseif requiem and can.requiem and toggles.requieming and vitals.cadence == 3 and enemy_health ~= &quot;&lt;red&gt; 0-10%&quot; and enemy_health ~= &quot;&lt;red&gt; 10-25%&quot; then
+  set_send(&quot;play requiem &quot;..target)
+ elseif (not fleched) and toggles.fleching and enemy_health ~= &quot;&lt;red&gt; 0-10%&quot; and enemy_health ~= &quot;&lt;red&gt; 10-25%&quot; then
+  set_send(&quot;fleche &quot;..target)
+ elseif can.canto and toggles.cantoing and canto and vitals.cadence &gt;= 1 then
+  set_send(&quot;play bard's canto &quot;..target)
  else
   set_send(&quot;thrust &quot;..target)
  end
@@ -3453,8 +3772,12 @@ function priest_bash()
   set_send(&quot;smite &quot;..target..&quot; with heresy&quot;)
  elseif (not savaged) and toggles.savaging and can.savage then
   set_send(&quot;bloodcall savage &quot;..target)
+ elseif my.area == &quot;an Imp Cave&quot; and can.exorcism then
+  set_send(&quot;deathcall exorcism &quot;..target)
  elseif vitals.faith &gt; 300 and can.holysword then
   set_send(&quot;smite &quot;..target..&quot; with holy sword&quot;)
+ elseif vitals.faith &gt; 200 and can.lash and toggles.lashing then
+  set_send(&quot;shadowcall lash &quot;..target)
  elseif enemy_health == &quot;&lt;brown&gt; UNDEAD&quot; and can.holyfire then
   set_send(&quot;smite &quot;..target..&quot; with holy fire&quot;)
  else
@@ -3522,12 +3845,12 @@ end</script>
 function offer_corpses()
  if have_offerings then
   for i in pairs(corpses) do
-   send(&quot;offer &quot;..corpses[i])
+   send(&quot;offer &quot;..corpses[i], false)
   end
   have_offerings = false
   corpses = {}
  else
-  send(&quot;ii corpse&quot;)
+  send(&quot;ii corpse&quot;, false)
   have_offerings = true
  end
 end</script>
@@ -3544,6 +3867,11 @@ end</script>
 function no_target()
  deleteLine()
  cecho(&quot;\n&lt;green&gt;Need new targets!&quot;)
+ if stopping_bashing then
+  cecho(&quot;\n&lt;green&gt;Bashing OFF!&quot;)
+  toggles.bashing = false
+  stopping_bashing = false
+ end
  have_target = false
  targeted = false
  waiting.ih = false
@@ -3593,31 +3921,45 @@ end</script>
 -------------------------------------------------
 
 areas = {
+{area = &quot;MoteHunt&quot;, level = &quot;Any&quot;, targets = {&quot;an ethereal mana wyrm&quot;}, items = {&quot;a mote of glowing%, blue mana&quot;}},
+{area = &quot;pumpkins&quot;, level = &quot;LOL&quot;, targets = {&quot;a monstrous pumpkin&quot;, &quot;a huge pumpkin&quot;, &quot;a big pumpkin&quot;, &quot;a mature pumpkin&quot;, &quot;a medium pumpkin&quot;, &quot;a small pumpkin&quot;, &quot;a little pumpkin&quot;, &quot;a tiny pumpkin&quot;}},
+{area = &quot;Krondor&quot;, level = &quot;Ratting&quot;, targets = {&quot;a black rat&quot;,&quot;a rat&quot;, &quot;an old rat&quot;, &quot;a baby rat&quot;, &quot;a young rat&quot;}},
+{area = &quot;Sewers of Krondor&quot;, level = &quot;Ratting&quot;, targets = {&quot;a black rat&quot;,&quot;a rat&quot;, &quot;an old rat&quot;, &quot;a baby rat&quot;, &quot;a young rat&quot;}},
 {area = &quot;Elvandar&quot;, level = &quot;Ratting&quot;, targets = {&quot;a lumbering red weevil&quot;, &quot;a fat green weevil&quot;, &quot;a large wood weevil&quot;, &quot;a hulking green weevil&quot;}},
+{area = &quot;Highcastle&quot;, level = &quot;70-100&quot;, targets = {&quot;an armored Krondorian soldier&quot;, &quot;a rogue of Krondor&quot;}},
 {area = &quot;the Outpost of Eggerson&quot;, level = &quot;0-20&quot;, targets = {&quot;a male renegade Keshian&quot;, &quot;a renegade Keshian woman&quot;, &quot;a female Roldem renegade&quot;, &quot;a Roldem renegade&quot;, &quot;a mercenary valeman&quot;, &quot;a valewoman mercenary&quot;, &quot;a female Quegan renegade&quot;, &quot;a renegade Quegan male&quot;, &quot;a dove&quot;}},
 {area = &quot;the Frontier Valley&quot;, level = &quot;0-20&quot;, targets = {&quot;a temple guard of Prandur&quot;, &quot;a temple guard of Guis%-Wan&quot;, &quot;a guard bearing the symbol of Lims%-Kragma&quot;, &quot;a male villager&quot;, &quot;a female villager&quot;, &quot;a small child&quot;, &quot;a restless ghost&quot;, &quot;a spectral warrior&quot;, &quot;a goblin servant&quot;, &quot;a goblin priest&quot;, &quot;a moredhel spellweaver&quot;}},
 {area = &quot;the Sedia Tunnels&quot;, level = &quot;0-20&quot;, targets = {&quot;a large black scorpion&quot;, &quot;a large red scorpion&quot;, &quot;a giant worker ant&quot;, &quot;a giant soldier ant&quot;, &quot;a dwarven miner&quot;, &quot;a dwarven warrior&quot;, &quot;a small goblin&quot;}},
 {area = &quot;a Beaver Dam&quot;, level = &quot;10-30&quot;, targets = {&quot;a muskrat&quot;, &quot;a black spider&quot;, &quot;a beaver&quot;}},
 {area = &quot;the Dirge Swamp&quot;, level = &quot;10-30&quot;, targets = {&quot;a green and red dragonfly&quot;, &quot;a large mosquito&quot;}},
-{area = &quot;Grey Towers&quot;, level = &quot;10-30&quot;, targets = {&quot;&quot;}},
+{area = &quot;the Grey Towers&quot;, level = &quot;30-60&quot;, targets = {&quot;a huge black bear&quot;, &quot;a spotted bobcat&quot;, &quot;a vulture&quot;, &quot;a mountain sheep&quot;, &quot;a green%-banded rattlesnake&quot;}},
 {area = &quot;Smuggler's Cove&quot;, level = &quot;20-40&quot;, targets = {&quot;a smuggler&quot;, &quot;a scallywag sailor&quot;, &quot;a Quegan mariner&quot;, &quot;a seagull&quot;, &quot;a large sandcrawler&quot;, &quot;a large clam&quot;}},
 {area = &quot;an Imp Cave&quot;, level = &quot;20-40&quot;, targets = {&quot;an imp rascal&quot;, &quot;a scavenger imp&quot;, &quot;a giant glow%-worm&quot;, &quot;a glow%-worm&quot;}},
-{area = &quot;Ig'tur Trollcamp&quot;, level = &quot;30-50&quot;, targets = {&quot;a black mountain troll&quot;, &quot;a female cave troll&quot;}},
+{area = &quot;Ig'tur Trollcamp&quot;, level = &quot;30-50&quot;, targets = {&quot;a lumbering cave troll&quot;, &quot;a matronly cave troll&quot;}},
 {area = &quot;the Isbandia Lake&quot;, level = &quot;30-50&quot;, targets = {&quot;a brook trout&quot;, &quot;a large salmon&quot;}},
+{area = &quot;Yabon Forest&quot;, level = &quot;30-60&quot;, targets = {&quot;a Grey Warrior&quot;, &quot;a powerful stag&quot;, &quot;a small forest bear&quot;, &quot;a delicate doe&quot;, &quot;a sturdy quail&quot;, &quot;a small rabbit&quot;}},
+{area = &quot;the Yabon River&quot;, level = &quot;10-30&quot;, targets = {&quot;Hobnob&quot;, &quot;a scrawny goblin&quot;, &quot;a brook trout&quot;, &quot;a bearded pike&quot;}},
 {area = &quot;the Barony of Yarsog&quot;, level = &quot;40-60&quot;, targets = {&quot;a female soldier&quot;}},
+{area = &quot;the Abbey of Silban&quot;, level = &quot;40-60&quot;, targets = {&quot;a black widow spider&quot;, &quot;a dust spinner&quot;}},
 {area = &quot;a Lions Den&quot;, level = &quot;40-60&quot;, targets = {&quot;a sleek lioness&quot;, &quot;a young male lion&quot;, &quot;a small lion cub&quot;}},
+{area = &quot;the road between Zun and Ylith&quot;, level = &quot;50-60&quot;, targets = {&quot;a white%-tailed deer&quot;, &quot;an enormous Vilevenom spider&quot;, &quot;a blighted tree&quot;, &quot;a scrawny timber wolf&quot;}},
 {area = &quot;countryside east of Krondor&quot;, level = &quot;40-70&quot;, targets = {&quot;a male bandit&quot;, &quot;a female bandit&quot;}},
 {area = &quot;Bandit Camp&quot;, level = &quot;50-70&quot;, targets = {&quot;a male bandit&quot;, &quot;a female bandit&quot;, &quot;a bandit guard&quot;, &quot;a guard dog&quot;, &quot;a bandit scout&quot;, &quot;a plump wood fowl&quot;}},
-{area = &quot;Far Coast Beaches&quot;, level = &quot;40-60&quot;, targets = {&quot;&quot;}},
+{area = &quot;the Teeth of the World&quot;, level = &quot;??&quot;, targets = {&quot;a huge wyvern&quot;, &quot;a hatchling wyvern&quot;}},
+{area = &quot;the Far Coast beaches&quot;, level = &quot;25-35&quot;, targets = {&quot;a snapping turtle&quot;, &quot;an undead sailor&quot;}},
+{area = &quot;beaches between Carse and Jonril&quot;, level = &quot;40-60&quot;, targets = {&quot;a ravenous shark&quot;}},
 {area = &quot;the Hadati Hills&quot;, level= &quot;30-50&quot;, targets = {&quot;a Moredhel assassin&quot;, &quot;a Moredhel ranger&quot;}},
 {area = &quot;a crypt in the Highlands&quot;, level = &quot;40-80&quot;, targets = {&quot;a revenant retainer&quot;, &quot;an undead chieftain&quot;, &quot;a death cult priest&quot;, &quot;a Hadati ghost&quot;, &quot;the ghost of a Hadati Elder&quot;, &quot;the ghost of a Hadati Lord&quot;, &quot;a risen magician&quot;}},
-{area = &quot;the Thunderhell Plains&quot;, level = &quot;60-100&quot;, targets = {&quot;a large salmon&quot;, &quot;a bison&quot;, &quot;an antlered caribou&quot;, &quot;a caribou&quot;}},
---{area = &quot;the Thunderhell Plains&quot;, level = &quot;60-100&quot;, targets = {&quot;a large salmon&quot;, &quot;a polar bear&quot;, &quot;a female polar bear&quot;, &quot;a bison&quot;, &quot;an antlered caribou&quot;, &quot;a caribou&quot;, &quot;a nomad warrior&quot;, &quot;a nomad&quot;, &quot;a nomadic hunter&quot;, &quot;a nomad woman&quot;}},
+{area = &quot;the Abbey at Sarth&quot;, level = &quot;60-100&quot;, targets = {&quot;an Ishapian monk&quot;, &quot;a warrior monk&quot;, &quot;a librarian of Sarth&quot;}},
+--{area = &quot;the Thunderhell Plains&quot;, level = &quot;60-100&quot;, targets = {&quot;a large salmon&quot;, &quot;a bison&quot;, &quot;an antlered caribou&quot;, &quot;a caribou&quot;, &quot;a small rabbit&quot;, &quot;a large hare&quot;}},
+{area = &quot;the Thunderhell Plains&quot;, level = &quot;60-100&quot;, targets = {&quot;a large salmon&quot;, &quot;a polar bear&quot;, &quot;a female polar bear&quot;, &quot;a bison&quot;, &quot;an antlered caribou&quot;, &quot;a caribou&quot;, &quot;a nomad warrior&quot;, &quot;a nomad&quot;, &quot;a nomadic hunter&quot;, &quot;a nomad woman&quot;}},
 {area = &quot;Mac Mordain Cadal&quot;, level = &quot;60-100&quot;, targets = {&quot;a diseased moredhel sentinel&quot;, &quot;a diseased moredhel captain&quot;, &quot;a diseased moredhel warrior&quot;, &quot;a diseased Moredhel Guard&quot;, &quot;a diseased moredhel miner&quot;}, items = {&quot;a lump of iron ore&quot;, &quot;a lump of gold ore&quot;}},
-{area = &quot;Uru Gathering&quot;, level = &quot;80-100&quot;, targets = {&quot;a giant brute&quot;, &quot;a giant soldier&quot;, &quot;Graag, a giant guard&quot;, &quot;Hungar, the giant hoardmaster&quot;, &quot;Grubans, a large giant&quot;, &quot;Pone, the giant lieutenant&quot;, &quot;Flork, the giant chieftain&quot;, &quot;a giantess dancer&quot;, &quot;a male giant&quot;, &quot;a female giant&quot;}},
+{area = &quot;Uru Gathering&quot;, level = &quot;80-100&quot;, targets = {&quot;a giant brute&quot;, &quot;a sleek cougar&quot;, &quot;a giant soldier&quot;, &quot;Graag, a giant guard&quot;, &quot;Hungar, the giant hoardmaster&quot;, &quot;Grubans, a large giant&quot;, &quot;Pone, the giant lieutenant&quot;, &quot;Flork, the giant chieftain&quot;, &quot;a giantess dancer&quot;, &quot;a male giant&quot;, &quot;a female giant&quot;}},
 --{area = &quot;the Green Heart Forest&quot;, level = &quot;questing&quot;, targets = {&quot;a white%-tailed deer&quot;, &quot;a short%-tusked boar&quot;, &quot;a small rabbit&quot;}}
 {area = &quot;the Green Heart Forest&quot;, level = &quot;questing&quot;, targets = {&quot;a goblin&quot;, &quot;a small goblin&quot;, &quot;a forest troll&quot;, &quot;a young fawn&quot;, &quot;a tawny owl&quot;, &quot;a small forest bear&quot;, &quot;a powerful stag&quot;, &quot;a lively sparrow&quot;, &quot;a tiny field mouse&quot;, &quot;a wiry vixen&quot;, &quot;a wiry fox&quot;, &quot;a magnificent lion&quot;, &quot;a tree shrew&quot;, &quot;a delicate doe&quot;, &quot;a plump wood fowl&quot;, &quot;a delicate butterfly&quot;, &quot;a white%-tailed deer&quot;, &quot;a short%-tusked boar&quot;, &quot;a small rabbit&quot;}}
-}</script>
+}
+
+</script>
                         <eventHandlerList/>
                     </Script>
                     <Script isActive="yes" isFolder="no">
@@ -3661,6 +4003,277 @@ end</script>
                         <eventHandlerList/>
                     </Script>
                 </ScriptGroup>
+                <ScriptGroup isActive="yes" isFolder="yes">
+                    <name>windows</name>
+                    <packageName></packageName>
+                    <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+</script>
+                    <eventHandlerList/>
+                    <ScriptGroup isActive="yes" isFolder="yes">
+                        <name>handling</name>
+                        <packageName></packageName>
+                        <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+</script>
+                        <eventHandlerList/>
+                        <Script isActive="yes" isFolder="no">
+                            <name>functions</name>
+                            <packageName></packageName>
+                            <script>
+--function window_start(type)
+-- windows[type].container = Geyser.Container:new({name = windows[type].name, x = windows[type].data.x .. &quot;%&quot;, y = windows[type].data.y .. &quot;%&quot;, width = windows[type].data.width .. &quot;%&quot;, height = windows[type].data.height .. &quot;%&quot;})
+-- locationColoring = Geyser.Gauge:new({name = &quot;locationColoring&quot;, x = 0, y = 0, width = &quot;100%&quot;, height = &quot;100%&quot;}, windows[type].container)
+--end
+
+function window_start(type)
+ cecho(&quot;\n&lt;green&gt;Creating window: &quot;..type..&quot;...&quot;)
+ windows[type].container = Geyser.Container:new({name = windows[type].name, x = windows[type].data.x .. &quot;%&quot;, y = windows[type].data.y .. &quot;%&quot;, width = windows[type].data.width .. &quot;%&quot;, height = windows[type].data.height .. &quot;%&quot;})
+ windows[type].container:setFontSize(windows[type].config.fontSize)
+ windows[type].coloring = Geyser.Gauge:new({name = &quot;coloring&quot;, x = 0, y = 0, width = &quot;0%&quot;, height = &quot;0%&quot;}, windows[type].container)
+ windows[type].coloring:setColor(125,125,125)
+ windows[type].coloring:setText(type)
+ cecho(&quot;\n&lt;green&gt;Created window: &quot;..type..&quot;!&quot;)
+end
+
+function window_hide(type)
+ windows[type].container:hide()
+ cecho(&quot;\n&lt;green&gt;Hiding window: &quot;..type..&quot;!&quot;)
+-- echo(&quot;x=&quot; .. windows[type].data.x .. &quot; y=&quot; .. windows[type].data.y .. &quot; width=&quot; .. windows[type].data.width .. &quot; height=&quot; .. windows[type].data.height)
+end
+
+function window_show(type)
+ if windows[type] ~= nil then
+  if windows[type].container ~= nil then
+   windows[type].container:show()
+   cecho(&quot;\n&lt;green&gt;Showing window: &quot;..type..&quot;!&quot;)
+  else
+   cecho(&quot;\n&lt;green&gt;Window doesn't exist! Try to WINDOW START &quot;..string.upper(type)..&quot; first!&quot;)
+  end
+ else
+  cecho(&quot;\n&lt;green&gt;No such window type!&quot;)
+ end
+end
+
+function window_edit(type)
+ if windows[type] ~= nil then
+  if windows[type].container ~= nil then
+   windows[type].coloring:resize(&quot;100%&quot;, &quot;100%&quot;)
+   windows[type].edit = true
+   cecho(&quot;\n&lt;green&gt;Editing window: &quot;..type..&quot; enabled!&quot;)
+  else
+   cecho(&quot;\n&lt;green&gt;Window doesn't exist! Try to WINDOW START &quot;..string.upper(type)..&quot; first!&quot;)
+  end
+ else
+  cecho(&quot;\n&lt;green&gt;No such window type!&quot;)
+ end
+end
+
+function window_save(type)
+ if windows[type] ~= nil then
+  if windows[type].container ~= nil then
+   windows[type].coloring:resize(0,0)
+   windows[type].edit = false
+   cecho(&quot;\n&lt;green&gt;Saving window: &quot;..type..&quot;!&quot;)
+  else
+   cecho(&quot;\n&lt;green&gt;Window doesn't exist! Try to WINDOW START &quot;..string.upper(type)..&quot; first!&quot;)
+  end
+ else
+  cecho(&quot;\n&lt;green&gt;No such window type!&quot;)
+ end
+end
+
+function window_reset(type)
+ if windows[type] ~= nil then
+  windows[type].data = window_default
+  windows[type].container:move(windows[type].data.x, windows[type].data.y)
+  windows[type].container:resize(windows[type].data.width, windows[type].data.height)
+  windows[type].edit = false
+  cecho(&quot;\n&lt;green&gt;Resetting window: &quot;..type)
+ else
+  cecho(&quot;\n&lt;green&gt;No such window!&quot;)
+ end
+end
+
+function window_move(type, direction, value)
+ if value == nil then value = 1 end
+ if windows[type] ~= nil then
+  if windows[type].container ~= nil then
+   if windows[type].edit then
+    if direction == &quot;up&quot; then
+     windows[type].data.y = windows[type].data.y - value
+      if windows[type].data.y &lt; 0 then
+       windows[type].data.y = 0
+      elseif windows[type].data.y &gt; 100 then
+       windows[type].data.y = 100
+      end
+    	windows[type].container:move(nil, windows[type].data.y .. &quot;%&quot;)
+     elseif direction == &quot;down&quot; then
+    	windows[type].data.y = windows[type].data.y + value
+      if windows[type].data.y &lt; 0 then
+       windows[type].data.y = 0
+      elseif windows[type].data.y &gt; 100 then
+       windows[type].data.y = 100
+      end
+   	   windows[type].container:move(nil, windows[type].data.y .. &quot;%&quot;)
+     elseif direction == &quot;left&quot; then
+    	windows[type].data.x = windows[type].data.x - value
+      if windows[type].data.x &lt; 0 then
+       windows[type].data.x = 0
+     elseif windows[type].data.x &gt; 100 then
+      windows[type].data.x = 100
+     end
+     windows[type].container:move(windows[type].data.x .. &quot;%&quot;, nil)
+    elseif direction == &quot;right&quot; then
+     windows[type].data.x = windows[type].data.x + value
+     if windows[type].data.x &lt; 0 then
+      windows[type].data.x = 0
+     elseif windows[type].data.x &gt; 100 then
+      windows[type].data.x = 100
+     end
+     windows[type].container:move(windows[type].data.x .. &quot;%&quot;, nil)
+    elseif direction == &quot;tall&quot; then
+     windows[type].data.height = windows[type].data.height + value
+     if windows[type].data.height &lt; 0 then
+      windows[type].data.height = 0
+     elseif windows[type].data.height &gt; 100 then
+      windows[type].data.height = 100
+     end
+     windows[type].container:resize(nil, windows[type].data.height .. &quot;%&quot;)
+    elseif direction == &quot;short&quot; then
+     windows[type].data.height = windows[type].data.height - value
+     if windows[type].data.height &lt; 0 then
+      windows[type].data.height = 0
+     elseif windows[type].data.height &gt; 100 then
+      windows[type].data.height = 100
+     end
+     windows[type].container:resize(nil, windows[type].data.height .. &quot;%&quot;)
+    elseif direction == &quot;thin&quot; then
+     windows[type].data.width = windows[type].data.width - value
+     if windows[type].data.width &lt; 0 then
+      windows[type].data.width = 0
+     elseif windows[type].data.width &gt; 100 then
+      windows[type].data.width = 100
+     end
+ 	  windows[type].container:resize(windows[type].data.width .. &quot;%&quot;, nil)
+    elseif direction == &quot;wide&quot; then
+     windows[type].data.width = windows[type].data.width + value
+     if windows[type].data.width &lt; 0 then
+      windows[type].data.width = 0
+     elseif windows[type].data.width &gt; 100 then
+      windows[type].data.width = 100
+     end
+     windows[type].container:resize(windows[type].data.width .. &quot;%&quot;, nil)
+    end
+   else
+    cecho(&quot;\n&lt;green&gt;Window doesn't exist! Try to WINDOW START &quot;..string.upper(type)..&quot; first!&quot;)
+   end
+  else
+   cecho(&quot;\n&lt;green&gt;No such window type!&quot;)
+  end
+ else
+  cecho(&quot;\n&lt;green&gt;Editing disabled! WINDOWS EDIT first!&quot;)
+ end
+end</script>
+                            <eventHandlerList/>
+                        </Script>
+                        <Script isActive="yes" isFolder="no">
+                            <name>initial</name>
+                            <packageName></packageName>
+                            <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+windows = {
+combat = {name = &quot;combat log&quot;, edit = false, data = {x = 50, y = 0, width = 40, height = 40}, config = {fontSize = 12, tabLoc = &quot;top&quot;}},
+map = {name = &quot;map window&quot;, edit = false, data = {x = 50, y = 0, width = 40, height = 40}, config = {fontSize = 12}},
+chat = {name = &quot;chat_window&quot;, edit = false, data = {x = 50, y = 0, width = 40, height = 40}, config = {fontSize = 12, tabLoc = &quot;left&quot;}},
+affs = {name = &quot;affliction window&quot;, edit = false, data = {x = 50, y = 0, width = 40, height = 40}, config = {fontSize = 12, tabLoc = &quot;top&quot;}},
+toggles = {name = &quot;status window&quot;, edit = false, data = {x = 50, y = 0, width = 40, height = 40}, config = {fontSize = 12, tabLoc = &quot;top&quot;}}
+}
+
+
+window_default = {x = 50, y = 0, width = 40, height = 40}</script>
+                            <eventHandlerList/>
+                        </Script>
+                    </ScriptGroup>
+                    <ScriptGroup isActive="yes" isFolder="yes">
+                        <name>chat</name>
+                        <packageName></packageName>
+                        <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+</script>
+                        <eventHandlerList/>
+                        <Script isActive="yes" isFolder="no">
+                            <name>tables</name>
+                            <packageName></packageName>
+                            <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+channels = {
+citytells = {},
+ordertells = {},
+guildtells = {},
+novicetells = {},
+markettells = {},
+newbietells = {}
+}</script>
+                            <eventHandlerList/>
+                        </Script>
+                        <Script isActive="yes" isFolder="no">
+                            <name>parsing</name>
+                            <packageName></packageName>
+                            <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+function parse_chat(channel, message)
+ if #channels[channel] &gt;= 20 then
+  table.remove(channels[channel], 1)
+ end
+ table.insert(channels[channel], message)
+end</script>
+                            <eventHandlerList/>
+                        </Script>
+                    </ScriptGroup>
+                </ScriptGroup>
+                <Script isActive="yes" isFolder="no">
+                    <name>crits</name>
+                    <packageName></packageName>
+                    <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+crits = {
+hits = 0,
+normal = 0,
+crushing = 0,
+obliterating = 0,
+annihilating = 0,
+shattering = 0,
+total = 0,
+rate = 0
+}</script>
+                    <eventHandlerList/>
+                </Script>
             </ScriptGroup>
             <ScriptGroup isActive="yes" isFolder="yes">
                 <name>attacking</name>
@@ -3690,7 +4303,7 @@ function attack_start(hitting, curattk)
  my_attacks[curattk][&quot;hittingwith&quot;] = true
  my_attacks[curattk][&quot;targeting&quot;] = hitting
  if not balance.balance then
-  balance.offhand = false
+  lose_balance(&quot;offhand&quot;)
   tempTimer(20, [[if afflictions.aff_blackout.state ~= &quot;healed&quot; then balance.offhand = true end]])
  end
  if toggles.atkecho then
@@ -3700,6 +4313,7 @@ function attack_start(hitting, curattk)
  startStopWatch(my_attacks[curattk].timer)
  aff_remove(&quot;blackout&quot;)
 end
+
 function attack_miss(hitting, curattk)
  if my_attacks[curattk][&quot;hittingwith&quot;] then
   if toggles.atkecho then
@@ -3711,19 +4325,37 @@ function attack_miss(hitting, curattk)
   my_time = stopStopWatch(my_attacks[curattk].timer)-getNetworkLatency()
   echo(&quot; &quot;..my_time)
   resetStopWatch(my_attacks[curattk].timer)
-  if my.name == &quot;Stye&quot; then
-   set_attack(&quot;smite &quot;..targ..&quot; with &quot;..curattk)
-  end
  end
  attack_end(curattk)
 end
-function attack_hit(hitting, curattk)
+
+function attack_hit(hitting, curattk, weapon)
  if toggles.atkecho then
   deleteLine()
   cecho(&quot;&lt;magenta&gt;\nYou: &quot;)
   cecho(&quot;&lt;green&gt;HIT &quot;)
   cecho(&quot;&lt;magenta&gt;&quot;..curattk..&quot; &quot;..hitting..&quot;!&quot;)
  end
+ if toggles.affdisplay then
+  cecho(&quot;&lt;magenta&gt; \&lt;&quot;)
+  cecho(my_attacks[curattk].aff)
+ end
+ if my.class == &quot;rogue&quot; and my.rogue_weapon ~= nil then
+  for i in pairs(poisons) do
+   if string.find(weapon, i) or (string.find(weapon, &quot;poniard&quot;) and i == &quot;dagger&quot;) then
+    setItalics(true)
+    echo(&quot; &quot;..poison_affs[poisons[i][1]])
+    resetFormat()
+    table.remove(poisons[i], 1)
+   end
+  end 
+ end
+ if toggles.affdisplay then
+  if my_attacks[curattk].aff_def ~= nil then
+   cecho(&quot; &quot;..my_attacks[curattk].aff_def)
+  end
+  cecho(&quot;&lt;magenta&gt;\&gt;&quot;)
+ end
  if my_attacks[curattk][&quot;hittingwith&quot;] then
   my_time = stopStopWatch(my_attacks[curattk].timer)-getNetworkLatency()
   echo(&quot; &quot;..my_time)
@@ -3731,24 +4363,37 @@ function attack_hit(hitting, curattk)
  end
  attack_end(curattk)
 end
-function attack_defend(hitting, curattk)
- if toggles.atkecho then
-  deleteLine()
-  cecho(&quot;&lt;magenta&gt;\nYou: &quot;)
-  cecho(&quot;&lt;red&gt;FAIL &quot;)
-  cecho(&quot;&lt;magenta&gt;&quot;..curattk..&quot; &quot;..hitting..&quot;!&quot;)
+
+function attack_defend(hitting, weapon, curattk, defense)
+ for i in pairs(they_defendings) do
+  if string.find(defense, they_defendings[i]) then
+   if toggles.atkecho then
+    deleteLine()
+    cecho(&quot;&lt;magenta&gt;\nYou: &quot;)
+    cecho(&quot;&lt;red&gt;FAIL &quot;)
+    cecho(&quot;&lt;magenta&gt;&quot;..curattk..&quot; &quot;..hitting..&quot;!&quot;)
+   end
+   if toggles.affdisplay and my_attacks[curattk].aff_def ~= nil then
+    cecho(&quot;&lt;magenta&gt; \&lt;&quot;)
+    cecho(my_attacks[curattk].aff_def)
+    cecho(&quot;&lt;magenta&gt;\&gt;&quot;)
+   end
+   if my_attacks[curattk][&quot;hittingwith&quot;] then
+    my_time = stopStopWatch(my_attacks[curattk].timer)-getNetworkLatency()
+    echo(&quot; &quot;..my_time)
+    resetStopWatch(my_attacks[curattk].timer)
+   end
+   attack_end(curattk)
+   theydefended(hitting, string.upper(i))
+  end
  end
- if my_attacks[curattk][&quot;hittingwith&quot;] then
-  my_time = stopStopWatch(my_attacks[curattk].timer)-getNetworkLatency()
-  echo(&quot; &quot;..my_time)
-  resetStopWatch(my_attacks[curattk].timer)
- end
- attack_end(curattk)
 end
+
 function attack_end(curattk)
  my_attacks[curattk][&quot;hittingwith&quot;] = false
  my_attacks[curattk][&quot;targeting&quot;] = &quot;none&quot;
 end
+
 function theydefended(hitting, defense)
  if toggles.atkecho then
   deleteLine()
@@ -3773,82 +4418,387 @@ end
 -------------------------------------------------
 
 my_attacks = {
-slash = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-club = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-batter = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-grab = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-heartstrike = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-throwdown = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-cleave = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-headslam = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-obliterate = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-counter = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-shieldsmash = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-impale = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-bind = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-assault = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-sunder = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-rend = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-terminate = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-wildstrike = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-mhack = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-rupture = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-ejab = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-enfeeble = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-strike = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-rake = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-gutsmash = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-blackeye = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-slitthroat = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-legslice = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-nervestrike = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-cruncharms = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-headsmash = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-shatterLL = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-shatterRL = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-shatterLR = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-shatterRR = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-knockdown = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-earbash = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-burstlungs = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-crushskull = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-brainbash = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-chestbash = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-stomp = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-pulverize = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-burstorgans = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-thrust = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-fleche = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-hamstring = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-puncture = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-wristflick = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-lowblow = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-backslice = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-hemorrhage = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-beat = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-pommel = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-balestra = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-beguile = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-flourish = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-disarm = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-press = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-glint = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-inquartata = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-backstab = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-crossbow = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-hogtie = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-vileblade = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-cheapshot = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-lungstab = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-suckerpunch = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-canto = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--SOLDIER: ARMS
+slash = {deftype = &quot;parry&quot;, aff = &quot;damage&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+club = {deftype = &quot;parry&quot;, aff = &quot;damage&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+obliterate = {deftype = &quot;parry&quot;, aff = &quot;damage&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--threaten
+wildstrike = {deftype = &quot;parry&quot;, aff = &quot;reckless&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+sunder = {deftype = &quot;parry&quot;, aff = &quot;sundered_armor&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+grab = {deftype = &quot;parry&quot;, aff = &quot;grabbed&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--evict
+heartstrike = {deftype = &quot;parry&quot;, aff = &quot;adrenaline&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+throwdown = {deftype = &quot;parry&quot;, aff = &quot;prone&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+cleave = {deftype = &quot;parry&quot;, aff = &quot;blurry_vision&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+headslam = {deftype = &quot;parry&quot;, aff = &quot;equilloss&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+counter = {deftype = &quot;parry&quot;, aff = &quot;damage&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+shieldsmash = {deftype = &quot;parry&quot;, aff = &quot;stun&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+mhack = {deftype = &quot;parry&quot;, aff = &quot;cut_tendon&quot;, aff_def = &quot;cut_tendon&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+impale = {deftype = &quot;parry&quot;, aff = &quot;impaled&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+bind = {deftype = &quot;parry&quot;, aff = &quot;equilloss&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+assault = {deftype = &quot;parry&quot;, aff = &quot;damage&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+rupture = {deftype = &quot;parry&quot;, aff = &quot;damage&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+ejab = {deftype = &quot;parry&quot;, aff = &quot;exhaustion&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+rend = {deftype = &quot;parry&quot;, aff = &quot;bleeding&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+enfeeble = {deftype = &quot;parry&quot;, aff = &quot;infirm&quot;, aff_def = &quot;infirm&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+terminate = {deftype = &quot;none&quot;, aff = &quot;death&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--SOLDIER: WARCRAFT
+strike = {deftype = &quot;parry&quot;, aff = &quot;damage&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--SOLDIER: BRUTALITY
+rake = {deftype = &quot;parry&quot;, aff = &quot;bleeding&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--roar_mad
+gutsmash = {deftype = &quot;parry&quot;, aff = &quot;ataxia OR anemia OR nausea&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+blackeye = {deftype = &quot;parry&quot;, aff = &quot;blackout&quot;, aff_def = &quot;blind&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+slitthroat = {deftype = &quot;parry&quot;, aff = &quot;slitthroat&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+legslice = {deftype = &quot;parry&quot;, aff = &quot;severed_tendon&quot;, aff_def = &quot;hamstring&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+nervestrike = {deftype = &quot;parry&quot;, aff = &quot;cataplexy&quot;, aff_def = &quot;dystonia&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+cruncharms = {deftype = &quot;parry&quot;, aff = &quot;maladroitness&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--roar_mighty
+headsmash = {deftype = &quot;parry&quot;, aff = &quot;headache&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+shatterLL = {deftype = &quot;parry&quot;, aff = &quot;broken_left_leg&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+shatterRL = {deftype = &quot;parry&quot;, aff = &quot;broken_right_leg&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+shatterLR = {deftype = &quot;parry&quot;, aff = &quot;brpken_left_arm&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+shatterRR = {deftype = &quot;parry&quot;, aff = &quot;broken_right_arm&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+knockdown = {deftype = &quot;parry&quot;, aff = &quot;prone&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+earbash = {deftype = &quot;parry&quot;, aff = &quot;deaf&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+burstlungs = {deftype = &quot;parry&quot;, aff = &quot;asthma&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+crushskull = {deftype = &quot;parry&quot;, aff = &quot;brain_damage&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--roar_deaf
+brainbash = {deftype = &quot;parry&quot;, aff = &quot;dizzy OR impatient OR concussion&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+chestbash = {deftype = &quot;parry&quot;, aff = &quot;heart_palpitations&quot;, aff_def = &quot;collapsed_lungs&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--roar_terror
+stomp = {deftype = &quot;parry&quot;, aff = &quot;random&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+pulverize = {deftype = &quot;parry&quot;, aff = &quot;cataplexy&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+burstorgans = {deftype = &quot;parry&quot;, aff = &quot;burst_organs&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--roar_dread
+--ROGUE: FENCING
+thrust = {deftype = &quot;dodge&quot;, aff = &quot;damage&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+fleche = {deftype = &quot;duck&quot;, aff = &quot;bleeding&quot;,  hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+hamstring = {deftype = &quot;jump&quot;, aff= &quot;hamstrung&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+puncture = {deftype = &quot;block&quot;, aff= &quot;strip&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+wristflick = {deftype = &quot;dodge&quot;, aff= &quot;clumsiness&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+lowblow = {deftype = &quot;block&quot;, aff = &quot;weak_legs&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+backslice = {deftype = &quot;duck&quot;, aff = &quot;cut_tendon&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+hemorrhage = {deftype = &quot;dodge&quot;, aff= &quot;anemia&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+beat = {deftype = &quot;none&quot;, aff = &quot;equilloss&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+pommel = {deftype = &quot;parry&quot;, aff = &quot;dizziness&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+balestra = {deftype = &quot;parry&quot;, aff = &quot;severed_nerves&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+beguile = {deftype = &quot;block&quot;, aff = &quot;disloyalty&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+flourish = {deftype = &quot;parry&quot;, aff = &quot;interrupt&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+disarm = {deftype = &quot;parry&quot;, aff = &quot;disarm&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+press = {deftype = &quot;block&quot;, aff = &quot;press&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+glint = {deftype = &quot;jump&quot;, aff = &quot;blind&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+inquartata = {deftype = &quot;parry&quot;, aff = &quot;damage&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+backhand = {deftype = &quot;duck&quot;, aff = &quot;stun&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+coupdegrace = {deftype = &quot;none&quot;, aff = &quot;death&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--ROGUE: SUBTLETY
+backstab = {deftype = &quot;dodge&quot;, aff = &quot;damage&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+crossbow = {deftype = &quot;jump&quot;, aff = &quot;damage&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--ROGUE: THIEVERY
+hogtie = {deftype = &quot;block&quot;, aff = &quot;entagle&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+slit_throat = {deftype = &quot;none&quot;, aff = &quot;bleeding&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+vileblade = {deftype = &quot;dodge&quot;, aff = &quot;guile_gain&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+cheapshot = {deftype = &quot;duck&quot;, aff = &quot;nausea&quot;, aff_def = &quot;blackout&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+lungstab = {deftype = &quot;dodge&quot;, aff = &quot;collapsed_lung&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+suckerpunch = {deftype = &quot;block&quot;, aff = &quot;concussion&quot;, aff_def = &quot;concussion&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+sleightofhand = {deftype = &quot;jump&quot;, aff = &quot;random&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--ROGUE: PERFORMANCE
+canto = {deftype = &quot;dodge&quot;, aff = &quot;damage&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--MAGICIAN: THAUMATURGY
 stormlance = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
 ignite = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
 chill = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
 earthbind = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
 ice_spikes = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
 static_discharge = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
-skylash = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()}
+skylash = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+shatter = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--tomb
+--immolate
+--MAGICIAN: ARCANA
+sleep = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+dementia = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+counterspell = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+cripple = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+barrage = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+disorient = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+timeshift = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+compulsion = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+tether = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+astral_warp = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+undoing = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+--PRIEST: RIGHTEOUSNESS
+fury = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+mandate = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+heresy = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+holy_fire = {deftype = &quot;parry&quot;, afftype = &quot;none&quot;, hittingwith = false, targeting = &quot;none&quot;, timer = createStopWatch()},
+}</script>
+                    <eventHandlerList/>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>they defended table</name>
+                    <packageName></packageName>
+                    <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+they_defendings = {
+dodge = &quot;(.*) twirls to the side, partially dodging your attack.&quot;,
+duck = &quot;(.*) partially ducks under your attack.&quot;,
+jump = &quot;(.*) leaps away, avoiding the full brunt of your aggression.&quot;,
+parry = &quot;Your attack is deftly parried by (.*).&quot;,
+block = &quot;(.*) skillfully blocks, mitigating the full assault.&quot;,
+repulse = &quot;Your attack is strategically repulsed by (.*).&quot;,
+shield = &quot;A scintillating shield of light blossoms before (.*), protecting (.*).&quot;,
+perfect = &quot;(.*) whirls around in a blur of motion, (.*) perfect defense impossible to penetrate.&quot;
+}</script>
+                    <eventHandlerList/>
+                </Script>
+            </ScriptGroup>
+            <ScriptGroup isActive="yes" isFolder="yes">
+                <name>third person</name>
+                <packageName></packageName>
+                <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+</script>
+                <eventHandlerList/>
+                <Script isActive="yes" isFolder="no">
+                    <name>on telegraph</name>
+                    <packageName></packageName>
+                    <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+function third_start(attacker, weapon, attack, tar)
+ if toggles.defecho then
+  deleteLine()
+  echo(&quot;\n&quot;..attacker..&quot;: START &quot;..attack..&quot; &quot;..tar..&quot;!&quot;)
+ end
+ if not string.find(attack, &quot;atk_&quot;) then
+  attack = &quot;atk_&quot;..attack
+ end
+ if shielding and tar == shielded then
+  enemy_attack = attack
+  enemy_attacker = attacker
+  enemy_weapon = weapon
+  enemy_class = attacks[attack][&quot;class&quot;]
+  if enemy_class ~= &quot;soldier&quot; then
+   for i in pairs(attacks) do
+    if attacks[i].attacker == enemy_attacker then
+     reset_attack(i)
+    end
+   end
+  end
+  attacks[attack][&quot;getting_hit&quot;] = true
+  attacks[attack][&quot;attacker&quot;] = attacker
+ end
+-- db:add(data.times, {attacker, enemy_class, attack, weapon})
+ if attack_timers[attacker] == nil then
+  attack_timers[attacker] = {}
+ end
+-- if weapon == nil then
+  if attack_timers[attacker][attack] == nil then
+   attack_timers[attacker][attack] = createStopWatch()
+  else
+   resetStopWatch(attack_timers[attacker][attack])
+   startStopWatch(attack_timers[attacker][attack])
+  end
+-- else
+--  if attack_timers[attacker][attack] == nil then
+--   attack_timers[attacker][attack] = {}
+--  end
+--  if attack_timers[attacker][attack][weapon] == nil then
+--   attack_timers[attacker][attack][weapon] = createStopWatch()
+--  else
+--   startStopWatch(attack_timers[attacker][attack])
+--  end
+-- end
+ if attack_times[attacker] == nil then
+  attack_times[attacker] = {}
+ end
+-- if weapon == nil then
+  if attack_times[attacker][attack] ~= nil then
+   current_delay = attack_times[attacker][attack]-0.5-getNetworkLatency()
+  else
+   current_delay = attacks[attack][&quot;delay&quot;]-0/5-getNetworkLatency()
+  end
+-- else
+--  if attack_times[attacker][attack] == nil then
+--   attack_times[attacker][attack] = {}
+--  end
+--  if attack_times[attacker][attack][weapon] ~= nil then
+--   current_delay = attack_times[attacker][attack][weapon]-0.5-getNetworkLatency()
+--  else
+--   current_delay = attacks[attack][&quot;delay&quot;]-getNetworkLatency()
+--  end
+-- end
+ if attacker == anachronized then
+  current_delay = math.floor(current_delay/2)
+ end
+ if current_delay &lt; 0 then
+  current_delay = 0
+ end
+ if have_slow() then
+  if current_delay &gt;= 1 then
+   current_delay = current_delay-1
+  else
+   current_delay = -1
+  end
+ end
+ if shielding and tar == shielded then
+  if current_delay ~= -1 then
+   tempTimer( current_delay, [[atk_need(enemy_attack)]] )
+  end
+ end
+ echo(&quot; &quot;..current_delay)
+ aff_remove(&quot;blackout&quot;)
+end</script>
+                    <eventHandlerList/>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>on ending</name>
+                    <packageName></packageName>
+                    <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+function third_hit(attacker, weapon, attack, tar)
+ if toggles.defecho then
+  deleteLine()
+  echo(&quot;\n&quot;..attacker..&quot;: &quot;)
+  cecho(&quot;&lt;red&gt;HIT &quot;)
+  echo(attack..&quot; &quot;..tar..&quot;!&quot;)
+ end
+ third_end(attacker, weapon, attack, tar)
+end
+
+function third_miss(attacker, weapon, attack, tar)
+ if not string.find(attack, &quot;atk_&quot;) then
+  attack = &quot;atk_&quot;..attack
+ end
+ if toggles.defecho then
+  if attacks[attack][&quot;class&quot;] == &quot;soldier&quot; then
+   if attacks[attack][&quot;getting_hit&quot;] then
+    deleteLine()
+    echo(&quot;\n&quot;..attacker..&quot;: &quot;)
+    cecho(&quot;&lt;green&gt;MISS &quot;)
+    echo(attack..&quot; &quot;..tar..&quot;!&quot;)
+   end
+  else
+   deleteLine()
+   echo(&quot;\n&quot;..attacker..&quot;: &quot;)
+   cecho(&quot;&lt;green&gt;MISS &quot;)
+   echo(attack..&quot; &quot;..tar..&quot;!&quot;)
+  end
+ end
+ third_end(attacker, weapon, attack, tar)
+end
+
+function third_defend(attacker, weapon, attack, defense, tar)
+ for i in pairs(third_defendings) do
+  if string.find(defense, third_defendings[i]) then
+   if toggles.defecho then
+    deleteLine()
+    echo(&quot;\n&quot;..attacker..&quot;: &quot;)
+    cecho(&quot;&lt;green&gt;FAIL &quot;)
+    echo(attack..&quot; &quot;..tar..&quot;!&quot;)
+   end
+   third_end(attacker, weapon, attack, tar)
+   thirddefended(attacker, string.upper(i), tar)
+  end
+ end
+end
+
+
+function third_end(attacker, weapon, attack, tar)
+ if not string.find(attack, &quot;atk_&quot;) then
+  attack = &quot;atk_&quot;..attack
+ end
+-- if attacks[attack].getting_hit then
+--  if weapon == nil then
+   tele_time = stopStopWatch(attack_timers[attacker][attack])-getNetworkLatency()
+   resetStopWatch(attack_timers[attacker][attack])
+--  else
+--   tele_time = stopStopWatch(attack_timers[attacker][attack][weapon])-getNetworkLatency()
+--   resetStopWatch(attack_timers[attacker][attack])
+--  end
+  if tele_time &lt;= 5 then
+   if attack_times[attacker] == nil then
+    attack_times[attacker] = {}
+   end
+--   if weapon == nil then
+    if attacker ~= anachronized then
+     attack_times[attacker][attack] = tele_time
+    end
+--   else
+--    if attack_times[attacker][attack] == nil then
+--     attack_times[attacker][attack] = {}
+--    end
+--    if attacker ~= anachronized then
+--     attack_times[attacker][attack][weapon] = tele_time
+--    end
+--   end
+   echo(&quot; &quot;..tele_time)
+  end
+-- end
+ if shielding and tar == shielded then
+  if attacker == nil then
+   ended(attack)
+  elseif attack == &quot;Someone&quot; then
+   ended(attack)
+  elseif attacks[attack].attacker == attacker then
+   ended(attack)
+  end
+  if attacker ~= nil then
+   if repulsed[attacker] ~= nil then
+    for i in pairs(repulsed) do
+     if i == attacker then
+      table.remove(repulsed, repulsed[i])
+     end
+    end
+   end
+  end
+ end
+ aff_remove(&quot;blackout&quot;)
+end
+
+function thirddefended(attacker, defense, tar)
+ if toggles.defecho then
+  echo(&quot;\n&quot;..tar..&quot;: &quot;)
+  cecho(&quot;&lt;green&gt;&quot;..defense)
+  echo(&quot; &quot;..attacker..&quot;!&quot;)
+ end
+end
+</script>
+                    <eventHandlerList/>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>defended table</name>
+                    <packageName></packageName>
+                    <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+
+third_defendings = {
+--dodge = &quot;You twirl to the side, partially dodging (.*) attack.&quot;,
+--duck = &quot;You partially duck under (.*) attack.&quot;,
+jump = &quot; (.*) leaps away, avoiding the full brunt of (.*) aggression.&quot;,
+--parry = &quot;You deftly parry (.*) maneuver.&quot;,
+--block = &quot;You skillfully block, mitigating (.*) full assault.&quot;,
+--repulse = &quot;You strategically repulse (.*) maneuver.&quot;,
+--shield = &quot;A scintillating shield of light blossoms before you, protecting you.&quot;,
+--perfect = 
 }</script>
                     <eventHandlerList/>
                 </Script>

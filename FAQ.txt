@@ -5,34 +5,36 @@ Q:
 How do I set this up?
 
 A:
-o Make sure you have CONFIG SCREENWITDH OFF
-o Make sure you have CONFIG PROMPT REMOVE VERBOSE
-o Make sure you have CONFIG PROMPT ALL
+o Click on Scripts at the top of the mudlet window to open the scripting window.
+o Click the big green Import arrow at the top of the scripting window.
+o Navigate to where you downloaded the system to and import the .xml files or .mpackage there.
 o After importing the mudlet package into a new profile in mudlet, go to scripts->system->vitals->variables->options.
-o Adjust the values of the first two tables to reflect your character and your skills.
-o Make sure you set your weapon, mount, container, and the can and toggles variables!
+o Send the alias, ?setup
+o This should toggle all the config commands the system needs to function.
+o Adjust the values of the first tables there to reflect your character and your skills.
+o Make sure you set your mount, container, and the can and toggles variables!
 o Make sure you have GMCP enabled.
 o All set! System will track everything else through GMCP!
-
-
-Q:
-My prompt isn't showing! Help!
-
-A:
-o Make sure you enabled GMCP! See below for how to do this.
 
 
 Q:
 How do I enable GMCP?
 
 A:
-o You will need to download one of the RC2.0 files found here: http://forums.mudlet.org/viewtopic.php?f=5&t=1874
+o You will need to download the nifty little mudlet update found here: http://sourceforge.net/projects/mudlet/files/Mudlet-2.0-test4b.exe/download
 o Install the update you have downloaded.
 o Open mudlet like normal.
-o In mudlet, go to settings, and click 'Enable GMCP' in the general tab.
-o Reconnect to the game.
+o In mudlet, go to settings, and make sure 'Enable GMCP' is clicked in the general tab.
+o Reconnect to the game if you had to click the GMCP box.
 
 --NOTE! GMCP enabled has a compatability issue with Midkemia's html tags. You can CONFIG MXP ON to cause html tags to be sent as mxp tags instead and avoid this issue. If you don't, any output between < and > will always be gagged, and the client won't receive it.
+
+
+Q:
+My prompt isn't showing, or isn't showing properly! Help!
+
+A:
+o Make sure you enabled GMCP! See above for how to do this.
 
 
 Q:
@@ -68,9 +70,11 @@ How do I update to a newer version of the system?
 A:
 o Whenever you import the system, it should save all the settings into three files, one each in triggers, aliases, and scripts.
 o The easiest way to update is to import the new mpackage, and then delete the three old files.
-o Make sure any alises, triggers, or anything else you want to keep across updates is saved outside of those three files!
+o Make sure any aliases, triggers, or anything else you want to keep across updates is saved outside of those three files!
+o The system will automatically store everything in the options script (such as your can variables, mount name, weapon type, and toggles) across sessions and updates, so you don't need to set them again.
+o If you import the update into a new profile, you WILL need to set all the options again, because it saves them to the profile with the system on it.
 o If you delete the wrong folder, or need to re-import the same one for whatever reason, you may need to remove the old package in the package manager.
-o To remove an old package, click the Package Editor along the top of the main mudlet window.
+o To remove an old package, click the Package Manager along the top of the main mudlet window.
 o Click the package to remove.
 o Click uninstall.
 o You can now re-import the same package.
@@ -94,7 +98,7 @@ It keeps double sending everything! I can't toggle anything off because it toggl
 A:
 o You somehow managed to import the aliases twice!
 o Go to aliases and delete one of the two system folders there. This should fix the problem.
-o If there's only one system folder, but it's definitely doubling commands, try exiting mudlet and entering again. This should reveal any hidden folders.
+o If there's only one system folder, but it's definitely doubling commands, try exiting mudlet and opening again. This should reveal any hidden folders.
 o If you exit and re-enter mudlet and there's still only one folder, make sure it really is double sending. It could just be echoing the alias name and the command send, which might be the same.
 o If it is just double-echoing and this bothers you, you can go to mudlet's settings and un-click the 'Show text I send' box to make it no longer display these things.
 
@@ -104,13 +108,13 @@ Q: What's with my prompt?
 A:
 This system replaces the standard prompt with one that I feel is more helpful. The new prompt looks like this:
 
-100%h, 340e, 0g, 83x xb-pl A:50% - [zorn] H:+16
+100%h, 340e, 0g, 83.02x xb-pl A:50% - [zorn] H:+16
 
 o Health, by percentage.
 o Endurance, standard numeric.
 o Magic, by percentage, or faith/guile in standard numeric.
 o Experience percentage toward your next level.
-o Essentials (equilibrium, balance, riding, and spellshield/off-hand balance if they apply). These are replaced with a - if you do not have them.
+o Essentials (equilibrium, balance, riding, and spellshield/psi balance/off-hand balance/roar balance if they apply). These are replaced with a - if you do not have them.
 o Status indicators, immediately following your essentials. This will display characters for sleep, unconsciousness, prone, stun, and entanglement.
 o Adrenaline percentage.
 o Current target in square brackets. If bashing, this is your bashing target. If not, this is your PvP target.
@@ -122,7 +126,7 @@ Q:
 How do I see a list of commands?
 
 A:
-o There's a halp alias that displays a list of all the commands available to your current class. Use it!
+o There's a halp alias that displays a list of most of the commands available to your current class. Use it!
 o Your attack aliases are listed under your class' folder in the skills folder under aliases.
 
 
@@ -130,23 +134,25 @@ Q:
 What's with all the weird colors?
 
 A:
-o I'm not so smart, so I read really super slow.
+o I personally read REALLY slow.
 o I replaced a lot of the text seen in combat with much much shorter text.
 o The colors help me to keep up.
-o If you do not like them, you can add -- to lines with 'cecho' and the ones with 'deleteLine()' in them in the scripts.
+o If you do not like them, there are toggles to display or not display the attack and defending echoes.
+o There is currently no toggle for affliction of defenses echoes (like You: GAIN arcanepower).
 
 
 Q:
 How do I make it bash?
 
 A:
-o Enter your bashing area. The system should automatically load targets for that area.
+o Enter your bashing area. The system should automatically load targets for that area. If not, SURVEY to grab them.
 o The system should display the possible targets. If not, your area is not loaded into it.
 o The alias aa will start running the bashing script.
 o The alias ff will toggle fasthunt on or off. With fasthunt on, changing rooms will cause the system to check WHO HERE and start bashing if you are alone.
 o The alias gg will gather coins and any items that may be dropped in the area you're in.
 o The alias tgg will toggle gathering of coins when they drop.
 o The alias ast will stop running the bashing script.
+o The alias asp will stop running the bashing script after the next time you kill something.
 o You can toggle your ability to use various class skills in the list of can variables under scripts->system->vitals->variables->misc.
 o The toggles for using class skills are listed under aliases->system->toggles.
 
@@ -177,7 +183,7 @@ Why won't fasthunt mode work?
 A:
 o Fasthunt mode will only work if you are bashing alone.
 o It will always check that you are alone in a room before hitting.
-o This is on purpose and I will not change it in future update, because I do not want people to turn fasthunt on, follow someone else, and walk away from the computer.
+o This is on purpose and I will not change it in future updates, because I do not want people to turn fasthunt on, follow someone else, and walk away from the computer.
 
 
 Q:
@@ -244,12 +250,9 @@ Q:
 What other toggles and commands do I need to know?
 
 A:
-o The alias hl will toggle healing on and off. Healing off will make the system send nothing but bashing and fishing commands.
-o The alias mnt will mount your mount, as defined in scripts->system->vitals->variables->options, under the my. table.
-o The alias dm will dismount.
-o The alias folm will attempt to lead your set mount.
+o The alias ?help will give you a pretty comprehensive list of commands and what they do.
 o The alias cfs will send credits for sale, and will automatically try to buy any credits under 6000 copper.
-o The system will continue learning from players or tutors to begin learning from. Leave the room to cancel a learning session.
+o The system will continue learning from players or tutors you begin learning from. Leave the room to cancel a learning session.
 o Make sure to let me know of any bugs or problems you find! I can't fix what I don't know about!
 
 

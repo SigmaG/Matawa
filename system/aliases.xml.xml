@@ -3,121 +3,26 @@
 <MudletPackage version="1.0">
     <AliasPackage>
         <AliasGroup isActive="yes" isFolder="yes">
-            <name>system</name>
+            <name>System</name>
             <script></script>
             <command></command>
             <packageName></packageName>
             <regex></regex>
             <AliasGroup isActive="yes" isFolder="yes">
-                <name>utilities</name>
+                <name>Utilities</name>
                 <script></script>
                 <command></command>
                 <packageName></packageName>
                 <regex></regex>
-                <Alias isActive="yes" isFolder="no">
-                    <name>credits for sale</name>
-                    <script>send(&quot;credits for sale&quot;)</script>
-                    <command></command>
-                    <packageName></packageName>
-                    <regex>^cfs$</regex>
-                </Alias>
-                <Alias isActive="yes" isFolder="no">
-                    <name>landmarks</name>
-                    <script>if landmarks[matches[2]] ~= nil then
- send(&quot;path find &quot;..landmarks[matches[2]])
-else
- cecho(&quot;&lt;green&gt;No such landmark!&quot;)
- send(&quot; &quot;)
-end</script>
-                    <command></command>
-                    <packageName></packageName>
-                    <regex>^lm (\w+)$</regex>
-                </Alias>
                 <AliasGroup isActive="yes" isFolder="yes">
-                    <name>chat</name>
-                    <script></script>
-                    <command></command>
-                    <packageName></packageName>
-                    <regex></regex>
-                    <Alias isActive="yes" isFolder="no">
-                        <name>citytells</name>
-                        <script>display(channels.citytells)
-send(&quot; &quot;)</script>
-                        <command></command>
-                        <packageName></packageName>
-                        <regex>^ctells$</regex>
-                    </Alias>
-                    <Alias isActive="yes" isFolder="no">
-                        <name>ordertells</name>
-                        <script>display(channels[&quot;ordertells&quot;])
-send(&quot; &quot;)</script>
-                        <command></command>
-                        <packageName></packageName>
-                        <regex>^otells$</regex>
-                    </Alias>
-                    <Alias isActive="yes" isFolder="no">
-                        <name>guildtells</name>
-                        <script>display(channels.guildtells)
-send(&quot; &quot;)</script>
-                        <command></command>
-                        <packageName></packageName>
-                        <regex>^gtells$</regex>
-                    </Alias>
-                    <Alias isActive="yes" isFolder="no">
-                        <name>markettells</name>
-                        <script>display(channels.markettells)
-send(&quot; &quot;)</script>
-                        <command></command>
-                        <packageName></packageName>
-                        <regex>^mtells$</regex>
-                    </Alias>
-                    <Alias isActive="yes" isFolder="no">
-                        <name>newbie tells</name>
-                        <script>display(channels.newbietells)
-send(&quot; &quot;)</script>
-                        <command></command>
-                        <packageName></packageName>
-                        <regex>^ntells$</regex>
-                    </Alias>
-                    <Alias isActive="yes" isFolder="no">
-                        <name>societytells</name>
-                        <script>display(channels[current_society])
-send(&quot; &quot;)</script>
-                        <command></command>
-                        <packageName></packageName>
-                        <regex>^sctells$</regex>
-                    </Alias>
-                    <Alias isActive="yes" isFolder="no">
-                        <name>novice tells</name>
-                        <script>display(channels.novicetells)
-send(&quot; &quot;)</script>
-                        <command></command>
-                        <packageName></packageName>
-                        <regex>^gntells$</regex>
-                    </Alias>
-                </AliasGroup>
-                <Alias isActive="yes" isFolder="no">
-                    <name>fleeing</name>
-                    <script>if toggles.bashing then
- toggle(&quot;bashing&quot;)
-end
-if toggles.fasthunt then
- toggle(&quot;fasthunt&quot;)
-end
-set_attack(&quot;flee&quot;)</script>
-                    <command></command>
-                    <packageName></packageName>
-                    <regex>^flee$</regex>
-                </Alias>
-                <AliasGroup isActive="yes" isFolder="yes">
-                    <name>mounts</name>
+                    <name>Mounts</name>
                     <script></script>
                     <command></command>
                     <packageName></packageName>
                     <regex></regex>
                     <Alias isActive="yes" isFolder="no">
                         <name>lead mount</name>
-                        <script>send(&quot;lead &quot;..my.mount)</script>
+                        <script>send(&quot;lead &quot;..my.mount, false)</script>
                         <command></command>
                         <packageName></packageName>
                         <regex>^folm$</regex>
@@ -125,9 +30,9 @@ set_attack(&quot;flee&quot;)</script>
                     <Alias isActive="yes" isFolder="no">
                         <name>mount</name>
                         <script>if can.vault then
- send(&quot;vault &quot;..my.mount)
+ send(&quot;vault &quot;..my.mount, false)
 else
- send(&quot;mount &quot;..my.mount)
+ send(&quot;mount &quot;..my.mount, false)
 end</script>
                         <command></command>
                         <packageName></packageName>
@@ -135,7 +40,7 @@ end</script>
                     </Alias>
                     <Alias isActive="yes" isFolder="no">
                         <name>dismount</name>
-                        <script>send(&quot;dismount&quot;)</script>
+                        <script>send(&quot;dismount&quot;, false)</script>
                         <command></command>
                         <packageName></packageName>
                         <regex>^dm$</regex>
@@ -149,7 +54,7 @@ end</script>
                     </Alias>
                 </AliasGroup>
                 <AliasGroup isActive="yes" isFolder="yes">
-                    <name>anti theft</name>
+                    <name>Anti-Theft</name>
                     <script></script>
                     <command></command>
                     <packageName></packageName>
@@ -158,13 +63,13 @@ end</script>
                         <name>unwield</name>
                         <script>unwielding = true
 tempTimer(1, [[unwielding = false]])
-send(matches[1])</script>
+send(matches[1], false)</script>
                         <command></command>
                         <packageName></packageName>
                         <regex>^unwield (.*)$</regex>
                     </Alias>
                     <AliasGroup isActive="yes" isFolder="yes">
-                        <name>pack stuff</name>
+                        <name>Pack Stuff</name>
                         <script></script>
                         <command></command>
                         <packageName></packageName>
@@ -174,7 +79,7 @@ send(matches[1])</script>
                             <script>if matches[3] == my.container then
  do_pack(matches[1])
 else
- send(matches[1])
+ send(matches[1], false)
 end</script>
                             <command></command>
                             <packageName></packageName>
@@ -185,7 +90,7 @@ end</script>
                             <script>if matches[3] == my.container then
  do_pack(matches[1])
 else
- send(matches[1])
+ send(matches[1], false)
 end</script>
                             <command></command>
                             <packageName></packageName>
@@ -196,7 +101,7 @@ end</script>
                             <script>if matches[3] == my.container then
  do_pack(matches[1])
 else
- send(matches[1])
+ send(matches[1], false)
 end</script>
                             <command></command>
                             <packageName></packageName>
@@ -206,10 +111,10 @@ end</script>
                             <name>open</name>
                             <script>if matches[2] == my.container then
  opening = true
- send(matches[1])
+ send(matches[1], false)
  tempTimer(1, [[opening = false]])
 else
- send(matches[1])
+ send(matches[1], false)
 end</script>
                             <command></command>
                             <packageName></packageName>
@@ -219,10 +124,10 @@ end</script>
                             <name>remove</name>
                             <script>if matches[3] == my.container then
  removing = true
- send(matches[1])
+ send(matches[1], false)
  tempTimer(1, [[removing = false]])
 else
- send(matches[1])
+ send(matches[1], false)
 end</script>
                             <command></command>
                             <packageName></packageName>
@@ -230,19 +135,8 @@ end</script>
                         </Alias>
                     </AliasGroup>
                 </AliasGroup>
-                <Alias isActive="yes" isFolder="no">
-                    <name>moving</name>
-                    <script>if toggles.marching and my.class == &quot;soldier&quot; then
- send(&quot;march &quot;..matches[1])
-else
- send(matches[1])
-end</script>
-                    <command></command>
-                    <packageName></packageName>
-                    <regex>^(in|out|up|d|n|s|e|w|ne|nw|se|sw)$</regex>
-                </Alias>
                 <AliasGroup isActive="yes" isFolder="yes">
-                    <name>bashing</name>
+                    <name>Bashing</name>
                     <script></script>
                     <command></command>
                     <packageName></packageName>
@@ -261,6 +155,7 @@ do_bashing()</script>
                     <Alias isActive="yes" isFolder="no">
                         <name>stop bashing</name>
                         <script>toggles.bashing = false
+inquartata = false
 cecho(&quot;&lt;green&gt;Bashing OFF!&quot;)
 if toggles.fasthunt then
  toggles.fasthunt = false
@@ -275,7 +170,7 @@ end</script>
                     </Alias>
                     <Alias isActive="yes" isFolder="no">
                         <name>gather</name>
-                        <script>loot()</script>
+                        <script>do_loot()</script>
                         <command></command>
                         <packageName></packageName>
                         <regex>^gg$</regex>
@@ -311,9 +206,24 @@ send(&quot; &quot;)</script>
                         <packageName></packageName>
                         <regex>^gen$</regex>
                     </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>stop bashing after next kill</name>
+                        <script>stopping_bashing = true
+cecho(&quot;&lt;green&gt;Bashing OFF after next kill!&quot;)
+if toggles.fasthunt then
+ toggles.fasthunt = false
+ echo(&quot;\nFasthunt OFF!&quot;)
+ send(&quot; &quot;)
+else
+ send(&quot; &quot;)
+end</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^asp$</regex>
+                    </Alias>
                 </AliasGroup>
                 <AliasGroup isActive="yes" isFolder="yes">
-                    <name>fishing</name>
+                    <name>Fishing</name>
                     <script></script>
                     <command></command>
                     <packageName></packageName>
@@ -352,6 +262,242 @@ send(&quot; &quot;)</script>
                         <packageName></packageName>
                         <regex>^fdis (.*)$</regex>
                     </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>cut line</name>
+                        <script>fishing.stat = &quot;cutting&quot;</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^fcut$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>Reel In</name>
+                        <script></script>
+                        <command>fishing reel</command>
+                        <packageName></packageName>
+                        <regex>^fre$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>Cast Line</name>
+                        <script>send(&quot;fishing cast &quot;..matches[2])</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^fc (\w+)$</regex>
+                    </Alias>
+                </AliasGroup>
+                <AliasGroup isActive="yes" isFolder="yes">
+                    <name>Windows</name>
+                    <script></script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex></regex>
+                    <AliasGroup isActive="yes" isFolder="yes">
+                        <name>Setup</name>
+                        <script></script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex></regex>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>create window</name>
+                            <script>window_start(matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^(?i)window start (\w+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>hide window</name>
+                            <script>window_hide(matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^(?i)window hide (\w+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>move window</name>
+                            <script>local dirstr = matches[3]:lower()
+local dirval = tonumber(matches[4])
+
+window_move(matches[2], dirstr, dirval)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^(?i)window move (\w+)\s?(\w+)\s?(\d+)?$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>show window</name>
+                            <script>window_show(matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^(?i)window show (\w+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>reset window</name>
+                            <script>window_reset(matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^(?i)window reset (\w+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>edit</name>
+                            <script>window_edit(matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^window edit (\w+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>save</name>
+                            <script>window_save(matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^window save (\w+)$</regex>
+                        </Alias>
+                    </AliasGroup>
+                    <AliasGroup isActive="yes" isFolder="yes">
+                        <name>Chat</name>
+                        <script></script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex></regex>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>citytells</name>
+                            <script>display(channels.citytells)
+send(&quot; &quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^ctells$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>ordertells</name>
+                            <script>display(channels[&quot;ordertells&quot;])
+send(&quot; &quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^otells$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>guildtells</name>
+                            <script>display(channels.guildtells)
+send(&quot; &quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^gtells$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>markettells</name>
+                            <script>display(channels.markettells)
+send(&quot; &quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^mtells$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>newbie tells</name>
+                            <script>display(channels.newbietells)
+send(&quot; &quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^ntells$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>societytells</name>
+                            <script>display(channels[current_society])
+send(&quot; &quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^sctells$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>novice tells</name>
+                            <script>display(channels.novicetells)
+send(&quot; &quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^gntells$</regex>
+                        </Alias>
+                    </AliasGroup>
+                </AliasGroup>
+                <AliasGroup isActive="yes" isFolder="yes">
+                    <name>Misc</name>
+                    <script></script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex></regex>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>credits for sale</name>
+                        <script>send(&quot;credits for sale&quot;, false)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^cfs$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>landmarks</name>
+                        <script>if landmarks[matches[2]] ~= nil then
+ send(&quot;path find &quot;..landmarks[matches[2]], false)
+else
+ cecho(&quot;&lt;green&gt;No such landmark!&quot;)
+ send(&quot; &quot;)
+end</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^lm (\w+)$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>fleeing</name>
+                        <script>if toggles.bashing then
+ toggle(&quot;bashing&quot;)
+end
+if toggles.fasthunt then
+ toggle(&quot;fasthunt&quot;)
+end
+if defenses.def_spellshield.needit then
+ defenses.def_spellshield.needit = false
+ echo(&quot;No longer keeping spellshield&quot;)
+ send(&quot; &quot;)
+end
+set_attack(&quot;flee&quot;)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^flee$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>moving</name>
+                        <script>if toggles.marching and my.class == &quot;soldier&quot; then
+ send(&quot;march &quot;..matches[1], false)
+elseif toggles.retreating and my.class == &quot;soldier&quot; then
+ send(&quot;retreat &quot;..matches[1], false)
+else
+ send(matches[1], false)
+end</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^(in|out|u|d|n|s|e|w|ne|nw|se|sw)$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>crit report</name>
+                        <script>display(crits)
+send(&quot; &quot;)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^critrep$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>target</name>
+                        <script>targ = matches[2]
+target = matches[2]
+echo(&quot;Target: &quot;..targ)
+send(&quot; &quot;)
+if id then killTrigger(id) end
+id = tempTrigger(targ, [[selectString(&quot;]] .. targ .. [[&quot;, 1) fg(&quot;DarkOrchid&quot;) resetFormat()]])</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^t (.*)$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>order guard move</name>
+                        <script>for i = 1,tonumber(matches[2]) do
+ send(&quot;order constable move &quot;..matches[3])
+end</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^mg (\d+) (\w+)$</regex>
+                    </Alias>
                 </AliasGroup>
                 <Alias isActive="yes" isFolder="no">
                     <name>testing</name>
@@ -362,13 +508,13 @@ send(&quot; &quot;)</script>
                 </Alias>
             </AliasGroup>
             <AliasGroup isActive="yes" isFolder="yes">
-                <name>vitals</name>
+                <name>Vitals</name>
                 <script></script>
                 <command></command>
                 <packageName></packageName>
                 <regex></regex>
                 <AliasGroup isActive="yes" isFolder="yes">
-                    <name>toggles</name>
+                    <name>Toggles</name>
                     <script></script>
                     <command></command>
                     <packageName></packageName>
@@ -555,6 +701,83 @@ send(&quot; &quot;)</script>
                         <packageName></packageName>
                         <regex>^tatk$</regex>
                     </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>cantoing</name>
+                        <script>toggle(&quot;cantoing&quot;)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^tcnt$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>mindblasting</name>
+                        <script>toggle(&quot;mindblasting&quot;)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^tmbl$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>immolating</name>
+                        <script>toggle(&quot;immolating&quot;)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^timm$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>hiding</name>
+                        <script>toggle(&quot;hiding&quot;)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^thid$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>requiem</name>
+                        <script>toggle(&quot;requieming&quot;)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^treq$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>countering</name>
+                        <script>toggle(&quot;countering&quot;)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^tcoun$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>retreating</name>
+                        <script>toggle(&quot;retreating&quot;)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^tret$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>lashing</name>
+                        <script>toggle(&quot;lashing&quot;)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^tlsh$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>timepstamps</name>
+                        <script>toggle(&quot;timestamps&quot;)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^ttime$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>poison display</name>
+                        <script>toggle(&quot;poisondisplay&quot;)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^tpoi$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>aff display</name>
+                        <script>toggle(&quot;affdisplay&quot;)</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^taffs$</regex>
+                    </Alias>
                 </AliasGroup>
                 <Alias isActive="yes" isFolder="no">
                     <name>reset</name>
@@ -571,37 +794,22 @@ send(&quot; &quot;)</script>
 send(&quot; &quot;)</script>
                     <command></command>
                     <packageName></packageName>
-                    <regex>^sts$</regex>
-                </Alias>
-                <Alias isActive="yes" isFolder="no">
-                    <name>target</name>
-                    <script>targ = matches[2]
-echo(&quot;Target: &quot;..targ)
-send(&quot; &quot;)</script>
-                    <command></command>
-                    <packageName></packageName>
-                    <regex>^t (.*)$</regex>
+                    <regex>^\?stat$</regex>
                 </Alias>
                 <Alias isActive="yes" isFolder="no">
                     <name>help</name>
                     <script>cecho(&quot;&lt;green&gt;\nBasic Commands:&quot;)
-echo(&quot;\n halp: this, obviously&quot;)
-echo(&quot;\n sts: display toggles&quot;)
-echo(&quot;\n t X: set combat target X&quot;)
+echo(&quot;\n deathbeam: shoots a deathbeam at your current target&quot;)
+echo(&quot;\n ?help: this, obviously&quot;)
+echo(&quot;\n ?info: display version info&quot;)
+echo(&quot;\n ?setup: sends all the CONFIG commands the system needs&quot;)
+echo(&quot;\n ?toggles: display toggle commands&quot;)
+echo(&quot;\n ?bashing: display bashing commands&quot;)
+echo(&quot;\n ?stat: display toggle settings&quot;)
 echo(&quot;\n rst: reset most variables to default&quot;)
+echo(&quot;\n t X: set combat target X&quot;)
 echo(&quot;\n ldd X: load defense option X&quot;)
 echo(&quot;\n kd X: toggle individual defense X&quot;)
-cecho(&quot;&lt;green&gt;\nBasic Toggles:&quot;)
-echo(&quot;\n hl: toggle healing on/off&quot;)
-echo(&quot;\n ss: toggle standing on/off&quot;)
-echo(&quot;\n dfnd: toggle defending on/off&quot;)
-echo(&quot;\n kil: toggle killing on/off&quot;)
-echo(&quot;\n tbld: toggle curing bleeding on/off&quot;)
-echo(&quot;\n tcl: toggle closing pack on/off&quot;)
-echo(&quot;\n tpr: toggle prompt display to numbers/percents&quot;)
-if my.class == &quot;soldier&quot; then
- echo(&quot;\n tmch: toggle marching on/off&quot;)
-end
 cecho(&quot;&lt;green&gt;\nUtility Commands:&quot;)
 echo(&quot;\n mnt: mount/vault your mount&quot;)
 echo(&quot;\n dm: dismount&quot;)
@@ -609,27 +817,6 @@ echo(&quot;\n folm: lead your mount&quot;)
 echo(&quot;\n pnh: punch/stop your mount, to stay in combat&quot;)
 echo(&quot;\n lm X: PATH FIND to landmark X&quot;)
 echo(&quot;\n cfs: credits for sale&quot;)
-cecho(&quot;&lt;green&gt;\nBashing Commands:&quot;)
-echo(&quot;\n ff: toggle fasthunt on/off&quot;)
-echo(&quot;\n aa: start bashing current room&quot;)
-echo(&quot;\n ast: stop bashing&quot;)
-echo(&quot;\n flee: toggle bashing/fasthunting off and queue flee&quot;)
-echo(&quot;\n tgg: toggle gathering on/off&quot;)
-echo(&quot;\n gen: toggle generic/numeric targeting&quot;)
-echo(&quot;\n offr: check IH CORPSE and then offer all the corpses you hold&quot;)
-if my.class == &quot;soldier&quot; then
- echo(&quot;\n brk: toggle berserking on/off&quot;)
- echo(&quot;\n trt: toggle threatening on/off&quot;)
- echo(&quot;\n tsnd: toggle sundering on/off&quot;)
-elseif my.class == &quot;rogue&quot; then
- echo(&quot;\n tflh: toggle fleching on/off&quot;)
- echo(&quot;\n tsm: toggle shadowmending on/off&quot;)
-elseif my.class == &quot;priest&quot; then
- echo(&quot;\n thrt: toggle heretic on/off&quot;)
- echo(&quot;\n tsv: toggle savaging on/off&quot;)
-elseif my.class == &quot;magician&quot; then
- echo(&quot;\n tigt: toggle igniting on/off&quot;)
-end
 cecho(&quot;&lt;green&gt;\nFishing Commands:&quot;)
 echo(&quot;\n fsh: toggle fishing on/off&quot;)
 echo(&quot;\n dr X: set fishing direction to X&quot;)
@@ -638,11 +825,147 @@ echo(&quot;\n fdis X: set cast distance to X&quot;)
 send(&quot; &quot;)</script>
                     <command></command>
                     <packageName></packageName>
-                    <regex>^halp$</regex>
+                    <regex>^\?help$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>death beam</name>
+                    <script>echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#@@@@@@@@#@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#######@@@@@#@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+''++###@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##+':,;'+##@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##+;``,;+#@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##+'::'+##@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#++++##@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+@###@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'#@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@'#@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@@'@#@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@@'#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@@'@;@#@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@@;@@'@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@@'@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@@@'@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@#@@@@@@@@@@@@@@'@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@@'@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@@+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@@+@@@@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@@+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@@+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@@+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@@@+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@@#+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@@#+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+@@@@@@@&quot;)
+echo(&quot;\n@@@@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+echo(&quot;\n@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+send(&quot; &quot;)</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^deathbeam$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>toggles list</name>
+                    <script>cecho(&quot;&lt;green&gt;\nBasic Toggles:&quot;)
+echo(&quot;\n hl: toggle healing on/off&quot;)
+echo(&quot;\n ss: toggle standing on/off&quot;)
+echo(&quot;\n dfnd: toggle defending on/off&quot;)
+echo(&quot;\n kil: toggle killing on/off&quot;)
+echo(&quot;\n tbld: toggle curing bleeding on/off&quot;)
+echo(&quot;\n tcl: toggle closing pack on/off&quot;)
+echo(&quot;\n tpr: toggle prompt display to numbers/percents&quot;)
+echo(&quot;\n tfp: toggle displaying 0 as change in vital stats on prompt&quot;)
+echo(&quot;\n ttime: toggle displaying timestamps on prompt&quot;)
+echo(&quot;\n taffs: toggle displaying afflictions given on attack echoes&quot;)
+echo(&quot;\n tdef: toggle colored echoes for incoming attacks&quot;)
+echo(&quot;\n tatk: toggle colored echoes for outgoing attacks&quot;)
+echo(&quot;\n tlp: toggle looping a single attack&quot;)
+if my.class == &quot;soldier&quot; then
+ echo(&quot;\n tmch: toggle marching on/off&quot;)
+ echo(&quot;\n tret: toggle retreating on/off&quot;)
+elseif my.class == &quot;rogue&quot; then
+ echo(&quot;\n tpoi: toggle displaying next poison layer on prompt&quot;)
+end
+send(&quot; &quot;)</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^\?toggles$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>bashing commands</name>
+                    <script>cecho(&quot;&lt;green&gt;\nBashing Commands:&quot;)
+echo(&quot;\n ff: toggle fasthunting&quot;)
+echo(&quot;\n aa: start bashing current room&quot;)
+echo(&quot;\n ast: stop bashing&quot;)
+echo(&quot;\n flee: toggle bashing/fasthunting off and queue flee&quot;)
+echo(&quot;\n tgg: toggle gathering gold and items&quot;)
+echo(&quot;\n gen: toggle generic/numeric targeting&quot;)
+echo(&quot;\n q X Y Z: manually load a prioritized target list of X, Y, and Z&quot;)
+echo(&quot;\n offr: check IH CORPSE and then offer all the corpses you hold&quot;)
+if my.class == &quot;soldier&quot; then
+ echo(&quot;\n brk: toggle berserking&quot;)
+ echo(&quot;\n trt: toggle threatening&quot;)
+ echo(&quot;\n tsnd: toggle sundering&quot;)
+elseif my.class == &quot;rogue&quot; then
+ echo(&quot;\n tflh: toggle fleching&quot;)
+ echo(&quot;\n tsm: toggle shadowmending&quot;)
+ echo(&quot;\n thid: toggle hiding&quot;)
+ echo(&quot;\n tcnt: toggle cantoing&quot;)
+ echo(&quot;\n treq: toggle requieming&quot;)
+elseif my.class == &quot;priest&quot; then
+ echo(&quot;\n thrt: toggle heretic&quot;)
+ echo(&quot;\n tsv: toggle savaging&quot;)
+elseif my.class == &quot;magician&quot; then
+ echo(&quot;\n tigt: toggle igniting&quot;)
+ echo(&quot;\n tana: toggle anachronizing&quot;)
+ echo(&quot;\n tbrg: toggle eldritch barrage&quot;)
+ echo(&quot;\n timm: toggle immolating&quot;)
+ echo(&quot;\n tis: toggle icespikes&quot;)
+ if my.tert == &quot;psi&quot; then
+  echo(&quot;\n tbml: toggle mindblasting&quot;)
+ end
+end
+send(&quot; &quot;)</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^\?bashing$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>info</name>
+                    <script>cecho(&quot;\n&lt;blue&gt;Welcome to Matawa 7.0!&quot;)
+cecho(&quot;\n&lt;green&gt;Forum Thread:&quot;)
+cecho(&quot;\n http://www.midkemiaonline.com/forum/free-mudlet-system-0&quot;)
+send(&quot; &quot;)</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^\?info$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>setup</name>
+                    <script>send(&quot;config voting on&quot;, false)
+send(&quot;config prompt all&quot;, false)
+send(&quot;config afflines on&quot;, false)
+send(&quot;config screenwidth off&quot;, false)
+send(&quot;config prompt remove verbose&quot;, false)
+send(&quot;config mxp on&quot;, false)</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^\?setup$</regex>
                 </Alias>
             </AliasGroup>
             <AliasGroup isActive="yes" isFolder="yes">
-                <name>healing</name>
+                <name>Healing</name>
                 <script></script>
                 <command></command>
                 <packageName></packageName>
@@ -681,10 +1004,17 @@ end</script>
                 </Alias>
                 <Alias isActive="yes" isFolder="no">
                     <name>focus body</name>
-                    <script>send(&quot;focus body&quot;)</script>
+                    <script>send(&quot;focus body&quot;, false)</script>
                     <command></command>
                     <packageName></packageName>
                     <regex>^fb$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>focus mind</name>
+                    <script>send(&quot;focus mind&quot;, false)</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^fm$</regex>
                 </Alias>
             </AliasGroup>
             <AliasGroup isActive="yes" isFolder="yes">
@@ -893,11 +1223,284 @@ end</script>
                             </Alias>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
-                            <name>subtlety</name>
+                            <name>Subtlety</name>
                             <script></script>
                             <command></command>
                             <packageName></packageName>
                             <regex></regex>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Backstab</name>
+                                <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;backstab &quot;..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^bst$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Infiltration Off</name>
+                                <script></script>
+                                <command>infiltrate nobody</command>
+                                <packageName></packageName>
+                                <regex>^io$</regex>
+                            </Alias>
+                            <AliasGroup isActive="yes" isFolder="yes">
+                                <name>Bombs</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                                <AliasGroup isActive="yes" isFolder="yes">
+                                    <name>Smoke</name>
+                                    <script></script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex></regex>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Construct Smokebomb</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;vout coal;construct smokebomb&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^csb$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Throw Smokebomb</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;throw smokebomb&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^tsb$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Throw Smokebomb Dir</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;throw smokebomb &quot;..matches[2])
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^tsb (\w+)$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Throw Smokebomb at Target</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;throw smokebomb &quot;..targ)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^ttsb$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Throw Smokebomb From Rooftops</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;throw smokebomb at ground&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^rtsb$</regex>
+                                    </Alias>
+                                </AliasGroup>
+                                <AliasGroup isActive="yes" isFolder="yes">
+                                    <name>Cusser</name>
+                                    <script></script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex></regex>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Construct Cusser</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;vout coal;construct cusser&quot;)
+end</script>
+                                        <command>vout coal;construct cusser</command>
+                                        <packageName></packageName>
+                                        <regex>^ccb$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Throw Cusser</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;throw cusser&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^tcb$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Throw Cusser Dir</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;throw cusser &quot;..matches[2])
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^tcb (\w+)$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Throw Cusser at Target</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;throw cusser &quot;..targ)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^ttcb$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Throw Cusser From Rooftops</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;throw cusser at ground&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^rtcb$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Throw Fireworks!</name>
+                                        <script></script>
+                                        <command>vout coal;construct cusser;bqa throw cusser at sky</command>
+                                        <packageName></packageName>
+                                        <regex>^fwrk$</regex>
+                                    </Alias>
+                                </AliasGroup>
+                                <AliasGroup isActive="yes" isFolder="yes">
+                                    <name>Fire</name>
+                                    <script></script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex></regex>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Construct Firebomb</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;vout wood;vout naphtha;construct firebomb&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^cfb$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Throw Firebomb</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;throw firebomb&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^tfb$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Throw Firebomb Dir</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;throw firebomb &quot;..matches[2])
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^tfb (\w+)$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Throw Firebomb at Target</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;throw firebomb &quot;..targ)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^ttfb$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Throw Firebomb From Rooftops</name>
+                                        <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;throw firebomb at ground&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^rtfb$</regex>
+                                    </Alias>
+                                </AliasGroup>
+                            </AliasGroup>
+                            <AliasGroup isActive="yes" isFolder="yes">
+                                <name>Hostage</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Hostage</name>
+                                    <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;hostage &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^hs$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Hostage Warn</name>
+                                    <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;warn &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^hsw$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Hostage Execute</name>
+                                    <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;execute &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^hse$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Hostage Release</name>
+                                    <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;release &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^hsre$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Hostage Rifle</name>
+                                    <script>if my.class == &quot;rogue&quot; then
+ set_attack(&quot;rifle &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^hsr$</regex>
+                                </Alias>
+                            </AliasGroup>
+                            <AliasGroup isActive="yes" isFolder="yes">
+                                <name>Crossbow</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Fire Crossbow Point Blank</name>
+                                    <script>set_attack(&quot;fire crossbow at &quot;..targ)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^fcb$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Fire Crossbow Dir</name>
+                                    <script>set_attack(&quot;fire crossbow &quot;..matches[2]..&quot; at &quot;..targ)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^fcb (\w+)$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Reload</name>
+                                    <script></script>
+                                    <command>bqa reload crossbow;bqa wind crossbow</command>
+                                    <packageName></packageName>
+                                    <regex>^rld$</regex>
+                                </Alias>
+                            </AliasGroup>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Emerge Silently</name>
+                                <script></script>
+                                <command>emerge silently</command>
+                                <packageName></packageName>
+                                <regex>^es$</regex>
+                            </Alias>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
                             <name>performance</name>
@@ -1167,7 +1770,7 @@ end</script>
                             <Alias isActive="yes" isFolder="no">
                                 <name>Naming of Tears</name>
                                 <script>if my.class == &quot;rogue&quot; then
- set_attack(&quot;Play Naming of Tears&quot;..targ)
+ set_attack(&quot;Play Naming &quot;..targ)
 end</script>
                                 <command></command>
                                 <packageName></packageName>
@@ -1176,7 +1779,7 @@ end</script>
                             <Alias isActive="yes" isFolder="no">
                                 <name>Requiem of the Fallen</name>
                                 <script>if my.class == &quot;rogue&quot; then
- set_attack(&quot;Play Requiem of the Fallen&quot;..targ)
+ set_attack(&quot;Play Requiem of the Fallen &quot;..targ)
 end
 </script>
                                 <command></command>
@@ -1351,6 +1954,258 @@ end</script>
                                 <command></command>
                                 <packageName></packageName>
                                 <regex>^cs$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Shadowstep</name>
+                                <script></script>
+                                <command>shadowstep</command>
+                                <packageName></packageName>
+                                <regex>^sstp$</regex>
+                            </Alias>
+                        </AliasGroup>
+                        <AliasGroup isActive="yes" isFolder="yes">
+                            <name>Poisons</name>
+                            <script></script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex></regex>
+                            <AliasGroup isActive="yes" isFolder="yes">
+                                <name>Saber</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Duroxin(No Body)</name>
+                                    <script></script>
+                                    <command>bqa envenom saber with duroxin</command>
+                                    <packageName></packageName>
+                                    <regex>^vsd$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Salenin(No Spirit)</name>
+                                    <script></script>
+                                    <command>bqa envenom saber with salenin</command>
+                                    <packageName></packageName>
+                                    <regex>^vss$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Cruorare(No Clotting)</name>
+                                    <script></script>
+                                    <command>bqa envenom saber with cruorare</command>
+                                    <packageName></packageName>
+                                    <regex>^vsh$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Lassoxin(No OD)</name>
+                                    <script></script>
+                                    <command>bqa envenom saber with lassoxin</command>
+                                    <packageName></packageName>
+                                    <regex>^vsl$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Mortoxis(Paralysis)</name>
+                                    <script></script>
+                                    <command>bqa envenom saber with mortoxis</command>
+                                    <packageName></packageName>
+                                    <regex>^vsp$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Somnulin(Sleep)</name>
+                                    <script></script>
+                                    <command>bqa envenom saber with somnulin</command>
+                                    <packageName></packageName>
+                                    <regex>^vssl$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Botulinum(Vomitting)</name>
+                                    <script></script>
+                                    <command>bqa envenom saber with botulinum</command>
+                                    <packageName></packageName>
+                                    <regex>^vsv$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Norare (Anorexia)</name>
+                                    <script></script>
+                                    <command>bqa envenom saber with norare</command>
+                                    <packageName></packageName>
+                                    <regex>^vsa$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Curonin (Paranoia)</name>
+                                    <script></script>
+                                    <command>bqa envenom saber with curonin</command>
+                                    <packageName></packageName>
+                                    <regex>^vspa$</regex>
+                                </Alias>
+                            </AliasGroup>
+                            <AliasGroup isActive="yes" isFolder="yes">
+                                <name>Dagger</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Duroxin(No Body)</name>
+                                    <script></script>
+                                    <command>bqa envenom dagger with duroxin</command>
+                                    <packageName></packageName>
+                                    <regex>^vdd$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Salenin(No Spirit)</name>
+                                    <script></script>
+                                    <command>bqa envenom dagger with salenin</command>
+                                    <packageName></packageName>
+                                    <regex>^vds$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Cruorare(No Clotting)</name>
+                                    <script></script>
+                                    <command>bqa envenom dagger with cruorare</command>
+                                    <packageName></packageName>
+                                    <regex>^vdh$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Lassoxin(No OD)</name>
+                                    <script></script>
+                                    <command>bqa envenom dagger with lassoxin</command>
+                                    <packageName></packageName>
+                                    <regex>^vdl$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Mortoxis(Paralysis)</name>
+                                    <script></script>
+                                    <command>bqa envenom dagger with mortoxis</command>
+                                    <packageName></packageName>
+                                    <regex>^vdp$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Somnulin(Sleep)</name>
+                                    <script></script>
+                                    <command>bqa envenom dagger with somnulin</command>
+                                    <packageName></packageName>
+                                    <regex>^vdsl$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Botulinum(Vomitting)</name>
+                                    <script></script>
+                                    <command>bqa envenom dagger with botulinum</command>
+                                    <packageName></packageName>
+                                    <regex>^vdv$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Norare (Anorexia)</name>
+                                    <script></script>
+                                    <command>bqa envenom dagger with norare</command>
+                                    <packageName></packageName>
+                                    <regex>^vda$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Curonin (Paranoia)</name>
+                                    <script></script>
+                                    <command>bqa envenom dagger with curonin</command>
+                                    <packageName></packageName>
+                                    <regex>^vdpa$</regex>
+                                </Alias>
+                            </AliasGroup>
+                            <AliasGroup isActive="yes" isFolder="yes">
+                                <name>Crossbow Bolts</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Duroxin (No Body)</name>
+                                    <script></script>
+                                    <command>bqa envenom bolt with duroxin</command>
+                                    <packageName></packageName>
+                                    <regex>^vcd$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Salenin (No Spirit)</name>
+                                    <script></script>
+                                    <command>bqa envenom bolt with salenin</command>
+                                    <packageName></packageName>
+                                    <regex>^vcs$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Cruorare (No Clotting)</name>
+                                    <script></script>
+                                    <command>bqa envenom bolt with cruorare</command>
+                                    <packageName></packageName>
+                                    <regex>^vch$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Lassoxin (No OD)</name>
+                                    <script></script>
+                                    <command>bqa envenom bolt with lassoxin</command>
+                                    <packageName></packageName>
+                                    <regex>^vcl$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Mortoxis (Paralysis)</name>
+                                    <script></script>
+                                    <command>bqa envenom bolt with mortoxis</command>
+                                    <packageName></packageName>
+                                    <regex>^vcp$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Somnulin (Sleep)</name>
+                                    <script></script>
+                                    <command>bqa envenom bolt with somnulin</command>
+                                    <packageName></packageName>
+                                    <regex>^vcsl$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Botulinum (Vomitting)</name>
+                                    <script></script>
+                                    <command>bqa envenom bolt with botulinum</command>
+                                    <packageName></packageName>
+                                    <regex>^vcv$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Norare (Anorexia)</name>
+                                    <script></script>
+                                    <command>bqa envenom bolt with norare</command>
+                                    <packageName></packageName>
+                                    <regex>^vca$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Curonin (Paranoia)</name>
+                                    <script></script>
+                                    <command>bqa envenom bolt with curonin</command>
+                                    <packageName></packageName>
+                                    <regex>^vcpa$</regex>
+                                </Alias>
+                            </AliasGroup>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Check Saber for Poisons</name>
+                                <script></script>
+                                <command>wp saber</command>
+                                <packageName></packageName>
+                                <regex>^wps$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Check Dagger for Poisons</name>
+                                <script></script>
+                                <command>wp dagger</command>
+                                <packageName></packageName>
+                                <regex>^wpd$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Saber Poison Combo</name>
+                                <script></script>
+                                <command>bqa envenom saber with somnulin;bqa envenom saber with cruorare;bqa envenom saber with salenin;bqa envenom saber with duroxin;bqa envenom saber with mortoxis;</command>
+                                <packageName></packageName>
+                                <regex>^evs$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Saber Group Poison COmbo</name>
+                                <script></script>
+                                <command>bqa envenom saber with lassoxin;bqa envenom saber with cruorare;bqa envenom saber with salenin;bqa envenom saber with duroxin;bqa envenom saber with mortoxis;</command>
+                                <packageName></packageName>
+                                <regex>^gvs$</regex>
                             </Alias>
                         </AliasGroup>
                     </AliasGroup>
@@ -1551,6 +2406,22 @@ end</script>
                             <command></command>
                             <packageName></packageName>
                             <regex></regex>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>desperate strike</name>
+                                <script>if my.class == &quot;soldier&quot; then
+ set_attack(&quot;strike &quot;..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^drt$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>voice of command</name>
+                                <script>set_send(&quot;command unit &quot;..matches[2])</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^cu (.*)$</regex>
+                            </Alias>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
                             <name>brutality</name>
@@ -1748,7 +2619,7 @@ end</script>
                                 <regex>^bso$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
-                                <name>dead roar</name>
+                                <name>dread roar</name>
                                 <script>if my.class == &quot;soldier&quot; then
  set_attack(&quot;roar &quot;..targ..&quot; dread&quot;)
 end</script>
@@ -1890,11 +2761,11 @@ end</script>
                             <Alias isActive="yes" isFolder="no">
                                 <name>scry</name>
                                 <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast scry &quot;..targ)
+ set_attack(&quot;cast scry &quot;..matches[2])
 end</script>
                                 <command></command>
                                 <packageName></packageName>
-                                <regex>^scry$</regex>
+                                <regex>^scry (\w+)$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
                                 <name>timewarp</name>
@@ -1912,7 +2783,7 @@ end</script>
 end</script>
                                 <command></command>
                                 <packageName></packageName>
-                                <regex>^anach$</regex>
+                                <regex>^anac$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
                                 <name>counterspell</name>
@@ -1926,8 +2797,9 @@ end</script>
                             <Alias isActive="yes" isFolder="no">
                                 <name>rift</name>
                                 <script>if my.class == &quot;magician&quot; then
- send(&quot;cast rift &quot;..matches[2])
- toggles.healing = false
+ set_attack(&quot;cast rift &quot;..matches[2])
+ waiting.overdrive = true
+ tempTimer(delay(), [[waiting.overdrive = false]])
 end</script>
                                 <command></command>
                                 <packageName></packageName>
@@ -2035,11 +2907,11 @@ end</script>
                             <Alias isActive="yes" isFolder="no">
                                 <name>supernova</name>
                                 <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast supernova 20 &quot;..targ)
+ set_attack(&quot;cast supernova 15&quot;)
 end</script>
                                 <command></command>
                                 <packageName></packageName>
-                                <regex>^nova%</regex>
+                                <regex>^nova$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
                                 <name>distortion field</name>
@@ -2459,121 +3331,6 @@ end</script>
                                 </Alias>
                             </AliasGroup>
                             <AliasGroup isActive="yes" isFolder="yes">
-                                <name>Icewall</name>
-                                <script></script>
-                                <command></command>
-                                <packageName></packageName>
-                                <regex></regex>
-                                <Alias isActive="yes" isFolder="no">
-                                    <name>icewall north</name>
-                                    <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast icewall north &quot;)
-end</script>
-                                    <command></command>
-                                    <packageName></packageName>
-                                    <regex>^icen$</regex>
-                                </Alias>
-                                <Alias isActive="yes" isFolder="no">
-                                    <name>icewall northeast</name>
-                                    <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast icewall northeast &quot;)
-end</script>
-                                    <command></command>
-                                    <packageName></packageName>
-                                    <regex>^icene$</regex>
-                                </Alias>
-                                <Alias isActive="yes" isFolder="no">
-                                    <name>icewall northwest</name>
-                                    <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast icewall northwest &quot;)
-end</script>
-                                    <command></command>
-                                    <packageName></packageName>
-                                    <regex>^icenw$</regex>
-                                </Alias>
-                                <Alias isActive="yes" isFolder="no">
-                                    <name>icewall west</name>
-                                    <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast icewall west &quot;)
-end</script>
-                                    <command></command>
-                                    <packageName></packageName>
-                                    <regex>^icew$</regex>
-                                </Alias>
-                                <Alias isActive="yes" isFolder="no">
-                                    <name>icewall east</name>
-                                    <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast icewall east &quot;)
-end</script>
-                                    <command></command>
-                                    <packageName></packageName>
-                                    <regex>^icee$</regex>
-                                </Alias>
-                                <Alias isActive="yes" isFolder="no">
-                                    <name>icewall southwest</name>
-                                    <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast icewall southwest &quot;)
-end</script>
-                                    <command></command>
-                                    <packageName></packageName>
-                                    <regex>^icesw$</regex>
-                                </Alias>
-                                <Alias isActive="yes" isFolder="no">
-                                    <name>icewall southeast</name>
-                                    <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast icewall southeast &quot;)
-end</script>
-                                    <command></command>
-                                    <packageName></packageName>
-                                    <regex>^icese$</regex>
-                                </Alias>
-                                <Alias isActive="yes" isFolder="no">
-                                    <name>icewall south</name>
-                                    <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast icewall south &quot;)
-end</script>
-                                    <command></command>
-                                    <packageName></packageName>
-                                    <regex>^ices$</regex>
-                                </Alias>
-                                <Alias isActive="yes" isFolder="no">
-                                    <name>icewall in</name>
-                                    <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast icewall in &quot;)
-end</script>
-                                    <command></command>
-                                    <packageName></packageName>
-                                    <regex>^icei$</regex>
-                                </Alias>
-                                <Alias isActive="yes" isFolder="no">
-                                    <name>icewall out</name>
-                                    <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast icewall out &quot;)
-end</script>
-                                    <command></command>
-                                    <packageName></packageName>
-                                    <regex>^iceo$</regex>
-                                </Alias>
-                                <Alias isActive="yes" isFolder="no">
-                                    <name>icewall up</name>
-                                    <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast icewall up &quot;)
-end</script>
-                                    <command></command>
-                                    <packageName></packageName>
-                                    <regex>^iceu$</regex>
-                                </Alias>
-                                <Alias isActive="yes" isFolder="no">
-                                    <name>icewall down</name>
-                                    <script>if my.class == &quot;magician&quot; then
- set_attack(&quot;cast icewall down &quot;)
-end</script>
-                                    <command></command>
-                                    <packageName></packageName>
-                                    <regex>^iced$</regex>
-                                </Alias>
-                            </AliasGroup>
-                            <AliasGroup isActive="yes" isFolder="yes">
                                 <name>Elemental Shield</name>
                                 <script></script>
                                 <command></command>
@@ -2731,6 +3488,46 @@ end</script>
                                     <regex>^lockd$</regex>
                                 </Alias>
                             </AliasGroup>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>incinerate</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast incinerate &quot;..matches[2])
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^ict (\w+)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>pyroclasm</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast pyroclasm &quot;..matches[2])
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^pyro (\w+)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>gale</name>
+                                <script>if my.class == &quot;magician&quot; then
+ if matches[3] == &quot;&quot; then
+  set_attack(&quot;cast gale &quot;..targ..&quot; &quot;..matches[2])
+ else
+  set_attack(&quot;cast gale &quot;..matches[3]..&quot; &quot;..matches[2])
+ end
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^gale (\w+)(.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>icewall</name>
+                                <script>if my.class == &quot;magician&quot; then
+ set_attack(&quot;cast icewall &quot;..matches[2])
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^ice (\w+)$</regex>
+                            </Alias>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
                             <name>demonology</name>
@@ -2791,6 +3588,333 @@ end</script>
                                 <command></command>
                                 <packageName></packageName>
                                 <regex>^nme$</regex>
+                            </Alias>
+                        </AliasGroup>
+                        <AliasGroup isActive="yes" isFolder="yes">
+                            <name>psionics</name>
+                            <script></script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex></regex>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>mindblast</name>
+                                <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi mindblast &quot;..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^mdb$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>mindmeld</name>
+                                <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi mindmeld &quot;..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^mmd$</regex>
+                            </Alias>
+                            <AliasGroup isActive="yes" isFolder="yes">
+                                <name>deaden</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>meninges</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi deaden meninges &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ddmn$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>thalamus</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi deaden thalamus &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ddth$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>hypothalamus</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi deaden hypothalamus &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ddhy$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>epthalamus</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi deaden epithalamus &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ddep$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>mesencephalon</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi deaden mesencephalon &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ddms$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>pons</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi deaden pons &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ddps$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>medulla oblongata</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi deaden medulla &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ddmo$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>cerebellum</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi deaden cerebellum &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ddcb$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>corpus callosum</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi deaden corpus &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ddcc$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>hippocampus</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi deaden hippocampus &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ddhp$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>cerebral cortex</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi deaden cortex &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ddcr$</regex>
+                                </Alias>
+                            </AliasGroup>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>mindlock</name>
+                                <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi mindlock &quot;..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^mdl$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>rewire</name>
+                                <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi rewire &quot;..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^rwr$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>psychic vampirism</name>
+                                <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi leech &quot;..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^psl$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>telekinetic choke</name>
+                                <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi choke &quot;..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^pch$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>induce phobias</name>
+                                <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi phobias &quot;..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^pbs$</regex>
+                            </Alias>
+                            <AliasGroup isActive="yes" isFolder="yes">
+                                <name>overload</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>meninges</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi overload meninges &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ovmn$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>thalamus</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi overload thalamus &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ovth$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>hypthalamus</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi overload hypothalamus &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ovhy$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>epithalamus</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi overload epithalamus &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ovep$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>mesencephalon</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi overload mesencephalon &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ovms$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>pons</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi overload pons &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ovps$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>medulla oblongata</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi overload medulla &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ovmo$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>cerebellum</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi overload cerebellum &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ovcb$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>corpus callosum</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi overload corpus &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ovcc$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>hippocampus</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi overload hippocampus &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ovhp$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>cerebral cortex</name>
+                                    <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi overload cortex &quot;..targ)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^ovcr$</regex>
+                                </Alias>
+                            </AliasGroup>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>psychic feedback</name>
+                                <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi feedback &quot;..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^pfb$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>short circuit</name>
+                                <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi shortcircuit &quot;..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^psc$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>hardwire</name>
+                                <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi hardwire &quot;..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^hdw$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>hard reset</name>
+                                <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi hardreset&quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^hst$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>mindmelt</name>
+                                <script>if my.tert == &quot;psionics&quot; then
+ set_psi(&quot;psi mindmelt &quot;..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^mmt$</regex>
                             </Alias>
                         </AliasGroup>
                     </AliasGroup>
@@ -3220,7 +4344,7 @@ end</script>
                                 <name>illuminated word	</name>
                                 <script>if my.class == &quot;priest&quot; then
  if matches[2] == &quot;&quot; then
-  set_attack(&quot;pray for illuminateed word&quot;)
+  set_attack(&quot;pray for illuminated word&quot;)
  else
   set_attack(&quot;pray for illuminated word to &quot; ..matches[2])
  end
@@ -3303,7 +4427,7 @@ end</script>
                             <Alias isActive="yes" isFolder="no">
                                 <name>resurrection        </name>
                                 <script>if my.class == &quot;priest&quot; then
- set_attack(&quot;pray for resurrection of &quot; ..ally)
+ set_attack(&quot;pray for resurrection of &quot; ..matches[2])
 end</script>
                                 <command></command>
                                 <packageName></packageName>
@@ -3313,18 +4437,18 @@ end</script>
                                 <name>blessings</name>
                                 <script>if my.class == &quot;priest&quot; then
  if matches[2] == &quot;&quot; then
-  send(&quot;pray for glorious word&quot;)
-  tempTimer(3.3, [[send(&quot;pray for radiant word&quot;)]] )
-  tempTimer(6.4, [[send(&quot;pray for illuminated word&quot;)]] )
-  tempTimer(9.6, [[send(&quot;pray for righteous word&quot;)]] )
-  tempTimer(12.79, [[send(&quot;pray for blessed word&quot;)]] )
+  send(&quot;pray for glorious word&quot;, false)
+  tempTimer(3.3, [[send(&quot;pray for radiant word&quot;, false)]] )
+  tempTimer(6.4, [[send(&quot;pray for illuminated word&quot;, false)]] )
+  tempTimer(9.6, [[send(&quot;pray for righteous word&quot;, false)]] )
+  tempTimer(12.79, [[send(&quot;pray for blessed word&quot;, false)]] )
  else
   blessed = matches[2]
-  send(&quot;pray for glorious word to &quot;..blessed)
-  tempTimer(3.3, [[send(&quot;pray for radiant word to &quot;..blessed)]] )
-  tempTimer(6.4, [[send(&quot;pray for illuminated word to &quot;..blessed)]] )
-  tempTimer(9.6, [[send(&quot;pray for righteous word to &quot;..blessed)]] )
-  tempTimer(12.8, [[send(&quot;pray for blessed word to &quot;..blessed)]] )
+  send(&quot;pray for glorious word to &quot;..blessed, false)
+  tempTimer(3.3, [[send(&quot;pray for radiant word to &quot;..blessed, false)]] )
+  tempTimer(6.4, [[send(&quot;pray for illuminated word to &quot;..blessed, false)]] )
+  tempTimer(9.6, [[send(&quot;pray for righteous word to &quot;..blessed, false)]] )
+  tempTimer(12.8, [[send(&quot;pray for blessed word to &quot;..blessed, false)]] )
  end
 end
 </script>
@@ -3561,15 +4685,15 @@ end</script>
                             <Alias isActive="yes" isFolder="no">
                                 <name>full inferno</name>
                                 <script>if my.class == &quot;priest&quot; then
- send(&quot;firecall inferno&quot;)
- tempTimer(4.1, [[send(&quot;firecall wildfire&quot;)]])
- tempTimer(5.6, [[send(&quot;firecall heatwave&quot;)]])
- tempTimer(7.3, [[send(&quot;firecall smokesceen on&quot;)]])
- tempTimer(8.3, [[send(&quot;firecall ashfall&quot;)]])
- tempTimer(12.5, [[send(&quot;firecall backdraft&quot;)]])
- tempTimer(17.4, [[send(&quot;firecall firerain&quot;)]])
- tempTimer(21.6, [[send(&quot;firecall fumes&quot;)]])
- tempTimer(25.6, [[send(&quot;firecall firewalls&quot;)]])
+ send(&quot;firecall inferno&quot;, false)
+ tempTimer(4.1, [[send(&quot;firecall wildfire&quot;, false)]])
+ tempTimer(8.6, [[send(&quot;firecall heatwave&quot;, false)]])
+ tempTimer(14.3, [[send(&quot;firecall smokescreen on&quot;, false)]])
+ tempTimer(19.3, [[send(&quot;firecall ashfall&quot;, false)]])
+ tempTimer(23.5, [[send(&quot;firecall backdraft&quot;, false)]])
+ tempTimer(28.4, [[send(&quot;firecall firerain&quot;, false)]])
+ tempTimer(32.6, [[send(&quot;firecall fumes&quot;, false)]])
+ tempTimer(36.6, [[send(&quot;firecall heatstroke&quot;, false)]])
 end</script>
                                 <command></command>
                                 <packageName></packageName>
@@ -3607,6 +4731,206 @@ end</script>
                             <command></command>
                             <packageName></packageName>
                             <regex></regex>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Shadowsense</name>
+                                <script>if my.class == &quot;priest&quot; then
+	set_attack(&quot;shadowcall sense&quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^sense$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Greater Heal</name>
+                                <script>if my.class == &quot;priest&quot; then
+ if matches[2] == &quot;&quot; then
+  set_attack(&quot;shadowcall greater heal&quot;)
+ else
+  set_attack(&quot;shadowcall greater heal &quot; ..matches[2])
+  ally = matches[2]
+ end
+ need_heal = true
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^gheal(.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Shadow Passage</name>
+                                <script>if my.class == &quot;priest&quot; then
+	set_attack(&quot;shadowcall passage &quot; ..matches[2])
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^spass(.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Mimic</name>
+                                <script>if my.class == &quot;priest&quot; then
+	set_attack(&quot;shadowcall mimic &quot; ..matches[2])
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^mimic(.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Grotesque Visage</name>
+                                <script>if my.class == &quot;priest&quot; then
+	set_attack(&quot;shadowcall disgust &quot; ..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^disg$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Deceit</name>
+                                <script>if my.class == &quot;priest&quot; then
+	set_attack(&quot;shadowcall deceive &quot; ..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^dec$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Shadowlance</name>
+                                <script>if my.class == &quot;priest&quot; then
+	set_attack(&quot;shadowcall lance &quot; ..matches[2] &quot; at &quot; ..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^lnc(.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Silentcall</name>
+                                <script>if my.class == &quot;priest&quot; then
+	set_attack(&quot;shadowcall night&quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^ngt$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Marionette</name>
+                                <script>if my.class == &quot;priest&quot; then
+	set_attack(&quot;shadowcall bind &quot; ..matches[2])
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^mar (.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Liebound Stalker</name>
+                                <script>if my.class == &quot;priest&quot; then
+	if matches[2] == &quot;&quot; then
+		set_attack(&quot;shadowcall stalk &quot; ..targ)
+	else
+		set_attack(&quot;shadowcall stalk &quot; ..matches[2])
+	end
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^stk(.*)$</regex>
+                            </Alias>
+                            <AliasGroup isActive="yes" isFolder="yes">
+                                <name>Eclipse</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>shadowcall eclipse</name>
+                                    <script>if my.class == &quot;priest&quot; then
+	set_attack(&quot;shadowcall eclipse&quot;)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^eclipse$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>shadowcall dissolve</name>
+                                    <script>if my.class == &quot;priest&quot; then
+	set_attack(&quot;shadowcall dissolve&quot;)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^dissolve$</regex>
+                                </Alias>
+                            </AliasGroup>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Masquerade</name>
+                                <script>if my.class == &quot;priest&quot; then
+	set_attack(&quot;shadowcall masquerade&quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^masq$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Desperate Prayer</name>
+                                <script>if my.class == &quot;priest&quot; then
+	if matches[2] == &quot;&quot; then
+		set_attack(&quot;shadowcall desperate prayer&quot;)
+	else
+		set_attack(&quot;shadowcall desperate prayer &quot; ..matches[2])
+	end
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^desp(.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Scarab Curse</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Storm of Shadows</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Night's Horror</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Shadeskin</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Oubliette</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Torturous Whip</name>
+                                <script>if my.class == &quot;priest&quot; then
+	set_attack(&quot;shadowcall lash &quot; ..targ)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^shw$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>cloak</name>
+                                <script>if my.class == &quot;priest&quot; then
+ set_attack(&quot;shadowcall cloak&quot;)
+end</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^scloak$</regex>
+                            </Alias>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
                             <name>bloodlore</name>
@@ -3662,7 +4986,7 @@ end</script>
  set_attack(&quot;bloodcall mutilate &quot; ..targ)
 end
 
---epilepsy (cannot focus spirit) -- Focus Mind</script>
+--epileptic (cannot focus spirit) -- Focus Mind</script>
                                 <command></command>
                                 <packageName></packageName>
                                 <regex>^mut$</regex>
@@ -3762,7 +5086,7 @@ end
  set_attack(&quot;bloodcall rake &quot; ..targ)
 end
 
---impatience (cannot focus body) - Focus spirit</script>
+--impatient (cannot focus body) - Focus spirit</script>
                                 <command></command>
                                 <packageName></packageName>
                                 <regex>^rke$</regex>
@@ -3855,8 +5179,8 @@ end</script>
  set_attack(&quot;bloodcall blackbile &quot; ..targ)
 end
 
---anemia (cannot duck)
---bleed: anemia and ataxia (cannot jump)</script>
+--anemic (cannot duck)
+--bleed: anemic and ataxia (cannot jump)</script>
                                 <command></command>
                                 <packageName></packageName>
                                 <regex>^blk$</regex>
@@ -3917,6 +5241,27 @@ end</script>
                             <packageName></packageName>
                             <regex>^dcp$</regex>
                         </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>Sever</name>
+                            <script>set_attack(&quot;sever &quot;..targ)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^svr$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>Perfect Defense</name>
+                            <script>set_equil(&quot;pd&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^pd$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>Apply Bandage</name>
+                            <script></script>
+                            <command>apply bandage</command>
+                            <packageName></packageName>
+                            <regex>^aba$</regex>
+                        </Alias>
                     </AliasGroup>
                     <AliasGroup isActive="yes" isFolder="yes">
                         <name>vigilance</name>
@@ -3940,7 +5285,32 @@ end</script>
                     <packageName></packageName>
                     <regex>^ts$</regex>
                 </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>shield</name>
+                    <script>set_attack(&quot;touch shield tattoo&quot;)</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^tsh$</regex>
+                </Alias>
             </AliasGroup>
+            <Alias isActive="yes" isFolder="no">
+                <name>pumpkins</name>
+                <script>my.area = &quot;pumpkins&quot;
+load_targets(&quot;pumpkins&quot;)
+send(&quot; &quot;)</script>
+                <command></command>
+                <packageName></packageName>
+                <regex>^bpm$</regex>
+            </Alias>
+            <Alias isActive="yes" isFolder="no">
+                <name>mana wyrms</name>
+                <script>my.area = &quot;MoteHunt&quot;
+load_targets(&quot;MoteHunt&quot;)
+send(&quot; &quot;)</script>
+                <command></command>
+                <packageName></packageName>
+                <regex>^wbs$</regex>
+            </Alias>
         </AliasGroup>
     </AliasPackage>
 </MudletPackage>
