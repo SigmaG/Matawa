@@ -35,6 +35,7 @@ mtw.priorities = {
 "aff_broken_left_arm",
 "aff_fear",
 "aff_broken_right_arm",
+"aff_dystrophy",
 "aff_recklessness",
 "aff_compulsion",
 "aff_lust",
