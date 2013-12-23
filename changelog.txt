@@ -478,3 +478,353 @@ o Added rage and liturgy triggers that will only fire when not bashing or fishin
 o Changed the enemy_health colors for spellshield to varying shades of blue/purple/pink instead of the normal green/yellow/red. -Ulalah
 o Fixed some issues with requiem in the bashing for bards. It should now use it properly, and save it for mobs with over 25% health. -Nomi, Fudkin
 **NOTE** This version has some missing first person defend lines due to the new first person handling I put in to allow the affliction echoes.
+
+v7.1
+o The prompt now displays <counter> in blue brackets with white text when counterattack/inquartata are available. -Nomi
+o Fixed an error with first person ice spikes tracking. -Firengaud
+o Changed the ?setup to CONFIG VOTING PROMPT now, and converted the -VOTE!- reminder on the prompt to a clickable voting link. So you better vote!
+o Pasted in Erwing's poison_aff table, the poison tracking now works for more than two poisons. -Erwing
+o Fixed a bug with the rift handling, it should now properly toggle healing on and off for you. -Firengaud
+o Fixed some bugs with the auto counter/inq toggle...it should no longer spam you to hell. It will also display <counter> on the prompt when you can use them. -Nomi
+o Added Firengaud's aliases for psionics amplify abilities. -Firengaud
+o Added magician lines to the crit tracker, it now works for mages too. -Firengaud
+o Added Firengaud's fixes for affliction tracking for mages. -Firengaud
+o Added Erwing's rogue and trip first person lines. -Erwing
+o Added priest lines to the crit tracker too!
+o Added a bunch of priest attack echoes.
+o Added thanatology aliases.
+o Tweaked the priest bashing function, it now tracks revitalization and will use that first when you're taking too much damage.
+o Added balestra to the rogue bashing function, you have a new can.balestra variable you can set. It runs on the same toggle as fleche, though. -Nomi
+o Added a new tff alias that toggles fastfish on and off. -Imira
+o Updated the FAQ again to reflect more new changes. -Imira
+o Updated the ?help and ?bashing and ?toggles aliases to reflect new stuff. -Imira
+o Made some small tweaks and fixes to optimize the rogue bashing function.
+o The crit tracker now tracks world-shattering crits properly. Stupid typos.
+o Corrected some errors with tracking oubliette and bloodboil. -Saithe
+o Added lurker as an affliction...finally. Hehe. -Althaea
+o Writhing while not entangled will now once again properly clear writhe type afflictions. This should prevent writhing loops from illusions, etc.
+o Using teleport will now properly clear all writhe afflictions again.
+o Altered the pack handling anti-theft aliases, you can now set my.container to 'pack' or 'pack930489' and sending 'p pack' will properly use the alias. Keep in mind that setting my.container to '930489' still won't work. -Rhaegar
+o Added big colored alerts to the prompt for when defending and standing are toggled off, similar to the healing one from the last update. -Nomi
+o You should now automatically enemy after rejecting lust. -Ulalah
+o The fishing module will now work correctly with the quicksilver pole.
+o Sending stop will now send stop, stop bashing, stop fasthunting, and clear your next attack, if you have one. -Saithe
+o Killing something will no longer clear the action queue if flee is your next action. -Savil
+o Made some fundamental changes to how the system handles cooldown skills while bashing (barrage, requiem, etc). It should function much more smoothly now, and be both easier and more intuitive to add more.
+o Added proper tracking for last stand for soldiers, as well as a new alias, stru, to queue it up. -Bobby, Saithe
+o Added a bunch of new bashing areas to the target list, and fixed up some old ones.
+o BIRTHDAYS will now display the date and estimated time of Banapis in RL time. -Caelyria
+o The new alias, dgate, will now function like the current rift alias, but for demon gates. -Cross
+o The system now has a toggle, tdiag, which will toggle displaying the effects of afflictions when you DIAG or ASSESS. -Zyanya
+o The affdisplay toggle will now also display afflictions from attacks that hit you, as well as the ones you hit with. -Zyanya
+o Gave the ?toggles alias some love, it's now more neatly structured and comprehensive.
+o Adjusted the adrenaline checks on overdrive, focus, and defending. -Rhaegar
+o The system will now recognize not having adrenaline while reckless, and stop trying to consume it until you heal reckless. It will display a "reckless%" for your adrenaline level, and I suggest either trying to focus spirit manually until you hit reckless, or giving up and dying since you have no adrenaline anyway. Once reckless is healed, it will properly track adrenaline once more. -Rhaegar
+o Added arcane fire, somnolence, and burning limbs as new afflictions. -Llandyr
+o Added all 16 new swordmastery attacks. -Llandyr
+o Updated the basher to make use of starfury slash. -Amethyst
+o The system now tracks swordmastery as a tert, and will display your magic on the prompt if you have it. -Calain
+o Starfury slash is now added to the crit tracker and has an attack echo. More first person swordmastery echoes to come! -Calain
+o You will no longer bother trying to defend ignite. Since it's exactly the same whether you do or don't. Might as well save the equilibrium. -Firengaud
+
+v7.2
+o Fixed an error in the casting trigger for fishing that made it try to keep casting over and over without reeling, if fastfishing was on. -Avla
+o Added the psi amplify things as defenses. -Firengaud
+o Sever defenses should now properly queue on equilibrium instead of balance. -Rhaegar
+o The STANDING OFF display should now only show while in combat, for those who found it annoying. -Vanko
+o Fixed a typo that was preventing the system from properly tracking swordmastery as a tert.
+o You have a new 'date' alias that will display the RL date and time until a given number of MKO days pass. For example, date 10 will tell you the RL date and time for 10 midkemian days from now.
+o Added the gain and diag lines for the second and third stacks of arcane fire. -Wselwulf
+o Added a new status.combat variable. I'm not sure it's entirely accurate. But it's better than nothing!
+o Using kd hiding will no longer try to hide while in combat, or while fishing, if fishing state is anything other than waiting. So if a rogue uses kd hiding, they'll hide while waiting for bites but not at other times. -Erwing
+o Added the effects for other afflictions, tdiag will now make them display when you DIAG or ASSESS.
+o Fixed a typo in the spellshield give line that was fixed in game. -Rosalia
+o Soldiers' sunder has been added to the crit tracker.
+o Added a yellow colored +SPELLSHIELD DOWN+ display to the prompt for magicians.
+o Added some of Savil's magician fixes, including the first person lines for immolate, the ending line for demon gates, a class check for lightball, more demonology aliases, and an anachronize and barrage tracker on the prompt. -Savil
+o Updated the anti theft triggers for the new(ish) remove line. No one tries to steal from me so I never noticed, sorry! -Erwing
+o Fixed a number of defending triggers brought to attention by Christoff, thanks! -Christoff
+o Added inspiring mantle and several other priest skills as defenses. -Saithe
+o Added first person righteousness and pyromania lines, as well as some faith ones. -Saithe
+o Added the first person start and hit lines for swordmastery. Still need someone to gather the miss and defend lines, if possible. -Llandyr
+o Fixed a major bug that caused the basher to try and loop anachronize instead of moving on. Whoops. -Savil, Erwing
+o Critical hit data now stores across sessions. You also have an alias, critclear, to reset that data.
+o The system should now track all the unique names for guild novice channels. You can view the last 20 messages on GNT with gntells alias.
+
+v7.3
+o -Actually- fixed the spellshield give line error now. For real! -Erwing
+o Fixed an error with melt's first person line, it will now track hitting females and will also properly show which defense you stripped. -Saithe
+o Fixed a bug with tracking second person gale hits. -Pela
+o Adjusted the attack queuing function to use the burst skills in swordmastery on offhand balance, if can.dual is true. -Rhuric
+o Made a few tweaks to the fishing bit to perfect the use of hide in between fish-fights.
+o Fixed a bug with divine censure that caused it to frequently bypass the slowcuring scripts. -Saithe, Brontag
+o The system now recognizes that divine censure cures heresy. -Brontag
+o Fixed a bug with balestra hits tracking poison layers. -Erwing
+o Folded in all Erwing's updates for rogues, mages, missing lines, colors, and so on. -Erwing
+o Added the active attacks from crusading. -Nicholo
+o Added the befuddled and withered afflictions. -Nicholo
+o Updated the checks for standing, attacking, defending, getting items, and a number of other actions to respect the new restrictions on prone and entanglement. -Erwing
+
+v7.3.1
+o Removed some duplicated triggers and fixed some aliases with errors. -Erwing
+
+v8.0
+o All functions, variables, tables, and so on in the system are now part of a larger mtw table. Instead of a need_vote variable, you now have a mtw.need_vote. This should prevent the system from ever having a conflict with any other script you write or import.
+o There are a crapton of new comments added into almost every script in the system. These comments should be much more informative and helpful to anyone looking to modify anything, explaining what things do and annotating all major functions.
+o Many many many functions and variables have been given new names or moved around to be more intuitively laid out.
+o The system now tracks class and tert from the gmcp skills values, this should mean that you can no longer accidently clear your class variable, preventing the use of class-specific skills and aliases. -Xarcon
+o Among many other changes, the old 'my' table is now the new 'options' table, and the script is now marked with a note indicating this is the one you should customize. This should make installing and customizing the system much more user friendly.
+o The system now accurately tracks whether or not you're in combat. This has a variety of advantages, including the ability to make things like a hiding toggle more viable and the ability to limit features to prevent tricky tactics, like someone handing you coins and forcing you to put coins in pack to interrupt decapitate. These types of events will no longer fire in combat.
+o The system now has a full blown illusion detection feature. It is currently limited to ignoring affliction lines accompanied by the illusion detection warning, but can be easily expanded to include a variety of other conditions.
+o Handling of overdrive for both health and magic has been folded into the same action queue as all other afflictions, defenses, and attacks. While this change shouldn't really be visible, it should smooth the system's functionality under timewarp and censure, and allow for more experienced users to more precisely customize their priorities in those situations.
+o The system now includes even more toggles, because the old list wasn't long enough already. You now have toggles for replacing the affliction and defense gain/take lines, toggles for balance and cooldown replacement lines, and a few other new ones. I honestly don't remember which are new and which aren't anymore.
+o The new affliction table includes an assess column, this is used for displaying afflictions on someone you assess, and replaces the old redundant table, making new afflictions easier to add.
+o The old attacks and my_attacks tables have been condensed into a single attacks table that now includes the data from both on each line, making new attacks infinitely easier and much less redundant to add.
+o Sticking to the theme of more options, you now have both ltime and rtime toggles. The ltime puts timestamps to the left of the prompt...and rtime to the right. Obviously. -Nomi
+o You now have a ?fish command. In addition, many of the other ? commands have been updated and expanded. Take a look!
+o The ?setup alias has changed slightly, so everyone needs to send it again!
+o Bleeding is now handled as a stacked affliction instead of as its own module, this mean handling bleeding should be much smoother, especially in timewarp, and the system should no longer spam clot while slowcuring unless you have nothing better to do.
+o The system's affliction tracking has (finally) been modified and simplified to incorporate the affmessages config option. While this may result in a few missing lines, to be added in later updates, it also means that adding new afflictions is even easier to do.
+o The system now tracks the use of diagnose and matches diagnose lines to the affliction table instead of individual triggers. -Rayth, Caelyria
+o Added the threaten and blood omen afflictions, as well as making icy tomb its own thing instead of wrapping it in with stun.
+o Added a large number of new defenses, including some missing tattoos and things like the highcastle and veilgarden ones.
+o The system now has a toggle for defense effects, similar to the one that displays affliction effects on DIAG, you can now display defense effects on DEF.
+o Reworked the kd alias, you can now use the beginning of the defense instead of typing the full thing out. For example, kd myr will now toggle the use of the myrrh defense. That said, be careful--abbreviating too short might get the wrong defense (kd shadow might toggle shadowmend or shadowstep).
+o The system now properly handles stacked afflictions. All of them, as far as I know. Any further errors with it should be brought up again please!
+o Big huge special thanks to Vanko for helping do some of the tedious work on the affliction and defense tables. Thanks for cutting down on the time invested for me! -Vanko
+o Vampires will now ignore burn levels outside of combat. -Vermiculus
+o Completely reworked almost all the bashing handling, renaming variables to be more intuitive and rewriting almost all the functions except the ones that actually pick attacks. So any bugs with the bashing are new ones that need to be brought up asap please!
+o Thanks to some nifty color triggers, the system now completely ignores all illusioned affmessage lines. -Vanon
+o Mages now receive a colored prompt warning when spellshield is active, but not being maintained. IE, you should use kd spellshield when you see +SPELLSHIELD OFF+ on the prompt. -Nivek
+o Vanko completely rebuilt the new attacks table, much love and affection and admiration for his patience. Someone give that man some credits or something. -Vanko
+o The system now features a very rudimentary mining script, along with a mining toggle, tmin. -Zur
+o Big thanks to Zyanya for running through all the defense give/take triggers and setting the appropriate ones to exact match instead of regex. -Zyanya
+
+v8.1
+o Re-added the premonition and forboding highlights. Not really sure where those got lost at... -Erwing
+o Fixed a bug with the flee alias. It works again now! Woo!
+o Fixed an issue with tracking mtw.my.name, this should mostly effect bashing turn in triggers that might have been broken.
+o Fixed a bug with SURVEY not overriding the q alias for bashing targets. It should now work properly for both methods again.
+o Fixed a bug with level 3+ bleeding completely breaking the system. -Orsyn
+o Removed a bunch of old affliction lines that caused the system to freeze. -Orsyn
+o Fixed an error with priest bashing that frequently made it just stop.
+o Fixed some typos in a couple of toggle aliases. -Korosu
+o Fixed the bug in the defending function that made it return lua errors and never actually defend.
+o Fixed some typos in a bunch of priest aliases that made them return errors instead of attacks. -Nivek
+o Fixed some problems with anachronize tracking that caused the system to spam anachronize and nothing else while bashing. -Nivek
+o Touched up and expanded the auto-mining thing, it now also works for chopping, and vaults the stuff you just gathered.
+o Added some more areas to the bashing table that should help rogues with deathmask who are passing through or mining.
+
+v8.2
+o Fixed a couple bugs with tracking magician and priest vital stats. You should no longer get errors on the prompt that sometimes interrupt actions. -Loren
+o Fixed some bugs with the shadowmend toggle while bashing. It should work again now.
+o Fixed a bug with tracking balestra defend.
+o Fixed some more bugs with first person attack tracking.
+o Fixed a bug with incoming parry-type attacks returning lua errors.
+o Fixed several bugs with inaccurately named attacks preventing defending. -Starra
+o Fixed a number of bugs resulting from attacks that changed names across updates, and caused the system to ignore most incoming attacks. -Starra
+o Fixed a bundle of typos and minor errors in tracking various afflictions, including heart palpitations, asthma, and a few others. -Ashra
+o Added the severed tendons given by legslice as an affliction. Not really sure how that was missed...-Ashra
+o Fixed a bug that disabled OD for magicians with low magic. -Hawke
+o Hunted down and ended the blackout-diag-spamming-bug with extreme prejudice. -Ashra
+o Re-added the psionics aliases. -Nomi
+
+v8.3
+o Fixed a bug with tracking ASSESS not displaying properly.
+o Fixed a bug with the color for non-focus afflictions calling an invalid color. Things like bleeding should show up on DIAG and ASSESS now. -Azaezael
+o Fixed a bug that occasionally caused the basher to double send attacks.
+o Fixed some bugs with mindblast not firing while bashing. -Hawke
+o Fixed a bug with automatically re-wielding. It should now work again. -Nomi
+o Some key defenses are now colored differently on DEF, these colors are determined by a new "type" column in the defenses table.
+o Added a -very- rudimentary alchemy table and alias. All it does is vout, add, and amalgamate for the poison used with the alch alias. For example, alch duroxin would flush, fill, and amalgamate the alembic for duroxin.
+o Added desperate prayer to the priest bashing function, this should fire when your health is very low and you have enough faith, but you'll need to enable the can toggle for it via the options script.
+o Fixed a bug with the priest basher not recognizing undead for holy fire. -Edwayne
+o Crusading's dominating strike has been added to the priest bashing function, for use at 90% or more adrenaline, and with a toggle and can variable. -Zur
+o Fixed a small error in the affmessage illusion proofing, it should now function better.
+o Sort of fixed the bug that caused the system to spam the crap out of you while reckless with no adrenaline. The system now sets adrenaline to -1 when you see the 'not enough adrenaline' line while adrenaline is 100%. If you land an attack while adrenaline is -1, it sets adrenaline to 10. This means it will still spam you--though much much less, but it is necessary to prevent the system for freezing completely until recklessness is manually cured.
+o Fixed an error with repenting levels being mixed up. -Sushpan
+o Added a bunch of missing priest lines for defending. -Sushpan
+o Fixed a bug that caused all psi aliases not to work. -Vilnearo
+o Halved the time it takes for the system to gather initial attack time data. It should now start properly timing defenses much faster.
+o Added first person attack echoes for shadoweaving. -Shaoeytar
+o Fixed a number of mistakes and added missing triggers for incoming shadoweaving and righteousness attacks. -Shaoeytar
+o Added to and cleaned up the first person rogue lines.
+o Fixed up and added missing incoming attack lines for magicians. -Loren
+o The system now only shows miss echoes for attacks you're actually being hit with. Because loooooooooots of miss lines are generic, or shared with many other attacks. -Loren
+o The system now also ignores generic miss, hit, and defend lines for outgoing attacks. This should fix the problem soldiers were having while bashing.
+o Fixed some problems with tracking and defending Brutality's shatter limb.
+o Re-added lust as an affliction. Not really sure where that one got lost at... -Saithe
+o Saithe was kind enough to donate a modified default priority list. You should now heal blackout before blindness, among other things--though it's still best to tweak and customize the list to suit each individual. -Saithe
+o Added entropy as a new attack. -Zia
+
+v8.4
+o Fixed a minor typo with calculating delay times for defending attacks. -Barathrum
+o Fixed an error with tracking rogue poisons.
+o Fixed a bug that caused a bunch of priest defenses to be gagged on DEF.
+o Hunted down some bugs with tracking outgoing icespikes. -Cadan
+o Changed the way the system captures IH lines to make it read lines with special characters, such as the Knight-Captain in Hush and Lug'dak in Ig'tur. -Aerrant, Tora
+o Fixed some bugs with tracking outgoing soldier stuff. -Zyth
+o Looping now toggles off on the untarget function, so whenever you kill or leave combat. -Cross
+o Wrote in the functions to track third person lines, and added a bunch of them--at least the bashing ones for mages and soldiers. -Darrian, Gianna
+o Fixed a bunch of bugs with crusading attacks that caused them to return lua errors.
+o Fixed some discrepencies with affliction and attack names to resolve a number of minor bugs.
+o Vampires will no longer focus away level 1 burns. -Vermiculus
+o The system now has a new toggle, tfs, to toggle focusing on and off. Especially useful for dragon hunting.
+o Fixed a few errors with afflictions missing from the new priorities table. It should be complete now.
+o The system now comes with a map window and tabbed chat box included. You can disable these by selecting the folders for them and locking them and then closing and reopening mudlet.
+o Huuuuuuuuuuuuge thanks to Nemi for all her time and patience and help with sorting and filling in and correcting a crapload of incoming and outgoing attack lines. Can't thank her enough for her patience! -Nemi
+o Added a very simple and thoroughly incomplete version of song tracking for bards. Eventually, it will be expanded, promise!
+o Bards now have can variables for prelude and allegro, and a toggle for prelude. If all are on, the system will attempt to use prelude while bashing for you.
+o Added a rudimentary tattooing thing, it has a table of tattoos and will vout the inks for you when you enter the normal inking command.
+
+v8.4.1
+o Added the new bashing area in Carse.
+o Added the new 'restrained' affliction.
+
+v8.5
+o Fixed some errors with poison tracking for rogues. -Erwing
+o Looked over the FAQ.txt and updated and corrected it.
+o Fixed some problems with tracking blackout.
+o Debugged the auto counter, it should now work properly again.
+o Added can and toggle variables for flourish for rogues. While both are set to true, rogues will attempt to flourish any and all incoming attacks from their current target, excluding soldiers ones, because repulse sucks.
+o The version of the mapper included in the system now lets you click to auto walk to rooms from WARPSENSE and SCAN ROOFTOPS and MOUNTSENSE.
+o The disturbance line from entering a room with a warp is now a clickable link that sends WARPSLICE.
+o The system now tracks the time passed since the last time mages hit with storm lance, and while ice spikes it toggled on, it will attempt to maintain 3 stormfury charges around casting spikes.
+o The echo for ice spikes hitting now has a more visible warning for melting ones being cast.
+o Added a new alias, loseall, which will check QW and attempt to LOSE everyone visibly logged on. -Akaxi
+o Fixed a bug that sometimes caused the system to freeze up for magicians.
+o You can now use hidechat and showchat to...hide, and show the chat window, respectively. -Naftali
+o The system now tracks skills via gmcp. Unfortunately, the gmcp skills event isn't sent when changing classes. Until this is fixed (by Ishap, so bug him!), you'll need to force the event some other way. -Naftali
+**NOTE** This means you no longer need to set the can variables--only the toggles, and your mount and container, when setting up a new update or switching between alts!
+o Added a simple trigger for Pathfinders that will let them more easily navigate the guild's new compound.
+o Corrected the recently altered lines for some vigilance skills.
+o Added a new alias, fix, which will call for and read the gmcp skills event, in case it gets messed up somehow (which it does, especially after dying).
+o Made a huge number of minor fixes, none of which should have any major impact. Things such as cleaning up the regex for trigger lines, or tidying small errors with echoes.
+o The lines from DEF are now child triggers to the line from sending DEF, this should have no real obvious impact, but it makes things neater and slightly faster. -Naftali
+
+v8.6
+o Added balance_loss to the defended hit for wrathful thunder. -Naftali
+o Corrected a typo in the outgoing slash trigger. -Naftali
+o Fixed an issue with stun/blackout locking up the system completely.
+o Fixed some typos in the elemental shield triggers. -Savil
+o Corrected a typo in tracking blood omen that caused the system to wallow against all hematurgists.
+o Fixed a number of errors in bloodlore lines that failed to account for the fact that they change depending if you're bleeding or not.
+o Added betrayal of blood as a tracked affliction that causes the system to stop sending overdrive.
+o Fixed a typo in the incoming defend for holy sword.
+o Fixed an error with slowcuring that caused the system to periodically freeze in timewarp or censure.
+o Sorted the swordmastery attack triggers into their proper folders.
+o Added a bunch of missing swordmaster lines. -Naftali
+o Added greenburst and phoenix crouching as tracked defenses. -Naftali
+o Fixed a repeated instance of checking for psionics incorrectly, all psi functions and aliases should now work again. -Vilnearo
+o Fixed a bug that caused the system to sometimes send both the incoming AND observing attack echoes.
+o Added balefire to the magician basher. It will use balefire if your magic drops below 60% while you have stormfury charges active, to avoid consuming too much magic charging stormfury, but maximizing DPS if you're fine doing so.
+o Altered the ice spiking toggle to account for the new shelf life of stormfury charges.
+o Added vileblade as a defense for thief rogues, though the skill is currently bugged, so it's useless.
+
+v8.7
+o Added all the incoming miss lines for swordmastery. -Naftali
+o Corrected some errors in tracking outgoing thievery attacks.
+o Fixed a typo in the incoming defend line for cleave in arms.
+o Added a ton of swordmastery aliases and some missing triggers. -Naftali
+o Added perfect defense, phoenix crouching, and some other new defenses. -Naftali
+o Reworked blackout handling and curing. -Naftali, Caes
+o Made some minor adjustments to the default priority list.
+o Added a 'lay' alias to turn standing off when you send 'lay on <item>'. -Malapardis
+o Added a new alias, tod, to toggle overdrive on and off. You should now OD with jewel tattoos again.
+o Corrected some typos in the ?bashing alias. -Malapardis
+o Ran through and fixed some minor typos in skill checks.
+o Added a new alias, 'aap', which combines 'aa' and 'asp' to make you kill one target and then stop. -Malapardis
+o Replaced a bunch of echoes and utility features that were lost somewhere in a previous update. -Erwing
+o Fixed or added nearly all righteousness and crusading incoming and outgoing lines. -Abijah
+
+v9.0
+o Improved blackout handling even more.
+o Corrected a bug that sometimes caused the system to spam a defense infinitely and crash mudlet, under rare circumstances.
+o Added torture as an attack, which gives blackout. You should cure it now.
+o Added puncture as an attack, you should now track and reapply defenses stripped by it.
+o Auto liturgy now only fires if warding is true.
+o Fixed some typos in the bashing area list.
+o The system now tracks who's hitting whom in the room with you. This doesn't matter, yet, but it will when we add a window that displays it.
+o Added faithful refuge as a defense.
+o Fixed the blessing names in defense options, ldd priest should load them now.
+o Fixed and added a ton of outgoing bloodlore lines. -Raune, Naftali
+o Updated the check for desperate strike's massive, annoying echo on each prompt while it's enabled. -Naftali
+o Added desperate strike to the basher for soldiers. Happy dragoning!
+o Corrected an error with dominating strike in the bashing function for crusaders. -Ridire
+o The times, options, toggles, and crits tables will now properly carry across sessions and updates, as they were always intended to. Oopsie.
+o Priests will now use holy fire -all- the time in the crypt, instead of only afer seeing that the target is undead. All other areas will still need that first hit to see the target is undead.
+o Made a major tweak to the core functions that process system commands, effectively cutting the 'processing' done every time the system decides what to send by 1/3. This might not be immediately apparent, but results in a significant speed increase.
+o Finally buckled down and sorted out the remaining misc attack lines. Everything should properly be in its intended folder now, and accurately named.
+o Added a check to clear the mtw.skills table when you receive a new gmcp skills packet. This should resolve issues with changing classes and still attempting to use certain skills, like mindblast.
+o The system now checks for balance queue in your skills table, and will queue up 'stand' instead of waiting for it to be sent, as appropriate. It's even smart enough to plug it into the first slot, so people using bqa for attacks should find themselves doing so more fluidly now.
+o Being hit with amnesia will now send 'stand' five times fast, to clear the affliction and prevent it from interfering with any -important- commands. This does not apply if timewarp or censure are true.
+o Added some checks to things like reapplying lightballs and replacing icewalls, so you won't try to do them if you don't know the skills.
+o The attacks table now has 'instant' as a valid defense type. If an attack is flagged 'instant', the attack echoes skip the hittingwith check and will display properly.
+o Made the cecho for righteous lance and thaumaturgy's shatter display the effected limb much more visibly. -Erwing
+o Changed the colored echoes for defenses to be more closely in line with other colored echoes--they are now white with red/green alerts instead of purely red or green.
+o Added some more colors and cooldown alerts and stuff. -Erwing
+o Fixed a bug that caused priest attacks to sometimes trigger an unnecessary recklessness check. -Jasper
+o Added mtw.status.clotting to the reset function. This should resolve the bug that forced you to manually clot once if you die or disconnect while actively clotting.
+o Fixed a minor bug with tracking the sanctification defense for priests.
+o Added the new fix to compulsion's diagnose line--you should much more accurately reject it now, especially coming out of blackout, as from torture. -Ellesmera, Naftali
+o Added the diagnose line to track who mind melded you as well. Oops. -Naftali
+o Added the incoming defend line for compulsion, properly defending should no longer loop the defense. -Naftali, Ellesmera
+o Moved sanctification lower on priorities so that you will no longer try to sanctify a mantle you haven't put up yet.
+o Arms' enrage is now a defense that you can use kd enrage to toggle and should respect the equilibrium and cooldown cost of the skill. The old trigger to enrage on regaining cooldown has been removed. -Naftali
+o Censer tattoo is now a tracked defense that you can also use kd for. -Jasper
+o Having recklessness while bashing will tell the system you have exactly 75% health. This should cause it to keep using OD, but not to use things like mandate or revitalization while bashing and reckless. -Naftali
+**NOTE** This change is still subject to the -1 adrenaline change that prevents the system from spamming you to hell if you run out of adrenaline while reckless. It -will- clear the -1 the next time it sees you land a hit, though.
+o The chat triggers packaged with the system have been slightly updated, to more cleanly parse says mostly.
+o If you CONFIG DEATHSENSE 5 2, the chat box will now parse deathsense into the misc tab! And then color it plain purple to spare your eyes. This is also part of the ?setup alias now.
+
+v9.1
+o Fixed a bug with tracking enrage's cooldown. -Naftali
+o Added Swordmastery's serenity as a valid defense you can use kd for. -Naftali
+o Changed all tattoo defenses to send TOUCH (whatever) TATTOO instead of just TOUCH (whatever) to resolve any conflicts with touching items held. -Naftali.
+o Fixed a typo in the outgoing defend line for cleave. -Naftali
+o Corrected an error in the outgoing puncture hit line that made it fail to display times or the defenses being stripped. -Aidan
+o Fixed a typo in the outgoing slash telegraph that caused it not to track blunt weapons. -Naftali
+o Warcraft's immunity now has its own balance, you can safely use kd for it without spamming yourself off cooldown. -Naftali
+o Added a toggle, tdom, for dominating strike in crusader bashing. -Ridire
+o Fixed some errors in the outgoing wisplight and burst lines for swordmasters. -Naftali
+o Added in the non-standard affmessage lines for divine command, compulsion, and mind meld.
+o Fixed a bug in tracking vital stats (health/magic) that caused the system to sometimes fail to overdrive until it saw a new change in vitals. -Cross
+o Fixed a bug that sometimes caused the system to try and heal mindmeld with mental afflictions still.
+o Removed the checks to 'cure' heresy on censure, as this no longer actually happens.
+o Corrected a minor bug with slowcuring that sometimes caused the system to repeat or to lose track of commands. -Jush, Jasper
+o Rewrote every single curing method function to make them run more smoothly in slowcuring.
+o Fixed a typo in the restrained trigger for pushing the webs in Tayr-dorin. -Naftali
+o Imported Erwing's magician alias folder instead of the old one, mages may need to familiarize themselves with it. Remember you can save the old one outside your system folder and then delete the new one if you don't want this change. -Erwing
+o Added fight, coward!, revelation, and martyr as valid attacks tracked by the system. -Erwing
+o Changed a couple priest attacks to instant-type, they should now display attack echoes again. -Erwing
+o Added hypochondria as a thing. It's now tracked, and accounted for when using diagnose. -Malapardis
+
+v9.2
+o Fixed a bug that caused the mining module to sometimes loop attempts to chop trees. Forever. -Galen
+o Transfered the LOSEALL alias to run on and call the gmcp event for players instead of QW. -Naftali
+o The fishing script will now anachronize if you're able to and hook a 'great' one.
+o Updated the ill omen tracking in accordance with the patchnote. -Aidan
+o Added batter as an attack. -Vaeris
+o Added battered as an affliction. -Vaeris
+o Corrected some typos in shield smash, you should now properly defend it. Furthermore, shield smash's defending delay will always be 0, which should enable you to defend both instant and normal ones with marginal success. -Vaeris
+o Updated sunder armor's incoming miss line per the patchnote. -Vaeris.
+o Fixed a typo in shadoweaving deceit's miss and defend lines, they should properly track now. -Zeke
+o Added shadoweaving horrify as an attack. Whoops. -Zeke
+o Hopefully fixed some lingering bugs with handling and healing the horror affliction. -Zeke
+o Updated dementia's triggers per the patchnote. -Caliah
+o Added censure's new incoming fail line per the patchnote. -Caliah
+o Moved offhand balance out of the normal balance queue and into its own thing, similar to psi balance, so swordmasters can properly queue up their burst attacks with mtw.set_offhand.
+o Removed the mudlet mapper packaged with the system, since newer versions of mudlet include it already. The map window script was moved out into the system folder.
+
+v9.3
+o Forgot to record a changelog for this version! Vaguely recall changes with updated lines. Oopsie.
+
+v9.4
+o Updated the wielding to account for the no-longer-really-recent change that makes it no longer require equilibrium.
+o Adding a waiting check for wielding to cut down on spam. -Elanoron
+o Added berserking's DEF line, and the tick for when you attempt to use it while already berserk. This should alleviate the problem with spamming it after checking DEF while bashing. -Evaldir
+o Updated and corrected various attack triggers in accordance with recent changes in-game. -Elanoron
+o Added Elanoron's fix to the soldier bashing function to make handling disarm cleaner. -Elanoron
+o Finished up the halfway-sorta-almost done work from the previous version with adding an offhand queue. -Elanoron, Evaldir
+o Included some bandaid fixes for illusion checking. The framework for a real one is in place but not yet fully implemented, expect for next update! -Elanoron
+o Updated the ?toggles and ?bashing output a bit. -Ashra

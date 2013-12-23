@@ -5,15 +5,16 @@ Q:
 How do I set this up?
 
 A:
-o Click on Scripts at the top of the mudlet window to open the scripting window.
+o Click on Scripts at the top of the mudlet window to open the scripting window in a new profile.
 o Click the big green Import arrow at the top of the scripting window.
-o Navigate to where you downloaded the system to and import the .xml files or .mpackage there.
-o After importing the mudlet package into a new profile in mudlet, go to scripts->system->vitals->variables->options.
+o Navigate to where you downloaded the system to and import the system.trigger file there.
+o After importing the system into your new profile in mudlet, go to scripts->system->vitals->variables->options.
+o Adjust the values of the tables there to reflect your character and your skills.
+o Make sure you set your mount, container, and the toggles variables!
+o Make sure you have GMCP enabled (see below).
+o Close and reopen mudlet once.
 o Send the alias, ?setup
 o This should toggle all the config commands the system needs to function.
-o Adjust the values of the first tables there to reflect your character and your skills.
-o Make sure you set your mount, container, and the can and toggles variables!
-o Make sure you have GMCP enabled.
 o All set! System will track everything else through GMCP!
 
 
@@ -38,18 +39,27 @@ o Make sure you enabled GMCP! See above for how to do this.
 
 
 Q:
+I just changed class and now suddenly nothing is working. Not even my prompt is right anymore! What happened?
+
+A:
+o The game removes class specific vitals such as guile and magic and faith from the prompt when you lose a class that uses those vitals.
+o The system's prompt trigger fires off the full prompt, so it can't read the one with missing items.
+o Send CONFIG PROMPT ALL or ?setup to restore all the vitals to the prompt, this should fix it.
+
+
+Q:
 I found a bug! What can I do to help you fix it?
 
 A:
 o If possible, try to save a log of the bug occuring.
 o If the main mudlet window displays a lua error, make sure to copy that error down somewhere!
-o If the main mudlet window doesn't have an error, open the scripting window, and then the debug window.
+o If the main mudlet window doesn't have an error, open the scripting window, and then the debug window (ladybug icon in the bottom left).
 o Having the debug window will cause gmcp events to display in the main window, this is normal.
 o Watch the debug window and try to recreate the bug. Errors are displayed in white text on a red background in the debug window.
 o If you do get an error message, you can highlight and then right-click and select copy to save it.
 o Once you've got an error message, or can positively say there isn't one, write me up a report!
 o Include the error message, as much detail about the circumstances of the error as possible, and any logs or records you have of the error occurring.
-o Send me a letter or message in game, or post on the system's forum thread, or send me a forum pm.
+o Send me a letter or message in game, or post on the system's forum thread, or send me a forum pm or an email at raelyr@live.com.
 o I might get back with you asking you to try or test or change things and looking for more feedback, but I promise to work on it as soon as possible!
 
 
@@ -69,8 +79,8 @@ How do I update to a newer version of the system?
 
 A:
 o Whenever you import the system, it should save all the settings into three files, one each in triggers, aliases, and scripts.
-o The easiest way to update is to import the new mpackage, and then delete the three old files.
-o Make sure any aliases, triggers, or anything else you want to keep across updates is saved outside of those three files!
+o The easiest way to update is to import the new .xml or .trigger files, and then delete the three old files.
+o Make sure any custom or personal aliases, triggers, or anything else you want to keep across updates is saved outside of those three files!
 o The system will automatically store everything in the options script (such as your can variables, mount name, weapon type, and toggles) across sessions and updates, so you don't need to set them again.
 o If you import the update into a new profile, you WILL need to set all the options again, because it saves them to the profile with the system on it.
 o If you delete the wrong folder, or need to re-import the same one for whatever reason, you may need to remove the old package in the package manager.
@@ -87,8 +97,8 @@ A:
 o Sometimes this happens, not sure what causes it. To fix it, you can import the individual .xml files.
 o Before you do this, try exiting mudlet and opening it again, sometimes the other sections just don't show up at first. If they're still missing, continue on.
 o Go to where you saved the folder from the link on the forum.
-o Right click on the system.mpackage file.
-o Click extract. This should create three .xml files in the place of the old .mpackage one.
+o Right click on the system.trigger file.
+o Click extract. This should create three .xml files in the place of the old one.
 o You can now import the missing settings, which should be the scripts.xml and the triggers.xml.
 
 
@@ -126,7 +136,7 @@ Q:
 How do I see a list of commands?
 
 A:
-o There's a halp alias that displays a list of most of the commands available to your current class. Use it!
+o There are ?help, ?bashing, ?fish, and ?toggles aliases that displays a list of most of the commands available. Use them!
 o Your attack aliases are listed under your class' folder in the skills folder under aliases.
 
 
@@ -137,8 +147,8 @@ A:
 o I personally read REALLY slow.
 o I replaced a lot of the text seen in combat with much much shorter text.
 o The colors help me to keep up.
-o If you do not like them, there are toggles to display or not display the attack and defending echoes.
-o There is currently no toggle for affliction of defenses echoes (like You: GAIN arcanepower).
+o If you do not like them, there are toggles to display or not display almost everything.
+o Send ?toggles and look under the display toggles section.
 
 
 Q:
@@ -153,8 +163,8 @@ o The alias gg will gather coins and any items that may be dropped in the area y
 o The alias tgg will toggle gathering of coins when they drop.
 o The alias ast will stop running the bashing script.
 o The alias asp will stop running the bashing script after the next time you kill something.
-o You can toggle your ability to use various class skills in the list of can variables under scripts->system->vitals->variables->misc.
-o The toggles for using class skills are listed under aliases->system->toggles.
+o You can toggle your ability to use various class skills in the list of can variables under scripts->system->vitals->variables->options.
+o The toggles for using class skills are listed under aliases->system->vitals->toggles.
 
 
 Q:
@@ -191,9 +201,10 @@ How do I make it fish?
 
 A:
 o The alias cbait <type> will load the bait you wish to use. Like, cbait minnow.
-o The alias dr <direction> will load the direction you wish to fish in. Like, dr n.
+o The alias fdr <direction> will load the direction you wish to fish in. Like, fdr n.
 o The alias fdis <medium|long> will set the distance to cast at.
 o The alias fsh will toggle fishing on and off.
+o The alias ?fish has more fishing-related commands.
 o If you find a bug or problem, let me know! I don't fish, so I don't encounter most fishing errors, and don't know to fix them.
 
 
@@ -224,9 +235,9 @@ o If you have balance and are able to attack (not prone, stunned, entangled, etc
 o If you are not able to attack, you should get a message saying you queued that attack.
 o You may only queue one attack in advance.
 o Attack queuing will only work if killing is toggled on.
-o The alias kil will toggle killing on and off.
-o The attack aliases will try to hit your targ variable, which is your PvP target.
-o You can set targ with the t <target> alias. Like, t zorn.
+o The alias tkil will toggle killing on and off.
+o The attack aliases will try to hit your mtw.target variable, which is your PvP target.
+o You can set mtw.target with the t <target> alias. Like, t zorn.
 
 
 Q:
@@ -251,7 +262,7 @@ What other toggles and commands do I need to know?
 
 A:
 o The alias ?help will give you a pretty comprehensive list of commands and what they do.
-o The alias cfs will send credits for sale, and will automatically try to buy any credits under 6000 copper.
+o The alias cfs will send credits for sale.
 o The system will continue learning from players or tutors you begin learning from. Leave the room to cancel a learning session.
 o Make sure to let me know of any bugs or problems you find! I can't fix what I don't know about!
 

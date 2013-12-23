@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.0">
+    <ScriptPackage>
+        <ScriptGroup isActive="yes" isFolder="yes">
+            <name>Matawa</name>
+            <packageName></packageName>
+            <script></script>
+            <eventHandlerList/>
+            <Script isActive="yes" isFolder="no">
+                <name>meta utilities</name>
+                <packageName></packageName>
+                <script>-- MTW - Meta utilities
+
+mtw_struct = mtw_struct or {}
+mtw_struct.loaded = mtw_struct.loaded or {}
+mtw_struct.sep = package.config:sub(1,1) -- get default file separator
+
+function mtw_struct.load_external(f)
+ local fs = mtw_struct.sep
+ if mtw_struct.loaded[f] then
+  echo(&quot;Script &quot;..f..&quot; already loaded.\n&quot;)
+  return false
+ else
+  local file = getMudletHomeDir() .. fs .. &quot;scripts&quot; .. fs .. f .. &quot;.lua&quot;
+  local b,e = pcall(dofile,file)
+  if not b then
+   echo(e..&quot;\n&quot;)
+   return false
+  end
+  mtw_struct.loaded[f] = true
+  echo(&quot;Script &quot;..f..&quot; successfully loaded.\n&quot;)
+  return true
+ end
+end
+
+function mtw_struct.reload_external(f)
+ local fs = mtw_struct.sep
+ local file = getMudletHomeDir() .. fs .. &quot;scripts&quot; .. fs .. f .. &quot;.lua&quot;
+ local b,e = pcall(dofile,file)
+ if not b then
+  echo(e)
+  return false
+ end
+ mtw_struct.loaded[f] = true
+  echo(&quot;Script &quot;..f..&quot; successfully reloaded.\n&quot;)
+ return true
+end
+
+function mtw_struct.load()
+ mtw_struct.load_external(&quot;init&quot;)
+end</script>
+                <eventHandlerList/>
+            </Script>
+            <Script isActive="yes" isFolder="no">
+                <name>load matawa</name>
+                <packageName></packageName>
+                <script>-- MTW - initial loading script
+
+mtw_struct.load()</script>
+                <eventHandlerList/>
+            </Script>
+            <ScriptGroup isActive="yes" isFolder="yes">
+                <name>GMCP</name>
+                <packageName></packageName>
+                <script></script>
+                <eventHandlerList/>
+                <ScriptGroup isActive="yes" isFolder="yes">
+                    <name>chat</name>
+                    <packageName></packageName>
+                    <script></script>
+                    <eventHandlerList/>
+                    <Script isActive="yes" isFolder="no">
+                        <name>demonnicOnStart_</name>
+                        <packageName></packageName>
+                        <script>function demonnicOnStart_()
+ demonnicOnStart()
+end</script>
+                        <eventHandlerList>
+                            <string>sysLoadEvent</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>demonnicVitals_</name>
+                        <packageName></packageName>
+                        <script>function demonnicVitals_( msg, arg )
+ demonnicVitals(msg,arg)
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Char</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>demonnic_rilist_</name>
+                        <packageName></packageName>
+                        <script>function demonnic_rilist_()
+ demonnic_rilist()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Char.Items.List</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>demonnic_riadd_</name>
+                        <packageName></packageName>
+                        <script>function demonnic_riadd_()
+ demonnic_riadd()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Char.Items.Add</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>demonnic_rileave_</name>
+                        <packageName></packageName>
+                        <script>function demonnic_rileave_()
+ demonnic_rileave()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Char.Items.Remove</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>demonnic_skillGroups_</name>
+                        <packageName></packageName>
+                        <script>function demonnic_skillGroups_()
+ demonnic_skillGroups()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Char.Skills.Groups</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>demonnic_skillsList_</name>
+                        <packageName></packageName>
+                        <script>function demonnic_skillsList_()
+ demonnic_skillsList()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Char.Skills.List</string>
+                        </eventHandlerList>
+                    </Script>
+                </ScriptGroup>
+                <ScriptGroup isActive="yes" isFolder="yes">
+                    <name>vitals</name>
+                    <packageName></packageName>
+                    <script>
+</script>
+                    <eventHandlerList/>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_vitals_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_vitals_()
+ gmcp_vitals()
+end
+</script>
+                        <eventHandlerList>
+                            <string>gmcp.Char.Vitals</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_room_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_room_()
+ gmcp_room()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Room.Info</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_status_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_status_()
+ gmcp_status()
+end
+</script>
+                        <eventHandlerList>
+                            <string>gmcp.Char.Status</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_skills_groups_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_skills_groups_()
+ gmcp_skills_groups()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Char.Skills.Groups</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_skills_list_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_skills_list_()
+ gmcp_skills_list()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Char.Skills.List</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_players_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_players_()
+ gmcp_players()
+end
+
+</script>
+                        <eventHandlerList>
+                            <string>gmcp.Comm.Channel.Players</string>
+                        </eventHandlerList>
+                    </Script>
+                </ScriptGroup>
+            </ScriptGroup>
+            <Script isActive="yes" isFolder="no">
+                <name>Map Window</name>
+                <packageName></packageName>
+                <script>
+local main = Geyser.Container:new({x=0,y=0,width=&quot;100%&quot;,height=&quot;100%&quot;,name=&quot;mapper container&quot;})
+ 
+local mapper = Geyser.Mapper:new({
+  name = &quot;mapper&quot;,
+  x = &quot;64%&quot;, y = &quot;40%&quot;, -- edit here if you want to move it
+  width = &quot;35%&quot;, height = &quot;60%&quot;
+}, main)
+
+function hideMap()
+ main:hide()
+end
+
+function showMap()
+ main:show()
+end</script>
+                <eventHandlerList/>
+            </Script>
+        </ScriptGroup>
+    </ScriptPackage>
+</MudletPackage>
