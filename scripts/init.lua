@@ -25,3 +25,6 @@ mtw_struct.load_external("vitals/init")
 
 --options
 mtw_struct.load_external("options")
+
+--triggers
+mtw_struct.load_external("triggers")
