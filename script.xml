@@ -14,37 +14,41 @@
 
 mtw_struct = mtw_struct or {}
 mtw_struct.loaded = mtw_struct.loaded or {}
+mtw_struct.reloading = false
 mtw_struct.sep = package.config:sub(1,1) -- get default file separator
+--it's said that using &quot;/&quot; will work with every OS, that lua takes care of this.
 
 function mtw_struct.load_external(f)
  local fs = mtw_struct.sep
- if mtw_struct.loaded[f] then
+ local fileinfo
+ if mtw_struct.loaded[f] and not mtw_struct.reloading then
   echo(&quot;Script &quot;..f..&quot; already loaded.\n&quot;)
   return false
  else
   local file = getMudletHomeDir() .. fs .. &quot;Matawa&quot; .. fs .. &quot;scripts&quot; .. fs .. f .. &quot;.lua&quot;
+  fileinfo = lfs.attributes(file)
+  if not fileinfo then
+   file = getMudletHomeDir() .. fs .. &quot;scripts&quot; .. fs .. f .. &quot;.lua&quot;
+  end
   local b,e = pcall(dofile,file)
   if not b then
    echo(e..&quot;\n&quot;)
    return false
   end
   mtw_struct.loaded[f] = true
-  echo(&quot;Script &quot;..f..&quot; successfully loaded.\n&quot;)
+  if mtw_struct.reloading then
+   echo(&quot;Script &quot;..f..&quot; successfully reloaded.\n&quot;)
+  else
+   echo(&quot;Script &quot;..f..&quot; successfully loaded.\n&quot;)
+  end
   return true
  end
 end
 
 function mtw_struct.reload_external(f)
- local fs = mtw_struct.sep
- local file = getMudletHomeDir() .. fs .. &quot;scripts&quot; .. fs .. f .. &quot;.lua&quot;
- local b,e = pcall(dofile,file)
- if not b then
-  echo(e)
-  return false
- end
- mtw_struct.loaded[f] = true
-  echo(&quot;Script &quot;..f..&quot; successfully reloaded.\n&quot;)
- return true
+ mtw_struct.reloading = true
+ mtw_struct.load_external(f)
+ mtw_struct.reloading = false
 end
 
 function mtw_struct.load()
