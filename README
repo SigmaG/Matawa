@@ -1,0 +1,10 @@
+This git repository is an attempt to rework the Matawa system for Mudlet/MidkemiaOnline in a collaborative work.
+
+Detailed instructions to use it can be found at http://forums.midkemiaonline.com/discussion/comment/27679/#Comment_27679 .
+
+The idea behind is to keep a minimal amount of things to be coded in Mudlet editor (one liners for triggers/aliases, and really few scripts - the ones to load everything from lua files, and the ones needed to use GMCP).
+
+Here are a few git cheatsheets :
+- http://cheat.errtheblog.com/s/git
+- http://byte.kde.org/~zrusin/git/git-cheat-sheet-medium.png
+- http://www.git-tower.com/blog/git-cheat-sheet-detail/
