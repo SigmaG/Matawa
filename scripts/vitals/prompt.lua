@@ -14,8 +14,11 @@ function mtw.prompt_function()
   mtw.status.combat = false
  end
 
-mtw.balance.balance = ( gmcp.Char.Vitals.bal == "1" ) or ( mtw.balance_lose("balance") and false )
-mtw.balance.equilibrium = ( gmcp.Char.Vitals.eq == "1" ) or ( mtw.balance_lose("equilibrium") and false )
+if mtw.balance.balance and gmcp.Char.Vitals.bal ~= "1" then mtw.balance_lose("balance") end
+mtw.balance.balance = (gmcp.Char.Vitals.bal == "1" )
+
+if mtw.balance.equilibrium and gmcp.Char.Vitals.eq ~= "1" then mtw.balance_lose("equilibrium") end
+mtw.balance.equilibrium = ( gmcp.Char.Vitals.eq == "1" )
  --[[if string.find(mtw.my.stats, "b") then
   mtw.balance.balance = true
  else
