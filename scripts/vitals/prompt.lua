@@ -14,23 +14,11 @@ function mtw.prompt_function()
   mtw.status.combat = false
  end
 
- if string.find(mtw.my.stats, "b") then
-  mtw.balance.balance = true
- else
-  if mtw.balance.balance then
-   mtw.balance_lose("balance")
-  end
-  mtw.balance.balance = false
- end
+ if mtw.balance.balance and gmcp.Char.Vitals.bal ~= "1" then mtw.balance_lose("balance") end
+ mtw.balance.balance = (gmcp.Char.Vitals.bal == "1" )
 
- if string.find(mtw.my.stats, "x") then
-  mtw.balance.equilibrium = true
- else
-  if mtw.balance.equilibrium then
-   mtw.balance_lose("equilibrium")
-  end
-  mtw.balance.equilibrium = false
- end
+ if mtw.balance.equilibrium and gmcp.Char.Vitals.eq ~= "1" then mtw.balance_lose("equilibrium") end
+ mtw.balance.equilibrium = ( gmcp.Char.Vitals.eq == "1" )
 
  if string.find(mtw.my.stats, "@") then
   mtw.def_have("spellshield")

@@ -1,5 +1,8 @@
 -- MTW : random utilities
 
+-- Learning functions
+mtw_struct.load_external("utilities/learning")
+
 -- crits
 
 mtw.crits = {
