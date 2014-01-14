@@ -99,13 +99,15 @@ function mtw.am_hindered()
 end
 
 function mtw.not_entangled()
- if mtw.not_aff("impale") and
+ if (mtw.not_aff("impale") and
     mtw.not_aff("grab") and
     mtw.not_aff("earthbind") and
     mtw.not_aff("feed") and
     mtw.not_aff("oubliette") and
     mtw.not_aff("hogtie") and
-    mtw.not_aff("hostage") then
+    mtw.not_aff("hostage")) or
+    mtw.have_aff("dystrophy")
+ then
   return true
  else
   return false

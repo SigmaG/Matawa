@@ -80,6 +80,7 @@ aff_cut_tendon_1 = {state = "healed", msg = "suffering from a cut tendon", cures
 aff_cut_tendon_2 = {state = "healed", msg = "suffering from 2 cut tendons", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
 aff_cut_tendon_3 = {state = "healed", msg = "suffering from 3 cut tendons", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
 aff_deaf = {state = "healed", msg = "deaf", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
+aff_dystrophy = {state = "healed", msg = "suffering from muscular dystrophy", cures = {focus = "body"}, assess = false, effect = "can't writhe/contort", timer = createStopWatch()},
 aff_exhaustion = {state = "healed", msg = "physically exhausted", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
 aff_hamstrung  = {state = "healed", msg = "hamstrung", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
 aff_heart_palpitations = {state = "healed", msg = "afflicted with heart palpitations", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
