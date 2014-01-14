@@ -1015,6 +1015,13 @@ send(&quot; &quot;)</script>
                             <regex>^sqis (.*)$</regex>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
+                            <name>Learning</name>
+                            <script>mtw.learn_start(matches[2], matches[3], matches[4])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^learn (\d+) (\w+) from (\w+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
                             <name>doors</name>
                             <script>mtw.use_door(matches)</script>
                             <command></command>
@@ -5617,7 +5624,7 @@ send(&quot; &quot;)</script>
                     </Alias>
                 </AliasGroup>
             </AliasGroup>
-            <AliasGroup isActive="yes" isFolder="yes">
+            <AliasGroup isActive="no" isFolder="yes">
                 <name>Chat</name>
                 <script></script>
                 <command></command>
