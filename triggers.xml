@@ -1630,7 +1630,7 @@
                         <regexCodePropertyList/>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>jerks</name>
-                            <script>mtw.trigger_65(matches,multimatches)</script>
+                            <script>mtw.fishing_trigger_1(matches,multimatches)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>39</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -1642,21 +1642,61 @@
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>You see the water ripple as a fish makes a medium strike at your bait.</string>
-                                <string>You stagger as a fish makes a large strike at your bait.</string>
-                                <string>You feel a fish make a small strike at your bait.</string>
+                                <string>^You see the water ripple as a fish makes a (m)edium strike at your bait.$</string>
+                                <string>^You stagger as a fish makes a (l)arge strike at your bait.$</string>
+                                <string>^You feel a fish make a (s)mall strike at your bait.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
-                                <integer>3</integer>
-                                <integer>3</integer>
-                                <integer>3</integer>
+                                <integer>1</integer>
+                                <integer>1</integer>
+                                <integer>1</integer>
                             </regexCodePropertyList>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                            <name>reels</name>
-                            <script>mtw.trigger_66(matches,multimatches)</script>
+                            <name>teases</name>
+                            <script>mtw.fishing_trigger_2(matches,multimatches)</script>
                             <triggerType>0</triggerType>
-                            <conditonLineDelta>0</conditonLineDelta>
+                            <conditonLineDelta>18</conditonLineDelta>
+                            <mStayOpen>0</mStayOpen>
+                            <mCommand></mCommand>
+                            <packageName></packageName>
+                            <mFgColor>#ff0000</mFgColor>
+                            <mBgColor>#ffff00</mBgColor>
+                            <mSoundFile></mSoundFile>
+                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                            <regexCodeList>
+                                <string>^You feel a fish take a small nibble.$</string>
+                            </regexCodeList>
+                            <regexCodePropertyList>
+                                <integer>1</integer>
+                            </regexCodePropertyList>
+                        </Trigger>
+                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                            <name>caught</name>
+                            <script>mtw.fishing_trigger_3(matches,multimatches)</script>
+                            <triggerType>0</triggerType>
+                            <conditonLineDelta>99</conditonLineDelta>
+                            <mStayOpen>0</mStayOpen>
+                            <mCommand></mCommand>
+                            <packageName></packageName>
+                            <mFgColor>#ff0000</mFgColor>
+                            <mBgColor>#ffff00</mBgColor>
+                            <mSoundFile></mSoundFile>
+                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                            <regexCodeList>
+                                <string>^You quickly jerk back your.*fishing pole and feel the line go taut. You've hooked a (\w+) one!</string>
+                            </regexCodeList>
+                            <regexCodePropertyList>
+                                <integer>1</integer>
+                            </regexCodePropertyList>
+                        </Trigger>
+                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                            <name>lost fish</name>
+                            <script>mtw.fishing_trigger_4(matches,multimatches)</script>
+                            <triggerType>0</triggerType>
+                            <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
                             <mCommand></mCommand>
                             <packageName></packageName>
@@ -1678,7 +1718,7 @@
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>reeled</name>
-                            <script>mtw.trigger_67(matches,multimatches)</script>
+                            <script>mtw.fishing_trigger_5(matches,multimatches)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>39</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -1691,18 +1731,42 @@
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>^With a final tug, you finish reeling in the line and land(.*)</string>
+                                <string>^You didn't cast your line, so there's no need to \w+ it.$</string>
                                 <string>^You quickly reel in (.*), landing it with ease!(.*)$</string>
-                                <string>^With a style born of skill, you reel (.*) in a single motion\.(.*)$</string>
+                                <string>^With a style born of skill, you reel (.*) in a single motion.(.*)$</string>
+                                <string>You cut the line, letting the fish swim free of its metal-barbed torture.</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>1</integer>
                                 <integer>1</integer>
                                 <integer>1</integer>
+                                <integer>1</integer>
+                                <integer>3</integer>
+                            </regexCodePropertyList>
+                        </Trigger>
+                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                            <name>reel the line with no fish</name>
+                            <script>mtw.fishing_trigger_6(matches,multimatches)</script>
+                            <triggerType>0</triggerType>
+                            <conditonLineDelta>99</conditonLineDelta>
+                            <mStayOpen>0</mStayOpen>
+                            <mCommand></mCommand>
+                            <packageName></packageName>
+                            <mFgColor>#ff0000</mFgColor>
+                            <mBgColor>#ffff00</mBgColor>
+                            <mSoundFile></mSoundFile>
+                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                            <regexCodeList>
+                                <string>You reel the fishing line in completely.</string>
+                            </regexCodeList>
+                            <regexCodePropertyList>
+                                <integer>3</integer>
                             </regexCodePropertyList>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>baited</name>
-                            <script>mtw.trigger_68(matches,multimatches)</script>
+                            <script>mtw.fishing.stat = &quot;casting&quot;</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>39</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -1714,8 +1778,8 @@
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>^You carefully thread (.*) onto the hook of (.*)\.$</string>
-                                <string>^You carefully thread (.*) onto the hook of (.*), replacing (.*)\.$</string>
+                                <string>^You carefully thread (.*) onto the hook of a.*fishing pole.$</string>
+                                <string>^You carefully thread (.*) onto the hook of a.*fishing pole, replacing (.*).$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>1</integer>
@@ -1724,7 +1788,7 @@
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>casted</name>
-                            <script>mtw.trigger_69(matches,multimatches)</script>
+                            <script>mtw.fishing_trigger_7(matches,multimatches)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>39</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -1736,35 +1800,15 @@
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>^You cock an arm, pulling back (.*) before releasing, casting the line smoothly to the (\w+)\. You estimate the distance to be (\d+) yards\.$</string>
+                                <string>^You cock an arm, pulling back a.*fishing pole before releasing, casting the line .*. You estimate the distance to be (\d+) yards.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>1</integer>
                             </regexCodePropertyList>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                            <name>teases</name>
-                            <script>mtw.trigger_70(matches,multimatches)</script>
-                            <triggerType>0</triggerType>
-                            <conditonLineDelta>18</conditonLineDelta>
-                            <mStayOpen>0</mStayOpen>
-                            <mCommand></mCommand>
-                            <packageName></packageName>
-                            <mFgColor>#ff0000</mFgColor>
-                            <mBgColor>#ffff00</mBgColor>
-                            <mSoundFile></mSoundFile>
-                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                            <regexCodeList>
-                                <string>You feel a fish take a small nibble.</string>
-                            </regexCodeList>
-                            <regexCodePropertyList>
-                                <integer>3</integer>
-                            </regexCodePropertyList>
-                        </Trigger>
-                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>nodir</name>
-                            <script>mtw.trigger_71(matches,multimatches)</script>
+                            <script>mtw.fishing_trigger_8(matches,multimatches)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -1776,15 +1820,15 @@
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>You cannot cast in that direction.</string>
+                                <string>^You cannot cast in that direction.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
-                                <integer>3</integer>
+                                <integer>1</integer>
                             </regexCodePropertyList>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                            <name>need pole</name>
-                            <script>mtw.trigger_72(matches,multimatches)</script>
+                            <name>need to wield a pole</name>
+                            <script>mtw.fishing_trigger_9(matches,multimatches)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -1804,9 +1848,113 @@
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>nobait</name>
-                            <script>mtw.trigger_73(matches,multimatches)</script>
+                            <script>mtw.fishing_trigger_10(matches,multimatches)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>0</conditonLineDelta>
+                            <mStayOpen>0</mStayOpen>
+                            <mCommand></mCommand>
+                            <packageName></packageName>
+                            <mFgColor>#ff0000</mFgColor>
+                            <mBgColor>#ffff00</mBgColor>
+                            <mSoundFile></mSoundFile>
+                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                            <regexCodeList>
+                                <string>^What do you wish to use as bait?$</string>
+                            </regexCodeList>
+                            <regexCodePropertyList>
+                                <integer>1</integer>
+                            </regexCodePropertyList>
+                        </Trigger>
+                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                            <name>teased</name>
+                            <script>mtw.fishing_trigger_11(matches,multimatches)</script>
+                            <triggerType>0</triggerType>
+                            <conditonLineDelta>1</conditonLineDelta>
+                            <mStayOpen>0</mStayOpen>
+                            <mCommand></mCommand>
+                            <packageName></packageName>
+                            <mFgColor>#ff0000</mFgColor>
+                            <mBgColor>#ffff00</mBgColor>
+                            <mSoundFile></mSoundFile>
+                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                            <regexCodeList>
+                                <string>^You move your.*fishing pole quickly back and forth, hoping to excite the interest of nearby fish.$</string>
+                            </regexCodeList>
+                            <regexCodePropertyList>
+                                <integer>1</integer>
+                            </regexCodePropertyList>
+                        </Trigger>
+                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                            <name>aggressive fish</name>
+                            <script>mtw.fishing_trigger_12(matches,multimatches)</script>
+                            <triggerType>0</triggerType>
+                            <conditonLineDelta>97</conditonLineDelta>
+                            <mStayOpen>0</mStayOpen>
+                            <mCommand></mCommand>
+                            <packageName></packageName>
+                            <mFgColor>#ff0000</mFgColor>
+                            <mBgColor>#ffff00</mBgColor>
+                            <mSoundFile></mSoundFile>
+                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                            <regexCodeList>
+                                <string>You quickly jerk back your.*fishing pole, but the hook pulls free of the fish.</string>
+                                <string>You quickly jerk back your.*fishing pole, to no avail.</string>
+                            </regexCodeList>
+                            <regexCodePropertyList>
+                                <integer>1</integer>
+                                <integer>1</integer>
+                            </regexCodePropertyList>
+                        </Trigger>
+                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                            <name>probe pole</name>
+                            <script>mtw.fishing_trigger_13(matches,multimatches)</script>
+                            <triggerType>0</triggerType>
+                            <conditonLineDelta>0</conditonLineDelta>
+                            <mStayOpen>0</mStayOpen>
+                            <mCommand></mCommand>
+                            <packageName></packageName>
+                            <mFgColor>#ff0000</mFgColor>
+                            <mBgColor>#ffff00</mBgColor>
+                            <mSoundFile></mSoundFile>
+                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                            <regexCodeList>
+                                <string>A long branch of supple yew has been whittled down into a fishing pole, fitted with string and a barbed hook where bait can be attached. It looks inviting, conjuring thoughts of a relaxing day spent fishing away one's worries.</string>
+                                <string>Cast from a silver metal, this ornate fishing pole seems ornamental in nature. When wielded, its metallic surface is surprisingly supple and springy, allowing one to cast with accuracy and strength. Small rings have been fastened along its length to secure the line, each attached with a cunningly carved silver fish. At the end of the silver line is a simple barbed hook to which bait can be attached.</string>
+                            </regexCodeList>
+                            <regexCodePropertyList>
+                                <integer>3</integer>
+                                <integer>3</integer>
+                            </regexCodePropertyList>
+                        </Trigger>
+                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                            <name>bait on pole</name>
+                            <script>mtw.fishing_trigger_14(matches,multimatches)</script>
+                            <triggerType>0</triggerType>
+                            <conditonLineDelta>0</conditonLineDelta>
+                            <mStayOpen>0</mStayOpen>
+                            <mCommand></mCommand>
+                            <packageName></packageName>
+                            <mFgColor>#ff0000</mFgColor>
+                            <mBgColor>#ffff00</mBgColor>
+                            <mSoundFile></mSoundFile>
+                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                            <regexCodeList>
+                                <string>^You see (.*) hanging from the hook.$</string>
+                            </regexCodeList>
+                            <regexCodePropertyList>
+                                <integer>1</integer>
+                            </regexCodePropertyList>
+                        </Trigger>
+                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                            <name>end fishing</name>
+                            <script>mtw.fishing_trigger_15(matches,multimatches)</script>
+                            <triggerType>0</triggerType>
+                            <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
                             <mCommand></mCommand>
                             <packageName></packageName>
@@ -1823,48 +1971,8 @@
                             </regexCodePropertyList>
                         </Trigger>
                         <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                            <name>teased</name>
-                            <script>mtw.trigger_74(matches,multimatches)</script>
-                            <triggerType>0</triggerType>
-                            <conditonLineDelta>1</conditonLineDelta>
-                            <mStayOpen>0</mStayOpen>
-                            <mCommand></mCommand>
-                            <packageName></packageName>
-                            <mFgColor>#ff0000</mFgColor>
-                            <mBgColor>#ffff00</mBgColor>
-                            <mSoundFile></mSoundFile>
-                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                            <regexCodeList>
-                                <string>You move your fishing pole quickly back and forth, hoping to excite the interest of nearby fish.</string>
-                            </regexCodeList>
-                            <regexCodePropertyList>
-                                <integer>3</integer>
-                            </regexCodePropertyList>
-                        </Trigger>
-                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                            <name>did reel</name>
-                            <script>mtw.trigger_75(matches,multimatches)</script>
-                            <triggerType>0</triggerType>
-                            <conditonLineDelta>0</conditonLineDelta>
-                            <mStayOpen>0</mStayOpen>
-                            <mCommand></mCommand>
-                            <packageName></packageName>
-                            <mFgColor>#ff0000</mFgColor>
-                            <mBgColor>#ffff00</mBgColor>
-                            <mSoundFile></mSoundFile>
-                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                            <regexCodeList>
-                                <string>You reel the fishing line in completely.</string>
-                            </regexCodeList>
-                            <regexCodePropertyList>
-                                <integer>3</integer>
-                            </regexCodePropertyList>
-                        </Trigger>
-                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                            <name>have bait</name>
-                            <script>mtw.trigger_76(matches,multimatches)</script>
+                            <name>cut line</name>
+                            <script>mtw.fishing_trigger_16(matches,multimatches)</script>
                             <triggerType>0</triggerType>
                             <conditonLineDelta>99</conditonLineDelta>
                             <mStayOpen>0</mStayOpen>
@@ -1876,72 +1984,10 @@
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>^You see (.*) hanging from the hook\.$</string>
+                                <string>(You|your|you|Your).* (\d+) feet</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>1</integer>
-                            </regexCodePropertyList>
-                        </Trigger>
-                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                            <name>jerked</name>
-                            <script>mtw.trigger_77(matches,multimatches)</script>
-                            <triggerType>0</triggerType>
-                            <conditonLineDelta>40</conditonLineDelta>
-                            <mStayOpen>0</mStayOpen>
-                            <mCommand></mCommand>
-                            <packageName></packageName>
-                            <mFgColor>#ff0000</mFgColor>
-                            <mBgColor>#ffff00</mBgColor>
-                            <mSoundFile></mSoundFile>
-                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                            <regexCodeList>
-                                <string>^You quickly jerk back your fishing pole and feel the line go taut. You've hooked a (\w+) one!$</string>
-                            </regexCodeList>
-                            <regexCodePropertyList>
-                                <integer>1</integer>
-                            </regexCodePropertyList>
-                        </Trigger>
-                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                            <name>cut</name>
-                            <script>mtw.trigger_78(matches,multimatches)</script>
-                            <triggerType>0</triggerType>
-                            <conditonLineDelta>99</conditonLineDelta>
-                            <mStayOpen>0</mStayOpen>
-                            <mCommand></mCommand>
-                            <packageName></packageName>
-                            <mFgColor>#ff0000</mFgColor>
-                            <mBgColor>#ffff00</mBgColor>
-                            <mSoundFile></mSoundFile>
-                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                            <regexCodeList>
-                                <string>You cut the line, letting the fish swim free of its metal-barbed torture.</string>
-                            </regexCodeList>
-                            <regexCodePropertyList>
-                                <integer>3</integer>
-                            </regexCodePropertyList>
-                        </Trigger>
-                        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                            <name>yanked</name>
-                            <script>mtw.trigger_79(matches,multimatches)</script>
-                            <triggerType>0</triggerType>
-                            <conditonLineDelta>99</conditonLineDelta>
-                            <mStayOpen>0</mStayOpen>
-                            <mCommand></mCommand>
-                            <packageName></packageName>
-                            <mFgColor>#ff0000</mFgColor>
-                            <mBgColor>#ffff00</mBgColor>
-                            <mSoundFile></mSoundFile>
-                            <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                            <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                            <regexCodeList>
-                                <string>As the fish strains your line beyond its breaking point, it snaps suddenly, costing you both your fish and bait.</string>
-                                <string>You don't have any bait on your hook.</string>
-                            </regexCodeList>
-                            <regexCodePropertyList>
-                                <integer>0</integer>
-                                <integer>3</integer>
                             </regexCodePropertyList>
                         </Trigger>
                     </TriggerGroup>
