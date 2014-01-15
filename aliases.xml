@@ -726,6 +726,34 @@
                             <packageName></packageName>
                             <regex>^fbait (\w+)$</regex>
                         </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>max cast</name>
+                            <script>mtw.set_max_cast_length(matches)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^fmcast (\d+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>minimum endurance before recast</name>
+                            <script>mtw.fishing_endurance(matches)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^fmend (\d+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>set type of fish</name>
+                            <script>mtw.fishing_set_type(matches)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^fget (\w+)( \w+)?( \w+)?$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>max distance</name>
+                            <script>mtw.set_max_line_length(matches)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^fmdis (\d+)$</regex>
+                        </Alias>
                     </AliasGroup>
                     <AliasGroup isActive="yes" isFolder="yes">
                         <name>Chat</name>

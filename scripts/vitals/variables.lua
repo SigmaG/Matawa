@@ -219,7 +219,16 @@ stat = "baiting",
 bait = "octopus",
 baited = false,
 distance = "",
-dir = "n"
+dir = "n",
+count = 0,
+get = "sml",
+max_cast = 0,
+max_dist = 0,
+min_end = 0,
+reels = 0,
+recast = false,
+failures = 0,
+probe = false,
 }
 
 --Poison stuff

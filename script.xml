@@ -216,6 +216,16 @@ end
                         </eventHandlerList>
                     </Script>
                 </ScriptGroup>
+                <Script isActive="no" isFolder="no">
+                    <name>gmcp_fishing</name>
+                    <packageName></packageName>
+                    <script>function gmcp_fishing()
+ mtw.fishing_get_endurance()
+end</script>
+                    <eventHandlerList>
+                        <string>gmcp.Char.Vitals</string>
+                    </eventHandlerList>
+                </Script>
             </ScriptGroup>
             <Script isActive="yes" isFolder="no">
                 <name>Map Window</name>

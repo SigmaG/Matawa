@@ -141,17 +141,43 @@ function mtw.bashing_aliases()
 end
 
 function mtw.fishing_aliases()
- cecho("<green>\nFishing Commands:")
- echo("\n fsh: toggle fishing on/off")
- echo("\n tff: toggle fastfish on/off")
- echo("\n fdr X: set fishing direction to X")
- echo("\n cbait X: set bait type to X")
- echo("\n fdis X: set cast distance to X")
- echo("\n fcut: queue to cut the line")
- echo("\n frl: reel in the line")
- echo("\n fc X: cast to the X")
- echo("\n fbait X: vout and bait with X")
- send(" ")
+cecho("<green>\nFishing Commands:")
+echo("\n fsh: toggle fishing on/off")
+if not mtw.fishing.dir then mtw.fishing.dir = "" end
+if not mtw.fishing.bait then mtw.fishing.bait = "" end
+if not mtw.fishing.distance then mtw.fishing.distance = "" end
+if not mtw.fishing.max_dist then mtw.fishing.max_dist = 0 end
+if not mtw.fishing.max_cast then mtw.fishing.min_end = 0 end
+if not mtw.fishing.get then mtw.fishing.get = "sml" end
+echo("\n fdr X: set fishing direction to X (current: "..mtw.fishing.dir..")")
+echo("\n cbait X: set bait type to X (current: "..mtw.fishing.bait..")")
+echo("\n fdis X: set cast distance to X [medium/long] (current: "..mtw.fishing.distance..")")
+echo("\n fcut: queue to cut the line")
+echo("\n frl: reel in the line")
+echo("\n fc X: cast to the X")
+echo("\n fbait X: vout and bait with X")
+echo("\n fmdis X: set the maximum length before cutting to X (current: "..mtw.fishing.max_dist..")")
+echo("\n fmcast X: set the maximum length of your line (current: "..mtw.fishing.max_cast..")")
+echo("\n fmend X: set the minimum endurance before casting your line (current: "..mtw.fishing.min_end..")")
+local s = ""
+if string.find(mtw.fishing.get,"s") then
+ s = "Small"
+end
+if string.find(mtw.fishing.get,"m") then
+ if s == "" then
+  s = "Medium"
+ else
+  s = s.."/Medium"
+ end
+end
+if string.find(mtw.fishing.get,"l") then
+ if s == "" then
+  s = "Large"
+ else
+  s = s .. "/Large"
+ end
+end
+echo("\n fget X / fget X Y / fget X Y Z: get only a specific size of fish (current: "..s..")")
 end
 
 function mtw.reset_alias()

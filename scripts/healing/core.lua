@@ -116,25 +116,3 @@ function mtw.do_bashing_eq()
  end
 end
 
---fishing
-
-function mtw.do_fishing()
- if mtw.balance.balance and mtw.balance.equilibrium and (not mtw.waiting.balance) then
-  if mtw.fishing.stat == "baiting" then
-   send("vout "..mtw.fishing.bait, false)
-   send("fishing bait with "..mtw.fishing.bait, false)
-  elseif mtw.fishing.stat == "casting" then
-   send("fishing cast "..mtw.fishing.dir.." "..mtw.fishing.distance, false)
-  elseif mtw.fishing.stat == "teasing" then
-   send("fishing tease", false)
-  elseif mtw.fishing.stat == "reeling" then
-   send("fishing reel", false)
-  elseif mtw.fishing.stat == "cutting" then
-   send("fishing cut", false)
-  end
-  mtw.waiting.balance = true
-  tempTimer( mtw.delay(), [[mtw.waiting.balance = false]] )
- end
-end
-
-
