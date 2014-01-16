@@ -216,7 +216,7 @@ end
                         </eventHandlerList>
                     </Script>
                 </ScriptGroup>
-                <Script isActive="no" isFolder="no">
+                <Script isActive="yes" isFolder="no">
                     <name>gmcp_fishing</name>
                     <packageName></packageName>
                     <script>function gmcp_fishing()
