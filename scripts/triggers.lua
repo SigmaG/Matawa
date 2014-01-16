@@ -2799,9 +2799,15 @@ mtw.def_remove("rose")
 end
 
 function mtw.trigger_461(matches,multimatches)
+if see_illusion == 0 then
 mtw.aff_have("sleep")
 mtw.status.waking = true
 mtw.def_remove("rose")
+tempTimer(5, [[mtw.status.waking = false]])
+elseif see_illusion == 1 then
+see_illusion = 0
+cecho("\n<pink>Illusion checked!")
+end
 end
 
 function mtw.trigger_462(matches,multimatches)
