@@ -111,7 +111,7 @@ cdecho = true,
 
 --misc
 
-see_illusion = 0
+mtw.see_illusion = false
 
 mtw.last_type = "none"
 mtw.last_item = "none"

@@ -3,6 +3,9 @@
 -- Learning functions
 mtw_struct.load_external("utilities/learning")
 
+-- illusion checker
+mtw_struct.load_external("utilities/illusions")
+
 -- crits
 
 mtw.crits = {

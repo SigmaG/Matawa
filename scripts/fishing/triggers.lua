@@ -1,3 +1,5 @@
+-- MTW : functions executed by fishing triggers
+
 function mtw.fishing_trigger_1(matches,multimatches)
 if not (mtw.fishing.stat == "reeling") and string.find(mtw.fishing.get,matches[2]) then
  tempTimer( 1.5, [[send("fishing jerk")]] )
@@ -67,7 +69,7 @@ end
 end
 
 function mtw.fishing_trigger_10(matches,multimatches)
-mtw.fishing.stat ="none"
+mtw.fishing.stat = "none"
 echo("\nNo Bait!")
 end
 
@@ -114,7 +116,9 @@ end
 function mtw.fishing_trigger_16(matches,multimatches)
 if mtw.fishing.stat == "reeling" and tonumber(matches[3]) > mtw.fishing.max_dist and mtw.fishing.max_dist > 0 then
  mtw.fishing.stat = "cutting"
-endif mtw.fishing.stat == "reeling" and tonumber(matches[3]) > mtw.fishing.max_dist and mtw.fishing.max_dist > 0 then
- mtw.fishing.stat = "cutting"
 end
+end
+
+function mtw.fishing_trigger_17(matches,multimatches)
+ mtw.fishing.stat = "casting"
 end

@@ -30,7 +30,7 @@ function mtw.do_fishing()
    send("sit", false)
    mtw.toggles.standing = false
    mtw.fishing.stat = "wait for endurance"
-   tempTimer(30,[[send(" ")]])
+   tempTimer((mtw.fishing.min_end-mtw.vitals.current.endurance)/2,[[send(" ")]])
   end
   mtw.waiting.balance = true
   tempTimer( mtw.delay(), [[mtw.waiting.balance = false]] )
