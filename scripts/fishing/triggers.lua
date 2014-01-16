@@ -118,3 +118,7 @@ if mtw.fishing.stat == "reeling" and tonumber(matches[3]) > mtw.fishing.max_dist
  mtw.fishing.stat = "cutting"
 end
 end
+
+function mtw.fishing_trigger_17(matches,multimatches)
+ mtw.fishing.stat = "casting"
+end

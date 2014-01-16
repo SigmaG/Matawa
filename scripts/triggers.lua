@@ -2,7 +2,7 @@
 function mtw.trigger_1(matches,multimatches)
 
 --Set some values
-see_illusion = 0
+mtw.see_illusion = false
 mtw.my.stats = matches[8]
 if matches[7] == "" then
  mtw.status.vampire = false
@@ -2799,15 +2799,10 @@ mtw.def_remove("rose")
 end
 
 function mtw.trigger_461(matches,multimatches)
-if see_illusion == 0 then
 mtw.aff_have("sleep")
 mtw.status.waking = true
 mtw.def_remove("rose")
 tempTimer(5, [[mtw.status.waking = false]])
-elseif see_illusion == 1 then
-see_illusion = 0
-cecho("\n<pink>Illusion checked!")
-end
 end
 
 function mtw.trigger_462(matches,multimatches)
@@ -4750,13 +4745,8 @@ end
 
 function mtw.trigger_911(matches,multimatches)
 mtw.atk_hit(matches[2], matches[3], "blackeye")
-if see_illusion == 0 then
 --mtw.aff_have("blind")
 mtw.aff_have("blackout")
-elseif see_illusion == 1 then
-see_illusion = 0
-cecho("\n<pink>Illusion checked!")
-end
 end
 
 function mtw.trigger_912(matches,multimatches)
@@ -5838,17 +5828,12 @@ end
 
 function mtw.trigger_1168(matches,multimatches)
 mtw.atk_hit(matches[2], matches[3], "puncture")
-if see_illusion == 0 then
  for i in pairs(mtw.defenses) do
   if mtw.defenses[i].defense == matches[4] then
    cecho("<brown>\nStripped "..i)
    mtw.def_remove(i)
   end
  end
-elseif see_illusion == 1 then
- see_illusion = 0
- cecho("\n<pink>Illusion checked!")
-end
 end
 
 function mtw.trigger_1169(matches,multimatches)
@@ -6370,23 +6355,13 @@ end
 
 function mtw.trigger_1294(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "cheap_shot")
-if see_illusion == 0 then
 mtw.aff_have("blackout")
 mtw.aff_have("vomiting")
-elseif see_illusion == 1 then
-see_illusion = 0
-cecho("\n<pink>Illusion checked!")
-end
 end
 
 function mtw.trigger_1295(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "cheap_shot", matches[3])
-if see_illusion == 0 then
 mtw.aff_have("blackout")
-elseif see_illusion == 1 then
-see_illusion = 0
-cecho("\n<pink>Illusion checked!")
-end
 end
 
 function mtw.trigger_1296(matches,multimatches)
@@ -7546,12 +7521,7 @@ end
 
 function mtw.trigger_1576(matches,multimatches)
 mtw.atk_hit(mtw.attacks.atk_torture.attacker, nil, "torture")
-if see_illusion == 0 then
 mtw.aff_have("blackout")
-elseif see_illusion == 1 then
-see_illusion = 0
-cecho("\n<pink>Illusion checked!")
-end
 end
 
 function mtw.trigger_1577(matches,multimatches)
@@ -9421,7 +9391,7 @@ end
 end
 
 function mtw.trigger_2014(matches,multimatches)
-see_illusion = 1
+mtw.see_illusion = true
 end
 
 function mtw.trigger_2015(matches,multimatches)
@@ -9458,4 +9428,8 @@ end
 
 function mtw.trigger_2023(matches,multimatches)
 mtw.chat_shouts(matches)
+end
+
+function mtw.trigger_2024(matches,multimatches)
+mtw.aff_cure("dystrophy")
 end
