@@ -9420,3 +9420,11 @@ end
 function mtw.trigger_2024(matches,multimatches)
 mtw.aff_cure("dystrophy")
 end
+
+function mtw.trigger_2025(matches,multimatches)
+mtw.learn_next(false)
+end
+
+function mtw.trigger_2026(matches,multimatches)
+mtw.learn_next(true)
+end
