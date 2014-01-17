@@ -830,8 +830,9 @@ o Included some bandaid fixes for illusion checking. The framework for a real on
 o Updated the ?toggles and ?bashing output a bit. -Ashra
 
 v9.5
-o Added an illusion checker.
-o Updated fishing triggers/scripts.
-o Added dystrophy triggers.
+o Added an illusion checker. -Savil
+o Updated fishing triggers/scripts. -Savil
+o Added dystrophy triggers. -Savil
 o New learning script. -Naftali
 o Balance and equilibrium tracking from GMCP. -Naftali
+o Reworked scripts loading/saving. -Savil

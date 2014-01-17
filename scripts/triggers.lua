@@ -1565,20 +1565,7 @@ mtw.reset_all()
 end
 
 function mtw.trigger_229(matches,multimatches)
-if string.char(getMudletHomeDir():byte()) == "/" then
- sep = "/"
-else
- sep = "\\"
-end
-local DB = getMudletHomeDir()..sep.."times"
-table.save(DB, mtw.attack_times)
-local DB = getMudletHomeDir()..sep.."options"
-table.save(DB, mtw.options)
-local DB = getMudletHomeDir()..sep.."toggles"
-table.save(DB, mtw.toggles)
-local DB = getMudletHomeDir()..sep.."crits"
-table.save(DB, mtw.crits)
-cecho("<green>\nSaving Options!")
+ mtw.save_options()
 end
 
 function mtw.trigger_230(matches,multimatches)
