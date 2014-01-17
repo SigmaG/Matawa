@@ -828,3 +828,10 @@ o Added Elanoron's fix to the soldier bashing function to make handling disarm c
 o Finished up the halfway-sorta-almost done work from the previous version with adding an offhand queue. -Elanoron, Evaldir
 o Included some bandaid fixes for illusion checking. The framework for a real one is in place but not yet fully implemented, expect for next update! -Elanoron
 o Updated the ?toggles and ?bashing output a bit. -Ashra
+
+v9.5
+o Added an illusion checker.
+o Updated fishing triggers/scripts.
+o Added dystrophy triggers.
+o New learning script. -Naftali
+o Balance and equilibrium tracking from GMCP. -Naftali
