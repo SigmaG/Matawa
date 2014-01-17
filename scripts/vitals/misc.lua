@@ -353,3 +353,13 @@ function mtw.reset_all()
 end
 
 
+function mtw.scripts_reload(matches)
+ local trash_options = (matches[2] == " hard")
+ if not trash_options then
+  mtw.save_options()
+ end
+ mtw_struct.reload_external("init")
+ if not trash_options then
+  mtw.load_options()
+ end
+end
