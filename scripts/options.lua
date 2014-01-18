@@ -11,13 +11,13 @@ return {
 end
 
 function mtw.load_options()
-mtw.attack_times = mtw.times or {}
 mtw.attack_timers = {}
 local sep = mtw_struct.sep
 local get_dir_1 = getMudletHomeDir() .. mtw_struct.sep .. "matawa_options" .. mtw_struct.sep
 local get_dir_2 = getMudletHomeDir() .. mtw_struct.sep -- compatibility with matawa < 9.5
 local to_load = mtw.option_list()
 for k,v in pairs(to_load) do
+ mtw[k] = {}
  local DB = get_dir_1 .. v
  if lfs.attributes(DB) then
   pcall(table.load, DB, mtw[k])

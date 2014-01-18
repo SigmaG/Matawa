@@ -836,3 +836,4 @@ o Added dystrophy triggers. -Savil
 o New learning script. -Naftali
 o Balance and equilibrium tracking from GMCP. -Naftali
 o Reworked scripts loading/saving. -Savil
+o Reworked options handling, and options/toggles display -Savil

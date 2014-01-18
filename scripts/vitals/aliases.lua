@@ -24,7 +24,7 @@ function mtw.help_alias()
 end
 
 function mtw.options_alias()
- display(mtw.toggles)
+ mtw.get_options() 
  send(" ")
 end
 
@@ -36,105 +36,113 @@ function mtw.info_alias()
  send(" ")
 end
 
+function mtw.disp_toggle(toggle, desc)
+ if mtw.toggles[toggle] then
+  cecho("\n <green>"..desc)
+ else
+  cecho("\n <red>"..desc)
+ end
+end
+
 function mtw.toggles_alias()
- cecho("<green>\nBasic Toggles:")
- echo("\n hl: freeze the system")
- echo("\n ss: standing and waking")
- echo("\n dfnd: defending incoming attacks")
- echo("\n tfs: focusing afflictions")
- echo("\n tod: overdriving for health")
- echo("\n tkil: executing queued attacks")
- echo("\n tmin: mine resource nodes you appraise")
- echo("\n tbld: curing bleeding")
- echo("\n tcl: closing pack")
- echo("\n tlp: looping a single attack")
- echo("\n tcoun: use of counter or inquartata")
- cecho("<green>\nDisplay Toggles:")
- echo("\n tpr: numbers/percents on prompt")
- echo("\n tfp: display 0 as change in vital stats on prompt")
- echo("\n ltime: display timestamps to left of prompt")
- echo("\n rtime: display timestamps to right of prompt")
- echo("\n taffs: display afflictions given on attack echoes")
- echo("\n tdiag: display affliction effects on diag/assess")
- echo("\n tdeff: display defense effects on def")
- echo("\n tdef: colored echoes for incoming attacks")
- echo("\n tatk: colored echoes for outgoing attacks")
- echo("\n taff: colored echoes for afflictions")
- echo("\n tdefend: colored echoes for defenses")
- echo("\n tpass: colored echoes for passive effects")
- echo("\n tbal: colored echoes for balance alerts")
- echo("\n tcd: colored echoes for cooldown alerts")
- cecho("<green>\nClass Toggles:")
+ echo("\nBasic Toggles:")
+ mtw.disp_toggle("healing", "hl: freeze the system")
+ mtw.disp_toggle("standing", "ss: standing and waking")
+ mtw.disp_toggle("defending", "dfnd: defending incoming attacks")
+ mtw.disp_toggle("focusing", "tfs: focusing afflictions")
+ mtw.disp_toggle("overdriving", "tod: overdriving for health")
+ mtw.disp_toggle("killing", "tkil: executing queued attacks")
+ mtw.disp_toggle("mining", "tmin: mine resource nodes you appraise")
+ mtw.disp_toggle("bleeding", "tbld: curing bleeding")
+ mtw.disp_toggle("closing", "tcl: closing pack")
+ mtw.disp_toggle("looping", "tlp: looping a single attack")
+ mtw.disp_toggle("countering", "tcoun: use of counter or inquartata")
+ echo("\nDisplay Toggles:")
+ mtw.disp_toggle("percents", "tpr: numbers/percents on prompt")
+ mtw.disp_toggle("fullprompt", "tfp: display 0 as change in vital stats on prompt")
+ mtw.disp_toggle("lefttimestamp", "ltime: display timestamps to left of prompt")
+ mtw.disp_toggle("righttimestamp", "rtime: display timestamps to right of prompt")
+ mtw.disp_toggle("affdisplay", "taffs: display afflictions given on attack echoes")
+ mtw.disp_toggle("diageffect", "tdiag: display affliction effects on diag/assess")
+ mtw.disp_toggle("defeffect", "tdeff: display defense effects on def")
+ mtw.disp_toggle("defecho", "tdef: colored echoes for incoming attacks")
+ mtw.disp_toggle("atkecho", "tatk: colored echoes for outgoing attacks")
+ mtw.disp_toggle("affecho", "taff: colored echoes for afflictions")
+ mtw.disp_toggle("defendecho", "tdefend: colored echoes for defenses")
+ mtw.disp_toggle("passecho", "tpass: colored echoes for passive effects")
+ mtw.disp_toggle("balecho", "tbal: colored echoes for balance alerts")
+ mtw.disp_toggle("cdecho", "tcd: colored echoes for cooldown alerts")
+ echo("\nClass Toggles:")
  if mtw.my.class == "soldier" then
-  echo("\n tmch: marching instead of move")
-  echo("\n tret: retreating instead of move")
+  mtw.disp_toggle("marching", "tmch: marching instead of move")
+  mtw.disp_toggle("retreating", "tret: retreating instead of move")
  elseif mtw.my.class == "rogue" then
-  echo("\n thid: hide when out of combat")
-  echo("\n tpoi: display next poison layer on prompt")
+  mtw.disp_toggle("hiding", "thid: hide when out of combat")
+  mtw.disp_toggle("poisondisplay", "tpoi: display next poison layer on prompt")
  elseif mtw.my.class == "magician" then
-  echo("\n tward: maintain warding/lightball")
-  echo("\n tfrz: maintain freezing the ground")
+  mtw.disp_toggle("warding", "tward: maintain warding/lightball")
+  mtw.disp_toggle("freezing", "tfrz: maintain freezing the ground")
  elseif mtw.my.class == "priest" then
-  echo("\n tward: liturgy when available")
+  mtw.disp_toggle("warding", "tward: liturgy when available")
  end
  send(" ")
 end
 
 function mtw.bashing_aliases()
  cecho("<green>\nBashing Commands:")
- echo("\n ff: toggle fasthunting")
+ mtw.disp_toggle("fasthunt", "ff: toggle fasthunting")
  echo("\n aa: start bashing current room")
  echo("\n ast: stop bashing")
  echo("\n asp: stop bashing after next kill")
  echo("\n aap: start bashing and stop in one kill")
  echo("\n flee: toggle bashing/fasthunting off and queue flee")
- echo("\n tgg: toggle gathering gold and items")
- echo("\n gen: toggle generic/numeric targeting")
+ mtw.disp_toggle("gathering", "tgg: toggle gathering gold and items")
+ mtw.disp_toggle("generics", "gen: toggle generic/numeric targeting")
  echo("\n wbs: load mana wyrm bashing 'area'")
  echo("\n q X Y Z: manually load a prioritized target list of X, Y, and Z")
  echo("\n offr: check II CORPSE and then offer all the corpses you hold")
  echo("\n offrs: check II CORPSE and then offer all the corpses to sanctify")
  if mtw.my.class == "soldier" then
-  echo("\n tbrk: toggle berserking")
-  echo("\n trt: toggle threatening")
-  echo("\n tobt: toggle obliterating")
-  echo("\n tsnd: toggle sundering")
+  mtw.disp_toggle("berserking", "tbrk: toggle berserking")
+  mtw.disp_toggle("threatening", "trt: toggle threatening")
+  mtw.disp_toggle("obliterating", "tobt: toggle obliterating")
+  mtw.disp_toggle("sundering", "tsnd: toggle sundering")
   if table.contains(mtw.skills, "swordmastery") then
-   echo("\n tsf: toggle starfurying")
+   mtw.disp_toggle("starfurying", "tsf: toggle starfurying")
   end
  elseif mtw.my.class == "rogue" then
-  echo("\n tflh: toggle fleching")
-  echo("\n thid: toggle hiding")
-  echo("\n tinq: toggle inquartata")
+  mtw.disp_toggle("fleching", "tflh: toggle fleching")
+  mtw.disp_toggle("hiding", "thid: toggle hiding")
+  mtw.disp_toggle("inquartataing", "tinq: toggle inquartata")
   if table.contains(mtw.skills, "thievery") then
-   echo("\n tsm: toggle shadowmending")
+   mtw.disp_toggle("shadowmending", "tsm: toggle shadowmending")
   end
   if table.contains(mtw.skills, "performance") then
-   echo("\n tcnt: toggle cantoing")
-   echo("\n treq: toggle requieming")
-   echo("\n tprl: toggle prelude")
+   mtw.disp_toggle("cantoing", "tcnt: toggle cantoing")
+   mtw.disp_toggle("requieming", "treq: toggle requieming")
+   mtw.disp_toggle("prelude", "tprl: toggle prelude")
   end
  elseif mtw.my.class == "priest" then
-  echo("\n thrt: toggle heretic")
-  echo("\n tswd: toggle holy sword")
+  mtw.disp_toggle("hereticing", "thrt: toggle heretic")
+  mtw.disp_toggle("swording", "tswd: toggle holy sword")
   if table.contains(mtw.skills, "bloodlore") then
-   echo("\n tsv: toggle savaging")
+   mtw.disp_toggle("savaging", "tsv: toggle savaging")
   end
-   if table.contains(mtw.skills, "shadoweaving") then
-   echo("\n tlsh: toggle lashing")
+  if table.contains(mtw.skills, "shadoweaving") then
+   mtw.disp_toggle("lashing", "tlsh: toggle lashing")
   end
   if table.contains(mtw.skills, "crusading") then
-   echo("\n tdom: toggle dominating strike")
+   mtw.disp_toggle("dominating", "tdom: toggle dominating strike")
   end
  elseif mtw.my.class == "magician" then
-  echo("\n tigt: toggle igniting")
-  echo("\n tana: toggle anachronizing")
-  echo("\n tbrg: toggle eldritch barrage")
-  echo("\n timm: toggle immolating")
-  echo("\n tis: toggle icespikes")
-  echo("\n tblf: toggle balefire instead of stormlance")
+  mtw.disp_toggle("igniting", "tigt: toggle igniting")
+  mtw.disp_toggle("anachronizing", "tana: toggle anachronizing")
+  mtw.disp_toggle("barraging", "tbrg: toggle eldritch barrage")
+  mtw.disp_toggle("immolating", "timm: toggle immolating")
+  mtw.disp_toggle("spiking", "tis: toggle icespikes")
+  mtw.disp_toggle("balefire", "tblf: toggle balefire instead of stormlance")
   if table.contains(mtw.skills, "psionics") then
-   echo("\n tmbl: toggle mindblasting")
+   mtw.disp_toggle("mindblasting", "tmbl: toggle mindblasting")
   end
  end
  send(" ")

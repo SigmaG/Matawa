@@ -1593,6 +1593,7 @@ function mtw.trigger_234(matches,multimatches)
 mtw.load_def("none")
 cecho("<blue>\nWelcome to Matawa 9.5!")
 cecho("<green>\n Send ?help to get some help.")
+mtw.check_options()
 end
 
 function mtw.trigger_235(matches,multimatches)

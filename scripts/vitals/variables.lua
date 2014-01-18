@@ -1,16 +1,4 @@
--- MTW: variables (needs to be edited)
-
-
---OPTIONS
-mtw.options = {
-container = "pack",
-mount = "50237",
-scabbard1 = "47180",
-scabbard2 = "38578",
-baldric1 = "54132",
-baldric2 = "46737",
-crossbow = "8188",
-}
+-- MTW: variables
 
 --TOGGLES
 mtw.toggles = {
