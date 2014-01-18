@@ -2789,7 +2789,7 @@ function mtw.trigger_461(matches,multimatches)
 mtw.aff_have("sleep")
 mtw.status.waking = true
 mtw.def_remove("rose")
-tempTimer(5, [[mtw.status.waking = false]])
+tempTimer(2, [[mtw.status.waking = false]])
 end
 
 function mtw.trigger_462(matches,multimatches)
