@@ -28,6 +28,10 @@ function mtw_struct.load_external(f)
   local file = getMudletHomeDir() .. fs .. &quot;Matawa&quot; .. fs .. &quot;scripts&quot; .. fs .. f .. &quot;.lua&quot;
   fileinfo = lfs.attributes(file)
   if not fileinfo then
+   file = getMudletHomeDir() .. fs .. &quot;matawa&quot; .. fs .. &quot;scripts&quot; .. fs .. f .. &quot;.lua&quot;
+   fileinfo = lfs.attributes(file)
+  end
+  if not fileinfo then
    file = getMudletHomeDir() .. fs .. &quot;scripts&quot; .. fs .. f .. &quot;.lua&quot;
   end
   local b,e = pcall(dofile,file)
