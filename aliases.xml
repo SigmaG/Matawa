@@ -2845,7 +2845,7 @@ send(&quot; &quot;)</script>
                                     <script>mtw.al_swordmaster_o(&quot;greenburst&quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^gb$</regex>
+                                    <regex>^gbt$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Mooncrescent Rises</name>
