@@ -1591,7 +1591,7 @@ end
 
 function mtw.trigger_234(matches,multimatches)
 mtw.load_def("none")
-cecho("<blue>\nWelcome to Matawa 9.4!")
+cecho("<blue>\nWelcome to Matawa 9.5!")
 cecho("<green>\n Send ?help to get some help.")
 end
 
