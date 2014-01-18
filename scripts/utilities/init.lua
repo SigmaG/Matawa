@@ -3,6 +3,9 @@
 -- illusion checker
 mtw_struct.load_external("utilities/illusions")
 
+-- GMCP checker
+mtw_struct.load_external("utilities/gmcp_checking")
+
 -- crits
 
 mtw.crits = {
