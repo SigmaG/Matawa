@@ -1594,6 +1594,11 @@ mtw.load_def("none")
 cecho("<blue>\nWelcome to Matawa 9.5!")
 cecho("<green>\n Send ?help to get some help.")
 mtw.check_options()
+if not mtw.gmcp_enabled() then
+ cecho("\nGMCP is <red>disabled<white>, please enable it in Mudlet settings and restart Mudlet.")
+else
+ cecho("\nGMCP is <green>enabled<white>!")
+end
 end
 
 function mtw.trigger_235(matches,multimatches)
