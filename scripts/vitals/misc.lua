@@ -363,3 +363,11 @@ function mtw.scripts_reload(matches)
   mtw.load_options()
  end
 end
+
+function mtw.gmcpcheck_alias()
+ if mtw.gmcp_enabled() then
+  cecho("\n<white>GMCP is <green>enabled<white>!")
+ else
+  cecho("\n<white>GMCP is <red>disabled<white>! Please enable it in Mudlet settings and restart Mudlet.")
+ end
+end
