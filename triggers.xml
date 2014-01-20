@@ -14118,7 +14118,7 @@
                                 </regexCodePropertyList>
                             </Trigger>
                             <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                                <name>arrows def</name>
+                                <name>arrowsense def</name>
                                 <script>mtw.check_illusion(mtw.trigger_525,matches,multimatches)</script>
                                 <triggerType>0</triggerType>
                                 <conditonLineDelta>99</conditonLineDelta>
@@ -15232,6 +15232,26 @@
                                 <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                 <regexCodeList>
                                     <string>You are in a berserking rage.</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>3</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>arrow def</name>
+                                <script>mtw.check_illusion(mtw.trigger_2027,matches,multimatches)</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>0</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>You are protected against missile attacks.</string>
                                 </regexCodeList>
                                 <regexCodePropertyList>
                                     <integer>3</integer>
@@ -16360,6 +16380,26 @@
                                 <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                 <regexCodeList/>
                                 <regexCodePropertyList/>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>give</name>
+                                    <script>mtw.check_illusion(mtw.trigger_2028,matches,multimatches)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>0</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>You touch the tattoo, andlook alert for incoming missiles.</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>3</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
                             </TriggerGroup>
                             <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                                 <name>Glacier</name>

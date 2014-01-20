@@ -9430,3 +9430,11 @@ end
 function mtw.trigger_2026(matches,multimatches)
 mtw.learn_next(true)
 end
+
+function mtw.trigger_2027(matches,multimatches)
+mtw.def_def("arrow")
+end
+
+function mtw.trigger_2028(matches,multimatches)
+mtw.def_gain("arrow")
+end
