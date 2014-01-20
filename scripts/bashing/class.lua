@@ -30,7 +30,7 @@ function mtw.soldier_bash()
   mtw.send("starfuryslash "..mtw.bashing.target)
  elseif mtw.vitals.adrenaline > 89 and mtw.toggles.obliterating and not mtw.need_wield then
   mtw.send("obliterate "..mtw.bashing.target)
- elseif mtw.defenses.def_grip.state == "deffed" and not mtw.need_wield then
+ elseif mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping") and not mtw.need_wield then
   mtw.send("slash "..mtw.bashing.target)
  end
 end
