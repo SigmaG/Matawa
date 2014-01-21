@@ -530,7 +530,7 @@ end
 end
 
 function mtw.trigger_90(matches,multimatches)
-if toggles.cdecho then 
+if mtw.toggles.cdecho then 
  if matches[2] == mtw.target then
   deleteLine()
   cecho("\n<green>=====<white>"..matches[2].."<brown>=====<red>TOUCHING <cyan>::<red>SHIELD<cyan>:: <red>TATTOO!<brown>=====<green>=====\n")
@@ -8671,11 +8671,11 @@ mtw.attack_start(matches[2], "incinerate")
 end
 
 function mtw.trigger_1847(matches,multimatches)
-queue_diag()
+mtw.queue_diag()
 end
 
 function mtw.trigger_1848(matches,multimatches)
-aff_have("concussion")
+mtw.aff_have("concussion")
 end
 
 function mtw.trigger_1849(matches,multimatches)
@@ -8684,15 +8684,15 @@ end
 
 function mtw.trigger_1850(matches,multimatches)
 --ashfall = false
-aff_have("black_lung")
+mtw.aff_have("black_lung")
 end
 
 function mtw.trigger_1851(matches,multimatches)
-queue_diag()
+mtw.queue_diag()
 end
 
 function mtw.trigger_1852(matches,multimatches)
-queue_diag()
+mtw.queue_diag()
 end
 
 function mtw.trigger_1853(matches,multimatches)
