@@ -480,6 +480,13 @@
                                 <packageName></packageName>
                                 <regex>^tpalm$</regex>
                             </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>gripping</name>
+                                <script>mtw.toggle(&quot;gripping&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tgr$</regex>
+                            </Alias>
                         </AliasGroup>
                     </AliasGroup>
                     <AliasGroup isActive="yes" isFolder="yes">

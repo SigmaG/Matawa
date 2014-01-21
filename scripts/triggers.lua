@@ -4008,14 +4008,19 @@ for i in ipairs(mtw.weapons) do
   mtw.my.weapon = mtw.weapons[i]
   mtw.need_wield = true
  end
+ if mtw.defenses.def_grip.needit then
+  mtw.defenses.def_grip.needit = false
+ end
 end
-
 end
 
 function mtw.trigger_737(matches,multimatches)
 --if matches[2] == mtw.my.weapon then
  mtw.need_wield = false
 --end
+ if mtw.defenses.def_grip.needit then
+  mtw.defenses.def_grip.needit = false
+ end
 mtw.waiting.balance = false
 mtw.do_core()
 end
@@ -4023,6 +4028,10 @@ end
 function mtw.trigger_738(matches,multimatches)
 mtw.need_wield = false
 mtw.waiting.balance = false
+if mtw.toggles.gripping and mtw.defenses.def_grip.needit == false then
+  mtw.defenses.def_grip.needit = true
+  send(" ")
+ end
 mtw.do_core()
 end
 
@@ -4043,6 +4052,10 @@ end
 
 function mtw.trigger_741(matches,multimatches)
 mtw.need_wield = false
+ if mtw.toggles.gripping and mtw.defenses.def_grip.needit == false then
+  mtw.defenses.def_grip.needit = true
+  send(" ")
+ end
 end
 
 function mtw.trigger_742(matches,multimatches)

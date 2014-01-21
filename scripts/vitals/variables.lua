@@ -64,6 +64,7 @@ squading = false,
 warding = false,
 freezing = false,
 scrying = false,
+gripping = false,
 --Keep pack closed
 closing = false,
 --Repeat the same queued attack
