@@ -268,9 +268,9 @@ end
 function mtw.show_def_option(option)
  cecho("\nContents of the defense option <green>"..option)
  for k,v in pairs(mtw.def_options[option]) do
-  local def = mtw.defenses[k].defense
-  if def == "" then
-   def = string.gsub(k, "def_", "", 1)
+  local def = k
+  if mtw.defenses[k].effect ~= "" then
+   def = def .." - " .. mtw.defenses[k].effect
   end
   if v ~= "off" then
    cecho("\n "..def.." - "..v)
