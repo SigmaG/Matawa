@@ -45,7 +45,7 @@ function mtw.do_healing()
    tempTimer( mtw.delay(), [[mtw.waiting.wake = false]] )
   end
   if mtw.not_aff("sleep") then
-   if mtw.need_wield and mtw.balance.balance and not mtw.waiting.wield then
+   if mtw.need_wield and mtw.balance.balance and (not mtw.waiting.wield) and mtw.fleeing == false then
     mtw.send("wield "..mtw.my.weapon)
     mtw.waiting.wield = true
     tempTimer(mtw.delay(), [[mtw.waiting.wield = false]])
