@@ -291,6 +291,27 @@ def_tenacity = "on",
 def_immunity = "once"
 },
 
+swordmaster = {
+def_rose = "on",
+def_thirdeye = "once",
+def_skywatch = "once",
+def_deathsense = "once",
+def_nightvision = "once",
+def_insomnia = "on",
+def_forboding = "once",
+--def_premonition = "once",
+def_hourglass = "once",
+def_selfishness = "on",
+def_grip = "on",
+def_enrage = "on",
+def_warcry = "on",
+def_tenacity = "on",
+def_immunity = "once",
+def_serenity = "once",
+def_censer = "once",
+def_arrow = "once",
+},
+
 rogue = {
 def_rose = "on",
 def_thirdeye = "once",
