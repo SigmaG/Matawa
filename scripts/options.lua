@@ -7,6 +7,7 @@ return {
  toggles = "toggles",
  crits = "crits",
  fishing = "fishing",
+ def_options = "def_options",
 }
 end
 

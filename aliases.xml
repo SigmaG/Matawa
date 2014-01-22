@@ -1135,6 +1135,20 @@ send(&quot; &quot;)</script>
                         <regex>^ldd (.*)$</regex>
                     </Alias>
                     <Alias isActive="yes" isFolder="no">
+                        <name>tweak defense options</name>
+                        <script>mtw.tweak_def_option(matches[2],matches[3], matches[4])</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^chd ([^ ]*) ([^ ]*) (o.*)$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>show defense option</name>
+                        <script>mtw.show_def_option(matches[2])</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^sdd (.*)$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
                         <name>diagnose</name>
                         <script>mtw.queue_diag()</script>
                         <command></command>

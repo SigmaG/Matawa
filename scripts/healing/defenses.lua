@@ -248,7 +248,37 @@ function mtw.load_def(option)
  end
 end
 
---presets
+function mtw.tweak_def_option(option, defense, status)
+ if not mtw.def_options[option] then
+  mtw.def_options[option] = {}
+ end
+ if not string.find(defense, "def_") then
+  defense = "def_"..defense
+ end
+ if status == "once" or status == "on" then
+  mtw.def_options[option][defense] = status
+  cecho("\n<white>Added defense <red>"..defense.."<white> ("..status..") from defense option <green>"..option)
+ end
+ if status == "off" then
+  mtw.def_options[option][defense] = "off"
+  cecho("\n<white>Removed defense <red>"..defense.."<white> from defense option <green>"..option)
+ end
+end
+
+function mtw.show_def_option(option)
+ cecho("\nContents of the defense option <green>"..option)
+ for k,v in pairs(mtw.def_options[option]) do
+  local def = mtw.defenses[k].defense
+  if def == "" then
+   def = string.gsub(k, "def_", "", 1)
+  end
+  if v ~= "off" then
+   cecho("\n "..def.." - "..v)
+  end
+ end
+end
+
+--presets, they can be altered in game with 'chd preset defense on/off/once'
 
 mtw.def_options = {
 
