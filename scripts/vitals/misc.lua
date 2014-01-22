@@ -267,6 +267,7 @@ function mtw.do_pack(command)
   mtw.send("open "..mtw.options.container)
  end
  mtw.send(command)
+ mtw.send("close "..mtw.options.container)
 end
 
 
