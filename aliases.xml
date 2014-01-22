@@ -586,6 +586,13 @@
                             <packageName></packageName>
                             <regex>^reload( hard)?$</regex>
                         </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>check GMCP</name>
+                            <script>mtw.gmcpcheck_alias()</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^GMCPcheck$</regex>
+                        </Alias>
                     </AliasGroup>
                 </AliasGroup>
                 <AliasGroup isActive="yes" isFolder="yes">

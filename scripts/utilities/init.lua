@@ -373,8 +373,17 @@ idlow = tempTrigger(string.lower(mtw.target), [[selectString("]] .. string.lower
 end
 
 function mtw.order_guard_move(matches)
+local s = "guard"
+if gmcp.Char.Status.City == "Krondor" then
+ s = "constable"
+elseif gmcp.Char.Status.City == "Elvandar" then
+ s = "warden"
+elseif gmcp.Char.Status.City == "Sar-Sargoth" then
+ s = "bladedancer"
+end
+s = "order "..s.." move "..matches[3]
 for i = 1,tonumber(matches[2]) do
- send("order constable move "..matches[3])
+ send(s)
 end
 end
 
