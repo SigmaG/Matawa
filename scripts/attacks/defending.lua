@@ -346,6 +346,6 @@ block = "You skillfully block, mitigating (.*) full assault.",
 repulse = "You strategically repulse (.*) maneuver.",
 shield = "A scintillating shield of light blossoms before you, protecting you.",
 warlord = "With preternatural grace, you dart fluidly to one side.",
---perfect = 
+perfect = "You whirl about in a blur of motion, your perfect defense impossible to penetrate.",
 }
 
