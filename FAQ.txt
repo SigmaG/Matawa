@@ -5,14 +5,11 @@ Q:
 How do I set this up?
 
 A:
-o Click on Scripts at the top of the mudlet window to open the scripting window in a new profile.
-o Click the big green Import arrow at the top of the scripting window.
-o Navigate to where you downloaded the system to and import the system.trigger file there.
-o After importing the system into your new profile in mudlet, go to scripts->system->vitals->variables->options.
-o Adjust the values of the tables there to reflect your character and your skills.
-o Make sure you set your mount, container, and the toggles variables!
-o Make sure you have GMCP enabled (see below).
-o Close and reopen mudlet once.
+o Click on the brown box at the top of the main window.
+o Navigate to where you downloaded the system and import the matawa.mpackage.zip file there.
+o Make sure you have GMCP enabled (you will get an error message if you do not).
+o Restart mudlet (it can work without doing so though by using the 'reload' command).
+o You can set your mount and container by doing '?set option mount <id>' and '?set option container <pack|pouch|...>'. You can check using ?options.
 o Send the alias, ?setup
 o This should toggle all the config commands the system needs to function.
 o All set! System will track everything else through GMCP!
@@ -59,7 +56,7 @@ o Watch the debug window and try to recreate the bug. Errors are displayed in wh
 o If you do get an error message, you can highlight and then right-click and select copy to save it.
 o Once you've got an error message, or can positively say there isn't one, write me up a report!
 o Include the error message, as much detail about the circumstances of the error as possible, and any logs or records you have of the error occurring.
-o Send me a letter or message in game, or post on the system's forum thread, or send me a forum pm or an email at raelyr@live.com.
+o Send me a letter or message in game, or post on the system's forum thread, or send me a forum pm.
 o I might get back with you asking you to try or test or change things and looking for more feedback, but I promise to work on it as soon as possible!
 
 
