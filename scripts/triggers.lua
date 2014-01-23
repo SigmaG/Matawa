@@ -6773,7 +6773,11 @@ mtw.atk_miss(matches[2], nil, "icespikes")
 end
 
 function mtw.trigger_1386(matches,multimatches)
-mtw.attack_start(mtw.target, "icespikes")
+if (mtw.toggles.bashing or mtw.toggles.fasthunt) then
+  mtw.attack_start(mtw.bashing.target, "icespikes")
+else
+  mtw.attack_start(mtw.target, "icespikes")
+ end
 end
 
 function mtw.trigger_1387(matches,multimatches)
