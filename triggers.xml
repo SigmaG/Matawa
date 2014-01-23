@@ -34359,6 +34359,182 @@
                                     </regexCodePropertyList>
                                 </Trigger>
                             </TriggerGroup>
+                            <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>Whispers</name>
+                                    <script></script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>0</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList/>
+                                    <regexCodePropertyList/>
+                                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                        <name>WhisperHypersomnia</name>
+                                        <script>mtw.check_illusion(mtw.trigger_atk_whypersomnia,matches,multimatches)</script>
+                                        <triggerType>0</triggerType>
+                                        <conditonLineDelta>0</conditonLineDelta>
+                                        <mStayOpen>0</mStayOpen>
+                                        <mCommand></mCommand>
+                                        <packageName></packageName>
+                                        <mFgColor>#ff0000</mFgColor>
+                                        <mBgColor>#ffff00</mBgColor>
+                                        <mSoundFile></mSoundFile>
+                                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                        <regexCodeList>
+                                            <string>^You whisper silently in (\w+)('s|') ear from the shadows, secretly filling (his|her) mind with delirious thoughts of hypersomnia\.$</string>
+                                        </regexCodeList>
+                                        <regexCodePropertyList>
+                                            <integer>1</integer>
+                                        </regexCodePropertyList>
+                                    </Trigger>
+                                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                        <name>WhisperStupidity</name>
+                                        <script>mtw.check_illusion(mtw.trigger_atk_wstupidity,matches,multimatches)</script>
+                                        <triggerType>0</triggerType>
+                                        <conditonLineDelta>0</conditonLineDelta>
+                                        <mStayOpen>0</mStayOpen>
+                                        <mCommand></mCommand>
+                                        <packageName></packageName>
+                                        <mFgColor>#ff0000</mFgColor>
+                                        <mBgColor>#ffff00</mBgColor>
+                                        <mSoundFile></mSoundFile>
+                                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                        <regexCodeList>
+                                            <string>^You whisper silently in (\w+)('s|') ear from the shadows, secretly filling (his|her) mind with delirious thoughts of stupidity\.$</string>
+                                        </regexCodeList>
+                                        <regexCodePropertyList>
+                                            <integer>1</integer>
+                                        </regexCodePropertyList>
+                                    </Trigger>
+                                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                        <name>WhisperDizziness</name>
+                                        <script>mtw.check_illusion(mtw.trigger_atk_wdizziness,matches,multimatches)</script>
+                                        <triggerType>0</triggerType>
+                                        <conditonLineDelta>0</conditonLineDelta>
+                                        <mStayOpen>0</mStayOpen>
+                                        <mCommand></mCommand>
+                                        <packageName></packageName>
+                                        <mFgColor>#ff0000</mFgColor>
+                                        <mBgColor>#ffff00</mBgColor>
+                                        <mSoundFile></mSoundFile>
+                                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                        <regexCodeList>
+                                            <string>^You whisper silently in (\w+)('s|') ear from the shadows, secretly filling (his|her) mind with delirious thoughts of dizziness\.$</string>
+                                        </regexCodeList>
+                                        <regexCodePropertyList>
+                                            <integer>1</integer>
+                                        </regexCodePropertyList>
+                                    </Trigger>
+                                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                        <name>WhisperRecklessness</name>
+                                        <script>mtw.check_illusion(mtw.trigger_atk_wrecklessness,matches,multimatches)</script>
+                                        <triggerType>0</triggerType>
+                                        <conditonLineDelta>0</conditonLineDelta>
+                                        <mStayOpen>0</mStayOpen>
+                                        <mCommand></mCommand>
+                                        <packageName></packageName>
+                                        <mFgColor>#ff0000</mFgColor>
+                                        <mBgColor>#ffff00</mBgColor>
+                                        <mSoundFile></mSoundFile>
+                                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                        <regexCodeList>
+                                            <string>^You whisper silently in (\w+)('s|') ear from the shadows, secretly filling (his|her) mind with delirious thoughts of recklessness\.$</string>
+                                        </regexCodeList>
+                                        <regexCodePropertyList>
+                                            <integer>1</integer>
+                                        </regexCodePropertyList>
+                                    </Trigger>
+                                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                        <name>WhisperConfusion</name>
+                                        <script>mtw.check_illusion(mtw.trigger_atk_wconfusion,matches,multimatches)</script>
+                                        <triggerType>0</triggerType>
+                                        <conditonLineDelta>0</conditonLineDelta>
+                                        <mStayOpen>0</mStayOpen>
+                                        <mCommand></mCommand>
+                                        <packageName></packageName>
+                                        <mFgColor>#ff0000</mFgColor>
+                                        <mBgColor>#ffff00</mBgColor>
+                                        <mSoundFile></mSoundFile>
+                                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                        <regexCodeList>
+                                            <string>^You whisper silently in (\w+)('s|') ear from the shadows, secretly filling (his|her) mind with delirious thoughts of confusion\.$</string>
+                                        </regexCodeList>
+                                        <regexCodePropertyList>
+                                            <integer>1</integer>
+                                        </regexCodePropertyList>
+                                    </Trigger>
+                                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                        <name>WhisperParanoia</name>
+                                        <script>mtw.check_illusion(mtw.trigger_atk_wparanoia,matches,multimatches)</script>
+                                        <triggerType>0</triggerType>
+                                        <conditonLineDelta>0</conditonLineDelta>
+                                        <mStayOpen>0</mStayOpen>
+                                        <mCommand></mCommand>
+                                        <packageName></packageName>
+                                        <mFgColor>#ff0000</mFgColor>
+                                        <mBgColor>#ffff00</mBgColor>
+                                        <mSoundFile></mSoundFile>
+                                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                        <regexCodeList>
+                                            <string>^You whisper silently in (\w+)('s|') ear from the shadows, secretly filling (his|her) mind with delirious thoughts of paranoia\.$</string>
+                                        </regexCodeList>
+                                        <regexCodePropertyList>
+                                            <integer>1</integer>
+                                        </regexCodePropertyList>
+                                    </Trigger>
+                                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                        <name>WhisperLull</name>
+                                        <script>mtw.check_illusion(mtw.trigger_atk_wlull,matches,multimatches)</script>
+                                        <triggerType>0</triggerType>
+                                        <conditonLineDelta>0</conditonLineDelta>
+                                        <mStayOpen>0</mStayOpen>
+                                        <mCommand></mCommand>
+                                        <packageName></packageName>
+                                        <mFgColor>#ff0000</mFgColor>
+                                        <mBgColor>#ffff00</mBgColor>
+                                        <mSoundFile></mSoundFile>
+                                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                        <regexCodeList>
+                                            <string>^You whisper silently in (\w+)('s|') ear from the shadows, secretly filling (his|her) mind with lulling thoughts to ease the mind\.$</string>
+                                        </regexCodeList>
+                                        <regexCodePropertyList>
+                                            <integer>1</integer>
+                                        </regexCodePropertyList>
+                                    </Trigger>
+                                    <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                        <name>WhisperPuncture</name>
+                                        <script>mtw.check_illusion(mtw.trigger_atk_wpuncture,matches,multimatches)</script>
+                                        <triggerType>0</triggerType>
+                                        <conditonLineDelta>0</conditonLineDelta>
+                                        <mStayOpen>0</mStayOpen>
+                                        <mCommand></mCommand>
+                                        <packageName></packageName>
+                                        <mFgColor>#ff0000</mFgColor>
+                                        <mBgColor>#ffff00</mBgColor>
+                                        <mSoundFile></mSoundFile>
+                                        <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                        <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                        <regexCodeList>
+                                            <string>^You whisper silently in (\w+)('s|') ear from the shadows, soothing (her|his) mind and insidiously disarming (her|his) (.*)\.$</string>
+                                        </regexCodeList>
+                                        <regexCodePropertyList>
+                                            <integer>1</integer>
+                                        </regexCodePropertyList>
+                                    </Trigger>
+                            </TriggerGroup>
                         </TriggerGroup>
                         <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Performance</name>

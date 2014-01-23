@@ -6520,6 +6520,39 @@ function mtw.trigger_1332(matches,multimatches)
 mtw.attack_defend(matches[2], nil, "lowblow", matches[4])
 end
 
+function mtw.trigger_atk_whypersomnia(matches,multimatches)
+  mtw.attack_hit(matches[2], "atk_whypersomnia", nil)
+end
+
+function mtw.atk_wstupidity(matches,multimatches)
+  mtw.attack_hit(matches[2], "atk_wstupidity", nil)
+end
+
+function mtw.atk_wdizziness(matches,multimatches)
+  mtw.attack_hit(matches[2], "atk_wdizziness", nil)
+end
+
+function mtw.atk_wrecklessness(matches,multimatches)
+  mtw.attack_hit(matches[2], "atk_wrecklessness", nil)
+end
+
+function mtw.atk_wconfusion(matches,multimatches)
+  mtw.attack_hit(matches[2], "atk_wconfusion", nil)
+end
+
+function mtw.atk_wparanoia(matches,multimatches)
+  mtw.attack_hit(matches[2], "atk_wparanoia", nil)
+end
+
+function mtw.atk_wlull(matches,multimatches)
+  mtw.attack_hit(matches[2], "atk_wlull", nil)
+end
+
+function mtw.atk_wpuncture(matches,multimatches)
+  mtw.attack_hit(matches[2], "atk_wpuncture", nil)
+  cecho("<brown>\nYou: STRIPPED <green>"..matches[6])
+end
+
 function mtw.trigger_1333(matches,multimatches)
 mtw.atk_start(matches[2], matches[3], "canto")
 end
