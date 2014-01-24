@@ -6,22 +6,22 @@ mtw.less_defs = {}
 mtw.defenses = {
 def_myrrh = {defense = "learning speed", type = "normal", effect = "Shortens learning telegraph", balance = {balanceneed = "vout myrrh;eat myrrh"}, state = "down", needit = false, timer = createStopWatch()},
 def_highcastle = {defense = "", type = "normal", effect = "10% damage increase vs mobs", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_veilgarden = {defense = "", type = "normal", effect = "Extends duration of defenses", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_veilgarden = {defense = "", type = "normal", effect = "Extends duration of defenses", skill = "veilgarden", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Vigilance
-def_notice = {defense = "increased notice", type = "endurance", effect = "Checks against stealth actions", balance = {equilibriumtake= "notice"}, state = "down", needit = false, timer = createStopWatch()},
-def_skywatch = {defense = "skywatch", type = "normal", effect = "Detect rooftop movement", balance = {equilibriumtake= "skywatch on"}, state = "down", needit = false, timer = createStopWatch()},
-def_deathsense = {defense = "deathsense", type = "normal", effect = "Sense the deaths of other players", balance = {needyequilibriumtake= "deathsense on"}, state = "down", needit = false, timer = createStopWatch()},
-def_awareness = {defense = "awareness", type = "endurance", effect = "Detect movement in adjacent rooms", balance = {needyequilibriumtake= "awareness on"}, state = "down", needit = false, timer = createStopWatch()},
-def_nightvision = {defense = "night vision", type = "normal", effect = "Reveal identities of players in shadow", balance = {needybalancetake= "nightvision on"}, state = "down", needit = false, timer = createStopWatch()},
---def_nightvision = {defense = "night vision", type = "normal", effect = "Reveal identities of players in shadow", balance = {needybalancetake= "touch lantern tattoo"}, state = "down", needit = false, timer = createStopWatch()},
-def_insomnia = {defense = "insomnia", type = "important", effect = "Prevents natural sleep", balance = {equilibriumtake = "insomnia"}, state = "down", needit = false, timer = createStopWatch()},
-def_forboding = {defense = "forboding", type = "normal", effect = "Detect scrying attempts", balance = {needybalancetake= "forboding on"}, state = "down", needit = false, timer = createStopWatch()},
-def_premonition = {defense = "premonition", type = "endurance", effect = "Detect enemies entering your area", balance = {needyequilibriumtake= "premonition on"}, state = "down", needit = false, timer = createStopWatch()},
-def_vanish = {defense = "", type = "normal", effect = "Temporarily unscryable", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_notice = {defense = "increased notice", type = "endurance", effect = "Checks against stealth actions", skill = "Notice", balance = {equilibriumtake= "notice"}, state = "down", needit = false, timer = createStopWatch()},
+def_skywatch = {defense = "skywatch", type = "normal", effect = "Detect rooftop movement", skill = "Skywatch", balance = {equilibriumtake= "skywatch on"}, state = "down", needit = false, timer = createStopWatch()},
+def_deathsense = {defense = "deathsense", type = "normal", effect = "Sense the deaths of other players", skill = "Deathsense", balance = {needyequilibriumtake= "deathsense on"}, state = "down", needit = false, timer = createStopWatch()},
+def_awareness = {defense = "awareness", type = "endurance", effect = "Detect movement in adjacent rooms", skill = "Awareness", balance = {needyequilibriumtake= "awareness on"}, state = "down", needit = false, timer = createStopWatch()},
+def_nightvision = {defense = "night vision", type = "normal", effect = "Reveal identities of players in shadow", skill = "Nightvision", balance = {needybalancetake= "nightvision on"}, state = "down", needit = false, timer = createStopWatch()},
+--def_nightvision = {defense = "night vision", type = "normal", effect = "Reveal identities of players in shadow", skill = "nightvision", balance = {needybalancetake= "touch lantern tattoo"}, state = "down", needit = false, timer = createStopWatch()},
+def_insomnia = {defense = "insomnia", type = "important", effect = "Prevents natural sleep", skill = "Insomnia", balance = {equilibriumtake = "insomnia"}, state = "down", needit = false, timer = createStopWatch()},
+def_forboding = {defense = "forboding", type = "normal", effect = "Detect scrying attempts", skill = "Forboding", balance = {needybalancetake= "forboding on"}, state = "down", needit = false, timer = createStopWatch()},
+def_premonition = {defense = "premonition", type = "endurance", effect = "Detect enemies entering your area", skill = "Premonition", balance = {needyequilibriumtake= "premonition on"}, state = "down", needit = false, timer = createStopWatch()},
+def_vanish = {defense = "", type = "normal", effect = "Temporarily unscryable", skill = "Vanish", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Fighting
-def_selfishness = {defense = "selfishness", type = "important", effect = "Prevents GIVE commands and counters pickpockets", balance = {needybalancetake= "selfishness"}, state = "down", needit = false, timer = createStopWatch()},
-def_combat_focus = {defense = "combat focus", type = "normal", effect = "Gags incoming combat text unrelated to you or your target", balance = {needyequilibriumtake= "combatfocus on"}, state = "down", needit = false, timer = createStopWatch()},
-def_perfect_defense = {defense = "", type = "normal", effect = "", balance = { equilibriumtake = "perfectdefense" }, state = "down", needit = false, timer = createStopWatch()},
+def_selfishness = {defense = "selfishness", type = "important", effect = "Prevents GIVE commands and counters pickpockets", skill = "Selfishness", balance = {needybalancetake= "selfishness"}, state = "down", needit = false, timer = createStopWatch()},
+def_combat_focus = {defense = "combat focus", type = "normal", effect = "Gags incoming combat text unrelated to you or your target", skill = "Combat Focus", balance = {needyequilibriumtake= "combatfocus on"}, state = "down", needit = false, timer = createStopWatch()},
+def_perfect_defense = {defense = "", type = "normal", effect = "", skill = "Perfect Defense", balance = { equilibriumtake = "perfectdefense" }, state = "down", needit = false, timer = createStopWatch()},
 --Tattoos
 def_lantern = {defense = "", type = "normal", effect = "Reveal identities of players in shadow", balance = {needybalancetake= "touch lantern tattoo"}, state = "down", needit = false, timer = createStopWatch()},
 def_sun = {defense = "", type = "normal", effect = "Passive health regeneration", balance = {needybalancetake= "touch sun tattoo"}, state = "down", needit = false, timer = createStopWatch()},
@@ -42,100 +42,100 @@ def_owl = {defense = "sense of wonder", type = "important", effect = "Temporary 
 def_wheel = {defense = "regaining endurance", type = "normal", effect = "Temporary endurance regeneration", balance = {needybalancetake= "touch wheel tattoo"}, state = "down", needit = false, timer = createStopWatch()},
 def_tree = {defense = "", type = "normal", effect = "Prevents true death one time", balance = {needybalancetake= "touch tree tattoo"}, state = "down", needit = false, timer = createStopWatch()},
 --Alchemy
-def_immunization = {defense = "", type = "normal", effect = "Immune to chosen poison", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_immunization = {defense = "", type = "normal", effect = "Immune to chosen poison", skill = "Immunization", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Rogue: Fencing
-def_krondorian_stance = {defense = "", type = "normal", effect = "+25 to Speed and Damage", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_bastyran_stance = {defense = "", type = "normal", effect = "+25 to Speed and Precision", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_roldemish_stance = {defense = "", type = "normal", effect = "+25 to Precision and Damage", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_krondorian_stance = {defense = "", type = "normal", effect = "+25 to Speed and Damage", skill = "Mastery", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_bastyran_stance = {defense = "", type = "normal", effect = "+25 to Speed and Precision", skill = "Mastery", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_roldemish_stance = {defense = "", type = "normal", effect = "+25 to Precision and Damage", skill = "Mastery", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Rogue: Subtlety
-def_hiding = {defense = "hide", type = "important", effect = "Hidden from LOOK/WHO HERE, third-person messages on movement hidden", balance = {balancetake= "hide"}, state = "down", needit = false, timer = createStopWatch()},
-def_stalking = {defense = "", type = "normal", effect = "Following your target discreetly", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_eavesdrop = {defense = "", type = "normal", effect = "Hearing SAYs and EMOTEs from chosen direction", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_deathmask = {defense = "", type = "normal", effect = "Recovering endurance and guile", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_ambush = {defense = "", type = "normal", effect = "Prepared to ambush an enemy who enters your room", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_infiltrate = {defense = "", type = "important", effect = "Listening to all mindlinks on your target", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_deepshroud = {defense = "", type = "important", effect = "Completely undetectable", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_hiding = {defense = "hide", type = "important", effect = "Hidden from LOOK/WHO HERE, third-person messages on movement hidden", skill = "Hide", balance = {balancetake= "hide"}, state = "down", needit = false, timer = createStopWatch()},
+def_stalking = {defense = "", type = "normal", effect = "Following your target discreetly", skill = "Stalk", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_eavesdrop = {defense = "", type = "normal", effect = "Hearing SAYs and EMOTEs from chosen direction", skill = "Eavesdrop", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_deathmask = {defense = "", type = "normal", effect = "Recovering endurance and guile", skill = "Deathmask", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_ambush = {defense = "", type = "normal", effect = "Prepared to ambush an enemy who enters your room", skill = "Ambush", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_infiltrate = {defense = "", type = "important", effect = "Listening to all mindlinks on your target", skill = "Infiltrate", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_deepshroud = {defense = "", type = "important", effect = "Completely undetectable", skill = "Deepshroud", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Rogue: Thievery
-def_arrowsense = {defense = "arrowsense", type = "normal", effect = "Defense against missile attacks", balance = {balancetake="arrowsense"}, state = "down", needit = false, timer = createStopWatch()},
-def_shadowmend = {defense = "shadowmend", type = "normal", effect = "Regenerating health", balance = {equilibriumtake="shadowmend"}, state = "down", needit = false, timer = createStopWatch()},
-def_shadowstep = {defense = "", type = "normal", effect = "TRACKs are hidden", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_vileblade = {defense = "", type = "normal", effect = "Next defended attack will apply a poison", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_arrowsense = {defense = "arrowsense", type = "normal", effect = "Defense against missile attacks", skill = "Arrowsense", balance = {balancetake="arrowsense"}, state = "down", needit = false, timer = createStopWatch()},
+def_shadowmend = {defense = "shadowmend", type = "normal", effect = "Regenerating health", skill = "Shadowmend", balance = {equilibriumtake="shadowmend"}, state = "down", needit = false, timer = createStopWatch()},
+def_shadowstep = {defense = "", type = "normal", effect = "TRACKs are hidden", skill = "Shadowstep", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_vileblade = {defense = "", type = "normal", effect = "Next defended attack will apply a poison", skill = "Vileblade", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Rogue: Performance
-def_prelude = {defense = "", type = "normal", effect = "increased healing effects", balance = {balancetake = "play prelude"}, state = "down", needit = false, timer = createStopWatch()},
+def_prelude = {defense = "", type = "normal", effect = "increased healing effects", skill = "Prelude of Harmony", balance = {balancetake = "play prelude"}, state = "down", needit = false, timer = createStopWatch()},
+def_pyres = {defense = "", type = "normal", effect = "increased accuracy", skill = "Pyres of Armengar", balance = {balancetake = "play pyres"}, state = "down", needit = false, timer = createStopWatch()},
 --Magician: Thaumaturgy
-def_windweave = {defense = "windweave", type = "normal", effect = "Damage reduction", balance = {balancetake="cast windweave"}, state = "down", needit = false, timer = createStopWatch()},
-def_waterbreathing = {defense = "water breathing", type = "normal", effect = "Immune to drowning damage", balance = {needybalancetake = "cast waterbreathing"}, state = "down", needit = false, timer = createStopWatch()},
-def_levitate = {defense = "levitate", type = "normal", effect = "Floating over water", balance = {balancetake="cast levitate"}, state = "down", needit = false, timer = createStopWatch()},
-def_fire_shield = {defense = "fire elemental shield", type = "normal", effect = "Resistant to Fire-based damage", balance = {needybalancetake= "cast elementshield fire"}, state = "down", needit = false, timer = createStopWatch()},
-def_frost_shield = {defense = "frost elemental shield", type = "normal", effect = "Resistant to Frost-based damage", balance = {needybalancetake= "cast elementshield frost"}, state = "down", needit = false, timer = createStopWatch()},
-def_arcane_shield = {defense = "arcane elemental shield", type = "normal", effect = "Resistant to Arcane-based damage", balance = {needybalancetake= "cast elementshield arcane"}, state = "down", needit = false, timer = createStopWatch()},
-def_electric_shield = {defense = "electric elemental shield", type = "normal", effect = "Resistant to Electric-based damage", balance = {needybalancetake= "cast elementshield electric"}, state = "down", needit = false, timer = createStopWatch()},
-def_stormfury = {defense = "stormfury", type = "normal", effect = "Building Stormfury charges", balance = {needyequilibriumtake="stormfury embrace"}, state = "down", needit = false, timer = createStopWatch()},
+def_windweave = {defense = "windweave", type = "normal", effect = "Damage reduction", skill = "Windweave", balance = {balancetake="cast windweave"}, state = "down", needit = false, timer = createStopWatch()},
+def_waterbreathing = {defense = "water breathing", type = "normal", effect = "Immune to drowning damage", skill = "Waterbreathing", balance = {needybalancetake = "cast waterbreathing"}, state = "down", needit = false, timer = createStopWatch()},
+def_levitate = {defense = "levitate", type = "normal", effect = "Floating over water", skill = "Levitate", balance = {balancetake="cast levitate"}, state = "down", needit = false, timer = createStopWatch()},
+def_fire_shield = {defense = "fire elemental shield", type = "normal", effect = "Resistant to Fire-based damage", skill = "Elemental Shield", balance = {needybalancetake= "cast elementshield fire"}, state = "down", needit = false, timer = createStopWatch()},
+def_frost_shield = {defense = "frost elemental shield", type = "normal", effect = "Resistant to Frost-based damage", skill = "Elemental Shield", balance = {needybalancetake= "cast elementshield frost"}, state = "down", needit = false, timer = createStopWatch()},
+def_arcane_shield = {defense = "arcane elemental shield", type = "normal", effect = "Resistant to Arcane-based damage", skill = "Elemental Shield", balance = {needybalancetake= "cast elementshield arcane"}, state = "down", needit = false, timer = createStopWatch()},
+def_electric_shield = {defense = "electric elemental shield", type = "normal", effect = "Resistant to Electric-based damage", skill = "Elemental Shield", balance = {needybalancetake= "cast elementshield electric"}, state = "down", needit = false, timer = createStopWatch()},
+def_stormfury = {defense = "stormfury", type = "normal", effect = "Building Stormfury charges", skill = "Stormfury", balance = {needyequilibriumtake="stormfury embrace"}, state = "down", needit = false, timer = createStopWatch()},
 --Magician: Arcana
-def_mirror_image = {defense = "mirror image", type = "normal", effect = "The next attack against you will miss", balance = {balancetake="cast mirror image"}, state = "down", needit = false, timer = createStopWatch()},
-def_spellshield = {defense = "golden spellshield", type = "important", effect = "Damage resistance and allows mana to absorb damage", balance = {balancetake="cast spellshield"}, state = "down", needit = false, timer = createStopWatch()},
-def_invisibility = {defense = "invisibility", type = "important", effect = "Will not appear in LOOK/WHO HERE", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_arcane_power = {defense = "arcane power", type = "normal", effect = "Increases your maximum mana", balance = {balancetake="cast arcane power"}, state = "down", needit = false, timer = createStopWatch()},
-def_anachronize = {defense = "anachronize", type = "normal", effect = "All balance times are halved", balance = {needybalancetake="cast anachronize"}, state = "down", needit = false, timer = createStopWatch()},
+def_mirror_image = {defense = "mirror image", type = "normal", effect = "The next attack against you will miss", skill = "Mirror Image", balance = {balancetake="cast mirror image"}, state = "down", needit = false, timer = createStopWatch()},
+def_spellshield = {defense = "golden spellshield", type = "important", effect = "Damage resistance and allows mana to absorb damage", skill = "Spellshield", balance = {balancetake="cast spellshield"}, state = "down", needit = false, timer = createStopWatch()},
+def_invisibility = {defense = "invisibility", type = "important", effect = "Will not appear in LOOK/WHO HERE", skill = "Invisibility", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_arcane_power = {defense = "arcane power", type = "normal", effect = "Increases your maximum mana", skill = "Arcane Power", balance = {balancetake="cast arcane power"}, state = "down", needit = false, timer = createStopWatch()},
+def_anachronize = {defense = "anachronize", type = "normal", effect = "All balance times are halved", skill = "Anachronize", balance = {needybalancetake="cast anachronize"}, state = "down", needit = false, timer = createStopWatch()},
 --Magician: Demonology
-def_witchsight = {defense = "witchsight", type = "normal", effect = "Increase vigilance checks, allows special demon-related commands", balance = {needybalancetake="witchsight"}, state = "down", needit = false, timer = createStopWatch()},
-def_augury = {defense = "", type = "normal", effect = "A random stat is increased +10", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_soullink = {defense = "", type = "normal", effect = "Damage taken is split between you and your demon, damage resistance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_witchsight = {defense = "witchsight", type = "normal", effect = "Increase vigilance checks, allows special demon-related commands", skill = "Witchsight", balance = {needybalancetake="witchsight"}, state = "down", needit = false, timer = createStopWatch()},
+def_augury = {defense = "", type = "normal", effect = "A random stat is increased +10", skill = "Black Augury", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_soullink = {defense = "", type = "normal", effect = "Damage taken is split between you and your demon, damage resistance", skill = "Soul Link", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Magician: Psionics
 --Soldier: Arms
-def_grip = {defense = "", type = "normal", effect = "One-time immunity to DISARM", balance = {balanceneed = "grip"}, state = "down", needit = false, timer = createStopWatch()},
-def_berserking = {defense = "", type = "normal", effect = "Increases damage delt and taken", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_enrage = {defense = "", type = "normal", effect = "Passively regenerating adrenaline", balance = {equilibriumtake = "rage"}, state = "down", needit = false, timer = createStopWatch()},
+def_grip = {defense = "", type = "normal", effect = "One-time immunity to DISARM", skill = "Gripping", balance = {balanceneed = "grip"}, state = "down", needit = false, timer = createStopWatch()},
+def_berserking = {defense = "", type = "normal", effect = "Increases damage delt and taken", skill = "Berserking", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_enrage = {defense = "", type = "normal", effect = "Passively regenerating adrenaline", skill = "Enrage", balance = {equilibriumtake = "rage"}, state = "down", needit = false, timer = createStopWatch()},
 --Soldier: Warcraft
-def_warcry = {defense = "call to war", type = "normal", effect = "Increased health regeneration", balance = {balancetake="warcry"}, state = "down", needit = false, timer = createStopWatch()},
-def_bloodthirst = {defense = "", type = "normal", effect = "Passively regenerating health", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_aggressive_stance = {defense = "", type = "normal", effect = "10% increased damage, 5% increased precision, taking 10% more damage", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_defensive_stance = {defense = "", type = "normal", effect = "10% damage resistance, 10% less damage dealt	", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_lightning_stance = {defense = "", type = "normal", effect = "15% increased attack speed, 20% less damage dealt", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_stand_ground = {defense = "", type = "normal", effect = "Resisting forced movement", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_tenacity = {defense = "focused tenacity", type = "normal", effect = "Immune to knockdown - may be stripped", balance = {equilibriumtake = "tenacity"}, state = "down", needit = false, timer = createStopWatch()},
-def_shielding = {defense = "", type = "normal", effect = "Intercepting attacks against target", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_immunity = {defense = "charged immune system", type = "normal", effect = "Enhanced resistance to poisons - may be stripped", balance = {equilibriumtake = "immunity"}, state = "down", needit = false, timer = createStopWatch()},
-def_last_stand = {defense = "last stand", type = "normal", effect = "Significant temporary damage resistance boost", balance = {needybalancetake = "stand true"}, state = "down", needit = false, timer = createStopWatch()},
+def_warcry = {defense = "call to war", type = "normal", effect = "Increased health regeneration", skill = "Call to War", balance = {balancetake="warcry"}, state = "down", needit = false, timer = createStopWatch()},
+def_bloodthirst = {defense = "", type = "normal", effect = "Passively regenerating health", skill = "Bloodthirst", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_aggressive_stance = {defense = "", type = "normal", effect = "10% increased damage, 5% increased precision, taking 10% more damage", skill = "Aggressive Stance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_defensive_stance = {defense = "", type = "normal", effect = "10% damage resistance, 10% less damage dealt	", skill = "Defensive Stance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_lightning_stance = {defense = "", type = "normal", effect = "15% increased attack speed, 20% less damage dealt", skill = "Lightning Stance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_stand_ground = {defense = "", type = "normal", effect = "Resisting forced movement", skill = "Stand Ground", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_tenacity = {defense = "focused tenacity", type = "normal", effect = "Immune to knockdown - may be stripped", skill = "Tenacity", balance = {equilibriumtake = "tenacity"}, state = "down", needit = false, timer = createStopWatch()},
+def_shielding = {defense = "", type = "normal", effect = "Intercepting attacks against target", skill = "Shield of the Weak", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_immunity = {defense = "charged immune system", type = "normal", effect = "Enhanced resistance to poisons - may be stripped", skill = "Immunity", balance = {equilibriumtake = "immunity"}, state = "down", needit = false, timer = createStopWatch()},
+def_last_stand = {defense = "last stand", type = "normal", effect = "Significant temporary damage resistance boost", skill = "Last Stand", balance = {needybalancetake = "stand true"}, state = "down", needit = false, timer = createStopWatch()},
 --Soldier: Brutality
-def_brutal_savagery = {defense = "", type = "normal", effect = "Passively regenerating adrenaline", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_brutal_savagery = {defense = "", type = "normal", effect = "Passively regenerating adrenaline", skill = "Brutal Savagery", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Soldier: Swordmastery
-def_greenburst = {defense = "", type = "normal", effect = "", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_phoenix_crouching = {defense = "", type = "normal", effect = "", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_serenity = {defense = "", type = "normal", effect = "Deflecting and reflecting ranged attacks", balance = {balanceneed = "serenity"}, state = "down", needit = false, timer = createStopWatch()},
+def_greenburst = {defense = "", type = "normal", effect = "", skill = "Greenburst", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_phoenix_crouching = {defense = "", type = "normal", effect = "", skill = "Phoenix Crouching", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_serenity = {defense = "", type = "normal", effect = "Deflecting and reflecting ranged attacks", skill = "Serenity", balance = {balanceneed = "serenity"}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Righteousness
 --Priest: Faith
-def_divine_armor = {defense = "divine armor", type = "normal", effect = "Increased damage resistance", balance = {needyequilibriumtake = "pray for divine armor"}, state = "down", needit = false, timer = createStopWatch()},
-def_refuge = {defense = "faithful refuge", type = "normal", effect = "Next attack against you will miss", balance = {needyequilibriumtake = "pray for faithful refuge"}, state = "down", needit = false, timer = createStopWatch()},
-def_revitalization = {defense = "", type = "normal", effect = "Healing-over-time", balance = {needybalancetake = "pray for revitalization"}, state = "down", needit = false, timer = createStopWatch()},
-def_glorious_word = {defense = "glorious word", type = "normal", effect = "+10 Strength", balance = {needybalancetake = "pray for glorious word"}, state = "down", needit = false, timer = createStopWatch()},
-def_divine_mantle = {defense = "", type = "normal", effect = "Increase faith of non-priests in your presence", balance = {needybalancetake = "pray for divine mantle"}, state = "down", needit = false, timer = createStopWatch()},
-def_faithful_refuge = {defense = "", type = "normal", effect = "The next attack against you will miss", balance = {balanceequilibriumtake = "pray for faithful refuge"}, state = "down", needit = false, timer = createStopWatch()},
-def_radiant_word = {defense = "radiant word", type = "normal", effect = "+10 Dexterity", balance = {needybalancetake = "pray for radiant word"}, state = "down", needit = false, timer = createStopWatch()},
-def_crusader_mantle = {defense = "", type = "normal", effect = "Increase protection received from armor", balance = {needybalancetake = "pray for crusader mantle"}, state = "down", needit = false, timer = createStopWatch()},
-def_sanctification = {defense = "", type = "important", effect = "Protect your Mantle from assault", balance = {needybalancetake = "pray for sanctification"}, state = "down", needit = false, timer = createStopWatch()},
-def_spiritshield = {defense = "", type = "normal", effect = "Dramatic increase in damage resistance", balance = {needybalancetake = "pray for spiritshield"}, state = "down", needit = false, timer = createStopWatch()},
-def_inspiring_mantle = {defense = "", type = "normal", effect = "Passively regenerates adrenaline", balance = {needybalancetake = "pray for inspiring mantle"}, state = "down", needit = false, timer = createStopWatch()},
-def_harvest_boon = {defense = "", type = "normal", effect = "Increase experience gains for your party", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_illuminated_word = {defense = "illuminated word", type = "normal", effect = "+10 Intelligence", balance = {needybalancetake = "pray for illuminated word"}, state = "down", needit = false, timer = createStopWatch()},
-def_blessed_mantle = {defense = "", type = "normal", effect = "Regenerates health over time", balance = {needybalancetake = "pray for blessed mantle"}, state = "down", needit = false, timer = createStopWatch()},
-def_righteous_word = {defense = "righteous word", type = "normal", effect = "+10 Willpower", balance = {needybalancetake = "pray for righteous word"}, state = "down", needit = false, timer = createStopWatch()},
-def_vengeful_mantle = {defense = "", type = "normal", effect = "Damages all enemies in your presence", balance = {needybalancetake = "pray for vengeful mantle"}, state = "down", needit = false, timer = createStopWatch()},
-def_blessed_word = {defense = "blessed word", type = "normal", effect = "+10 Constitution", balance = {needybalancetake="pray for blessed word"}, state = "down", needit = false, timer = createStopWatch()},
+def_divine_armor = {defense = "divine armor", type = "normal", effect = "Increased damage resistance", skill = "Divine Armor", balance = {needyequilibriumtake = "pray for divine armor"}, state = "down", needit = false, timer = createStopWatch()},
+def_revitalization = {defense = "", type = "normal", effect = "Healing-over-time", skill = "Revitalization", balance = {needybalancetake = "pray for revitalization"}, state = "down", needit = false, timer = createStopWatch()},
+def_glorious_word = {defense = "glorious word", type = "normal", effect = "+10 Strength", skill = "Glorious Word", balance = {needybalancetake = "pray for glorious word"}, state = "down", needit = false, timer = createStopWatch()},
+def_divine_mantle = {defense = "", type = "normal", effect = "Increase faith of non-priests in your presence", skill = "Divine Mantle", balance = {needybalancetake = "pray for divine mantle"}, state = "down", needit = false, timer = createStopWatch()},
+def_refuge = {defense = "faithful refuge", type = "normal", effect = "Next attack against you will miss", skill = "Faithful Refuge", balance = {needyequilibriumtake = "pray for faithful refuge"}, state = "down", needit = false, timer = createStopWatch()},
+def_radiant_word = {defense = "radiant word", type = "normal", effect = "+10 Dexterity", skill = "Radiant Word", balance = {needybalancetake = "pray for radiant word"}, state = "down", needit = false, timer = createStopWatch()},
+def_crusader_mantle = {defense = "", type = "normal", effect = "Increase protection received from armor", skill = "Crusader Mantle", balance = {needybalancetake = "pray for crusader mantle"}, state = "down", needit = false, timer = createStopWatch()},
+def_sanctification = {defense = "", type = "important", effect = "Protect your Mantle from assault", skill = "Sanctification", balance = {needybalancetake = "pray for sanctification"}, state = "down", needit = false, timer = createStopWatch()},
+def_spiritshield = {defense = "", type = "normal", effect = "Dramatic increase in damage resistance", skill = "Spiritshield", balance = {needybalancetake = "pray for spiritshield"}, state = "down", needit = false, timer = createStopWatch()},
+def_inspiring_mantle = {defense = "", type = "normal", effect = "Passively regenerates adrenaline", skill = "Inspiring Mantle", balance = {needybalancetake = "pray for inspiring mantle"}, state = "down", needit = false, timer = createStopWatch()},
+def_harvest_boon = {defense = "", type = "normal", effect = "Increase experience gains for your party", skill = "Harvest Boon", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_illuminated_word = {defense = "illuminated word", type = "normal", effect = "+10 Intelligence", skill = "Illuminated Word", balance = {needybalancetake = "pray for illuminated word"}, state = "down", needit = false, timer = createStopWatch()},
+def_blessed_mantle = {defense = "", type = "normal", effect = "Regenerates health over time", skill = "Blessed Mantle", balance = {needybalancetake = "pray for blessed mantle"}, state = "down", needit = false, timer = createStopWatch()},
+def_righteous_word = {defense = "righteous word", type = "normal", effect = "+10 Willpower", skill = "Righteous Word", balance = {needybalancetake = "pray for righteous word"}, state = "down", needit = false, timer = createStopWatch()},
+def_vengeful_mantle = {defense = "", type = "normal", effect = "Damages all enemies in your presence", skill = "Vengeful Mantle", balance = {needybalancetake = "pray for vengeful mantle"}, state = "down", needit = false, timer = createStopWatch()},
+def_blessed_word = {defense = "blessed word", type = "normal", effect = "+10 Constitution", skill = "Blessed Word", balance = {needybalancetake="pray for blessed word"}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Thanatology
-def_deathsight = {defense = "deathsight", type = "normal", effect = "", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_spectral_vision = {defense = "", type = "normal", effect = "", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_deathwhisper = {defense = "aura of spectral whispers", type = "normal", effect = "", balance = {balancetake = "deathcall deathwhisper"}, state = "down", needit = false, timer = createStopWatch()},
-def_pale_horse = {defense = "", type = "normal", effect = "", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_ghostwalk = {defense = "", type = "normal", effect = "", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_deaths_door = {defense = "death's door", type = "normal", effect = "", balance = {balanceequilibriumtake = "deathcall death's door"}, state = "down", needit = false, timer = createStopWatch()},
+def_deathsight = {defense = "deathsight", type = "normal", effect = "", skill = "Deathsight", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_spectral_vision = {defense = "", type = "normal", effect = "", skill = "Spectral Vision", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_deathwhisper = {defense = "aura of spectral whispers", type = "normal", effect = "", skill = "Deathwhisper", balance = {balancetake = "deathcall deathwhisper"}, state = "down", needit = false, timer = createStopWatch()},
+def_pale_horse = {defense = "", type = "normal", effect = "", skill = "On a Pale Horse", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_ghostwalk = {defense = "", type = "normal", effect = "", skill = "Ghostwalk", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_deaths_door = {defense = "death's door", type = "normal", effect = "", skill = "Death's Door", balance = {balanceequilibriumtake = "deathcall death's door"}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Pyromania
-def_flameborne = {defense = "", type = "normal", effect = "", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_flameborne = {defense = "", type = "normal", effect = "", skill = "Flameborne", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Shadoweaving
 --Priest: Bloodlore
-def_bloody_mantle = {defense = "", type = "normal", effect = "", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_bloody_mantle = {defense = "", type = "normal", effect = "", skill = "Bloody Mantle", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Crusading
-def_conviction = {defense = "conviction", type = "normal", effect = "5% precision gain when defended", balance = {needybalancetake = "warcall conviction"}, state = "down", needit = false, timer = createStopWatch()},
+def_conviction = {defense = "conviction", type = "normal", effect = "5% precision gain when defended", skill = "Conviction", balance = {needybalancetake = "warcall conviction"}, state = "down", needit = false, timer = createStopWatch()},
 }
 
 --give/take functions
@@ -229,14 +229,15 @@ function mtw.load_def(option)
    mtw.defenses[i].needit = false
    for h in pairs(mtw.def_options[option]) do
     if mtw.def_options[option][h] == "once" then
-     if h == i then
+     if h == i and ( not mtw.defenses[h]["skill"] or table.contains(mtw.skills, mtw.defenses[h]["skill"]) ) then
       if mtw.defenses[i].state ~= "deffed" then
        mtw.defenses[i].needit = true
        table.insert(mtw.less_defs, i)
       end
      end
     elseif mtw.def_options[option][h] == "on" then
-     if h == i then
+     if h == i and ( not mtw.defenses[h]["skill"] or table.contains(mtw.skills, mtw.defenses[h]["skill"]) ) then
+     	--display(h)
       mtw.defenses[i].needit = true
      end
     end
