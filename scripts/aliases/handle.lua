@@ -1,7 +1,7 @@
 -- MTW: handling custom aliases
 
-function mtw.adddefaultalias(id, skill, balancetype, alias, do, comment)
- mtw.defaultaliases[id] = {["skill"] = skill, ["bal"] = balancetype, ["alias"] = alias, ["do"] = do}, ["comment"] = comment}
+function mtw.adddefaultalias(id, skill, balancetype, alias, what, comment)
+ mtw.defaultaliases[id] = {["skill"] = skill, ["bal"] = balancetype, ["alias"] = alias, ["what"] = what, ["comment"] = comment}
 end
 
 function mtw.loaddefaultaliases()
@@ -43,8 +43,8 @@ function mtw.loaddefaultaliases()
  mtw.adddefaultalias("rs_fb3", "Fire Bomb", "b", "tfb", "throw firebomb #D", "Throw firebomb in a direction")
  mtw.adddefaultalias("rs_fb4", "Fire Bomb", "b", "ttfb", "throw firebomb #T", "Throw firebomb at target")
  mtw.adddefaultalias("rs_fb5", {"Fire Bomb", "Thieves Highway"}, "b", "rtfb", "throw firebomb at ground", "Throw firebomb from the rooftops")
- mtw.adddefaultalias("rs_pb", "Point Blank", "b", "fcb", "fire "..my.crossbow.." at #T", "Fire crossbow at point blank")
- mtw.adddefaultalias("rs_cr1", "Crossbow", "b", "fcb", "fire "..my.crossbow.." #D at #T", "Fire crossbow in a direction")
+ mtw.adddefaultalias("rs_pb", "Point Blank", "b", "fcb", "fire "..mtw.options.crossbow.." at #T", "Fire crossbow at point blank")
+ mtw.adddefaultalias("rs_cr1", "Crossbow", "b", "fcb", "fire "..mtw.options.crossbow.." #D at #T", "Fire crossbow in a direction")
  mtw.adddefaultalias("rs_cr2", {"Crossbow", "Balance Queue"}, "n", "wcd", "bqa wind crossbow", "Wind crossbow")
  mtw.adddefaultalias("rs_cr3", {"Crossbow", "Envenimer"}, "f", "rld #W", "mtw.reload_with_venom", "Reload crossbow with venom")
  mtw.adddefaultalias("rs_cr4", {"Crossbow", "Balance Queue"}, "n", "rld", "bqa reload crossbow with bolt;bqa wind crossbow")
@@ -179,7 +179,7 @@ function mtw.loaddefaultaliases()
  mtw.adddefaultalias("ma_cnt", "Counterspell", "b", "cnt", "cast counterspell #T")
  mtw.adddefaultalias("ma_sn", "Supernova", "b", "nova", "cast supernova 15")
  mtw.adddefaultalias("ma_bf", "Balefire", "b", "blf", "cast balefire #T")
- mtw.adddefaultalias("ma_sc", {}, "f", "scry #W", "scry") -- because of the scrying orb
+ mtw.adddefaultalias("ma_sc", {}, "f", "scry #W", "scry", "Scry") -- because of the scrying orb
  mtw.adddefaultalias("ma_ri", "Rift", "b", "rift", "cast rift #D")
  mtw.adddefaultalias("ma_di", "Distort", "b", "dist", "cast distort")
  mtw.adddefaultalias("ma_dd", "Distort", "b", "ddist", "dispel distortion", "Dispel Distortion")
@@ -198,43 +198,74 @@ function mtw.loaddefaultaliases()
 end
 
 function mtw.deletealiases()
- for _,id in pairs(mtw.aliases) do
-  killAlias(id)
+ if mtw.aliases then
+  for k,id in pairs(mtw.aliases) do
+   killAlias(id)
+  end
  end
  mtw.aliases = {}
 end
 
 -- mtw.defaultaliases[id] = {["skill"] = skill, ["bal"] = balancetype, ["alias"] = alias, ["do"] = do}, ["comment"] = comment}
 
+function mtw.serialize_skills(t)
+ local s = "{"
+ for k,v in pairs(t) do
+  if type(k) == "string" then
+   s = s .. "[\"" .. k .. "\"] = "
+  elseif type(k) == "integer" then
+   s = s .. "[" .. k .. "] = "
+  end
+  if type(v) == "string" then
+   s = s .. "\"" .. v .. "\", "
+  elseif type(v) == "integer" then
+   s = s .. v .. ", "
+  end
+ end
+ return s
+end
+
 function mtw.generatealiases()
  mtw.deletealiases()
  for k,v in pairs(mtw.defaultaliases) do
   local al
   local id
-  local do
+  local what
   if v.bal == "f" then
-   al = "^" .. string.gsub(string.gsub(string.gsub(string.gsub(string.gsub(v.alias, "#.", "(.*)"), "#d", "(\d)"), "#w", "(\w)"), "#D", "(\d+)"), "#W", "(\w+)") .. "$"
-   id = tempAlias(al, string.format([[mtw.aliasdo("%s", "%s", "%s", matches)]],v.skill, v.do, v.bal))
+   al = "^" .. string.gsub(string.gsub(string.gsub(string.gsub(string.gsub(v.alias, "#%.", "(.*)"), "#d", "(\\d)"), "#w", "(\\w)"), "#D", "(\\d+)"), "#W", "(\\w+)") .. "$"
+   if type(v.skill) == "string" then
+    id = tempAlias(al, string.format([[mtw.aliasdo("%s", "%s", "%s", matches)]], v.skill, v.what, v.bal))
+   else
+    id = tempAlias(al, string.format([[mtw.aliasdo(%s, "%s", "%s", matches)]], mtw.serialize_skills(v.skill), v.what, v.bal))
+   end
   else
    al = "^"..v.alias
    local dir = false
    local targ = false
-   if string.find(v.do, "#D") then
-    al = al.." (\w+)"
+   if string.find(v.what, "#D") then
+    al = al.." (\\w+)"
     dir = true
    end
-   if string.find(v.do, "#T") then
-    al = al.."( \w+)?"
+   if string.find(v.what, "#T") then
+    al = al.."( \\w+)?"
     targ = true
    end
    al = al.."$"
-   id = tempAlias(al, string.format([[mtw.aliasdo("%s", "%s", "%s", matches)]], v.skill, v.do, v.bal))
+   if type(v.skill) == "string" then
+    id = tempAlias(al, string.format([[mtw.aliasdo("%s", "%s", "%s", matches)]], v.skill, v.what, v.bal))
+   else
+    id = tempAlias(al, string.format([[mtw.aliasdo(%s, "%s", "%s", matches)]], mtw.serialize_skills(v.skill), v.what, v.bal))
+   end
   end
-  mtw.aliases[v.id] = id
+  mtw.aliases[k] = id
  end
 end
 
-function mtw.aliasdo(skill, do, bal, matches)
+function mtw.printaliases()
+ 
+end
+
+function mtw.aliasdo(skill, what, bal, matches)
  if type(skill) == "string" then
   if not table.contains(mtw.skills, skill) then
    cecho("\n<pink>Unknown skill: ".. skill)
@@ -249,42 +280,42 @@ function mtw.aliasdo(skill, do, bal, matches)
   end
  end
  if bal == "f" then
-  mtw.al[do](matches)
+  mtw.al[what](matches)
  else
   local dir = false
   local targ = false
-  if string.find(do, "#D") then
+  if string.find(what, "#D") then
    dir = true
   end
-  if string.find(do, "#T") then
+  if string.find(what, "#T") then
    targ = true
   end
   if targ and dir then
-   do = string.gsub(do, "#D", matches[2])
+   what = string.gsub(what, "#D", matches[2])
    if matches[3] and matches[3] ~= "" and matches[3] ~= " " then
-    do = string.gsub(do, " #T", matches[3])
+    what = string.gsub(what, " #T", matches[3])
    else
-    do = string.gsub(do, "#T", mtw.target)
+    what = string.gsub(what, "#T", mtw.target)
    end
   elseif dir then
-   do = string.gsub(do, "#D", matches[2])
-  elseif tar then
+   what = string.gsub(what, "#D", matches[2])
+  elseif targ then
    if matches[2] and matches[2] ~= "" and matches[2] ~= " " then
-    do = string.gsub(do, " #T", matches[2])
+    what = string.gsub(what, " #T", matches[2])
    else
-    do = string.gsub(do, "#T", mtw.target)
+    what = string.gsub(what, "#T", mtw.target)
    end
   end
   if bal == "b" then
-   mtw.set_balance(do)
+   mtw.set_balance(what)
   elseif bal == "n" then
-   mtw.send(do)
+   mtw.send(what)
   elseif bal == "p" then
-   mtw.set_psi(do)
+   mtw.set_psi(what)
   elseif bal == "e" then
-   mtw.set_equil(do)
+   mtw.set_equil(what)
   elseif bal == "o" then
-   mtw.set_offhand(do)
+   mtw.set_offhand(what)
   end
  end
 end

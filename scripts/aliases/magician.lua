@@ -36,6 +36,10 @@ if mtw.my.class == "magician" then
 end
 end
 
+function mtw.al.illusion(matches)
+ mtw.set_balance("cast illusion "..matches[2])
+end
+
 --[[
 function mtw.gale_alias(matches)
 if mtw.my.class == "magician" then
