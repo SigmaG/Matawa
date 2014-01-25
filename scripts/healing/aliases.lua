@@ -11,9 +11,13 @@ for i in pairs(mtw.defenses) do
    echo("No longer keeping "..i)
    send(" ")
   else
-   mtw.defenses[i].needit = true
-   echo("Now keeping "..i)
-   send(" ")
+   if (not mtw.defenses[i].skill or table.contains(mtw.skills, mtw.defenses[i].skill)) then
+    mtw.defenses[i].needit = true
+    echo("Now keeping "..i)
+    send(" ")
+   else
+    echo("\nYou don't have the skill "..mtw.defenses[i].skill..", thus can't use the defense "..i..".")
+   end
   end
   return
  end
