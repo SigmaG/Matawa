@@ -40,52 +40,27 @@ function mtw.al.illusion(matches)
  mtw.set_balance("cast illusion "..matches[2])
 end
 
-function mtw.al.incinerate(matches)
- mtw.set_balance("cast incinerate "..matches[2])
-end
-
---[[
-function mtw.wild_hunt_alias(matches)
- mtw.atkbal("Wild Hunt", "demoncall hunt", matches[2])
-end
-
-function mtw.summon_alias(matches)
-if table.contains(mtw.skills, "demonology") then
+function mtw.al.summon(matches)
  if matches[2] == "lurker" or "battle demon" or "demon lord" then
-  set_send("vout heartstone")
+  mtw.set_send("vout heartstone")
  end
  mtw.set_balance("summon "..matches[2])
 end
+
+function mtw.al.blood_command(matches)
+ mtw.set_balance("blood command "..matches[2])
 end
 
-function mtw.order_demon_attack(matches)
-if matches[2] == nil then
- send("order demon attack "..mtw.target)
-else
- send("order demon attack "..matches[2])
-end
-end
-
-function mtw.blood_command_attack(matches)
- mtw.atkbal_alias("Blood command", "blood command demon attack", matches[2])
-end
-
-function mtw.summon_alias2(matches)
-if table.contains(mtw.skills, "demonology") then
+function mtw.al.summon_pact(matches)
 toggle("demon")
 demon.stat = "prepare"
 demon.type = matches[2]
 demon.augury = false
 end
-end
 
-function mtw.augury_alias()
-if table.contains(mtw.skills, "demonology") then
+function mtw.al.augury()
 toggle("demon")
 demon.stat = "prepare"
 demon.type = "imp"
 demon.augury = true
 end
-end
-
---]]
