@@ -838,7 +838,7 @@ o Balance and equilibrium tracking from GMCP. -Naftali
 o Reworked scripts loading/saving. -Savil
 o Reworked options handling, and options/toggles display -Savil
 
-v
+v9.6
 o Added a way to customize defense options with aliases (ldd, chd, sdd) -Savil
 o Added an alias GMCPcheck to test if GMCP is enabled -Savil
 o Updated ?help -Savil
@@ -847,3 +847,6 @@ o Added a gripping toggle -Elanoron
 o Added a swordmaster defense option -Elanoron
 o Updated the rewield script -Elanoron
 o Added triggers for whispers (outgoing hits) -Elanoron
+o Defense skill checks -Naftali
+o Fixed auto-closing -Elanoron
+o Added blackout cure trigger -Elanoron

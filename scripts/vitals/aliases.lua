@@ -33,7 +33,7 @@ function mtw.options_alias()
 end
 
 function mtw.info_alias()
- cecho("\n<blue>Welcome to Matawa 9.5!")
+ cecho("\n<blue>Welcome to Matawa 9.6!")
  cecho("\n<green> Send ?help to get some help.")
  cecho("\n<blue>Forum Thread:")
  cecho("\n http://forums.midkemiaonline.com/discussion/19/free-mudlet-system#latest")
