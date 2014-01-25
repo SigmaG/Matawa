@@ -2876,9 +2876,9 @@ function mtw.trigger_476(matches,multimatches)
 cecho("\n<red>*************************************")
 cecho("\n<red>********<blue>INCOMING TIMEWARP!<red>***********")
 cecho("\n<red>*************************************")
-if mtw.my.name == "Raelyr" and string.find(matches[3], mtw.target) and mtw.status.combat then
- mtw.set_balance("flourish "..mtw.target)
-end
+ if string.find(mtw.target, matches[3]) and mtw.my.class == "rogue" and mtw.toggles.flourishing then
+  mtw.set_balance("flourish "..matches[3])
+ end
 end
 
 function mtw.trigger_477(matches,multimatches)
