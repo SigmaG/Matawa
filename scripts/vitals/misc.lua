@@ -263,6 +263,8 @@ end
 
 function mtw.do_pack(command)
  if mtw.toggles.closing then
+  mtw.opening = true
+  tempTimer(1, [[mtw.opening = false]])
   mtw.send("open "..mtw.options.container)
   mtw.send(command)
   mtw.send("close "..mtw.options.container)
