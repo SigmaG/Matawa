@@ -40,17 +40,11 @@ function mtw.al.illusion(matches)
  mtw.set_balance("cast illusion "..matches[2])
 end
 
---[[
-function mtw.gale_alias(matches)
-if mtw.my.class == "magician" then
- if matches[3] == "" then
-  mtw.set_balance("cast gale "..mtw.target.." "..matches[2])
- else
-  mtw.set_balance("cast gale "..matches[3].." "..matches[2])
- end
-end
+function mtw.al.incinerate(matches)
+ mtw.set_balance("cast incinerate "..matches[2])
 end
 
+--[[
 function mtw.wild_hunt_alias(matches)
  mtw.atkbal("Wild Hunt", "demoncall hunt", matches[2])
 end
