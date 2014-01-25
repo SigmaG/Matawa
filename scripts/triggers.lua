@@ -2876,7 +2876,7 @@ function mtw.trigger_476(matches,multimatches)
 cecho("\n<red>*************************************")
 cecho("\n<red>********<blue>INCOMING TIMEWARP!<red>***********")
 cecho("\n<red>*************************************")
- if string.find(mtw.target, matches[3]) and mtw.my.class == "rogue" and mtw.toggles.flourishing then
+ if string.find(mtw.target, matches[3]) and mtw.my.class == "rogue" and mtw.status.combat and mtw.toggles.flourishing then
   mtw.set_balance("flourish "..matches[3])
  end
 end
@@ -3787,6 +3787,7 @@ end
 
 function mtw.trigger_686(matches,multimatches)
 mtw.balance.rage = false
+mtw.balance_lose("rage")
 end
 
 function mtw.trigger_687(matches,multimatches)
@@ -3842,6 +3843,7 @@ end
 
 function mtw.trigger_698(matches,multimatches)
 mtw.balance.immunity = false
+mtw.balance_lose("immunity")
 end
 
 function mtw.trigger_699(matches,multimatches)
@@ -9491,8 +9493,12 @@ mtw.def_gain("arrow")
 end
 
 function mtw.trigger_2029(matches,multimatches)
+ cecho("\n<red>*************************************")
+ cecho("\n<red>********<blue>INCOMING SHADOWSTORM!<red>***********")
+ cecho("\n<red>*************************************")
  mtw.atk_start(matches[2], nil, "shadowstorm")
- if string.find(mtw.target, matches[2]) and mtw.my.class == "rogue" and mtw.toggles.flourishing then
+ if string.find(mtw.target, matches[2]) and mtw.my.class == "rogue" and mtw.status.combat and mtw.toggles.flourishing then
   mtw.set_balance("flourish "..matches[2])
  end
 end
+

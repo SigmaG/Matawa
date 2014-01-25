@@ -7291,10 +7291,14 @@
                                         <string>With a loud hiss, a crystalline spider spits a globe of glowing webbing at you, the sticky substance gluing you to the floor.</string>
                                         <string>You push against the thick spiderwebs but only manage to get yourself stuck to the glowing strands.</string>
                                         <string>A kobold magician chants in a rumbling voice and the ground erupts around you in a confining prison of rock and earth.</string>
+                                        <string>Gralob, a fell Demon Lord flicks his wrist, and his whip snakes out to coil around your body. The jagged barbs bite viciously into your flesh as the air is squeezed from your lungs.</string>
+                                        <string>You are being restrained and must WRITHE free before moving.</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>3</integer>
                                         <integer>2</integer>
+                                        <integer>3</integer>
+                                        <integer>3</integer>
                                         <integer>3</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
@@ -10491,8 +10495,10 @@
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
                                         <string>You are no longer paranoid.</string>
+                                        <string>You are no longer so paranoid.</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
+                                        <integer>3</integer>
                                         <integer>3</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
@@ -10679,8 +10685,10 @@
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
                                         <string>You are frozen with sheer terror, unable to move!</string>
+                                        <string>You are too terrified of the world to even consider that.</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
+                                        <integer>3</integer>
                                         <integer>3</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
@@ -11903,6 +11911,27 @@
                                         <string>Strange red rashes break out across your skin.</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
+                                        <integer>3</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>tick</name>
+                                    <script>mtw.check_illusion(mtw.trigger_434,matches,multimatches)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>You scream in pain as the sun burns your luminous white skin, which blisters and blackens.</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>3</integer>
                                         <integer>3</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
@@ -16374,7 +16403,7 @@
                                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
-                                        <string>You touch the tattoo, andlook alert for incoming missiles.</string>
+                                        <string>You touch the tattoo, and look alert for incoming missiles.</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>3</integer>
