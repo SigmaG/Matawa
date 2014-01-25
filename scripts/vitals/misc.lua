@@ -106,8 +106,7 @@ function mtw.not_entangled()
     mtw.not_aff("oubliette") and
     mtw.not_aff("hogtie") and
     mtw.not_aff("hostage")) or
-    mtw.have_aff("dystrophy")
- then
+    mtw.have_aff("dystrophy") then
   return true
  else
   return false
@@ -265,10 +264,10 @@ end
 function mtw.do_pack(command)
  if mtw.toggles.closing then
   mtw.send("open "..mtw.options.container)
- end
- mtw.send(command)
- if mtw.toggles.closing then
+  mtw.send(command)
   mtw.send("close "..mtw.options.container)
+ else
+  mtw.send(command)
  end
 end
 

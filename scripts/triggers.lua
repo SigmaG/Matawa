@@ -2293,6 +2293,10 @@ function mtw.trigger_357(matches,multimatches)
 mtw.aff_have("blackout")
 end
 
+function mtw.trigger_healblackout(matches,multimatches)
+mtw.aff_cure("blackout")
+end
+
 function mtw.trigger_358(matches,multimatches)
 mtw.aff_cure("blurry_sight")
 end
