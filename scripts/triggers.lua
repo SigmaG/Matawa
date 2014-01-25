@@ -2904,6 +2904,7 @@ mtw.aff_cure("blood_betrayal")
 end
 
 function mtw.trigger_482(matches,multimatches)
+mtw.atk_hit(matches[2], nil, "shadowstorm")
 mtw.aff_have("blind")
 mtw.aff_have("disoriented")
 mtw.aff_have("fear")
@@ -2911,8 +2912,8 @@ mtw.aff_have("epilepsy")
 mtw.aff_have("maladroitness")
 mtw.aff_have("terror")
 mtw.aff_have("sun_allergy")
-mtw.aff_have("parlaysis")
-mtw.aff_have("blackout")
+mtw.aff_have("paralysis")
+mtw.aff_have("dystrophy")
 end
 
 function mtw.trigger_483(matches,multimatches)
@@ -9487,4 +9488,11 @@ end
 
 function mtw.trigger_2028(matches,multimatches)
 mtw.def_gain("arrow")
+end
+
+function mtw.trigger_2029(matches,multimatches)
+ mtw.atk_start(matches[2], nil, "shadowstorm")
+ if string.find(mtw.target, matches[2]) and mtw.my.class == "rogue" and mtw.toggles.flourishing then
+  mtw.set_balance("flourish "..matches[2])
+ end
 end

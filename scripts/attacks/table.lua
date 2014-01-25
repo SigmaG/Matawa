@@ -221,6 +221,7 @@ atk_shadowlance = {def = "none", class = "priest", aff = "", getting_hit = false
 atk_scarab_curse = {def = "jump", class = "priest", aff = "scabie hemophilia", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_shadow_storm = {def = "none", class = "priest", aff = "", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_oubliette = {def = "jump", class = "priest", aff = "", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_shadowstorm = {def = "none", class = "priest", aff = "blind disoriented fear epilepsy maladroitness terror sun_allergy paralysis dystrophy", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 --Priest: Bloodlore
 atk_savage = {def = "parry", class = "priest", aff = "bleeding", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_phlegm = {def = "parry", class = "priest", aff = "dizziness -paranoia-", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},

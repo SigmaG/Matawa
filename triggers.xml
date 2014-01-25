@@ -13207,26 +13207,6 @@
                                     </regexCodePropertyList>
                                 </Trigger>
                             </TriggerGroup>
-                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                                <name>storm of shadows</name>
-                                <script>mtw.check_illusion(mtw.trigger_482,matches,multimatches)</script>
-                                <triggerType>0</triggerType>
-                                <conditonLineDelta>99</conditonLineDelta>
-                                <mStayOpen>0</mStayOpen>
-                                <mCommand></mCommand>
-                                <packageName></packageName>
-                                <mFgColor>#ff0000</mFgColor>
-                                <mBgColor>#ffff00</mBgColor>
-                                <mSoundFile></mSoundFile>
-                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                                <regexCodeList>
-                                    <string>^The shadows around (.*) engulfed form begin to stir with a concussive shockwave, trailing the remainder of (his|her) tortured scream as the darkness ripples outwards in a devastating storm. You fall to knees amidst the fury, struck by lashing bolts and berated by sharp fragments, tossed and turned by every child's nightmare. While restraining a weeping sob as the assault peters out, a true realization of the fear lurking in the night dawns.$</string>
-                                </regexCodeList>
-                                <regexCodePropertyList>
-                                    <integer>1</integer>
-                                </regexCodePropertyList>
-                            </Trigger>
                         </TriggerGroup>
                         <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Affmessages</name>
@@ -48293,6 +48273,62 @@
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
                                         <string>^The darkness flees from your eyes as tenuous lashes of shadows ooze from the ground around (\w+)('s|') feet, barely creating a puddle before dispersing.$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                            </TriggerGroup>
+                            <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>Storm of shadows</name>
+                                <script></script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>0</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList/>
+                                <regexCodePropertyList/>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>incoming start</name>
+                                    <script>mtw.check_illusion(mtw.trigger_2029,matches,multimatches)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>0</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) screams a defiant and ferocious roar at the heavens, an intense devotion shining brightly in (his|her) eyes. The darkness moves swiftly in answer to (his|her) calling, leaving (him|her) engulfed in a swarm of pitch-black shadows, a living pariah of the night\.$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>incoming hit</name>
+                                    <script>mtw.check_illusion(mtw.trigger_482,matches,multimatches)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^The shadows around (.*) engulfed form begin to stir with a concussive shockwave, trailing the remainder of (his|her) tortured scream as the darkness ripples outwards in a devastating storm. You fall to knees amidst the fury, struck by lashing bolts and berated by sharp fragments, tossed and turned by every child's nightmare. While restraining a weeping sob as the assault peters out, a true realization of the fear lurking in the night dawns.$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
