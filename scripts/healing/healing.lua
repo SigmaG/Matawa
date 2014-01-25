@@ -9,11 +9,17 @@ function mtw.do_stand(current)
    mtw.last_type = "stand"
    mtw.last_item = "send"
    mtw.send("bq insert 1 stand")
+   if mtw.have_aff("blackout") then
+    mtw.send("bq insert 1 wake")
+   end
    mtw.waiting.stand = true
    tempTimer(mtw.delay(), [[mtw.waiting.stand = false]])
    mtw.afflictions[current].state = "waiting"
    startStopWatch(mtw.afflictions[current].timer)
   elseif mtw.toggles.standing and (not mtw.waiting.stand) and mtw.balance.balance and not mtw.waiting.balance then
+   if mtw.have_aff("blackout") then
+    mtw.send("wake")
+   end
    mtw.send("stand")
    if mtw.not_slow() then
     echo("(stand)")
