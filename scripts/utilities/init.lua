@@ -395,8 +395,8 @@ end
 if mtw.toggles.fasthunt then
  mtw.toggle("fasthunt")
 end
-next.balance = "none"
-next.psi = "none"
+mtw.next.balance = "none"
+mtw.next.psi = "none"
 end
 
 function mtw.date_conversion(matches)
