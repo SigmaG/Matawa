@@ -16,7 +16,7 @@ function mtw.check_options()
    cecho(s)
   end
  end
- cecho("\n<green>?options<white> will let you know the value of each option and how to reset them")
+ cecho("\n<green>?set option [option] [id]<white> lets you reset the options")
  return b
 end
 
