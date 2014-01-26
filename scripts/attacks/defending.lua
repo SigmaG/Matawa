@@ -25,10 +25,6 @@ function mtw.atk_start(attacker, weapon, attack)
  mtw.enemy.attack = attack
  mtw.enemy.attacker = attacker
 --Reset outstanding attacks by the same attacker, if dual wield is not possible
---for test purposes, should not be commited
- if not mtw.attacks[attack] then
-  cecho("\n<:yellow>mtw.attacks["..attack.."] does not exist!")
- end
  if mtw.attacks[attack].class ~= "soldier" then
   for i in pairs(mtw.attacks) do
    if mtw.attacks[i].attacker == attacker then
@@ -102,10 +98,6 @@ end
 --Run after the calculated delay following an incoming attack telegraph
 function mtw.atk_need(attack)
 --Don't bother defending if unecessary
---for test purposes, should not be commited
- if not mtw.attacks[attack] then
-  cecho("\n<:yellow>mtw.attacks["..attack.."] does not exist!")
- end
  if mtw.have_def("mirror_image") or mtw.have_def("faithful_refuge") or (mtw.not_aff("on_fire") and attack == "immolate") then
   return
 --Make sure the attack hasn't completed already
@@ -152,11 +144,7 @@ function mtw.atk_hit(attacker, weapon, attack)
 --Replace line with incoming attack echo, if necessary
  if mtw.toggles.defecho then
   deleteLine()
-  if attacker then
-   cecho("<purple>\n"..attacker..": <red>HIT <purple>"..attack.." you!")
-  else
-   cecho("<purple>\n UNKNOWN: <red>HIT <purple>"..attack.." you!")
-  end
+  cecho("<purple>\n"..attacker..": <red>HIT <purple>"..attack.." you!")
  end
 --Display any afflictions given, if necessary
  if mtw.toggles.affdisplay then
@@ -245,10 +233,6 @@ function mtw.atk_end(attacker, weapon, attack)
   attack = "atk_"..attack
  end
 --Make sure the attack hasn't landed already
---for test purposes, should not be commited
- if not mtw.attacks[attack] then
-  cecho("\n<:yellow>mtw.attacks["..attack.."] does not exist!")
- end
  if mtw.attacks[attack].getting_hit then
 --Adjust for lag and capture the telegraph time
   mtw.tele_time = stopStopWatch(mtw.attack_timers[attacker][attack])-getNetworkLatency()
