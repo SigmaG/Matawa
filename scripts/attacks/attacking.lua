@@ -122,7 +122,7 @@ function mtw.attack_defend(hitting, weapon, curattk, defense)
   curattk = "atk_"..curattk
  end
  for i in pairs(mtw.first_defendings) do
-  if string.find(defense, mtw.first_defendings[i]) then
+  if defense == nil or string.find(defense, mtw.first_defendings[i]) then
    if mtw.attacks[curattk]["hitting_with"] then
     if mtw.toggles.atkecho then
      deleteLine()
@@ -160,7 +160,10 @@ function mtw.attack_defend(hitting, weapon, curattk, defense)
     resetStopWatch(mtw.attacks[curattk].timer)
    end
    mtw.attack_end(curattk)
-   mtw.first_defended(hitting, string.upper(i))
+   if defense then
+    mtw.first_defended(hitting, string.upper(i))
+   end
+   break
   end
  end
  if mtw.vitals.adrenaline == -1 then
