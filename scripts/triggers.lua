@@ -1591,7 +1591,7 @@ end
 
 function mtw.trigger_234(matches,multimatches)
 mtw.load_def("none")
-cecho("<blue>\nWelcome to Matawa 9.6!")
+cecho("<blue>\nWelcome to Matawa 9.6.1!")
 cecho("<green>\n Send ?help to get some help.")
 mtw.check_options()
 if not mtw.gmcp_enabled() then

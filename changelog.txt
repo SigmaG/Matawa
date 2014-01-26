@@ -850,3 +850,8 @@ o Added triggers for whispers (outgoing hits) -Elanoron
 o Defense skill checks -Naftali
 o Fixed auto-closing -Elanoron
 o Added blackout cure trigger -Elanoron
+
+v9.6.1
+o Reverted some breaking changes (defenses skill checks, and a debugging one)
+o Fixed a few internal scripts to handle fighting
+o Fixed a blackout trigger -Elanoron
