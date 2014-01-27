@@ -38,6 +38,7 @@ function mtw.attack_start(hitting, curattk)
  mtw.aff_remove("blackout")
 --Store who's attacking who for future reference
   mtw.people[mtw.my.name] = hitting
+  raiseEvent("mtw.attack.start", hitting, curattk)
 end
 
 --Run on outgoing attack misses
@@ -64,6 +65,7 @@ function mtw.attack_miss(hitting, curattk)
   end
  end
  mtw.attack_end(curattk)
+  raiseEvent("mtw.attack.miss", hitting, curattk)
 end
 
 --Run on outgoing attack successful hits
@@ -115,6 +117,7 @@ function mtw.attack_hit(hitting, curattk, weapon)
   mtw.vitals.adrenaline = 10
  end
  mtw.attack_end(curattk)
+raiseEvent("mtw.attack.hit", hitting, curattk, weapon)
 end
 
 function mtw.attack_defend(hitting, weapon, curattk, defense)
@@ -169,6 +172,7 @@ function mtw.attack_defend(hitting, weapon, curattk, defense)
  if mtw.vitals.adrenaline == -1 then
   mtw.vitals.adrenaline = 10
  end
+raiseEvent("mtw.attack.defend", hitting, curattk, weapon, defense)
 end
 
 function mtw.attack_end(curattk)
