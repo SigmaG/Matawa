@@ -8,7 +8,7 @@ else
  echo("\nNot getting that one!")
  tempTimer(mtw.delay(), [[send(" ")]])
  mtw.fishing.stat = "reeling"
- recast = true
+ mtw.fishing.recast = true
 end
 end
 
