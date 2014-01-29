@@ -5824,15 +5824,15 @@ mtw.attack_miss(matches[3], "hamstring")
 end
 
 function mtw.trigger_1164(matches,multimatches)
-third_start(matches[2], nil, "hamstring", matches[3])
+mtw.third_start(matches[2], nil, "hamstring", matches[3])
 end
 
 function mtw.trigger_1165(matches,multimatches)
-third_hit(matches[2], matches[3], "hamstring", matches[4])
+mtw.third_hit(matches[2], matches[3], "hamstring", matches[4])
 end
 
 function mtw.trigger_1166(matches,multimatches)
-third_defend(matches[2], matches[3], "hamstring", matches[6], matches[4])
+mtw.third_defend(matches[2], matches[3], "hamstring", matches[6], matches[4])
 end
 
 function mtw.trigger_1167(matches,multimatches)
