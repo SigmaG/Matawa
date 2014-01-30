@@ -7322,13 +7322,13 @@ mtw.attack_miss(mtw.target, "compulsion")
 end
 
 function mtw.trigger_1517(matches,multimatches)
-anachronized = matches[2]
-tempTimer(20, [[anachronized = nil]])
+mtw.anachronized = matches[2]
+tempTimer(20, [[mtw.anachronized = nil]])
 end
 
 function mtw.trigger_1518(matches,multimatches)
-if matches[2] == anachronized then
- anachronized = nil
+if matches[2] == mtw.anachronized then
+ mtw.anachronized = nil
 end
 end
 
