@@ -3669,7 +3669,7 @@ mtw.balance_regain("anachronize")
 end
 
 function mtw.trigger_656(matches,multimatches)
-mtw.balance.anachronize = false
+mtw.balance_lose("anachronize")
 end
 
 function mtw.trigger_657(matches,multimatches)
