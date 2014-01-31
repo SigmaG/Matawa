@@ -855,3 +855,8 @@ v9.6.1
 o Reverted some breaking changes (defenses skill checks, and a debugging one)
 o Fixed a few internal scripts to handle fighting
 o Fixed a blackout trigger -Elanoron
+
+v
+o Added psionics defenses -Rosalia
+o Defense skill checks -Naftali
+o the system now raises events to have an easier API -Naftali

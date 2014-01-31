@@ -83,6 +83,17 @@ def_witchsight = {defense = "witchsight", type = "normal", effect = "Increase vi
 def_augury = {defense = "", type = "normal", effect = "A random stat is increased +10", skill = "Black Augury", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_soullink = {defense = "", type = "normal", effect = "Damage taken is split between you and your demon, damage resistance", skill = "Soul Link", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Magician: Psionics
+def_psi_barrier = {defense = "mental barrier", type = "normal", effect = "psionic damage resistance", balance = {balanceneed = "psi barrier"}, state = "down", needit = false, timer = createStopWatch()},
+def_thalamus = {defense = "amplified thalamus", type = "normal", effect = "stun cooldown reduction", balance = {balanceneed = "psi amplify thalamus"}, state = "down", needit = false, timer = createStopWatch()},
+def_mesencephalon = {defense = "amplified mesencephalon", type = "normal", effect = "dexterity +5", balance = {balanceneed = "psi amplify mesencephalon"}, state = "down", needit = false, timer = createStopWatch()},
+def_cerebellum = {defense = "amplified cerebellum", type = "normal", effect = "strength +5", balance = {balanceneed = "psi amplify cerebellum"}, state = "down", needit = false, timer = createStopWatch()},
+def_meninges = {defense = "amplified meninges", type = "normal", effect = "willpower +5", balance = {balanceneed = "psi amplify meninges"}, state = "down", needit = false, timer = createStopWatch()},
+def_hypothalamus = {defense = "amplified hypothalamus", type = "normal", effect = "burn level protection", balance = {balanceneed = "psi amplify hypothalamus"}, state = "down", needit = false, timer = createStopWatch()},
+def_pons = {defense = "amplified pons", type = "normal", effect = "asphyxiation damage reduction", balance = {balanceneed = "psi amplify pons"}, state = "down", needit = false, timer = createStopWatch()},
+def_medulla_oblongata = {defense = "amplified medulla oblongata", type = "normal", effect = "increased adrenaline gain", balance = {balanceneed = "psi amplify medulla"}, state = "down", needit = false, timer = createStopWatch()},
+def_corpus_callosum = {defense = "amplified corpus callosum", type = "normal", effect = "intelligence +5", balance = {balanceneed = "psi amplify corpus"}, state = "down", needit = false, timer = createStopWatch()},
+def_hippocampus = {defense = "amplified hippocampus", type = "normal", effect = "fear immunity", balance = {balanceneed = "psi amplify hippocampus"}, state = "down", needit = false, timer = createStopWatch()},
+def_cerebral_cortex = {defense = "amplified cerebral cortex", type = "normal", effect = "drunken speech immunity", balance = {balanceneed = "psi amplify cortex"}, state = "down", needit = false, timer = createStopWatch()},
 --Soldier: Arms
 def_grip = {defense = "", type = "normal", effect = "One-time immunity to DISARM", skill = "Gripping", balance = {balanceneed = "grip"}, state = "down", needit = false, timer = createStopWatch()},
 def_berserking = {defense = "", type = "normal", effect = "Increases damage delt and taken", skill = "Berserking", balance = {}, state = "down", needit = false, timer = createStopWatch()},
