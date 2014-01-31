@@ -18,6 +18,69 @@ mtw_struct.reloading = false
 mtw_struct.sep = package.config:sub(1,1) -- get default file separator
 --it's said that using &quot;/&quot; will work with every OS, that lua takes care of this.
 
+function mtw_struct.get_matawa_file(f)
+ local fs = mtw_struct.sep
+ local fileinfo
+ local file
+ local choices = {
+  &quot;Matawa&quot; .. fs .. &quot;scripts&quot;,
+  &quot;matawa&quot; .. fs .. &quot;scripts&quot;,
+  &quot;matawa(1)&quot; .. fs .. &quot;scripts&quot;,
+  &quot;matawa(2)&quot; .. fs .. &quot;scripts&quot;,
+  &quot;matawa(3)&quot; .. fs .. &quot;scripts&quot;,
+  &quot;matawa(4)&quot; .. fs .. &quot;scripts&quot;,
+  &quot;matawa(5)&quot; .. fs .. &quot;scripts&quot;,
+  &quot;matawa(6)&quot; .. fs .. &quot;scripts&quot;,
+  &quot;matawa(7)&quot; .. fs .. &quot;scripts&quot;,
+  &quot;matawa(8)&quot; .. fs .. &quot;scripts&quot;,
+  &quot;matawa(9)&quot; .. fs .. &quot;scripts&quot;,
+  &quot;matawa(10)&quot; .. fs .. &quot;scripts&quot;,
+  &quot;matawa(11)&quot; .. fs .. &quot;scripts&quot;,
+  &quot;scripts&quot;,
+ }
+ if not mtw_struct.folder then
+  local found = false
+  local twice = false
+  local others = {}
+  for _,v in pairs(choices) do
+   file = getMudletHomeDir() .. fs .. v
+   fileinfo = lfs.attributes(file)
+   if fileinfo then
+    if found then
+     twice = true
+     table.append(others, file)
+    else
+     found = true
+     mtw_struct.folder = file
+    end
+   end
+  end
+  if twice then
+   cecho(&quot;\n&lt;white&gt;You seem to have several folders that could contain scripts, we're using this one: &lt;yellow&gt;&quot;.. mtw_struct.folder.. &quot;&lt;white&gt;.Please check if it's the appropriate one, and delete whatever is unnecessary&quot;)
+  else
+   if found then
+    cecho(&quot;\n&lt;white&gt;Using scripts in folder: &lt;yellow&gt;&quot;..mtw_struct.folder)
+   end
+  end
+ end
+ if f then
+  fileinfo = lfs.attributes(mtw_struct.folder .. fs .. f)
+  if fileinfo then
+   return mtw_struct.folder .. fs .. f
+  else
+   for _,v in pairs(choices) do
+    file = getMudletHomeDir() .. fs .. v .. fs .. f
+    fileinfo = lfs.attributes(file)
+    if fileinfo then
+     return file
+    end
+   end
+  end
+ else
+  return mtw_struct.folder
+ end
+end
+
 function mtw_struct.load_external(f)
  local fs = mtw_struct.sep
  local fileinfo
@@ -25,14 +88,10 @@ function mtw_struct.load_external(f)
   echo(&quot;Script &quot;..f..&quot; already loaded.\n&quot;)
   return false
  else
-  local file = getMudletHomeDir() .. fs .. &quot;Matawa&quot; .. fs .. &quot;scripts&quot; .. fs .. f .. &quot;.lua&quot;
-  fileinfo = lfs.attributes(file)
-  if not fileinfo then
-   file = getMudletHomeDir() .. fs .. &quot;matawa&quot; .. fs .. &quot;scripts&quot; .. fs .. f .. &quot;.lua&quot;
-   fileinfo = lfs.attributes(file)
-  end
-  if not fileinfo then
-   file = getMudletHomeDir() .. fs .. &quot;scripts&quot; .. fs .. f .. &quot;.lua&quot;
+  local file = mtw_struct.get_matawa_file(f.. &quot;.lua&quot;)
+  if not file then
+   echo(&quot;\nCould not find file &quot;..f..&quot;.lua in the folder &quot;..mtw_struct.get_matawa_file())
+   return false
   end
   local b,e = pcall(dofile,file)
   if not b then
@@ -41,9 +100,9 @@ function mtw_struct.load_external(f)
   end
   mtw_struct.loaded[f] = true
   if mtw_struct.reloading then
-   echo(&quot;Script &quot;..f..&quot; successfully reloaded.\n&quot;)
+   echo(&quot;\nScript &quot;..f..&quot; successfully reloaded.&quot;)
   else
-   echo(&quot;Script &quot;..f..&quot; successfully loaded.\n&quot;)
+   echo(&quot;\nScript &quot;..f..&quot; successfully loaded.&quot;)
   end
   return true
  end
