@@ -37,6 +37,17 @@ function mtw.info_alias()
  cecho("\n<green> Send ?help to get some help.")
  cecho("\n<blue>Forum Thread:")
  cecho("\n http://forums.midkemiaonline.com/discussion/19/free-mudlet-system#latest")
+ echo("\nThe system lua files are stored in: ")
+ local file = getMudletHomeDir() .. "/Matawa/scripts"
+ local fileinfo = lfs.attributes(file)
+ if not fileinfo then
+  file = getMudletHomeDir() .. "/matawa/scripts"
+  fileinfo = lfs.attributes(file)
+ end
+ if not fileinfo then
+  file = getMudletHomeDir() .. "/scripts" 
+ end
+ cecho("<yellow>"..file)
  send(" ")
 end
 
