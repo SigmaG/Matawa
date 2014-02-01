@@ -313,6 +313,13 @@
                                 <regex>^tlsh$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
+                                <name>mandating</name>
+                                <script>mtw.toggle(&quot;mandate&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tmnd$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
                                 <name>shadowmending</name>
                                 <script>mtw.toggle(&quot;shadowmending&quot;)</script>
                                 <command></command>

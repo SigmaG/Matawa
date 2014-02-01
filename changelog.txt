@@ -860,3 +860,4 @@ v
 o Added psionics defenses -Rosalia
 o Defense skill checks -Naftali
 o the system now raises events to have an easier API -Naftali
+o Added a zealous mandate toggle -Savil
