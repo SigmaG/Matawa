@@ -2,8 +2,16 @@
 
 mtw = mtw or {}
 
+-- handle legacy systems
+if mtw_struct.load_external("legacy") then
+ mtw.legacy()
+end
+
 -- chat window
 mtw_struct.load_external("chat/init")
+
+-- customization functions
+mtw_struct.load_external("customizations/init")
 
 -- attacks tracking
 mtw_struct.load_external("attacks/init")

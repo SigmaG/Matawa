@@ -1,6 +1,9 @@
 --MTW: bashing areas list
 
-mtw.areas = {
+mtw.areas = {}
+mtw_struct.set_metatable_custom("areas")
+
+mtw.default.areas = {
 {area = "MoteHunt", level = "Magicians", krondor = "none", targets = {"an ethereal mana wyrm"}, items = {"a mote of glowing%, blue mana"}},
 {area = "pumpkins", level = "LOL", krondor = "none", targets = {"a monstrous pumpkin", "a huge pumpkin", "a big pumpkin", "a mature pumpkin", "a medium pumpkin", "a small pumpkin", "a little pumpkin", "a tiny pumpkin"}},
 {area = "Krondor", level = "Ratting", krondor = "none", prime = {"urban", "estate"}, env = {"garden", "ruins"}, targets = {"a black rat","a rat", "an old rat", "a baby rat", "a young rat"}},
