@@ -1,6 +1,5 @@
 --MTW: bashing areas list
 
-mtw.areas = {}
 mtw_struct.set_metatable_custom("areas")
 
 mtw.default.areas = {

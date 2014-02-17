@@ -81,31 +81,31 @@ function mtw_struct.get_matawa_file(f)
  end
 end
 
-function mtw_struct.load_external(f, show)
+function mtw_struct.load_external(f, hide)
  local fs = mtw_struct.sep
  local fileinfo
  if mtw_struct.loaded[f] and not mtw_struct.reloading then
-  if show then
+  if not hide then
    echo(&quot;Script &quot;..f..&quot; already loaded.\n&quot;)
   end
   return false
  else
   local file = mtw_struct.get_matawa_file(f.. &quot;.lua&quot;)
   if not file then
-   if show then
+   if not hide then
     echo(&quot;\nCould not find file &quot;..f..&quot;.lua in the folder &quot;..mtw_struct.get_matawa_file())
    end
    return false
   end
   local b,e = pcall(dofile,file)
   if not b then
-   if show then
+   if not hide then
     echo(e..&quot;\n&quot;)
    end
    return false
   end
   mtw_struct.loaded[f] = true
-  if show then
+  if not hide then
   if mtw_struct.reloading then
    echo(&quot;\nScript &quot;..f..&quot; successfully reloaded.&quot;)
   else

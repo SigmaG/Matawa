@@ -1,19 +1,12 @@
 -- MTW: variables
 
-mtw.default = {}
-mtw.custom = {}
-mtw.unset = {}
-
 --OPTIONS
-mtw.options = {}
 mtw_struct.set_metatable_custom("options")
 
 --TIMES
-mtw.attack_times = {}
 mtw_struct.set_metatable_saved("attack_times")
 
 --TOGGLES
-mtw.toggles = {}
 mtw_struct.set_metatable_custom("toggles")
 
 mtw.default.toggles = {
@@ -218,7 +211,6 @@ room = false
 }
 
 --Fishing stuff
-mtw.fishing = {}
 mtw_struct.set_metatable_custom("fishing")
 
 mtw.default.fishing = {

@@ -1,9 +1,13 @@
 -- MTW : loading the whole system
 
 mtw = mtw or {}
+mtw.default = {}
+mtw.custom = {}
+mtw.unset = {}
+mtw.saved = {}
 
 -- handle legacy systems
-if mtw_struct.load_external("legacy") then
+if mtw_struct.load_external("legacy", true) then
  mtw.legacy()
 end
 

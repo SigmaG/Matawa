@@ -10,7 +10,6 @@ mtw_struct.load_external("utilities/illusions")
 mtw_struct.load_external("utilities/gmcp_checking")
 
 -- crits
-mtw.crits = {}
 mtw_struct.set_metatable_saved("crits")
 
 mtw.saved.crits = {
@@ -416,7 +415,7 @@ end
 end
 
 function mtw.clear_crits()
-mtw.crits = {
+mtw.saved.crits = {
 hits = 0,
 normal = 0,
 crushing = 0,

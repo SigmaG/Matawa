@@ -292,8 +292,7 @@ end
 
 --presets, they can be altered in game with 'chd preset defense on/off/once'
 
-mtw.def_options = {}
-mtw_struct.set_metatable_custom(def_options)
+mtw_struct.set_metatable_custom("def_options")
 
 mtw.default.def_options = {
 

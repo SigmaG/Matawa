@@ -27,7 +27,8 @@ function mtw_struct.set_metatable_custom(table)
    end
   end,
  }
- setmetatable(table,mt)
+ mtw[table] = {}
+ setmetatable(mtw[table],mt)
 end
 
 function mtw_struct.set_metatable_saved(table)
@@ -46,5 +47,6 @@ function mtw_struct.set_metatable_saved(table)
    mtw.saved[table][k] = v
   end
  }
- setmetatable(table,mt)
+ mtw[table] = mtw[table] or {}
+ setmetatable(mtw[table],mt)
 end
