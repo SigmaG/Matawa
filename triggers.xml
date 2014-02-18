@@ -5852,12 +5852,30 @@
                                     <string>You are dead and cannot do that!</string>
                                     <string>^You have (won|lost) the duel with (\w+)!$</string>
                                     <string>You are dead and cannot interact with matter in that fashion.</string>
-                                    <string>The power of Tith-Onanka, the War God suffuses you with unstoppable power, and in a blinding eruption of light you rise as an Avatar of War to carry out your grim purpose.</string>
                                 </regexCodeList>
                                 <regexCodePropertyList>
                                     <integer>3</integer>
                                     <integer>1</integer>
                                     <integer>3</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>death - avatar</name>
+                                <script>mtw.check_illusion(mtw.trigger_228b,matches,multimatches)</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>39</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>The power of Tith-Onanka, the War God suffuses you with unstoppable power, and in a blinding eruption of light you rise as an Avatar of War to carry out your grim purpose.</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
                                     <integer>3</integer>
                                 </regexCodePropertyList>
                             </Trigger>

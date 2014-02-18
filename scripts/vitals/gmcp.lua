@@ -3,6 +3,7 @@
 
 function gmcp_vitals()
 
+ mtw.dead = false
 --Set and calculate various vital stats
  if gmcp.Char.Vitals.ap == "1000" and mtw.vitals.adrenaline == -1 then
   if mtw.not_aff("recklessness") then

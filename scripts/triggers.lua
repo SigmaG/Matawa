@@ -1553,15 +1553,27 @@ send("learn "..matches[3].." from "..matches[2], false)
 end
 
 function mtw.trigger_226(matches,multimatches)
+mtw.dead = true
 mtw.reset_all()
 end
 
 function mtw.trigger_227(matches,multimatches)
+mtw.dead = true
 mtw.reset_all()
 end
 
 function mtw.trigger_228(matches,multimatches)
-mtw.reset_all()
+if mtw.dead then
+ mtw.reset_all()
+end
+end
+
+function mtw.trigger_228b(matches,multimatches)
+if table.contains(mtw.skills, "Avatar of War") then
+ mtw.reset_affwaiting()
+ mtw.reset_affliction()
+ mtw.reset_defenses()
+end
 end
 
 function mtw.trigger_229(matches,multimatches)
