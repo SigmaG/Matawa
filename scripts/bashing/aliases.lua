@@ -79,3 +79,140 @@ end
 end
 
 
+function mtw.add_area(name)
+ local exists = false
+ for k,v in pairs(mtw.areas) do
+  if v.area == name then
+   b = true
+   break
+  end
+ end
+ if b then
+  cecho("\n<yellow>Area "..name.." already exists!")
+ else
+  mtw.areas[name] = {targets = {}, items = {}}
+  cecho("\n<yellow>Added area "..name)
+ end
+end
+
+function mtw.add_mob_area(name,mob)
+ if mtw.areas[name] then
+  local area = mtw.areas[name]
+  table.insert(area.targets, mob)
+  mtw.areas[name] = area
+  -- this is required to store it in mtw.custom instead of mtw.default
+  cecho("\n<yellow>Mob "..mob.." added to area "..name)
+ else
+  cecho("\n<yellow>Area "..name.." doesn't exist! <green>?area add "..name.." <yellow> to add it.")
+ end
+end
+
+function mtw.add_prize_area(name,prize)
+ if mtw.areas[name] then
+  local area = mtw.areas[name]
+  table.insert(area.items, prize)
+  mtw.areas[name] = area
+  cecho("\n<yellow>Item "..prize.." added to area "..name)
+ else
+  cecho("\n<yellow>Area "..name.." doesn't exist! <green>?area add "..name.." <yellow> to add it.")
+ end
+end
+
+function mtw.area_level(name,level)
+ if mtw.areas[name] then
+  local area = mtw.areas[name]
+  area.level = level
+  mtw.areas[name] = area
+  cecho("\n<yellow>Area "..name.." set to level ".. level)
+ else
+  cecho("\n<yellow>Area "..name.." doesn't exist! <green>?area add "..name.." <yellow> to add it.")
+ end
+end
+
+function mtw.rm_area(name)
+ if mtw.areas[name] then
+  mtw.areas[name] = nil
+  cecho("\n<yellow>Area "..name.." removed")
+ else
+  cecho("\n<yellow>Area "..name.." doesn't exist.")
+ end
+end
+
+function mtw.rm_mob_area(name,mob)
+ if mtw.areas[name] then
+  local area = mtw.areas[name]
+  local targets = {}
+  for k,v in pairs(area.targets) do
+   if v ~= mob then
+    table.insert(targets,v)
+   end
+  end
+  area.targets = targets
+  mtw.areas[name] = area
+  -- this is required to store it in mtw.custom instead of mtw.default
+  cecho("\n<yellow>Mob "..mob.." removed from area "..name)
+ else
+  cecho("\n<yellow>Area "..name.." doesn't exist! <green>?area add "..name.." <yellow> to add it.")
+ end
+end
+
+function mtw.rm_item_area(name,item)
+ if mtw.areas[name] then
+  local area = mtw.areas[name]
+  local items = {}
+  for k,v in pairs(area.items) do
+   if v ~= item then
+    table.insert(items,v)
+   end
+  end
+  area.items = items
+  mtw.areas[name] = area
+  -- this is required to store it in mtw.custom instead of mtw.default
+  cecho("\n<yellow>Item "..item.." removed from area "..name)
+ else
+  cecho("\n<yellow>Area "..name.." doesn't exist! <green>?area add "..name.." <yellow> to add it.")
+ end
+end
+
+function mtw.print_area(name)
+ if mtw.areas[name] then
+  cecho("\nArea <green>"..name..":")
+  if mtw.areas[name].level then
+   cecho("\n Level <green>"..mtw.areas[name].level)
+  else
+   cecho("\n Unknown level")
+  end
+  if mtw.areas[name].targets then
+   cecho("\n Possible targets:")
+   for k,v in pairs(mtw.areas[name].targets) do
+    cecho("\n "..k.." - "..v)
+   end
+  else
+   cecho("\n No target known")
+  end
+  if mtw.areas[name].items then
+   cecho("\n Items to be gathered:")
+   for k,v in pairs(mtw.areas[name].items) do
+    echo("\n  - "..v)
+   end
+  end
+ end
+end
+
+function mtw.area_sort_targets(matches)
+ local name = matches[2]
+ local targets = {}
+ local area = mtw.areas[name]
+ if area then
+  local s = matches[3]:gsub("^%s*(.-)%s*$", "%1")
+  matches = string.split(s," ")
+  for i = 1, #matches do
+   local j = tonumber(matches[i])
+   table.insert(targets,area.targets[j])
+  end
+  area.targets = targets
+  mtw.areas[name] = area
+ else
+  cecho("\n<yellow>Area "..name.." doesn't exist! <green>?area add "..name.." <yellow> to add it.")
+ end
+end

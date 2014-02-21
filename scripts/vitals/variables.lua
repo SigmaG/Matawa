@@ -1,7 +1,15 @@
 -- MTW: variables
 
+--OPTIONS
+mtw_struct.set_metatable_custom("options")
+
+--TIMES
+mtw_struct.set_metatable_saved("attack_times")
+
 --TOGGLES
-mtw.toggles = {
+mtw_struct.set_metatable_custom("toggles")
+
+mtw.default.toggles = {
 roulette = false,
 --Vital toggles
 paused = false,
@@ -203,7 +211,9 @@ room = false
 }
 
 --Fishing stuff
-mtw.fishing = {
+mtw_struct.set_metatable_custom("fishing")
+
+mtw.default.fishing = {
 fastfish = false,
 stat = "baiting",
 bait = "octopus",

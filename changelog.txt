@@ -862,3 +862,6 @@ o Defense skill checks -Naftali
 o the system now raises events to have an easier API -Naftali
 o Added a zealous mandate toggle -Savil
 o Prevents nasty illusions (death triggering a mtw.reset_all(), lines that fire two triggers, forcing one to get through) -Savil
+o Reworked how options are saved -Savil
+o Added a script to handle legacy saves -Savil
+o Added a way to handle bashing areas with commands (?area) -Savil
