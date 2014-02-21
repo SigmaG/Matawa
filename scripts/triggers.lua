@@ -1265,14 +1265,14 @@ if gmcp.Room.Info.area == "Krondor" then
 if mtw.areas[i].prime ~= nil then
    for x in pairs(mtw.areas[i].prime) do
     if string.find(mtw.scry.env, mtw.areas[i].prime[x]) then
-     table.insert(mtw.scry_likely, mtw.areas[i].area)
+     table.insert(mtw.scry_likely, i)
     end
    end
 end
    if mtw.areas[i].env ~= nil then
     for y in pairs(mtw.areas[i].env) do
      if string.find(mtw.scry.env, mtw.areas[i].env[y]) then
-      table.insert(mtw.scry_possible, mtw.areas[i].area)
+      table.insert(mtw.scry_possible, i)
      end
     end
    end

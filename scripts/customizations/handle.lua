@@ -5,9 +5,9 @@ function mtw_struct.set_metatable_custom(table)
   __index = function(t,k)
    if mtw.unset[table] and mtw.unset[table][k] then
     return nil
-   elseif mtw.custom[table] and mtw.custom[table][k] then
+   elseif mtw.custom[table] and (not (mtw.custom[table][k] == nil)) then
     return mtw.custom[table][k]
-   elseif mtw.default[table] and mtw.default[table][k] then
+   elseif mtw.default[table] and (not (mtw.default[table][k] == nil)) then
     return mtw.default[table][k]
    else
     return nil

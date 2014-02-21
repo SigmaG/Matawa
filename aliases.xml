@@ -494,6 +494,20 @@
                                 <packageName></packageName>
                                 <regex>^tgr$</regex>
                             </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>generic toggle</name>
+                                <script>mtw.generic_toggle(matches[2])</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^\?toggle (.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>generic toggle 2</name>
+                                <script>mtw.generic_toggle(matches[2])</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^\?tg (.*)$</regex>
+                            </Alias>
                         </AliasGroup>
                     </AliasGroup>
                     <AliasGroup isActive="yes" isFolder="yes">
@@ -691,6 +705,76 @@
                             <packageName></packageName>
                             <regex>^aap$</regex>
                         </Alias>
+	                    <AliasGroup isActive="yes" isFolder="yes">
+    	                    <name>Handle areas</name>
+        	                <script></script>
+            	            <command></command>
+                	        <packageName></packageName>
+                    	    <regex></regex>
+                        	<Alias isActive="yes" isFolder="no">
+                            	<name>Add area</name>
+                            	<script>mtw.add_area(matches[2])</script>
+                            	<command></command>
+	                            <packageName></packageName>
+    	                        <regex>^\?area add (.*)$</regex>
+        	                </Alias>
+                        	<Alias isActive="yes" isFolder="no">
+                            	<name>Remove area</name>
+                            	<script>mtw.rm_area(matches[2])</script>
+                            	<command></command>
+	                            <packageName></packageName>
+    	                        <regex>^\?area rm (.*)$</regex>
+        	                </Alias>
+                        	<Alias isActive="yes" isFolder="no">
+                            	<name>Add mob in area</name>
+                            	<script>mtw.add_mob_area(matches[2],matches[3])</script>
+                            	<command></command>
+	                            <packageName></packageName>
+    	                        <regex>^\?area (.*) add mob (.*)$</regex>
+        	                </Alias>
+                        	<Alias isActive="yes" isFolder="no">
+                            	<name>Remove mob from area</name>
+                            	<script>mtw.rm_mob_area(matches[2],matches[3])</script>
+                            	<command></command>
+	                            <packageName></packageName>
+    	                        <regex>^\?area (.*) rm mob (.*)$</regex>
+        	                </Alias>
+                        	<Alias isActive="yes" isFolder="no">
+                            	<name>Add prize in area</name>
+                            	<script>mtw.add_prize_area(matches[2],matches[3])</script>
+                            	<command></command>
+	                            <packageName></packageName>
+    	                        <regex>^\?area (.*) add item (.*)$</regex>
+        	                </Alias>
+                        	<Alias isActive="yes" isFolder="no">
+                            	<name>Remove prize from area</name>
+ 	                           	<script>mtw.rm_item_area(matches[2],matches[3])</script>
+                            	<command></command>
+	                            <packageName></packageName>
+    	                        <regex>^\?area (.*) rm item (.*)$</regex>
+        	                </Alias>
+                        	<Alias isActive="yes" isFolder="no">
+                            	<name>Set area level</name>
+                            	<script>mtw.area_level(matches[2],matches[3])</script>
+                            	<command></command>
+	                            <packageName></packageName>
+    	                        <regex>^\?area (.*) level (.*)$</regex>
+        	                </Alias>
+                        	<Alias isActive="yes" isFolder="no">
+                            	<name>Print area</name>
+                            	<script>mtw.print_area(matches[2])</script>
+                            	<command></command>
+	                            <packageName></packageName>
+    	                        <regex>^\?area print (.*)$</regex>
+        	                </Alias>
+                        	<Alias isActive="yes" isFolder="no">
+                            	<name>Sort area targets</name>
+                            	<script>mtw.area_sort_targets(matches)</script>
+                            	<command></command>
+	                            <packageName></packageName>
+    	                        <regex>^\?area (.*) sort targets( \d+)*$</regex>
+        	                </Alias>
+	                    </AliasGroup>
                     </AliasGroup>
                     <AliasGroup isActive="yes" isFolder="yes">
                         <name>Fishing</name>

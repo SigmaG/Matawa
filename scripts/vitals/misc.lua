@@ -213,6 +213,12 @@ function mtw.toggle(toggle)
  end
 end
 
+function mtw.generic_toggle(toggle)
+ if not (mtw.toggles[toggle] == nil) then
+  mtw.toggle(toggle)
+ end
+end
+
 
 --Color percentage values for display
 
