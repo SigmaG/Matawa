@@ -861,3 +861,6 @@ o Added psionics defenses -Rosalia
 o Defense skill checks -Naftali
 o the system now raises events to have an easier API -Naftali
 o Added a zealous mandate toggle -Savil
+o Reworked how options are saved -Savil
+o Added a script to handle legacy saves -Savil
+o Added a way to handle bashing areas with commands (?area) -Savil
