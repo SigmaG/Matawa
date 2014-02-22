@@ -196,6 +196,8 @@ function mtw.print_area(name)
     echo("\n  - "..v)
    end
   end
+ else
+  cecho("\n<Yellow>No such area: "..name)
  end
 end
 
@@ -212,7 +214,27 @@ function mtw.area_sort_targets(matches)
   end
   area.targets = targets
   mtw.areas[name] = area
+  cecho("\n<yellow>Targets sorted in area "..name..". Use <green>?area print "..name.."<yellow> to check the list.")
  else
   cecho("\n<yellow>Area "..name.." doesn't exist! <green>?area add "..name.." <yellow> to add it.")
  end
+end
+
+function mtw.area_aliases()
+ cecho("\n<green>Area-related aliases")
+ cecho("\n <green>?area add [name]<white> - Create a new area")
+ cecho("\n <green>?area rm [name]<white> - Remove an existing area")
+ cecho("\n <green>?area reset [name]<white> - Reset an area to its default value")
+ cecho("\n <green>?area [name] level [range]<white> - Assign a level range to the area")
+ cecho("\n <green>?area [name] add mob [mob name]<white> - Add a mob to the area")
+ cecho("\n <green>?area [name] rm mob [mob name]<white> - Remove a mob from the area")
+ cecho("\n <green>?area [name] add item [item name]<white> - Add an item that can be gathered in the area")
+ cecho("\n <green>?area [name] rm item [item name]<white> - Remove an item that can be gathered in the area")
+ cecho("\n <green>?area print [name]<white> - Outputs the characteristics of an area")
+ cecho("\n <green>?area [name] sort targets [numbers]<white> - Sort the order of the different targets of the area, uses the numbers from <green>?area print")
+end
+
+function mtw.reset_area(name)
+ mtw.reset_table(mtw.areas, name)
+ cecho("\n<yellow> Area "..name.." reset to its default value.")
 end

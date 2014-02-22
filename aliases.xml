@@ -712,6 +712,13 @@
                 	        <packageName></packageName>
                     	    <regex></regex>
                         	<Alias isActive="yes" isFolder="no">
+                            	<name>Area-related aliases</name>
+                            	<script>mtw.area_aliases()</script>
+                            	<command></command>
+	                            <packageName></packageName>
+    	                        <regex>^\?area$</regex>
+        	                </Alias>
+                        	<Alias isActive="yes" isFolder="no">
                             	<name>Add area</name>
                             	<script>mtw.add_area(matches[2])</script>
                             	<command></command>
@@ -724,6 +731,13 @@
                             	<command></command>
 	                            <packageName></packageName>
     	                        <regex>^\?area rm (.*)$</regex>
+        	                </Alias>
+                        	<Alias isActive="yes" isFolder="no">
+                            	<name>Reset area</name>
+                            	<script>mtw.reset_area(matches[2])</script>
+                            	<command></command>
+	                            <packageName></packageName>
+    	                        <regex>^\?area reset (.*)$</regex>
         	                </Alias>
                         	<Alias isActive="yes" isFolder="no">
                             	<name>Add mob in area</name>
@@ -772,7 +786,7 @@
                             	<script>mtw.area_sort_targets(matches)</script>
                             	<command></command>
 	                            <packageName></packageName>
-    	                        <regex>^\?area (.*) sort targets( \d+)*$</regex>
+    	                        <regex>^\?area (.*) sort targets((?: \d+)*)$</regex>
         	                </Alias>
 	                    </AliasGroup>
                     </AliasGroup>

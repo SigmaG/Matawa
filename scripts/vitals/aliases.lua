@@ -106,6 +106,7 @@ end
 function mtw.bashing_aliases()
  cecho("<green>\nBashing Commands:")
  mtw.disp_toggle("fasthunt", "ff: toggle fasthunting")
+ echo("\n ?area: display the toggles related to target list customization")
  echo("\n aa: start bashing current room")
  echo("\n ast: stop bashing")
  echo("\n asp: stop bashing after next kill")
