@@ -142,7 +142,7 @@ mtw.priorities = {
 "aff_cut_tendon_2",
 "aff_cut_tendon_1",
 "aff_clumsiness",
-"aff_commanded",
+--"aff_commanded",
 "aff_sun_allergy",
 "aff_health_75",
 "aff_magic_75",

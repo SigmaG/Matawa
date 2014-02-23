@@ -68,8 +68,8 @@ function mtw.do_healing()
        mtw.set_equil("block")
       end
      end
-    elseif mtw.have_aff("commanded") then
-     mtw.queue_diag()
+--    elseif mtw.have_aff("commanded") then
+--     mtw.queue_diag()
     end
    end
   end
