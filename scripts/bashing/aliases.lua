@@ -98,10 +98,26 @@ end
 function mtw.add_mob_area(name,mob)
  if mtw.areas[name] then
   local area = mtw.areas[name]
-  table.insert(area.targets, mob)
+  local nm = tonumber(mob)
+  if nm and gmcp.Char.Items.List.location == "room" then
+   local b = true
+   for k,v in pairs(gmcp.Char.Items.List.items) do
+    if (tonumber(v.id) == nm) and (v.attrib == "m") then
+     table.insert(area.targets, v.name)
+	 cecho("\n<yellow>Mob #"..nm.." "..v.name.." added to area "..name)
+     b = false
+     break
+    end
+   end
+   if b then
+    cecho("\n<yellow>No mob #"..nm.." in this room! (Or, it arrived after you in the room, move out and back in to add it)")
+   end
+  else
+   table.insert(area.targets, mob)
+   cecho("\n<yellow>Mob "..mob.." added to area "..name)
+  end
   mtw.areas[name] = area
   -- this is required to store it in mtw.custom instead of mtw.default
-  cecho("\n<yellow>Mob "..mob.." added to area "..name)
  else
   cecho("\n<yellow>Area "..name.." doesn't exist! <green>!area add "..name.." <yellow> to add it.")
  end
@@ -142,6 +158,20 @@ function mtw.rm_mob_area(name,mob)
  if mtw.areas[name] then
   local area = mtw.areas[name]
   local targets = {}
+  local nm = tonumber(mob)
+  if nm and gmcp.Char.Items.List.location == "room" then
+   local b = true
+   for k,v in pairs(gmcp.Char.Items.List.items) do
+    if (tonumber(v.id) == nm) and (v.attrib == "m") then
+     mob = v.name
+     b = false
+     break
+    end
+   end
+   if b then
+    cecho("\n<yellow>No mob #"..nm.." in this room! (Or, it arrived after you in the room, move out and back in to add it)")
+   end   
+  end
   for k,v in pairs(area.targets) do
    if v ~= mob then
     table.insert(targets,v)
