@@ -87,6 +87,11 @@ function mtw.area_check_name(name)
  end
 end
 
+function mtw.area_check_mob(mob)
+ local s = mob:gsub("-","%%-")
+ return s
+end
+
 function mtw.add_area(name)
  name = mtw.area_check_name(name)
  local exists = false
@@ -106,6 +111,7 @@ end
 
 function mtw.add_mob_area(name,mob)
  name = mtw.area_check_name(name)
+ mob = mtw.area_check_mob(mob)
  if mtw.areas[name] then
   local area = mtw.areas[name]
   local nm = tonumber(mob)
@@ -113,7 +119,8 @@ function mtw.add_mob_area(name,mob)
    local b = true
    for k,v in pairs(gmcp.Char.Items.List.items) do
     if (tonumber(v.id) == nm) and (v.attrib == "m") then
-     table.insert(area.targets, v.name)
+     local s = mtw.area_check_mob(v.name)
+     table.insert(area.targets, s)
 	 cecho("\n<yellow>Mob #"..nm.." "..v.name.." added to area "..name)
      b = false
      break
@@ -135,6 +142,7 @@ end
 
 function mtw.add_prize_area(name,prize)
  name = mtw.area_check_name(name)
+ prize = mtw.area_check_mob(prize)
  if mtw.areas[name] then
   local area = mtw.areas[name]
   table.insert(area.items, prize)
@@ -169,6 +177,7 @@ end
 
 function mtw.rm_mob_area(name,mob)
  name = mtw.area_check_name(name)
+ mob = mtw.area_check_mob(mob)
  if mtw.areas[name] then
   local area = mtw.areas[name]
   local targets = {}
@@ -177,7 +186,7 @@ function mtw.rm_mob_area(name,mob)
    local b = true
    for k,v in pairs(gmcp.Char.Items.List.items) do
     if (tonumber(v.id) == nm) and (v.attrib == "m") then
-     mob = v.name
+     mob = mtw.area_check_mob(v.name)
      b = false
      break
     end
@@ -202,6 +211,7 @@ end
 
 function mtw.rm_item_area(name,item)
  name = mtw.area_check_name(name)
+ item = mtw.area_check_mob(item)
  if mtw.areas[name] then
   local area = mtw.areas[name]
   local items = {}
@@ -273,10 +283,10 @@ function mtw.area_aliases()
  cecho("\n <green>!area rm [name]<white> - Remove an existing area")
  cecho("\n <green>!area reset [name]<white> - Reset an area to its default value")
  cecho("\n <green>!area [name] level [range]<white> - Assign a level range to the area")
- cecho("\n <green>!area [name] add mob [mob name]<white> - Add a mob to the area")
- cecho("\n <green>!area [name] rm mob [mob name]<white> - Remove a mob from the area")
- cecho("\n <green>!area [name] add item [item name]<white> - Add an item that can be gathered in the area")
- cecho("\n <green>!area [name] rm item [item name]<white> - Remove an item that can be gathered in the area")
+ cecho("\n <green>!area [name] addmob [mob name]<white> - Add a mob to the area")
+ cecho("\n <green>!area [name] rmmob [mob name]<white> - Remove a mob from the area")
+ cecho("\n <green>!area [name] additem [item name]<white> - Add an item that can be gathered in the area")
+ cecho("\n <green>!area [name] rmitem [item name]<white> - Remove an item that can be gathered in the area")
  cecho("\n <green>!area print [name]<white> - Outputs the characteristics of an area")
  cecho("\n <green>!area [name] sort targets [numbers]<white> - Sort the order of the different targets of the area, uses the numbers from <green>!area print")
 end

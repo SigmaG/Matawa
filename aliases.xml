@@ -730,14 +730,14 @@
                             	<script>mtw.add_area(matches[2])</script>
                             	<command></command>
 	                            <packageName></packageName>
-    	                        <regex>^!area add(.*)$</regex>
+    	                        <regex>^!area add( .*)$</regex>
         	                </Alias>
                         	<Alias isActive="yes" isFolder="no">
                             	<name>Remove area</name>
                             	<script>mtw.rm_area(matches[2])</script>
                             	<command></command>
 	                            <packageName></packageName>
-    	                        <regex>^!area rm(.*)$</regex>
+    	                        <regex>^!area rm( .*)$</regex>
         	                </Alias>
                         	<Alias isActive="yes" isFolder="no">
                             	<name>Reset area</name>
@@ -751,28 +751,28 @@
                             	<script>mtw.add_mob_area(matches[2],matches[3])</script>
                             	<command></command>
 	                            <packageName></packageName>
-    	                        <regex>^!area(.*) add mob (.*)$</regex>
+    	                        <regex>^!area(.*) addmob (.*)$</regex>
         	                </Alias>
                         	<Alias isActive="yes" isFolder="no">
                             	<name>Remove mob from area</name>
                             	<script>mtw.rm_mob_area(matches[2],matches[3])</script>
                             	<command></command>
 	                            <packageName></packageName>
-    	                        <regex>^!area(.*) rm mob (.*)$</regex>
+    	                        <regex>^!area(.*) rmmob (.*)$</regex>
         	                </Alias>
                         	<Alias isActive="yes" isFolder="no">
                             	<name>Add prize in area</name>
                             	<script>mtw.add_prize_area(matches[2],matches[3])</script>
                             	<command></command>
 	                            <packageName></packageName>
-    	                        <regex>^!area(.*) add item (.*)$</regex>
+    	                        <regex>^!area(.*) additem (.*)$</regex>
         	                </Alias>
                         	<Alias isActive="yes" isFolder="no">
                             	<name>Remove prize from area</name>
  	                           	<script>mtw.rm_item_area(matches[2],matches[3])</script>
                             	<command></command>
 	                            <packageName></packageName>
-    	                        <regex>^!area(.*) rm item (.*)$</regex>
+    	                        <regex>^!area(.*) rmitem (.*)$</regex>
         	                </Alias>
                         	<Alias isActive="yes" isFolder="no">
                             	<name>Set area level</name>
