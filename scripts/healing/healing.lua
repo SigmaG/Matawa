@@ -100,7 +100,7 @@ end
 function mtw.do_equilibrium_take(current)
  if mtw.balance.equilibrium and (not mtw.waiting.equilibrium) then
   if current == "def_enrage" then
-   if not mtw.balance.rage then
+   if not mtw.balance.rage or mtw.need_loot then
     return
    end
   end
@@ -236,17 +236,17 @@ end
 function mtw.do_overdrive(current)
  if mtw.balance.overdrive and not mtw.waiting.overdrive and mtw.toggles.overdriving and mtw.can_overdrive() then
   if mtw.have_def("spellshield") then
-   if mtw.vitals.percent.magic < 80 and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) then
+   if mtw.vitals.percent.magic <= 75 and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) then
     mtw.send("overdrive")
     mtw.waiting.overdrive = true
     tempTimer(mtw.delay(), [[mtw.waiting.overdrive = false]])
    end
   else
-   if mtw.vitals.percent.health < 80 and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) then
+   if mtw.vitals.percent.health <= 75 and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) then
     mtw.send("overdrive")
     mtw.waiting.overdrive = true
     tempTimer(mtw.delay(), [[mtw.waiting.overdrive = false]] )
-   elseif mtw.vitals.percent.magic < 80 and mtw.my.class == "magician" and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) then
+   elseif mtw.vitals.percent.magic <= 75 and mtw.my.class == "magician" and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) then
     mtw.send("overdrive magic")
     mtw.waiting.overdrive = true
     tempTimer(mtw.delay(), [[mtw.waiting.overdrive = false]] )
