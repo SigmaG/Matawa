@@ -77,8 +77,12 @@ function mtw.prompt_function()
   mtw.aff_have("blackout")
   mtw.check.bloodboil = false
  end
- if mtw.check.reckless and mtw.vitals.percent.health == 100 and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
-  mtw.aff_have("recklessness")
+ if mtw.vitals.percent.health == 100 and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
+  if mtw.check.reckless then 
+   mtw.aff_have("recklessness")
+  end
+ else
+  mtw.aff_remove("recklessness")
  end
  mtw.check.reckless = false
 
