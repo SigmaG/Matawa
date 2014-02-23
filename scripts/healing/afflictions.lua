@@ -27,7 +27,7 @@ aff_blood_betrayal = {state = "healed", msg = "betrayed by your writhing blood",
 aff_balance_loss = {state = "healed", msg = "knocked permanently off-balance", cures = {recover = "balance"}, assess = false, effect = "can't regain balance", timer = createStopWatch()},
 aff_equilibrium_loss = {state = "healed", msg = "knocked permanently off-equilibrium", cures = {recover = "equilibrium"}, assess = false, effect = "can't regain equilibrium", timer = createStopWatch()},
 
-aff_commanded = {state = "healed", msg = "awestruck by (.*)", cures = {reject = "priest"}, assess = false, effect = "", timer = createStopWatch()},
+aff_commanded = {state = "healed", msg = "awestruck by (.*)", cures = {reject = "priest"}, assess = false, effect = "forced to do a single action", timer = createStopWatch()},
 aff_mindmeld = {state = "healed", msg = "mind melded by (.*)", cures = {reject = "psion"}, assess = false, effect = "can't cure tethered, psi becomes ranged", timer = createStopWatch()},
 aff_lust = {state = "healed", cures = {reject = "lust"}, assess = false, effect = "", timer = createStopWatch()},
 aff_threaten = {state = "healed", msg = "threatened", cures = {}, asses = false, effect = "accuracy malus vs all but threatener", timer = createStopWatch()},
