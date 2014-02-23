@@ -6,6 +6,7 @@ function mtw.no_target()
  mtw.untarget()
  mtw.waiting.ih = false
  mtw.waiting.balance = false
+ mtw.recent_defend = false
  mtw.bashing.target_priority = 10000
 end
 
