@@ -14,6 +14,9 @@ function mtw.check_options()
    b = false
    local s = string.format("\nOption <red>%s<white> not set. Use <green>?set option %s [%s id]<white> to set it, or <green>?set option %s -<white> if you don't want it set.",k,k,k,k)
    cecho(s)
+  else
+   local s = string.format("\nOption <red>%s<white> = <red>%s<white>.", k, mtw.options[k])
+   cecho(s)
   end
  end
  cecho("\n<green>?set option [option] [id]<white> lets you reset the options")
