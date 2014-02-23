@@ -7698,11 +7698,11 @@ echo(" "..charge_number)
 end
 
 function mtw.trigger_1605(matches,multimatches)
-aff_have("confusion")
+mtw.aff_have("confusion")
 end
 
 function mtw.trigger_1606(matches,multimatches)
-aff_have("paralyzed")
+mtw.aff_have("paralysis")
 end
 
 function mtw.trigger_1607(matches,multimatches)
@@ -7710,39 +7710,39 @@ mtw.aff_have("sensitivity")
 end
 
 function mtw.trigger_1608(matches,multimatches)
-aff_have("deaf")
+mtw.aff_have("deaf")
 end
 
 function mtw.trigger_1609(matches,multimatches)
-aff_have("stupidity")
+mtw.aff_have("stupidity")
 end
 
 function mtw.trigger_1610(matches,multimatches)
-aff_have("malaise")
+mtw.aff_have("malaise")
 end
 
 function mtw.trigger_1611(matches,multimatches)
-aff_have("anorexic")
+mtw.aff_have("anorexia")
 end
 
 function mtw.trigger_1612(matches,multimatches)
-aff_have("dystonia")
+mtw.aff_have("dystonia")
 end
 
 function mtw.trigger_1613(matches,multimatches)
-aff_have("epileptic")
+mtw.aff_have("epilepsy")
 end
 
 function mtw.trigger_1614(matches,multimatches)
-aff_have("blind")
+mtw.aff_have("blind")
 end
 
 function mtw.trigger_1615(matches,multimatches)
-aff_have("clumsy")
+mtw.aff_have("clumsiness")
 end
 
 function mtw.trigger_1616(matches,multimatches)
-aff_have("asthma")
+mtw.aff_have("asthma")
 end
 
 function mtw.trigger_1617(matches,multimatches)
@@ -7750,11 +7750,11 @@ mtw.aff_have("dizziness_1")
 end
 
 function mtw.trigger_1618(matches,multimatches)
-aff_have("fear")
+mtw.aff_have("fear")
 end
 
 function mtw.trigger_1619(matches,multimatches)
-aff_have("terror")
+mtw.aff_have("terror")
 end
 
 function mtw.trigger_1620(matches,multimatches)
@@ -7763,7 +7763,7 @@ mtw.aff_have("horror")
 end
 
 function mtw.trigger_1621(matches,multimatches)
-aff_have("agoraphobia")
+mtw.aff_have("agoraphobia")
 end
 
 function mtw.trigger_1622(matches,multimatches)
@@ -7772,11 +7772,11 @@ mtw.aff_have("confusion")
 end
 
 function mtw.trigger_1623(matches,multimatches)
-aff_have("headache")
+mtw.aff_have("headache")
 end
 
 function mtw.trigger_1624(matches,multimatches)
-aff_have("heart_palpitations")
+mtw.aff_have("heart_palpitations")
 end
 
 function mtw.trigger_1625(matches,multimatches)
@@ -7787,29 +7787,29 @@ echo(" "..charge_number)
 end
 
 function mtw.trigger_1626(matches,multimatches)
-aff_have("ataxia")
+mtw.aff_have("ataxia")
 end
 
 function mtw.trigger_1627(matches,multimatches)
-aff_have("paranoia")
+mtw.aff_have("paranoia")
 end
 
 function mtw.trigger_1628(matches,multimatches)
-aff_have("feedback")
+mtw.aff_have("feedback")
 
 end
 
 function mtw.trigger_1629(matches,multimatches)
-aff_have("demented")
+mtw.aff_have("dementia_1")
 end
 
 function mtw.trigger_1630(matches,multimatches)
-aff_have("depressed")
+mtw.aff_have("depression")
 end
 
 function mtw.trigger_1631(matches,multimatches)
-aff_have("dystonia")
-aff_have("maldroitness")
+mtw.aff_have("dystonia")
+mtw.aff_have("maldroitness")
 end
 
 function mtw.trigger_1632(matches,multimatches)
@@ -7817,12 +7817,12 @@ mtw.aff_have("hypochondria")
 end
 
 function mtw.trigger_1633(matches,multimatches)
-aff_have("impatient")
+mtw.aff_have("impatience")
 --aff_have("impatience")
 end
 
 function mtw.trigger_1634(matches,multimatches)
-aff_have("aphasia")
+mtw.aff_have("aphasia")
 end
 
 function mtw.trigger_1635(matches,multimatches)
