@@ -7312,11 +7312,13 @@
                                         <string>You push against the thick spiderwebs but only manage to get yourself stuck to the glowing strands.</string>
                                         <string>A kobold magician chants in a rumbling voice and the ground erupts around you in a confining prison of rock and earth.</string>
                                         <string>Gralob, a fell Demon Lord flicks his wrist, and his whip snakes out to coil around your body. The jagged barbs bite viciously into your flesh as the air is squeezed from your lungs.</string>
+                                        <string>A Moredhel sentry slams you across the face with the flat of one longsword, before impaling you with the other.</string>
                                         <string>You are being restrained and must WRITHE free before moving.</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>3</integer>
                                         <integer>2</integer>
+                                        <integer>3</integer>
                                         <integer>3</integer>
                                         <integer>3</integer>
                                         <integer>3</integer>
