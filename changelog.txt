@@ -865,3 +865,4 @@ o Prevents nasty illusions (death triggering a mtw.reset_all(), lines that fire 
 o Reworked how options are saved -Savil
 o Added a script to handle legacy saves -Savil
 o Added a way to handle bashing areas with commands (?area) -Savil
+o Lots of useful fixes (psionics triggers, recklessness check, commanded affliction, counter, loot/rage) -Elanoron
