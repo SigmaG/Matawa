@@ -78,8 +78,17 @@ else
 end
 end
 
+function mtw.area_check_name(name)
+ local s = name:gsub("^%s*(.-)%s*$", "%1")
+ if s == "" then
+  return mtw.my.area
+ else
+  return s
+ end
+end
 
 function mtw.add_area(name)
+ name = mtw.area_check_name(name)
  local exists = false
  for k,v in pairs(mtw.areas) do
   if v.area == name then
@@ -96,6 +105,7 @@ function mtw.add_area(name)
 end
 
 function mtw.add_mob_area(name,mob)
+ name = mtw.area_check_name(name)
  if mtw.areas[name] then
   local area = mtw.areas[name]
   local nm = tonumber(mob)
@@ -124,6 +134,7 @@ function mtw.add_mob_area(name,mob)
 end
 
 function mtw.add_prize_area(name,prize)
+ name = mtw.area_check_name(name)
  if mtw.areas[name] then
   local area = mtw.areas[name]
   table.insert(area.items, prize)
@@ -135,6 +146,7 @@ function mtw.add_prize_area(name,prize)
 end
 
 function mtw.area_level(name,level)
+ name = mtw.area_check_name(name)
  if mtw.areas[name] then
   local area = mtw.areas[name]
   area.level = level
@@ -146,6 +158,7 @@ function mtw.area_level(name,level)
 end
 
 function mtw.rm_area(name)
+ name = mtw.area_check_name(name)
  if mtw.areas[name] then
   mtw.areas[name] = nil
   cecho("\n<yellow>Area "..name.." removed")
@@ -155,6 +168,7 @@ function mtw.rm_area(name)
 end
 
 function mtw.rm_mob_area(name,mob)
+ name = mtw.area_check_name(name)
  if mtw.areas[name] then
   local area = mtw.areas[name]
   local targets = {}
@@ -187,6 +201,7 @@ function mtw.rm_mob_area(name,mob)
 end
 
 function mtw.rm_item_area(name,item)
+ name = mtw.area_check_name(name)
  if mtw.areas[name] then
   local area = mtw.areas[name]
   local items = {}
@@ -205,6 +220,7 @@ function mtw.rm_item_area(name,item)
 end
 
 function mtw.print_area(name)
+ name = mtw.area_check_name(name)
  if mtw.areas[name] then
   cecho("\nArea <green>"..name..":")
   if mtw.areas[name].level then
@@ -233,6 +249,7 @@ end
 
 function mtw.area_sort_targets(matches)
  local name = matches[2]
+ name = mtw.area_check_name(name)
  local targets = {}
  local area = mtw.areas[name]
  if area then
@@ -265,6 +282,7 @@ function mtw.area_aliases()
 end
 
 function mtw.reset_area(name)
+ name = mtw.area_check_name(name)
  mtw.reset_table(mtw.areas, name)
  cecho("\n<yellow> Area "..name.." reset to its default value.")
 end
