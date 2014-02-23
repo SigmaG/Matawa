@@ -2,6 +2,15 @@
 
 --OPTIONS
 mtw_struct.set_metatable_custom("options")
+mtw.default.options = {
+ container = "pack",
+ mount = "-",
+ scabbard1 = "-",
+ scabbard2 = "-",
+ baldric1 = "-",
+ baldric2 = "-",
+ crossbow = "-",
+}
 
 --TIMES
 mtw_struct.set_metatable_saved("attack_times")
