@@ -16,7 +16,7 @@ function mtw.load_targets(area)
     echo("\n "..mtw.possible_targets[h])
    end
    if mtw.areas[area].items then
-    mtw.possible_items = mtw.areas[i].items
+    mtw.possible_items = mtw.areas[area].items
     cecho("\n<green>Gathering Items:")
     for k in ipairs(mtw.possible_items) do
      echo("\n "..mtw.possible_items[k])
