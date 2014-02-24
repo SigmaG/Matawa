@@ -145,6 +145,7 @@ function mtw.add_prize_area(name,prize)
  prize = mtw.area_check_mob(prize)
  if mtw.areas[name] then
   local area = mtw.areas[name]
+  area.items = area.items or {}
   table.insert(area.items, prize)
   mtw.areas[name] = area
   cecho("\n<yellow>Item "..prize.." added to area "..name)
