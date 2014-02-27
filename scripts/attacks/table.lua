@@ -151,7 +151,8 @@ atk_barrage = {def = "instant", class = "magician", aff = "damage", getting_hit 
 atk_disorient = {def = "jump", class = "magician", aff = "disoriented", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_timeshift = {def = "block", class = "magician", aff = "malaise hypersomnia", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_compulsion = {def = "jump", class = "magician", aff = "compulsion", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
---atk_timequake = {def = "???", class = "magician", aff = "adrenaline_loss", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_timewarp = {def = "none", class = "magician", aff = "adrenaline_loss", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_timequake = {def = "none", class = "magician", aff = "adrenaline_loss", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_astral_tether = {def = "Jump", class = "magician", aff = "tethered", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 --atk_teleport = {def = "???", class = "magician", aff = "", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_astral_warp = {def = "parry", class = "magician", aff = "warped", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
@@ -219,7 +220,7 @@ atk_deceit = {def = "dodge", class = "priest", aff = "lust", getting_hit = false
 atk_horrify = {def = "duck", class = "priest", aff = "horror", getting_hit = false, attacker = "none", defend_now = false, delay = 2, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_shadowlance = {def = "none", class = "priest", aff = "", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_scarab_curse = {def = "jump", class = "priest", aff = "scabie hemophilia", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
-atk_shadow_storm = {def = "none", class = "priest", aff = "", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_shadowstorm = {def = "none", class = "priest", aff = "", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_oubliette = {def = "jump", class = "priest", aff = "", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_shadowstorm = {def = "none", class = "priest", aff = "blind disoriented fear epilepsy maladroitness terror sun_allergy paralysis dystrophy", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 --Priest: Bloodlore

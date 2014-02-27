@@ -508,7 +508,7 @@ mtw.priorities = {
 "atk_horrify",
 "atk_shadowlance",
 "atk_scarab_curse",
-"atk_shadow_storm",
+"atk_shadowstorm",
 "atk_oubliette",
 --Priest: Bloodlore
 "atk_savage",
