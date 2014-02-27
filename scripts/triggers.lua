@@ -842,6 +842,18 @@ end
 mtw.balance_regain("flourish")
 end
 
+function mtw.trigger_133b(matches,multimatches)
+if mtw.prechanneling.deepshrouding then
+ mtw.channeling.deepshrouding = true
+end
+end
+
+function mtw.trigger_133c(matches,multimatches)
+if mtw.channeling.deepshrouding then
+ mtw.channeling.deepshrouding = false
+end
+end
+
 function mtw.trigger_134(matches,multimatches)
 send( "bqa demoncall harvest demon" )
 end

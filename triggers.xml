@@ -3541,6 +3541,62 @@
                                     </regexCodePropertyList>
                                 </Trigger>
                             </TriggerGroup>
+                            <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>Utilities</name>
+                                <script></script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>0</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList/>
+                                <regexCodePropertyList/>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>deepshroud start</name>
+                                    <script>mtw.check_illusion(mtw.trigger_133b,matches,multimatches)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>You begin gathering the shadows to shroud yourself in their midnight embrace.</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>3</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>deepshroud end</name>
+                                    <script>mtw.check_illusion(mtw.trigger_133c,matches,multimatches)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>You shroud yourself deeper in the shadows, which cling to your body like an inky black cloak.</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>3</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+							</TriggerGroup>
                         </TriggerGroup>
                         <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                             <name>Mage</name>

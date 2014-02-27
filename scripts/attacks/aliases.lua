@@ -1,6 +1,14 @@
 -- MTW: attack aliases
 
 -- rogue
+function mtw.deepshroud_alias()
+ if mtw.my.class == "rogue" then
+  send("deepshroud",false)
+  mtw.prechanneling.deepshroud = true
+  tempTimer(mtw.delay(),[[mtw.prechanneling.deepshroud = false]])
+ end
+end
+
 function mtw.al_rogue(skill)
  if mtw.my.class == "rogue" then
   mtw.set_balance(skill .. " "..mtw.target)
@@ -645,3 +653,4 @@ else
  mtw.set_equil("assess "..mtw.target)
 end
 end
+
