@@ -1707,6 +1707,18 @@ function mtw.trigger_246(matches,multimatches)
 cecho("\n<cyan>===<white>You have been Prandatrolled. Have a nice day!<cyan>===\n")
 end
 
+function mtw.trigger_246b(matches,multimatches)
+if mtw.prechanneling.inking then
+ mtw.channeling.inking = true
+end
+end
+
+function mtw.trigger_246c(matches,multimatches)
+if mtw.channeling.inking then
+ mtw.channeling.inking = false
+end
+end
+
 function mtw.trigger_247(matches,multimatches)
 if mtw.toggles.mining then
  deleteLine()
