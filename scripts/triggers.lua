@@ -1191,8 +1191,8 @@ end
 end
 
 function mtw.trigger_186(matches,multimatches)
-if mtw.rifting then
- mtw.toggles.healing = false
+if mtw.prechanneling.rifting then
+ mtw.channeling.rifting = true
 end
 end
 
@@ -1209,7 +1209,9 @@ end
 end
 
 function mtw.trigger_189(matches,multimatches)
-mtw.toggles.healing = true
+if mtw.channeling.rifting then
+ mtw.channeling.rifting = false
+end
 end
 
 function mtw.trigger_190(matches,multimatches)

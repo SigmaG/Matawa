@@ -447,7 +447,9 @@ end
 
 function mtw.tattoo_alias(matches)
 mtw.do_tattoo(matches[2])
+mtw.prechanneling.tattooing = true
 send(matches[1])
+tempTimer(mtw.delay(),[[mtw.prechanneling.tattooing = false]])
 end
 
 function mtw.lose_all()

@@ -116,6 +116,29 @@ balecho = true,
 cdecho = true,
 }
 
+--channeling
+mtw.prechanneling = {
+ rifting = false,
+ inking = false,
+ deepshrouding = false,
+}
+-- mtw.channeling[x] lets you get/set the corresponding element, mtw.channeling() tells you if you're channeling or not.
+mtw.channeling = {
+ rifting = false,
+ inking = false,
+ deepshrouding = false,
+}
+setmetatable(mtw.channeling, {
+ __call = function (t)
+  for k,v in pairs(t) do
+   if v then
+    return true
+   end
+  end
+  return false
+ end,
+})
+
 --misc
 
 mtw.see_illusion = false
@@ -132,7 +155,6 @@ mtw.people = {}
 
 mtw.soldier_shielding = false
 mtw.soldier_shielded = "none"
-mtw.rifting = false
 mtw.vote = false
 mtw.voted = true
 mtw.target = "none"

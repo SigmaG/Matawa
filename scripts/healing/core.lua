@@ -6,7 +6,7 @@ function mtw.do_core()
  mtw.defending_check()
  mtw.aff_check()
  mtw.def_check()
- if not mtw.toggles.paused then
+ if not mtw.toggles.paused and not mtw.channeling() then
   if mtw.have_slow() then
    mtw.do_slow()
   else

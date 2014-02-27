@@ -627,8 +627,8 @@ function mtw.do_balance()
    if string.find(mtw.next.balance, "cast rift") or string.find(mtw.next.balance, "demoncall gate") then
     mtw.waiting.overdrive = true
     tempTimer(mtw.delay(), [[mtw.waiting.overdrive = false]])
-    mtw.rifting = true
-    tempTimer(mtw.delay(), [[mtw.rifting = false]])
+    mtw.prechanneling.rifting = true
+    tempTimer(mtw.delay(), [[mtw.prechanneling.rifting = false]])
    end
    mtw.waiting.balance = true
    tempTimer(mtw.delay(), [[mtw.waiting.balance = false]])

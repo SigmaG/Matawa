@@ -276,6 +276,9 @@ function mtw.prompt_display()
  end
 
 --Display vital toggle warnings
+ if mtw.channeling() then
+  cecho("<cyan>++<grey>CHANNELING<cyan>++")
+ end
  if not mtw.toggles.healing then
   cecho("<blue>~-+<grey>HEALING OFF<blue>+-~")
  end
