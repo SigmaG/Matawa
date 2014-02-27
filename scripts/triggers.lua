@@ -542,7 +542,7 @@ function mtw.trigger_91(matches,multimatches)
 if matches[2] == mtw.target then
  set_attack("touch serpent "..mtw.target)
 end
-if toggles.cdecho then 
+if mtw.toggles.cdecho then 
  if matches[2] == mtw.target then
   deleteLine()
   cecho("\n<green>=====<white>"..matches[2].."<brown>=====<cyan>::<red>SHIELD TATTOO UP<cyan>::<brown>=====<green>=====\n")
@@ -551,7 +551,7 @@ end
 end
 
 function mtw.trigger_92(matches,multimatches)
-if toggles.cdecho then 
+if mtw.toggles.cdecho then 
  if matches[2] == mtw.target then
   deleteLine()
   cecho("\n<green>=====<white>"..matches[2].." <cyan>SHIELD BROKEN. ATTACK AT WILL.<green>=====\n")
@@ -636,7 +636,7 @@ end
 end
 
 function mtw.trigger_105(matches,multimatches)
-if toggles.cdecho then 
+if mtw.toggles.cdecho then 
  deleteLine()
  cecho("\n<green>=====<white>"..matches[2].." <cyan>IMMUNITY DOWN!<green>=====\n")
 end
