@@ -51467,6 +51467,9 @@
                         <string>(Queensguard):</string>
                         <string>(Stardock):</string>
                         <string>(Clan Dragon):</string>
+                        <string>(Wyvern's Nest):</string>
+                        <string>(The Dracarys):</string>
+                        <string>(Dragon):</string>
                         <string>(Clan Raven):</string>
                         <string>(Urchins):</string>
                         <string>(Cadets):</string>
@@ -51486,6 +51489,9 @@
                         <string>(Nighthawks):</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
                         <integer>2</integer>
                         <integer>2</integer>
                         <integer>2</integer>
