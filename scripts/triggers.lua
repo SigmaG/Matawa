@@ -56,7 +56,6 @@ end
 function mtw.trigger_2(matches,multimatches)
 mtw.balance_regain("balance")
 mtw.waiting.balance = false
-mtw.do_core()
 end
 
 function mtw.trigger_3(matches,multimatches)
@@ -73,7 +72,6 @@ end
 function mtw.trigger_5(matches,multimatches)
 mtw.balance_regain("equilibrium")
 mtw.waiting.equilibrium = false
-mtw.do_core()
 end
 
 function mtw.trigger_6(matches,multimatches)
@@ -90,7 +88,6 @@ end
 
 function mtw.trigger_8(matches,multimatches)
 mtw.balance_regain("overdrive")
-mtw.do_core()
 end
 
 function mtw.trigger_9(matches,multimatches)
@@ -105,7 +102,6 @@ end
 
 function mtw.trigger_11(matches,multimatches)
 mtw.balance_regain("focus")
-mtw.do_core()
 mtw.aff_remove("blackout")
 end
 
@@ -115,7 +111,6 @@ end
 
 function mtw.trigger_13(matches,multimatches)
 mtw.balance_regain("psi")
-mtw.do_core()
 end
 
 function mtw.trigger_14(matches,multimatches)
@@ -2855,7 +2850,6 @@ end
 function mtw.trigger_464(matches,multimatches)
 mtw.aff_cure("sleep")
 mtw.status.waking = false
-mtw.do_core()
 end
 
 function mtw.trigger_465(matches,multimatches)
@@ -2867,13 +2861,11 @@ function mtw.trigger_466(matches,multimatches)
 mtw.aff_remove("sleep")
 mtw.aff_remove("prone")
 mtw.status.waking = false
-mtw.do_core()
 end
 
 function mtw.trigger_467(matches,multimatches)
 mtw.aff_remove("sleep")
 mtw.status.waking = false
-mtw.do_core()
 end
 
 function mtw.trigger_468(matches,multimatches)
@@ -2884,7 +2876,6 @@ end
 function mtw.trigger_469(matches,multimatches)
 mtw.aff_cure("stun")
 mtw.reset_waiting()
-mtw.do_core()
 end
 
 function mtw.trigger_470(matches,multimatches)
@@ -2897,7 +2888,6 @@ end
 
 function mtw.trigger_472(matches,multimatches)
 mtw.aff_cure("unconscious")
-mtw.do_core()
 end
 
 function mtw.trigger_473(matches,multimatches)
@@ -2932,7 +2922,6 @@ end
 
 function mtw.trigger_478(matches,multimatches)
 mtw.aff_cure("tomb")
-mtw.do_core()
 end
 
 function mtw.trigger_479(matches,multimatches)
@@ -3607,7 +3596,6 @@ end
 function mtw.trigger_631(matches,multimatches)
 mtw.def_take("shadowmend")
 mtw.waiting.equilibrium = false
-mtw.do_core()
 end
 
 function mtw.trigger_632(matches,multimatches)
@@ -4069,7 +4057,6 @@ function mtw.trigger_737(matches,multimatches)
   mtw.defenses.def_grip.needit = false
  end
 mtw.waiting.balance = false
-mtw.do_core()
 end
 
 function mtw.trigger_738(matches,multimatches)
@@ -4079,7 +4066,6 @@ if mtw.toggles.gripping and mtw.defenses.def_grip.needit == false then
   mtw.defenses.def_grip.needit = true
   send(" ")
  end
-mtw.do_core()
 end
 
 function mtw.trigger_739(matches,multimatches)
