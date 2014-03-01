@@ -17105,6 +17105,7 @@
                                             <string>^You are exposed by (\w+)!$</string>
                                             <string>You are no longer hiding in the shadows of darkness.</string>
                                             <string>You are no longer concealed.</string>
+                                            <string>You are no longer hidden.</string>
                                             <string>You silently slip out from the dark embrace of the shadows.</string>
                                             <string>You sense yourself become visible once again.</string>
                                         </regexCodeList>
@@ -17112,6 +17113,7 @@
                                             <integer>3</integer>
                                             <integer>3</integer>
                                             <integer>1</integer>
+                                            <integer>3</integer>
                                             <integer>3</integer>
                                             <integer>3</integer>
                                             <integer>3</integer>
