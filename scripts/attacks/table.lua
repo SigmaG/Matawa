@@ -140,6 +140,7 @@ atk_keltonsknives = {def = "???", class = "magician", aff = "damage OR ataxia OR
 atk_shatter = {def = "dodge", class = "magician", aff = "broken_limb", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_tomb = {def = "???", class = "magician", aff = "stun", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_immolate = {def = "block", class = "magician", aff = "stun", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_freeze = { def = "none", class = "magician", aff = "", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 --Magician: Arcana
 atk_balefire = {def = "dodge", class = "magician", aff = "damage", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_sleep = {def = "block", class = "magician", aff = "sleep", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
