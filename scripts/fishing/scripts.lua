@@ -15,9 +15,13 @@ function mtw.do_fishing()
   if mtw.fishing.stat == "baiting" then
    send("vout "..mtw.fishing.bait, false)
    send("fishing bait with "..mtw.fishing.bait, false)
+   mtw.waiting.balance = true
+   tempTimer( mtw.delay(), [[mtw.waiting.balance = false]] )
   elseif mtw.fishing.stat == "casting" then
    send("fishing cast "..mtw.fishing.dir.." "..mtw.fishing.distance, false)
    mtw.fishing.count = 0
+   mtw.waiting.balance = true
+   tempTimer( mtw.delay(), [[mtw.waiting.balance = false]] )
   elseif mtw.fishing.stat == "teasing" then
    send("fishing tease", false)
   elseif mtw.fishing.stat == "reeling" then
@@ -27,6 +31,8 @@ function mtw.do_fishing()
     send("fishing reel", false)
     mtw.fishing.count = mtw.fishing.count + 1
    end
+   mtw.waiting.balance = true
+   tempTimer( mtw.delay(), [[mtw.waiting.balance = false]] )
   elseif mtw.fishing.stat == "cutting" then
    send("fishing cut", false)
   elseif mtw.fishing.stat == "sitting" then
@@ -35,7 +41,5 @@ function mtw.do_fishing()
    mtw.fishing.stat = "wait for endurance"
    tempTimer((mtw.fishing.min_end-mtw.vitals.current.endurance+3)/2,[[send(" ")]])
   end
-  mtw.waiting.balance = true
-  tempTimer( mtw.delay(), [[mtw.waiting.balance = false]] )
  end
 end

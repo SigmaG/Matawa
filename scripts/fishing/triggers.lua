@@ -33,7 +33,7 @@ if mtw.vitals.current.endurance > mtw.fishing.min_end then
  mtw.waiting.balance = false
 else
  mtw.fishing.stat = "sitting"
- mtw.fishing.balance = false
+ mtw.waiting.balance = false
 end
 end
 
