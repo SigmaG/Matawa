@@ -99,7 +99,7 @@ def_grip = {defense = "", type = "normal", effect = "One-time immunity to DISARM
 def_berserking = {defense = "", type = "normal", effect = "Increases damage delt and taken", skill = "Berserking", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_enrage = {defense = "", type = "normal", effect = "Passively regenerating adrenaline", skill = "Enrage", balance = {equilibriumtake = "rage"}, state = "down", needit = false, timer = createStopWatch()},
 --Soldier: Warcraft
-def_warcry = {defense = "call to war", type = "normal", effect = "Increased health regeneration", skill = "Call to War", balance = {balancetake="warcry"}, state = "down", needit = false, timer = createStopWatch()},
+def_warcry = {defense = "call to war", type = "normal", effect = "Increased health regeneration", skill = "Call To War", balance = {balancetake="warcry"}, state = "down", needit = false, timer = createStopWatch()},
 def_bloodthirst = {defense = "", type = "normal", effect = "Passively regenerating health", skill = "Bloodthirst", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_aggressive_stance = {defense = "", type = "normal", effect = "10% increased damage, 5% increased precision, taking 10% more damage", skill = "Aggressive Stance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_defensive_stance = {defense = "", type = "normal", effect = "10% damage resistance, 10% less damage dealt	", skill = "Defensive Stance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
