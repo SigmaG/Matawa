@@ -51418,8 +51418,18 @@
                         <string>(Forest of Elvandar):</string>
                         <string>(Dark Brotherhood):</string>
                         <string>(Free Cities):</string>
+                        <string>(Council):</string>
+                        <string>(Elvandar City Officials):</string>
+                        <string>(Elf Friends):</string>
+                        <string>(The Ministries of Krondor):</string>
+                        <string>(The Congress of Lords):</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
                         <integer>2</integer>
                         <integer>2</integer>
                         <integer>2</integer>
@@ -51445,7 +51455,13 @@
                     <regexCodeList>
                         <string>(Mockers):</string>
                         <string>(Pathfinders):</string>
+                        <string>(Eagle Squadron):</string>
+                        <string>(Royal Guard):</string>
                         <string>(Spellweavers):</string>
+                        <string>(The Guardian Branch):</string>
+                        <string>(The Education Branch):</string>
+                        <string>(Library of the Ages):</string>
+                        <string>(The Conclave of Arcana):</string>
                         <string>(Queensguard):</string>
                         <string>(Stardock):</string>
                         <string>(Clan Dragon):</string>
@@ -51459,9 +51475,27 @@
                         <string>(Hatchlings):</string>
                         <string>&lt;&lt;Mockers&gt;&gt;:</string>
                         <string>&lt;&lt;Pathfinders&gt;&gt;:</string>
+                        <string>&lt;&lt;Spellweavers&gt;&gt;:<string>
+                        <string>&lt;&lt;Queensguard&gt;&gt;:</string>
+                        <string>&lt;&lt;Clan Dragon&gt;&gt;:</string>
+                        <string>&lt;&lt;Clan Raven&gt;&gt;:</string>
+                        <string>&lt;&lt;Stardock&gt;&gt;:</string>
                         <string>(Wand of Watume):</string>
+                        <string>(Nighthawks):</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
                         <integer>2</integer>
                         <integer>2</integer>
                         <integer>2</integer>
@@ -51497,17 +51531,13 @@
                     <regexCodeList>
                         <string>(Matawa):</string>
                         <string>(The Army of the West):</string>
-                        <string>(The Ministries of Krondor):</string>
-                        <string>(The Congress of Lords):</string>
-                        <string>(Eagle Squadron):</string>
+                        <string>(Historical Society of Midkemia):</string>
+                        <string>(The Plant Protectorate):</string>
                         <string>(The Infamous):</string>
                         <string>(The Triagian Defense Forces):</string>
                         <string>(The Wardens):</string>
-                        <string>(Royal Guard):</string>
                     </regexCodeList>
                     <regexCodePropertyList>
-                        <integer>2</integer>
-                        <integer>2</integer>
                         <integer>2</integer>
                         <integer>2</integer>
                         <integer>2</integer>
