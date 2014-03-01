@@ -118,6 +118,10 @@ end
 
 function mtw.prompt_display()
 
+ if mtw.current_prompt == mtw.last_prompt then
+  return
+ end
+
  if table.contains(mtw.skills, "Desperate Strike") and mtw.vitals.percent.health < 50 and mtw.vitals.adrenaline < 20 and mtw.balance.desperate then
   echo("\n==========STRIKE NOW, DST!!=============")
  end
@@ -345,3 +349,9 @@ function mtw.prompt_display()
 
 end
 
+function mtw.call_new_prompt()
+ if not mtw.nonewline then
+  mtw.nonewline = true
+  tempTimer(0.05,[[send(" ",false);mtw.nonewline = false]])
+ end
+end

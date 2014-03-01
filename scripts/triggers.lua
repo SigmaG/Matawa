@@ -29,7 +29,9 @@ for i in pairs(mtw.health_table) do
 end
 
 deleteLine()
+mtw.current_prompt = matches[1]
 mtw.prompt_function()
+mtw.last_prompt = matches[1]
 
 if mtw.new.area then
  cecho("\n<green>Entering: "..gmcp.Room.Info.area)
