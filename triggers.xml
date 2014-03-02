@@ -51551,9 +51551,17 @@
                         <string>&lt;&lt;Clan Raven&gt;&gt;:</string>
                         <string>&lt;&lt;Stardock&gt;&gt;:</string>
                         <string>(Wand of Watume):</string>
+                        <string>(Adjunct of Stardock):</string>
+                        <string>(Stardock Council):</string>
+                        <string>(Hands of Korsh):</string>
+                        <string>(Blue Riders):</string>
                         <string>(Nighthawks):</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
                         <integer>2</integer>
                         <integer>2</integer>
                         <integer>2</integer>
