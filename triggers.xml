@@ -51430,7 +51430,7 @@
                         <string>^You tell (.*)&quot;(.*)&quot;$</string>
                         <string>^(\w+) tells you(.*)&quot;(.*)&quot;$</string>
                         <string>^(.*)echoes(.*)\&quot;(.*)\&quot;$</string>
-                        <string>^The helpful voice of \w+ sounds within you, &quot;.*&quot;$</string>
+                        <string>^The helpful voice of .+ sounds within you, &quot;.*&quot;$</string>
                     </regexCodeList>
                     <regexCodePropertyList>
                         <integer>1</integer>
