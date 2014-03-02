@@ -350,8 +350,9 @@ function mtw.prompt_display()
 end
 
 function mtw.call_new_prompt()
- if not mtw.nonewline then
+ if (not mtw.nonewline) and (not mtw.waitingforprompt) then
   mtw.nonewline = true
+  mtw.waitingforprompt = true
   tempTimer(0.05,[[send(" ",false);mtw.nonewline = false]])
  end
 end

@@ -4,6 +4,7 @@ function mtw.trigger_1(matches,multimatches)
 --Set some values
 mtw.see_illusion = false
 mtw.my.stats = matches[8]
+mtw.waitingforprompt = false
 if matches[7] == "" then
  mtw.status.vampire = false
 else
