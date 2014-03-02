@@ -51519,8 +51519,11 @@
                     <regexCodeList>
                         <string>(Mockers):</string>
                         <string>(Pathfinders):</string>
+                        <string>(Pathfinders Logistics):</string>
+                        <string>(Pathfinders Combat):</string>
                         <string>(Eagle Squadron):</string>
                         <string>(Royal Guard):</string>
+                        <string>(Forgers of the Path):</string>
                         <string>(Spellweavers):</string>
                         <string>(The Guardian Branch):</string>
                         <string>(The Education Branch):</string>
@@ -51551,6 +51554,9 @@
                         <string>(Nighthawks):</string>
                     </regexCodeList>
                     <regexCodePropertyList>
+                        <integer>2</integer>
+                        <integer>2</integer>
+                        <integer>2</integer>
                         <integer>2</integer>
                         <integer>2</integer>
                         <integer>2</integer>
