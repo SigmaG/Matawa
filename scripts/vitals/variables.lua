@@ -84,7 +84,7 @@ freezing = false,
 scrying = false,
 gripping = false,
 --Keep pack closed
-closing = false,
+closing = true,
 --Repeat the same queued attack
 looping = false,
 --Prompt display options
