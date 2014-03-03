@@ -415,7 +415,7 @@
                                 <script>mtw.toggle(&quot;balefire&quot;)</script>
                                 <command></command>
                                 <packageName></packageName>
-                                <regex>^tbf$</regex>
+                                <regex>^tblf$</regex>
                             </Alias>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
