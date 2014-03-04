@@ -268,7 +268,7 @@ end
 --Manipulate a pack while auto-closing is toggled on
 
 function mtw.do_pack(command)
- if mtw.toggles.closing then
+ if mtw.toggles.closing and mtw.options.container then
   mtw.opening = true
   tempTimer(1, [[mtw.opening = false]])
   mtw.send("open "..mtw.options.container)

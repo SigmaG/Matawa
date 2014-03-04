@@ -246,7 +246,7 @@ send(matches[1], false)
 end
 
 function mtw.get_from_pack(matches)
-if string.find(mtw.options.container, matches[3]) then
+if mtw.options.container and string.find(mtw.options.container, matches[3]) then
  mtw.do_pack(matches[1])
 else
  send(matches[1], false)
@@ -254,7 +254,7 @@ end
 end
 
 function mtw.put_in_pack(matches)
-if string.find(mtw.options.container, matches[3]) then
+if mtw.options.container and string.find(mtw.options.container, matches[3]) then
  mtw.do_pack(matches[1])
 else
  send(matches[1], false)
@@ -262,7 +262,7 @@ end
 end
 
 function mtw.probe_alias(matches)
-if string.find(mtw.options.container, matches[3]) then
+if mtw.options.container and string.find(mtw.options.container, matches[3]) then
  mtw.do_pack(matches[1])
 else
  send(matches[1], false)
@@ -270,7 +270,7 @@ end
 end
 
 function mtw.open_pack(matches)
-if string.find(mtw.options.container, matches[2]) then
+if mtw.options.container and string.find(mtw.options.container, matches[2]) then
  mtw.opening = true
  send(matches[1], false)
  tempTimer(1, [[mtw.opening = false]])
@@ -280,7 +280,7 @@ end
 end
 
 function mtw.remove_pack(matches)
-if string.find(mtw.options.container, matches[3]) then
+if mtw.options.container and string.find(mtw.options.container, matches[3]) then
  mtw.removing = true
  send(matches[1], false)
  tempTimer(1, [[mtw.removing = false]])

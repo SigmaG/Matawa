@@ -160,7 +160,7 @@ end
 end
 
 function mtw.trigger_21(matches,multimatches)
-if mtw.balance.balance and not mtw.waiting.balance then
+if mtw.balance.balance and not mtw.waiting.balance and mtw.options.container then
  if string.find(matches[2], "silver") then
   mtw.do_pack("put coins in "..mtw.options.container)
  elseif string.find(matches[2], "copper") then
@@ -172,7 +172,9 @@ end
 end
 
 function mtw.trigger_22(matches,multimatches)
+if mtw.options.container then
 mtw.do_pack("put coins in "..mtw.options.container)
+end
 end
 
 function mtw.trigger_23(matches,multimatches)
@@ -295,7 +297,9 @@ mtw.galdur = true
 end
 
 function mtw.trigger_32(matches,multimatches)
+if mtw.options.container then
 mtw.do_pack("put coins in "..mtw.options.container)
+end
 end
 
 function mtw.trigger_33(matches,multimatches)
@@ -1434,7 +1438,7 @@ end
 end
 
 function mtw.trigger_210(matches,multimatches)
-if string.find(matches[2], mtw.options.container) then
+if mtw.options.container and string.find(matches[2], mtw.options.container) then
  if not mtw.opening then
   mtw.send("close "..mtw.options.container, false)
  end
@@ -1442,7 +1446,7 @@ end
 end
 
 function mtw.trigger_211(matches,multimatches)
-if string.find(matches[2], mtw.options.container) then
+if mtw.options.container and string.find(matches[2], mtw.options.container) then
  if not mtw.removing then
   mtw.send("wear "..mtw.options.container, false)
  end
@@ -1450,7 +1454,7 @@ end
 end
 
 function mtw.trigger_212(matches,multimatches)
-if mtw.balance.balance and not mtw.waiting.balance and not mtw.status.combat then
+if mtw.balance.balance and not mtw.waiting.balance and not mtw.status.combat and mtw.options.container then
  if string.find(matches[2], "silver") then
   mtw.do_pack("put coins in "..mtw.options.container)
  elseif string.find(matches[2], "copper") then
@@ -1462,7 +1466,7 @@ end
 end
 
 function mtw.trigger_213(matches,multimatches)
-if mtw.balance.balance and not mtw.waiting.balance and not mtw.status.combat then
+if mtw.balance.balance and not mtw.waiting.balance and not mtw.status.combat and mtw.options.container then
  mtw.pack("put coins in "..mtw.options.container)
 end
 end
@@ -1642,7 +1646,9 @@ mtw.set_balance("touch serpent "..matches[2])
 end
 
 function mtw.trigger_238(matches,multimatches)
+if mtw.options.container then
 mtw.do_pack("put coins in "..mtw.options.container)
+end
 end
 
 function mtw.trigger_239(matches,multimatches)
