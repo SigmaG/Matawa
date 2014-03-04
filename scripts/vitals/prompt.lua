@@ -365,3 +365,10 @@ function mtw.timer_call_prompt()
  send(" ",false)
  mtw.nonewline = false
 end
+
+if exists("Matawa", "timer") > 0 then
+ enableTimer("Matawa")
+end
+if exists("matawa", "timer") > 0 then
+ enableTimer("matawa")
+end
