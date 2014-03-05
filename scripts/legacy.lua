@@ -1,9 +1,21 @@
 -- MTW: handling backward compatibility
 
+mtw.version = { "9.7-beta" }
+
 function mtw.legacy()
 
+ --get version number
+ local get_v = getMudletHomeDir() .. mtw_struct.sep .. "matawa_options" .. mtw_struct.sep .. "version"
+ local previous_version = nil
+ if lfs.attributes(get_v) then
+  pcall(table.load, get_v, previous_version)
+ end
+
+
+ if previous_version ~= mtw.version[1] then
  cecho("\n<yellow> Handling backward compatibility ...")
 
+ if previous_version == nil then
  -- matawa 9.4 and 9.5 - options saved in Mudlet profile
  cecho("\nFetching saved options from matawa 9.4 and 9.5...")
  local custom_opts = {}
@@ -48,9 +60,14 @@ function mtw.legacy()
  end
  table.save(save_dir .. "custom", custom_opts) -- settable
  table.save(save_dir .. "saved", saved_values) -- non settable
+ end
+
  cecho(" <green>Done!")
 
- -- to not load it repeatedly
- os.remove(mtw_struct.get_matawa_file("legacy.lua")) 
+
+ end
 end
+
+mtw.legacy()
+
 

@@ -33,6 +33,7 @@ local to_save = mtw.option_list()
 for k,v in pairs(to_save) do
  table.save(save_dir .. v, mtw[k])
 end
+table.save(save_dir .. "version", mtw.version)
 cecho("<green> Done!")
 end
 
