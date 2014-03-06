@@ -333,6 +333,9 @@ function mtw.soft_reset()
  mtw.defending.current = "none"
  mtw.soldier_shielding = false
  mtw.soldier_shielded = "none"
+ mtw.channeling.rifting = false
+ mtw.channeling.inking = false
+ mtw.channeling.deepshrouding = false
 
  mtw.reset_waiting()
  mtw.reset_balance()

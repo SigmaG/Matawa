@@ -847,6 +847,7 @@ end
 function mtw.trigger_133b(matches,multimatches)
 if mtw.prechanneling.deepshrouding then
  mtw.channeling.deepshrouding = true
+ tempTimer(9, [[mtw.channeling.deepshrouding = false]])
 end
 end
 
@@ -1207,6 +1208,7 @@ end
 function mtw.trigger_186(matches,multimatches)
 if mtw.prechanneling.rifting then
  mtw.channeling.rifting = true
+ tempTimer(15, [[mtw.channeling.rifting = false]])
 end
 end
 
@@ -1726,6 +1728,7 @@ end
 function mtw.trigger_246b(matches,multimatches)
 if mtw.prechanneling.inking then
  mtw.channeling.inking = true
+ tempTimer(10, [[mtw.channeling.inking = false]])
 end
 end
 
