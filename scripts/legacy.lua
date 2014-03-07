@@ -7,8 +7,10 @@ function mtw.legacy()
  --get version number
  local get_v = getMudletHomeDir() .. mtw_struct.sep .. "matawa_options" .. mtw_struct.sep .. "version"
  local previous_version = nil
+ local pv = {}
  if lfs.attributes(get_v) then
-  pcall(table.load, get_v, previous_version)
+  pcall(table.load, get_v, pv)
+  previous_version = pv[1]
  end
 
 
