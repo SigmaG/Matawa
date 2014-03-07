@@ -3653,8 +3653,10 @@
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
                                         <string>You shroud yourself deeper in the shadows, which cling to your body like an inky black cloak.</string>
+                                        <string>You cease gathering the shadows.</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
+                                        <integer>3</integer>
                                         <integer>3</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
