@@ -267,14 +267,16 @@ function mtw.tweak_def_option(option, defense, status)
  if not string.find(defense, "def_") then
   defense = "def_"..defense
  end
+ local opt = mtw.def_options[option]
  if status == "once" or status == "on" then
-  mtw.def_options[option][defense] = status
+  opt[defense] = status
   cecho("\n<white>Added defense <red>"..defense.."<white> ("..status..") from defense option <green>"..option)
  end
  if status == "off" then
-  mtw.def_options[option][defense] = "off"
+  opt[defense] = "off"
   cecho("\n<white>Removed defense <red>"..defense.."<white> from defense option <green>"..option)
  end
+ mtw.def_options[option] = opt
 end
 
 function mtw.show_def_option(option)
