@@ -2,8 +2,6 @@ function mtw.fishing_get_endurance()
  if (mtw.fishing.stat == "wait for endurance") and (tonumber(gmcp.Char.Vitals.ep) >= mtw.fishing.min_end) then
   mtw.toggles.standing = true
   mtw.fishing.stat = "baiting"
-  send(" ")
-  tempTimer(1,[[send(" ")]])
  end
 end
 

@@ -54,7 +54,7 @@ function mtw.chat_thingy(matches)
  elseif m == "ltells" then
   display(mtw.channels.leaderstells)
  end
- send(" ")
+ mtw.refresh()
 end
 
 function mtw.parse_chat(channel, message)
@@ -213,12 +213,12 @@ lust = {
 function mtw.load_songs(option)
  if mtw.song_options[option] ~= nil then
   cecho("<green>Loading song options for: "..option)
-  send(" ")
+  mtw.refresh()
   mtw.song_list = mtw.song_options[option]
   display(mtw.song_list)
  else
   cecho("<red>No such defense option as "..option.."!")
-  send(" ")
+  mtw.refresh()
  end
 end
 
@@ -298,7 +298,7 @@ if mtw.landmarks[matches[2]] ~= nil then
  send("path find "..mtw.landmarks[matches[2]], false)
 else
  cecho("<green>No such landmark!")
- send(" ")
+ mtw.refresh()
 end
 end
 
@@ -312,7 +312,7 @@ end
 if mtw.defenses.def_spellshield.needit then
  mtw.defenses.def_spellshield.needit = false
  echo("No longer keeping spellshield")
- send(" ")
+ mtw.refresh()
 end
 mtw.set_balance("flee")
 end
@@ -366,7 +366,7 @@ echo("Target: "..mtw.target)
 if mtw.toggles.calling then
  send("sct Attacking **"..mtw.target.."** !")
 end
-send(" ")
+mtw.refresh()
 if id then killTrigger(id) end
 id = tempTrigger(mtw.target, [[selectString("]] .. mtw.target .. [[", 1) fg("DarkOrchid") resetFormat()]])
 if idlow then killTrigger(idlow) end
@@ -405,7 +405,7 @@ if matches[3] == "" then
  echo("You inquired about "..matches[2].." Midkemian days from now.")
  local time_str = os.date("%c", os.time() + 3 * 60 * 60 * tonumber(matches[2]))
  cecho(("\n<white>This will be %s \177 3 hours, your local time."):format(time_str))
- send(" ")
+ mtw.refresh()
 else
  for i in pairs(mtw.mko_months) do
   if matches[3] == i then
@@ -426,7 +426,7 @@ total = 0,
 rate = 0
 }
 cecho("<green>\nResetting Crit Tracker!")
-send(" ")
+mtw.refresh()
 end
 
 function mtw.counter_target(matches)
@@ -442,7 +442,7 @@ for i in pairs(mtw.alchemy) do
  end
 end
 cecho("<green>\nNo such poison "..matches[2].."!")
-send(" ")
+mtw.refresh()
 end
 
 function mtw.tattoo_alias(matches)
@@ -456,7 +456,7 @@ function mtw.lose_all()
 mtw.losingall = true
 tempTimer(2, [[mtw.losingall = false]])
 sendGMCP("Comm.Channel.Players")
-send(" ")
+mtw.refresh()
 end
 
 function mtw.sit_alias(matches)
@@ -475,7 +475,7 @@ cecho("<green>\nUnits received:")
 for h in ipairs(mtw.units) do
  cecho("\n "..mtw.units[h])
 end
-send(" ")
+mtw.refresh()
 end
 
 function mtw.use_door(matches)
@@ -519,5 +519,5 @@ end
 function mtw.roulette_bet(matches)
 mtw.roulette.betting = matches[2]
 echo("Now betting on: "..mtw.roulette.betting)
-send(" ")
+mtw.refresh()
 end

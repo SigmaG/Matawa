@@ -3,7 +3,7 @@
 function mtw.fishing_direction(matches)
 mtw.fishing.dir = matches[2]
 echo("Direction is: "..mtw.fishing.dir)
-send(" ")
+mtw.refresh()
 end
 
 function mtw.toggle_fishing()
@@ -23,25 +23,24 @@ end
 function mtw.bait_type(matches)
 mtw.fishing.bait = matches[2]
 echo("Bait is: "..mtw.fishing.bait)
-send(" ")
+mtw.refresh()
 end
 
 function mtw.fishing_distance(matches)
 mtw.fishing.distance = matches[2]
 echo("Distance is: "..mtw.fishing.distance)
-send(" ")
+mtw.refresh()
 end
 
 function mtw.fast_fishing()
 if mtw.fishing.fastfish then
  mtw.fishing.fastfish = false
  echo("Fastfish OFF!")
- send(" ")
 else
  mtw.fishing.fastfish = true
  echo("Fastfish ON!")
- send(" ")
 end
+mtw.refresh()
 end
 
 function mtw.set_max_line_length(matches)
@@ -51,7 +50,7 @@ if mtw.fishing.max_dist > 0 then
 else
  echo("No length limit")
 end
-send(" ")
+mtw.refresh()
 end
 
 function mtw.set_max_cast_length(matches)
@@ -61,13 +60,13 @@ if mtw.fishing.max_cast > 0 then
 else
  echo("No casting limit")
 end
-send(" ")
+mtw.refresh()
 end
 
 function mtw.fishing_endurance(matches)
 mtw.fishing.min_end = tonumber(matches[2])
 echo("Minimum endurance before recast : "..matches[2])
-send(" ")
+mtw.refresh()
 end
 
 function mtw.fishing_set_type(matches)
@@ -111,6 +110,6 @@ if r == "" then
  s = "Small/Medium/Large"
 end
 echo("Now getting "..s.." fish")
-send(" ")
+mtw.refresh()
 end
 

@@ -24,12 +24,12 @@ function mtw.help_alias()
  echo("\n folm: lead your mount")
  echo("\n lm X: PATH FIND to landmark X")
  echo("\n cfs: credits for sale")
- send(" ")
+ mtw.refresh()
 end
 
 function mtw.options_alias()
  mtw.get_options() 
- send(" ")
+ mtw.refresh()
 end
 
 function mtw.info_alias()
@@ -48,7 +48,7 @@ function mtw.info_alias()
   file = getMudletHomeDir() .. "/scripts" 
  end
  cecho("<yellow>"..file)
- send(" ")
+ mtw.refresh()
 end
 
 function mtw.disp_toggle(toggle, desc)
@@ -100,7 +100,7 @@ function mtw.toggles_alias()
  elseif mtw.my.class == "priest" then
   mtw.disp_toggle("warding", "tward: liturgy when available")
  end
- send(" ")
+ mtw.refresh()
 end
 
 function mtw.bashing_aliases()
@@ -162,7 +162,7 @@ function mtw.bashing_aliases()
    mtw.disp_toggle("mindblasting", "tmbl: toggle mindblasting")
   end
  end
- send(" ")
+ mtw.refresh()
 end
 
 function mtw.fishing_aliases()
@@ -208,7 +208,7 @@ end
 function mtw.reset_alias()
  mtw.reset_all()
  echo("RESET!")
- send(" ")
+ mtw.refresh(true)
 end
 
 function mtw.deathbeam() --like, srsly?
@@ -253,7 +253,7 @@ echo("\n@@@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 echo("\n@@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 echo("\n@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 echo("\n@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-send(" ")
+mtw.refresh()
 end
 
 function mtw.setup_alias()

@@ -3,7 +3,7 @@
 function mtw.start_bashing()
 mtw.toggles.bashing = true
 cecho("<green>Bashing ON!")
-send(" ")
+mtw.refresh()
 mtw.waiting.ih = false
 mtw.do_bashing()
 end
@@ -15,10 +15,9 @@ cecho("<green>Bashing OFF!")
 if mtw.toggles.fasthunt then
  mtw.toggles.fasthunt = false
  echo("\nFasthunt OFF!")
- send(" ")
 else
- send(" ")
 end
+mtw.refresh()
 if cnvrt then killTrigger(cnvrt) end
 end
 
@@ -33,7 +32,7 @@ cecho("<green>Targets Received:")
 for h in ipairs(mtw.possible_targets) do
  cecho("\n "..mtw.possible_targets[h])
 end
-send(" ")
+mtw.refresh()
 end
 
 function mtw.stop_bashing_after_next_kill()
@@ -42,28 +41,27 @@ cecho("<green>Bashing OFF after next kill!")
 if mtw.toggles.fasthunt then
  mtw.toggles.fasthunt = false
  echo("\nFasthunt OFF!")
- send(" ")
 else
- send(" ")
 end
+mtw.refresh()
 end
 
 function mtw.hunt_pumpkins()
 mtw.my.area = "pumpkins"
 mtw.load_targets("pumpkins")
-send(" ")
+mtw.refresh()
 end
 
 function mtw.hunt_wyrms()
 mtw.my.area = "MoteHunt"
 mtw.load_targets("MoteHunt")
-send(" ")
+mtw.refresh()
 end
 
 function mtw.bash_one()
 mtw.toggles.bashing = true
 cecho("<green>Bashing ON!")
-send(" ")
+mtw.refresh()
 mtw.waiting.ih = false
 mtw.do_bashing()
 
@@ -72,10 +70,9 @@ cecho("<green>Bashing OFF after next kill!")
 if mtw.toggles.fasthunt then
  mtw.toggles.fasthunt = false
  echo("\nFasthunt OFF!")
- send(" ")
 else
- send(" ")
 end
+mtw.refresh()
 end
 
 function mtw.area_check_name(name)

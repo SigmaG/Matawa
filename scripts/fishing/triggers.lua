@@ -6,7 +6,6 @@ if not (mtw.fishing.stat == "reeling") and string.find(mtw.fishing.get,matches[2
  mtw.fishing.stat = "waiting"
 else
  echo("\nNot getting that one!")
- tempTimer(mtw.delay(), [[send(" ")]])
  mtw.fishing.stat = "reeling"
  mtw.fishing.recast = true
 end

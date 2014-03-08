@@ -225,7 +225,7 @@ function mtw.defending_check()
   if mtw.attacks[i].getting_hit and getStopWatchTime(mtw.attack_timers[mtw.attacks[i].attacker][i]) > 5 and getStopWatchTime(mtw.attack_timers[mtw.attacks[i].attacker][i]) < 20 then
    mtw.reset_attack(i)
     cecho("<brown>\n[Resetting attack: "..i.."!]")
-    send(" ")
+   mtw.refresh()
   end
  end
 end

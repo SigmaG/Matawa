@@ -93,10 +93,10 @@ if mtw.balance.last_stand then
  mtw.defenses["def_last_stand"].needit = true
  table.insert(mtw.less_defs, "def_last_stand")
  cecho("<brown>\nYou: QUEUE last stand!")
- send(" ")
+ mtw.refresh()
 else
  cecho("<red>\nCan't stand true yet!")
- send(" ")
+ mtw.refresh()
 end
 end
 
@@ -207,7 +207,7 @@ function mtw.teleport_alias(matches)
 if mtw.defenses.def_spellshield.needit then
  mtw.defenses.def_spellshield.needit = false
  echo("No longer keeping spellshield")
- send(" ")
+ mtw.refresh()
 end
 if mtw.my.class == "magician" then
  mtw.set_balance("cast teleport "..matches[2])
@@ -401,7 +401,7 @@ function mtw.spiritshield_alias()
 mtw.defenses["def_spiritshield"].needit = true
 table.insert(mtw.less_defs, "def_spiritshield")
 cecho("<brown>\nYou: QUEUE spiritshield!")
-send(" ")
+mtw.refresh()
 end
 
 function mtw.al_pyro(skill)
@@ -639,10 +639,10 @@ if mtw.balance.perfect then
  mtw.defenses["def_perfect"].needit = true
  table.insert(mtw.less_defs, "def_perfect")
  cecho("<brown>\nYou: QUEUE perfect defense!")
- send(" ")
+ mtw.refresh()
 else
  cecho("<red>\nCan't perfect yet!")
- send(" ")
+ mtw.refresh()
 end
 end
 

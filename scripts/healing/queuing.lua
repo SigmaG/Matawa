@@ -616,7 +616,7 @@ function mtw.set_balance(my_balance)
  mtw.do_core()
  if mtw.next.balance ~= "none" then
   cecho("<brown>You: QUEUE "..mtw.next.balance.."!")
-  send(" ")
+  mtw.refresh(true)
  end
 end
 
@@ -648,7 +648,7 @@ function mtw.set_equil(my_equil)
   mtw.next.equil = "none"
  else
   cecho("<brown>You: QUEUE "..mtw.next.equil.."!")
-  send(" ")
+  mtw.refresh(true)
  end
 end
 
@@ -672,7 +672,7 @@ function mtw.set_psi(my_psi)
   mtw.next.psi = "none"
  else
   cecho("<purple>You: QUEUE "..mtw.next.psi.."!")
-  send(" ")
+  mtw.refresh(true)
  end
 end
 
@@ -696,7 +696,7 @@ function mtw.set_offhand(my_offhand)
   mtw.next.offhand = "none"
  else
   cecho("<purple>You: QUEUE "..mtw.next.offhand.."!")
-  send(" ")
+  mtw.refresh(true)
  end
 end
 
@@ -717,7 +717,7 @@ function mtw.queue_diag()
  else
   mtw.need_diag = true
   cecho("<brown>You: QUEUE diagnose!")
-  send(" ")
+  mtw.refresh(true)
  end
 end
 function mtw.do_diag()

@@ -161,7 +161,7 @@ end
 function mtw.def_timeout(defense)
  mtw.defenses[defense].state = "down"
  cecho("<brown>\n[Resetting defense: "..defense.."!]")
- send(" ")
+ mtw.refresh()
 end
 
 function mtw.def_gain(defense)
@@ -234,7 +234,7 @@ end
 function mtw.load_def(option)
  if mtw.def_options[option] ~= nil then
   cecho("<green>Loading defense options for: "..option)
-  send(" ")
+  mtw.refresh()
   mtw.less_defs = {}
   for i in pairs(mtw.defenses) do
    mtw.defenses[i].needit = false
@@ -256,7 +256,7 @@ function mtw.load_def(option)
   end
  else
   cecho("<red>No such defense option as "..option.."!")
-  send(" ")
+  mtw.refresh()
  end
 end
 
