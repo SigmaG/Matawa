@@ -9,11 +9,11 @@ for i in pairs(mtw.defenses) do
   if mtw.defenses[i].needit then
    mtw.defenses[i].needit = false
    echo("No longer keeping "..i)
-   mtw.refresh()
+   send(" ")
   else
    mtw.defenses[i].needit = true
    echo("Now keeping "..i)
-   mtw.refresh()
+   send(" ")
   end
   return
  end

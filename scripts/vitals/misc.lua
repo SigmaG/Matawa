@@ -161,7 +161,7 @@ end
 function mtw.balance_timeout(type)
  mtw.balance[type] = true
  cecho("<brown>\n[Resetting balance: "..type.."!]")
- mtw.refresh()
+ send(" ")
 end
 
 --Consume balance and begin tracking its time
@@ -205,11 +205,12 @@ function mtw.toggle(toggle)
  if mtw.toggles[toggle] then
   mtw.toggles[toggle] = false
   echo(string.title(toggle).." OFF!")
+  send(" ")
  else
   mtw.toggles[toggle] = true
   echo(string.title(toggle).." ON!")
+  send(" ")
  end
- mtw.refresh(true)
 end
 
 function mtw.generic_toggle(toggle)

@@ -1872,7 +1872,7 @@ cecho("\n<red>==========HOSTAGE ATTEMPT==========\n<red>==========HOSTAGE ATTEMP
 mtw.defenses.def_notice.needit = true
 mtw.def_remove("notice")
 echo("Now keeping def_notice!")
-mtw.refresh(true)
+send(" ")
 mtw.do_core()
 end
 
@@ -4074,6 +4074,7 @@ mtw.need_wield = false
 mtw.waiting.balance = false
 if mtw.toggles.gripping and mtw.defenses.def_grip.needit == false then
   mtw.defenses.def_grip.needit = true
+  send(" ")
  end
 end
 
@@ -4096,6 +4097,7 @@ function mtw.trigger_741(matches,multimatches)
 mtw.need_wield = false
  if mtw.toggles.gripping and mtw.defenses.def_grip.needit == false then
   mtw.defenses.def_grip.needit = true
+  send(" ")
  end
 end
 

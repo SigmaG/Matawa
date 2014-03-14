@@ -212,7 +212,7 @@ end
 function mtw.aff_timeout(affliction)
  mtw.afflictions[affliction].state = "afflicted"
  cecho("<brown>\n[Resetting affliction: "..affliction.."!]")
- mtw.refresh(true)
+ send(" ")
 end
 
 function mtw.aff_gain(affliction)
@@ -320,7 +320,7 @@ function mtw.clear_afflictions(type)
    end
   end
   cecho("<red>]")
-  mtw.refresh()
+  send(" ")
  end
 end
 

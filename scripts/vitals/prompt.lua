@@ -362,16 +362,8 @@ end
 
 function mtw.timer_call_prompt()
  disableTimer("mtw - prompt handling")
- mtw.refresh(true)
+ send(" ",false)
  mtw.nonewline = false
-end
-
-function mtw.refresh(force)
- if force or mtw.toggles.fishing or mtw.toggles.bashing or mtw.status.combat then
-  send(" ", false)
- else
-  echo("\n")
- end
 end
 
 if exists("Matawa", "timer") > 0 then
