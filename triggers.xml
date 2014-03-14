@@ -96,7 +96,7 @@
                             <colorTriggerFgColor>#000000</colorTriggerFgColor>
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
-                                <string>.</string>
+                                <string>.*</string>
                                 <string>return not(isPrompt())</string>
                             </regexCodeList>
                             <regexCodePropertyList>
