@@ -351,11 +351,9 @@ end
 
 function mtw.call_new_prompt()
  if (not mtw.nonewline) and (not mtw.waitingforprompt) then
-  if (mtw.toggles.fishing or mtw.toggles.bashing or mtw.status.combat) then
   mtw.nonewline = true
   mtw.waitingforprompt = true
   mtw.last_prompt = "" --we want prompts to be shown if some text was shown since last prompt
   tempTimer(0.05,[[send(" ",false);mtw.nonewline = false]])
-  end
  end
 end
