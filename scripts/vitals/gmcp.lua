@@ -90,6 +90,12 @@ function gmcp_vitals()
   end
  end
 
+--Start running actions
+ if mtw.have_slow() then
+
+ else
+  mtw.do_core()
+ end
 end
 
 
