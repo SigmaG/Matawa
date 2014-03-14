@@ -99,7 +99,7 @@ end
 --Run after the calculated delay following an incoming attack telegraph
 function mtw.atk_need(attack)
 --Don't bother defending if unecessary
- if mtw.have_def("mirror_image") or mtw.have_def("faithful_refuge") or (mtw.not_aff("on_fire") and attack == "immolate") then
+ if mtw.have_def("mirror_image") or mtw.have_def("refuge") or (mtw.not_aff("on_fire") and attack == "immolate") then
   return
 --Make sure the attack hasn't completed already
  elseif mtw.attacks[attack]["getting_hit"] then
