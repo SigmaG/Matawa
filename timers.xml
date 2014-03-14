@@ -3,7 +3,7 @@
 <MudletPackage version="1.0">
     <TimerPackage>
         <TimerGroup isActive="yes" isFolder="yes" isTempTimer="no">
-            <name>Matawa</name>
+            <name>matawa</name>
             <script></script>
             <command></command>
             <packageName></packageName>
