@@ -6481,8 +6481,12 @@
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>As the (.*) tattoo's shape is codified, the last of the ink leaves the air, and you pause for a moment to admire your handiwork.</string>
+                                <string>Your movement ruins the inking process.</string>
+                                <string>^(\w+)'s movement ruins the inking process.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>1</integer>
+                                <integer>3</integer>
                                 <integer>1</integer>
                             </regexCodePropertyList>
                         </Trigger>
