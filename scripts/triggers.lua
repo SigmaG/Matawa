@@ -442,16 +442,22 @@ end
 
 function mtw.trigger_80(matches,multimatches)
 if matches[2] == "CRITICAL" then
+ if not mtw.crits.normal then mtw.crits.normal = 0 end
  mtw.crits.normal = mtw.crits.normal+1
 elseif matches[2] == "CRUSHING CRITICAL" then
+ if not mtw.crits.crushing then mtw.crits.crushing = 0 end
  mtw.crits.crushing = mtw.crits.crushing+1
 elseif matches[2] == "OBLITERATING CRITICAL" then
+ if not mtw.crits.obliterating then mtw.crits.obliterating = 0 end
  mtw.crits.obliterating = mtw.crits.obliterating+1
 elseif matches[2] == "ANNIHILATINGLY POWERFUL CRITICAL" then
+ if not mtw.crits.annihilating then mtw.crits.annihilating = 0 end
  mtw.crits.annihilating = mtw.crits.annihilating+1
 elseif matches[2] == "WORLD-SHATTERING CRITICAL" then
+ if not mtw.crits.shattering then mtw.crits.shattering = 0 end
  mtw.crits.shattering = mtw.crits.shattering+1
 end
+if not mtw.crits.total then mtw.crits.total = 0 end
 mtw.crits.total = mtw.crits.total+1
 mtw.crits.rate = math.floor((mtw.crits.total/mtw.crits.hits)*10000)
 mtw.crits.rate = mtw.crits.rate/100

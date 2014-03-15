@@ -1085,7 +1085,7 @@
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>crit report</name>
-                            <script>display(mtw.crits)
+                            <script>display(mtw.saved.crits)
 send(&quot; &quot;)</script>
                             <command></command>
                             <packageName></packageName>
