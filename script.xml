@@ -60,10 +60,14 @@ function mtw_struct.get_matawa_file(f)
   else
    if found then
     cecho(&quot;\n&lt;white&gt;Using scripts in folder: &lt;yellow&gt;&quot;..mtw_struct.folder)
+   else
+    mtw_struct.folder = &quot;xml&quot;
+    cecho(&quot;\n&lt;white&gt;Using scripts taken from &lt;yellow&gt;lua.xml&quot;)
    end
   end
  end
  if f then
+  if mtw_struct.folder ~= &quot;xml&quot; then
   fileinfo = lfs.attributes(mtw_struct.folder .. fs .. f)
   if fileinfo then
    return mtw_struct.folder .. fs .. f
@@ -75,6 +79,9 @@ function mtw_struct.get_matawa_file(f)
      return file
     end
    end
+  end
+  else
+   return f:gsub(&quot;/&quot;,&quot;_&quot;):gsub(&quot;.lua&quot;,&quot;&quot;)
   end
  else
   return mtw_struct.folder
@@ -97,7 +104,20 @@ function mtw_struct.load_external(f, hide)
    end
    return false
   end
-  local b,e = pcall(dofile,file)
+  local b,e
+  b = false
+  if mtw_struct.folder ~= &quot;xml&quot; then
+   b,e = pcall(dofile,file)
+  else
+   if mtw_struct[file] then
+    e = &quot;Error in function mtw_struct.&quot;..file
+    mtw_struct[file]()
+    e = &quot;&quot;
+    b = true
+   else
+    e = &quot;Could not find function mtw_struct.&quot;..file..&quot; in the system&quot;
+   end
+  end
   if not b then
    if not hide then
     echo(e..&quot;\n&quot;)
