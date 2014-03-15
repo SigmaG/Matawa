@@ -1589,6 +1589,10 @@ mtw.dead = true
 mtw.reset_all()
 end
 
+function mtw.trigger_227b(matches,multimatches)
+ mtw.reset_all()
+end
+
 function mtw.trigger_228(matches,multimatches)
 if mtw.dead then
  mtw.reset_all()

@@ -5933,6 +5933,52 @@
                                     <integer>3</integer>
                                 </regexCodePropertyList>
                             </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>won duel</name>
+                                <script>mtw.check_illusion(mtw.trigger_227b,matches,multimatches)</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>1</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>^You almost slain(.*).$</string>
+                                    <string>^(\w+) hangs his head in shame, having lost a duel.$</string>
+                                    <string>^You have WON the duel with (.*)</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>1</integer>
+                                    <integer>1</integer>
+                                    <integer>1</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>lost duel</name>
+                                <script>mtw.check_illusion(mtw.trigger_227b,matches,multimatches)</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>1</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>^You were almost slain(.*).$</string>
+                                    <string>^You have lost the duel with (\w+)!$</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>1</integer>
+                                    <integer>1</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
                             <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                                 <name>death</name>
                                 <script>mtw.check_illusion(mtw.trigger_228,matches,multimatches)</script>
@@ -5948,12 +5994,10 @@
                                 <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                 <regexCodeList>
                                     <string>You are dead and cannot do that!</string>
-                                    <string>^You have (won|lost) the duel with (\w+)!$</string>
                                     <string>You are dead and cannot interact with matter in that fashion.</string>
                                 </regexCodeList>
                                 <regexCodePropertyList>
                                     <integer>3</integer>
-                                    <integer>1</integer>
                                     <integer>3</integer>
                                 </regexCodePropertyList>
                             </Trigger>
