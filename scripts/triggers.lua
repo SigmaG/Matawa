@@ -7381,7 +7381,7 @@ end
 
 function mtw.trigger_1517(matches,multimatches)
 mtw.anachronized[matches[2]] = matches[2]
-tempTimer(20, string.format("mtw.anachronized[%s] = nil", matches[2]))
+tempTimer(20, string.format([[mtw.anachronized["%s"] = nil]], matches[2]))
 end
 
 function mtw.trigger_1518(matches,multimatches)
