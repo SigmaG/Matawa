@@ -19,6 +19,7 @@ end
 function mtw.fishing_trigger_3(matches,multimatches)
 mtw.fishing.stat = "reeling"
 mtw.fishing.reels = 1
+send(" ")
 end
 
 function mtw.fishing_trigger_4(matches,multimatches)
