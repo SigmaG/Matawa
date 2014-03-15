@@ -856,7 +856,7 @@ o Reverted some breaking changes (defenses skill checks, and a debugging one)
 o Fixed a few internal scripts to handle fighting
 o Fixed a blackout trigger -Elanoron
 
-v
+v9.7
 o Added psionics defenses -Rosalia
 o Defense skill checks -Naftali
 o the system now raises events to have an easier API -Naftali
@@ -865,5 +865,5 @@ o Prevents nasty illusions (death triggering a mtw.reset_all(), lines that fire 
 o Reworked how options are saved (and they are now changed with ?variables and !variable X set Y instead of ?options and ?set option) -Savil
 o Added a script to handle legacy saves -Savil
 o Added a way to handle bashing areas with commands (?area) -Savil
-o Lots of useful fixes (psionics triggers, recklessness check, commanded affliction, counter, loot/rage) -Elanoron
+o Lots of useful fixes (psionics triggers, recklessness check, commanded affliction, counter, loot/rage, suckerpunch) -Elanoron
 o Inking a tattoo and deepshrouding now prevents the system from processing commands, as rifting does -Savil
