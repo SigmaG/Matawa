@@ -24,6 +24,7 @@ function mtw.do_fishing()
    tempTimer( mtw.delay(), [[mtw.waiting.balance = false]] )
   elseif mtw.fishing.stat == "teasing" then
    send("fishing tease", false)
+   mtw.fishing.stat = "waiting"
   elseif mtw.fishing.stat == "reeling" then
    if (mtw.fishing.count > 3) and table.contains(mtw.skills, "Anachronize") and mtw.toggles.anachronizing and mtw.balance.anachronize and mtw.vitals.current.magic >= 3000 then
     send("cast anachronize",false)
