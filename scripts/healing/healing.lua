@@ -16,7 +16,7 @@ function mtw.do_stand(current)
    tempTimer(mtw.delay(), [[mtw.waiting.stand = false]])
    mtw.afflictions[current].state = "waiting"
    startStopWatch(mtw.afflictions[current].timer)
-  elseif mtw.toggles.standing and (not mtw.waiting.stand) and mtw.balance.balance and not mtw.waiting.balance then
+  elseif mtw.toggles.standing and (not mtw.waiting.stand) and mtw.balance.balance and not mtw.stand_queued and not mtw.waiting.balance then
    if mtw.have_aff("blackout") then
     mtw.send("wake")
    end
