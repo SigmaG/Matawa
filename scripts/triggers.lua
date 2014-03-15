@@ -6530,7 +6530,6 @@ end
 
 function mtw.trigger_1319(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "sucker_punch", matches[3])
-mtw.aff_give("concussion")
 end
 
 function mtw.trigger_1320(matches,multimatches)
