@@ -50,7 +50,7 @@ function mtw.do_healing()
     mtw.waiting.wield = true
     tempTimer(mtw.delay(), [[mtw.waiting.wield = false]])
    end
-   if mtw.need_loot and mtw.toggles.gathering then
+   if mtw.need_loot and mtw.toggles.gathering and mtw.fleeing == false then
     mtw.do_loot()
    end
    mtw.do_diag()
