@@ -6239,8 +6239,10 @@
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>^Herman Pequod, the Fisherman grins, slapping a note and (.*) in your hand\.$</string>
+                                <string>^Fred the Troll Troutmistress grins, slapping a note and (.*) in your hand\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>1</integer>
                                 <integer>1</integer>
                             </regexCodePropertyList>
                         </Trigger>
