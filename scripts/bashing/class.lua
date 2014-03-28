@@ -106,11 +106,13 @@ function mtw.priest_bash()
   elseif table.contains(mtw.skills, "thanatology") then
    mtw.send("deathcall desperate prayer")
   end
- elseif (mtw.vitals.percent.health < 60) and (mtw.vitals.current.faith > 30) and table.contains(mtw.skills, "Zealous Mandate") then
+ elseif (mtw.vitals.percent.health < 25) and (mtw.vitals.current.faith > 30) and table.contains(mtw.skills, "Zealous Mandate") then
+  mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
+ elseif (mtw.vitals.percent.health < 50) and (mtw.vitals.current.faith > 100) and table.contains(mtw.skills, "Zealous Mandate") and mtw.toggles.mandate then
   mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
  elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 35) and table.contains(mtw.skills, "Revitalization") and mtw.defenses.def_revitalization.state == "down" then
   mtw.send("pray for revitalization")
- elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 30) and table.contains(mtw.skills, "Zealous Mandate") then
+ elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 200) and table.contains(mtw.skills, "Zealous Mandate") and mtw.toggles.mandate then
   mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
  elseif (mtw.vitals.percent.health < 60) then
   mtw.ally = nil
