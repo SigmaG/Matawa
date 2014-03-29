@@ -176,16 +176,6 @@ end</script>
                         </eventHandlerList>
                     </Script>
                     <Script isActive="yes" isFolder="no">
-                        <name>demonnicVitals_</name>
-                        <packageName></packageName>
-                        <script>function demonnicVitals_( msg, arg )
- demonnicVitals(msg,arg)
-end</script>
-                        <eventHandlerList>
-                            <string>gmcp.Char</string>
-                        </eventHandlerList>
-                    </Script>
-                    <Script isActive="yes" isFolder="no">
                         <name>demonnic_rilist_</name>
                         <packageName></packageName>
                         <script>function demonnic_rilist_()
