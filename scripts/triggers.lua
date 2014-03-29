@@ -470,7 +470,7 @@ if string.find(matches[2], " ") then
  mtw.crits.hits = mtw.crits.hits+1
  mtw.bashing.engaged = true
 end
-if mtw.toggles.bashing and mtw.vitals.adrenaline <= 15 then
+if mtw.toggles.bashing and (not mtw.toggles.bleeding) and mtw.vitals.adrenaline <= 15 then
  send("clot;clot;clot;clot;clot")
 end
 end
