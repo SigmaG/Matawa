@@ -10,7 +10,6 @@ aff_health_10 = {state = "healed", cures = {overdrive = "send"}, assess = false,
 aff_magic_75 = {state = "healed", cures = {overdrive = "send"}, assess = false, timer = createStopWatch()},
 aff_magic_55 = {state = "healed", cures = {overdrive = "send"}, assess = false, timer = createStopWatch()},
 aff_magic_35 = {state = "healed", cures = {overdrive = "send"}, assess = false, timer = createStopWatch()},
-aff_magic_35 = {state = "healed", cures = {overdrive = "send"}, assess = false, timer = createStopWatch()},
 aff_magic_10 = {state = "healed", cures = {overdrive = "send"}, assess = false, timer = createStopWatch()},
 --Misc
 aff_sleep = {state = "healed", msg = "", cures = {}, assess = false, effect = "can't do anything", timer = createStopWatch()},
