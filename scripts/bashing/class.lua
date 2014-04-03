@@ -77,17 +77,17 @@ function mtw.rogue_bash()
    return
   end
  end
- if mtw.inquartata and table.contains(mtw.skills, "Inquartata") and mtw.toggles.inquartataing then
+ if mtw.inquartata and table.contains(mtw.skills, "Inquartata") and mtw.toggles.inquartataing and not mtw.need_wield then
   mtw.send("inq "..mtw.bashing.target)
  elseif mtw.balance.requiem and table.contains(mtw.skills, "Requiem of the Fallen") and mtw.toggles.requieming and mtw.vitals.cadence == 3 and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
   mtw.send("play requiem "..mtw.bashing.target)
- elseif (not mtw.used.balestra) and mtw.toggles.fleching and table.contains(mtw.skills, "Balestra") and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
+ elseif (not mtw.used.balestra) and mtw.toggles.fleching and table.contains(mtw.skills, "Balestra") and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and not mtw.need_wield then
   mtw.send("balestra "..mtw.bashing.target)
- elseif (not mtw.used.fleche) and mtw.toggles.fleching and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
+ elseif (not mtw.used.fleche) and mtw.toggles.fleching and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and not mtw.need_wield then
   mtw.send("fleche "..mtw.bashing.target)
- elseif table.contains(mtw.skills, "Bard's Canto") and mtw.toggles.cantoing and mtw.balance.canto then
+ elseif table.contains(mtw.skills, "Bard's Canto") and mtw.toggles.cantoing and mtw.balance.canto and not mtw.need_wield then
   mtw.send("play bard's canto "..mtw.bashing.target)
- else
+ elseif not mtw.need_wield then
   mtw.send("thrust "..mtw.bashing.target)
  end
 end
