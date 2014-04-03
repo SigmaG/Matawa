@@ -338,7 +338,8 @@ mtw.weapons = {
 "spear",
 "maul",
 "warhammer",
-"club"
+"club",
+"shield"
 }
 
 --status
