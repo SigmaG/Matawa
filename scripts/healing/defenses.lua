@@ -386,6 +386,22 @@ def_hiding = "once",
 def_arrowsense = "once"
 },
 
+bard = {
+def_rose = "on",
+def_thirdeye = "once",
+def_skywatch = "once",
+def_deathsense = "once",
+def_nightvision = "once",
+def_insomnia = "on",
+def_forboding = "once",
+--def_premonition = "once",
+def_selfishness = "on",
+def_hiding = "once",
+def_grip = "on",
+def_censer = "once",
+def_arrow = "once",
+},
+
 priest = {
 def_rose = "on",
 def_thirdeye = "once",
