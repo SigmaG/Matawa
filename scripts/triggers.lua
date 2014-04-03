@@ -3190,7 +3190,7 @@ end
 
 function mtw.trigger_524(matches,multimatches)
 mtw.def_def("hiding")
-status.combat = false
+mtw.status.combat = false
 end
 
 function mtw.trigger_525(matches,multimatches)
@@ -3602,7 +3602,7 @@ end
 
 function mtw.trigger_626(matches,multimatches)
 mtw.def_gain("hiding")
-status.combat = false
+mtw.status.combat = false
 end
 
 function mtw.trigger_627(matches,multimatches)
@@ -3611,7 +3611,7 @@ end
 
 function mtw.trigger_628(matches,multimatches)
 mtw.def_have("hiding")
-status.combat = false
+mtw.status.combat = false
 end
 
 function mtw.trigger_629(matches,multimatches)
