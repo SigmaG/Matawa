@@ -7072,9 +7072,7 @@ mtw.atk_hit(matches[3], nil, "immolate")
 end
 
 function mtw.trigger_1442(matches,multimatches)
-if matches[2] == mtw.attacks.immolate.attacker then
  mtw.atk_miss(matches[2], nil, "immolate")
-end
 end
 
 function mtw.trigger_1443(matches,multimatches)
@@ -7734,10 +7732,7 @@ mtw.attack_hit(matches[2], "bwepilepsy")
 end
 
 function mtw.trigger_1604(matches,multimatches)
-last_charge = charge_number
-charge_number = last_charge+1
-mtw.aff_have("neural_charge")
-echo(" "..charge_number)
+mtw.aff_have("neural_charges")
 end
 
 function mtw.trigger_1605(matches,multimatches)
@@ -7823,10 +7818,7 @@ mtw.aff_have("heart_palpitations")
 end
 
 function mtw.trigger_1625(matches,multimatches)
-last_charge = charge_number
-charge_number = last_charge+1
-mtw.aff_have("neural_charge")
-echo(" "..charge_number)
+mtw.aff_have("neural_charges")
 end
 
 function mtw.trigger_1626(matches,multimatches)
