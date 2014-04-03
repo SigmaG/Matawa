@@ -734,15 +734,11 @@ mtw.songs.prelude.id = ""
 end
 
 function mtw.trigger_116(matches,multimatches)
-if mtw.sent.prelude then
  mtw.def_have("prelude")
-end
 end
 
 function mtw.trigger_117(matches,multimatches)
-if mtw.sent.prelude then
  mtw.songs.prelude.id = ""
-end
 end
 
 function mtw.trigger_118(matches,multimatches)
