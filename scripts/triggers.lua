@@ -7072,7 +7072,9 @@ mtw.atk_hit(matches[3], nil, "immolate")
 end
 
 function mtw.trigger_1442(matches,multimatches)
+if matches[2] == mtw.attacks.atk_immolate.attacker then
  mtw.atk_miss(matches[2], nil, "immolate")
+end
 end
 
 function mtw.trigger_1443(matches,multimatches)
