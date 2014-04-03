@@ -111,6 +111,8 @@ function gmcp_room()
   mtw.aff_remove("bolero")
   mtw.def_remove("prelude")
   mtw.status.combat = false
+  --Remove Inquartata
+  mtw.inquartata = false
 --Initiate fasthunt if necessary
   mtw.need_loot = false
   mtw.toggles.bashing = false
