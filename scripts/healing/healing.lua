@@ -79,7 +79,7 @@ end
 function mtw.do_balance_take(current)
  if mtw.balance.balance and (not mtw.waiting.balance) then
   if current == "def_hiding" then
-   if mtw.status.combat or mtw.toggles.bashing then
+   if mtw.status.combat or mtw.toggles.bashing or mtw.need_loot then
     return
    end
    if mtw.toggles.fishing then
