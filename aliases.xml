@@ -397,6 +397,13 @@
                                 <regex>^tinq$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
+                                <name>balestra</name>
+                                <script>mtw.toggle(&quot;balestra&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tblr$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
                                 <name>holy swording</name>
                                 <script>mtw.toggle(&quot;swording&quot;)</script>
                                 <command></command>
