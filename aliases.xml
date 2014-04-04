@@ -2204,8 +2204,7 @@ send(&quot; &quot;)</script>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Requiem of the Fallen</name>
-                                    <script>mtw.al_rogue(&quot;play requiem &quot;..mtw.target)
-</script>
+                                    <script>mtw.al_rogue(&quot;play requiem &quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
                                     <regex>^preq$</regex>
