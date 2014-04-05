@@ -60,7 +60,7 @@ function mtw.prompt_function()
      mtw.set_equil("shadowmend")
      mtw.bashing.shadowmend = false
     end
-    if mtw.balance.balance and not mtw.waiting.balance and mtw.defenses.def_hiding.state ~= "deffed" and (mtw.vitals.percent.guile <= 80 or mtw.toggles.hiding) then
+    if mtw.balance.balance and not mtw.waiting.balance and mtw.defenses.def_hiding.state ~= "deffed" and (mtw.vitals.percent.guile <= 80 or mtw.toggles.hiding) and not mtw.need_loot then
      mtw.send("hide")
     end
    end
