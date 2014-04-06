@@ -87,9 +87,9 @@ function mtw.rogue_bash()
   mtw.send("fleche "..mtw.bashing.target)
  elseif table.contains(mtw.skills, "Bard's Canto") and mtw.toggles.cantoing and mtw.balance.canto and not mtw.need_wield then
   mtw.send("play bard's canto "..mtw.bashing.target)
- elseif mtw.toggles.balestra and table.contains(mtw.skills, "Balestra") and not mtw.need_wield then
+ elseif mtw.toggles.tbalestra and table.contains(mtw.skills, "Balestra") and not mtw.need_wield then
   mtw.send("balestra "..mtw.bashing.target)
- elseif not mtw.need_wield then
+ elseif not (mtw.toggles.tbalestra or not table.contains(mtw.skills, "Balestra")) and not mtw.need_wield then
   mtw.send("thrust "..mtw.bashing.target)
  end
 end
