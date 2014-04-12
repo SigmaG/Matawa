@@ -41,7 +41,7 @@ function gmcp_vitals()
   mtw.vitals.old.faith = mtw.vitals.current.faith
  end
 
- if mtw.have_aff("recklessness") and mtw.toggle.bashing then
+ if mtw.have_aff("recklessness") and mtw.toggles.bashing then
   mtw.vitals.percent.health = 75
  end
 

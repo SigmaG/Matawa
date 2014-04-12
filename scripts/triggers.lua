@@ -9336,7 +9336,6 @@ end
 
 function mtw.trigger_1984(matches,multimatches)
 mtw.attack_hit(matches[3], "dominating_strike")
-
 end
 
 function mtw.trigger_1985(matches,multimatches)
@@ -9549,5 +9548,10 @@ function mtw.trigger_2029(matches,multimatches)
  if string.find(mtw.target, matches[2]) and mtw.my.class == "rogue" and mtw.status.combat and mtw.toggles.flourishing then
   mtw.set_balance("flourish "..matches[2])
  end
+end
+
+function mtw.trigger_2030(matches,multimatches)
+ mtw.attack_hit(matches[2], "disarm")
+ cecho("\n <red>Target lost grip defense!")
 end
 
