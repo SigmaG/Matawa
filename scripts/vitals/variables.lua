@@ -64,10 +64,11 @@ obliterating = true,
 dominating = true,
 prelude = false,
 inquartataing = true,
+balestrating = false,
 swording = true,
 balefire = false,
 palming = false,
-tbalestra = false,
+balestrating = false,
 --Name/numeric targeting
 generics = false,
 --Bashing options

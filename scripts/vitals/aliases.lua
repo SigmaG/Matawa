@@ -130,7 +130,7 @@ function mtw.bashing_aliases()
   mtw.disp_toggle("fleching", "tflh: toggle fleching")
   mtw.disp_toggle("hiding", "thid: toggle hiding")
   mtw.disp_toggle("inquartataing", "tinq: toggle inquartata")
-  mtw.disp_toggle("tbalestra", "tblr: toggle balestra")
+  mtw.disp_toggle("balestrating", "tblr: toggle balestra")
   if table.contains(mtw.skills, "thievery") then
    mtw.disp_toggle("shadowmending", "tsm: toggle shadowmending")
   end

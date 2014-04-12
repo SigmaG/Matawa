@@ -398,7 +398,7 @@
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
                                 <name>balestra</name>
-                                <script>mtw.toggle(&quot;tbalestra&quot;)</script>
+                                <script>mtw.toggle(&quot;balestrating&quot;)</script>
                                 <command></command>
                                 <packageName></packageName>
                                 <regex>^tblr$</regex>
