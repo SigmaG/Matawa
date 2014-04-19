@@ -29,12 +29,11 @@ mtw.fishing.stat = "baiting"
 end
 
 function mtw.fishing_trigger_5(matches,multimatches)
+mtw.waiting.balance = true
 if mtw.vitals.current.endurance > mtw.fishing.min_end then
  mtw.fishing.stat = "baiting"
- mtw.waiting.balance = false
 else
  mtw.fishing.stat = "sitting"
- mtw.waiting.balance = false
 end
 end
 
@@ -122,4 +121,8 @@ end
 
 function mtw.fishing_trigger_17(matches,multimatches)
  mtw.fishing.stat = "casting"
+end
+
+function mtw.fishing_trigger_18(matches,multimatches)
+ mtw.fishing.failures = -1
 end
