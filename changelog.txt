@@ -867,3 +867,7 @@ o Added a script to handle legacy saves -Savil
 o Added a way to handle bashing areas with commands (?area) -Savil
 o Lots of useful fixes (psionics triggers, recklessness check, commanded affliction, counter, loot/rage, suckerpunch) -Elanoron
 o Inking a tattoo and deepshrouding now prevents the system from processing commands, as rifting does -Savil
+
+v
+o Made decapitate easier to notice -Savil
+o Both aliases 'rift' and 'cast rift' can work -Savil

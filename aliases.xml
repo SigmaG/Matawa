@@ -3229,7 +3229,7 @@ send(&quot; &quot;)</script>
                                         <script>mtw.al_do_mage(&quot;cast rift &quot;..matches[2])</script>
                                         <command></command>
                                         <packageName></packageName>
-                                        <regex>^rift (\w+)$</regex>
+                                        <regex>^(?:cast )?rift (\w+)$</regex>
                                     </Alias>
                                     <Alias isActive="yes" isFolder="no">
                                         <name>distort</name>
