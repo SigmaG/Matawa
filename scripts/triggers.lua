@@ -9418,11 +9418,19 @@ mtw.attack_hit(matches[2], "sever")
 end
 
 function mtw.trigger_2002(matches,multimatches)
-echo("\n===BEHEAD!!!===\n===BEHEAD!!!===\n===BEHEAD!!!===")
+cecho("\n<red>==========================\n<yellow>"..matches[2].."<red> is DECAPITATING YOU! (1/5)\n<red>================================\n")
 end
 
 function mtw.trigger_2003(matches,multimatches)
-echo("\n===BEHEAD!!!===\n===BEHEAD!!!===\n===BEHEAD!!!===")
+local num = 4
+if matches[4] == "aiming" then
+ num = 2
+elseif matches[4] == "barreling" then
+ num = 3
+elseif matches[4] == "drawing" then
+ num = 4
+end
+cecho("\n<red>==========================\n<yellow>"..matches[2].."<red> is DECAPITATING YOU! ("..num.."/5)\n<red>================================\n")
 end
 
 function mtw.trigger_2004(matches,multimatches)

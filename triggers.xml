@@ -51136,9 +51136,9 @@
                                 <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                 <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                 <regexCodeList>
-                                    <string>^(\w+) begins swinging ([^\.]+) in a wide arc, aiming towards your neck.$</string>
-                                    <string>^(\w+) continues swinging ([^\.]+) in a wide arc, barreling down on you.$</string>
-                                    <string>^(\w+) continues swinging ([^\.]+) in a wide arc, drawing dangerously close to your neck.$</string>
+                                    <string>^(\w+) begins swinging ([^\.]+) in a wide arc, (aiming) towards your neck.$</string>
+                                    <string>^(\w+) continues swinging ([^\.]+) in a wide arc, (barreling) down on you.$</string>
+                                    <string>^(\w+) continues swinging ([^\.]+) in a wide arc, (drawing) dangerously close to your neck.$</string>
                                 </regexCodeList>
                                 <regexCodePropertyList>
                                     <integer>1</integer>
