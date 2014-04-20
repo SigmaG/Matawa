@@ -452,9 +452,13 @@ send(matches[1])
 tempTimer(mtw.delay(),[[mtw.prechanneling.tattooing = false]])
 end
 
-function mtw.lose_all()
-mtw.losingall = true
-tempTimer(2, [[mtw.losingall = false]])
+function mtw.lose_all(list)
+mtw.losingall = {}
+local tok
+for tok in string.gmatch(list, "[^%s]+") do
+ mtw.losingall[tok] = true
+end
+tempTimer(2, [[mtw.losingall = nil]])
 sendGMCP("Comm.Channel.Players")
 send(" ")
 end

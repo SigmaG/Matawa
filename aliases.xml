@@ -1156,10 +1156,10 @@ send(&quot; &quot;)</script>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>lose all</name>
-                            <script>mtw.lose_all()</script>
+                            <script>mtw.lose_all(matches[2])</script>
                             <command></command>
                             <packageName></packageName>
-                            <regex>^loseall$</regex>
+                            <regex>^loseall(.*)$</regex>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>sit</name>
