@@ -871,3 +871,4 @@ o Inking a tattoo and deepshrouding now prevents the system from processing comm
 v
 o Made decapitate easier to notice -Savil
 o Both aliases 'rift' and 'cast rift' can work -Savil
+o Added a 'generic' area in which you can add mobs that you want to bash in every area (wyrms, pumpkins...) -Savil

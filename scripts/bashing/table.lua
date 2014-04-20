@@ -3,6 +3,7 @@
 mtw_struct.set_metatable_custom("areas")
 
 mtw.default.areas = {
+["generic"] = {level = '", krondor = "none", targets = {"an ethereal mana wyrm", "a monstrous pumpkin", "a huge pumpkin", "a big pumpkin", "a mature pumpkin", "a medium pumpkin", "a small pumpkin", "a little pumpkin", "a tiny pumpkin", "a time%-displaced glamredhel archer", "a time%-displaced glamredhel warrior"}, items = {"a mote of glowing%, blue mana"}},
 ["MoteHunt"] = {level = "Magicians", krondor = "none", targets = {"an ethereal mana wyrm"}, items = {"a mote of glowing%, blue mana"}},
 ["pumpkins"] = {level = "LOL", krondor = "none", targets = {"a monstrous pumpkin", "a huge pumpkin", "a big pumpkin", "a mature pumpkin", "a medium pumpkin", "a small pumpkin", "a little pumpkin", "a tiny pumpkin"}},
 ["Krondor"] = {level = "Ratting", krondor = "none", prime = {"urban", "estate"}, env = {"garden", "ruins"}, targets = {"a black rat","a rat", "an old rat", "a baby rat", "a young rat"}},
