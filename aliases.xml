@@ -495,6 +495,13 @@
                                 <regex>^tgr$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
+                                <name>revitalizing</name>
+                                <script>mtw.toggle(&quot;revitalizing&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^trv$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
                                 <name>generic toggle</name>
                                 <script>mtw.generic_toggle(matches[2])</script>
                                 <command></command>

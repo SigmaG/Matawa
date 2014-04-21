@@ -67,6 +67,7 @@ inquartataing = true,
 swording = true,
 balefire = false,
 palming = false,
+revitalizing = true,
 --Name/numeric targeting
 generics = false,
 --Bashing options

@@ -142,6 +142,7 @@ function mtw.bashing_aliases()
   mtw.disp_toggle("hereticing", "thrt: toggle heretic")
   mtw.disp_toggle("swording", "tswd: toggle holy sword")
   mtw.disp_toggle("mandate", "tmnd: toggle zealous mandate")
+  mtw.disp_toggle("revitalizing", "trv: toggle revitalizing")
   if table.contains(mtw.skills, "bloodlore") then
    mtw.disp_toggle("savaging", "tsv: toggle savaging")
   end
