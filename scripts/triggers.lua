@@ -3414,6 +3414,10 @@ function mtw.trigger_579(matches,multimatches)
 mtw.def_def("veilgarden")
 end
 
+function mtw.trigger_579b(matches,multimatches)
+mtw.def_def("sunspear")
+end
+
 function mtw.trigger_580(matches,multimatches)
 mtw.def_def("berserking")
 end

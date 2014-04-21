@@ -875,3 +875,4 @@ o Added a 'generic' area in which you can add mobs that you want to bash in ever
 o Updated bashing areas -Nemi
 o Updated shadoweaver aliases -Aidan
 o Added a tether summon alias 'teths' -Gianna
+o Added a sunspear defense -Raelyr
