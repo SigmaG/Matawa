@@ -3099,6 +3099,13 @@ send(&quot; &quot;)</script>
                                         <regex>^teth$</regex>
                                     </Alias>
                                     <Alias isActive="yes" isFolder="no">
+                                        <name>astral tether (summon)</name>
+                                        <script>mtw.al_mage(&quot;tether summon&quot;)</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^teths$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
                                         <name>astral warp</name>
                                         <script>mtw.al_mage(&quot;cast warp&quot;)</script>
                                         <command></command>
