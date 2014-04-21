@@ -466,6 +466,7 @@ mtw.inquartata = true
 end
 
 function mtw.trigger_81(matches,multimatches)
+if not mtw.crits.hits then mtw.crits.hits = 0 end
 if string.find(matches[2], " ") then
  mtw.crits.hits = mtw.crits.hits+1
  mtw.bashing.engaged = true
