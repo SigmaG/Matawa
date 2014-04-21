@@ -161,6 +161,122 @@ mtw_struct.load()</script>
                 <script></script>
                 <eventHandlerList/>
                 <ScriptGroup isActive="yes" isFolder="yes">
+                    <name>Item Tracking</name>
+                    <packageName></packageName>
+                    <script></script>
+                    <eventHandlerList/>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_inv_list_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_inv_list_()
+ gmcp_inv_list()
+end</script>           
+                        <eventHandlerList>
+                            <string>gmcp.Char.Items.List</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_inv_add_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_inv_add_()
+ gmcp_inv_add()
+end</script>           
+                        <eventHandlerList>
+                            <string>gmcp.Char.Items.Add</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_inv_remove_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_inv_remove_()
+ gmcp_inv_remove()
+end</script>           
+                        <eventHandlerList>
+                            <string>gmcp.Char.Items.Remove</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_inv_update_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_inv_update_()
+ gmcp_inv_update()
+end</script>           
+                        <eventHandlerList>
+                            <string>gmcp.Char.Items.Update</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_vault_list_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_vault_list_()
+ gmcp_vault_list()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.IRE.Rift.List</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_vault_change_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_vault_change_()
+ gmcp_vault_change()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.IRE.Rift.Change</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_room_list_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_room_list_()
+ gmcp_room_list()
+end</script>           
+                        <eventHandlerList>
+                            <string>gmcp.Char.Items.List</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_room_add_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_room_add_()
+ gmcp_room_add()
+end</script>           
+                        <eventHandlerList>
+                            <string>gmcp.Char.Items.Add</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_room_remove_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_room_remove_()
+ gmcp_room_remove()
+end</script>           
+                        <eventHandlerList>
+                            <string>gmcp.Char.Items.Remove</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_room_update_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_room_update_()
+ gmcp_room_update()
+end</script>           
+                        <eventHandlerList>
+                            <string>gmcp.Char.Items.Update</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>item_tracking_init_</name>
+                        <packageName></packageName>
+                        <script>function item_tracking_init_()
+ item_tracking_init()
+end</script>           
+                        <eventHandlerList>
+                            <string>gmcp.Char.StatusVars</string>
+                        </eventHandlerList>
+                    </Script>
+                </ScriptGroup>
+                <ScriptGroup isActive="yes" isFolder="yes">
                     <name>chat</name>
                     <packageName></packageName>
                     <script></script>

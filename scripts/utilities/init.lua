@@ -1,5 +1,8 @@
 -- MTW : random utilities
 
+-- Inventory functions
+mtw_struct.load_external("utilities/inventory")
+
 -- Learning functions
 mtw_struct.load_external("utilities/learning")
 
