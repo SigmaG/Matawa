@@ -326,8 +326,6 @@ mtw.tutors = {
 
 --Weapon types list
 mtw.weapons = {
-"dagger",
-"poniard",
 "saber",
 "longsword",
 "rapier",
@@ -341,7 +339,12 @@ mtw.weapons = {
 "maul",
 "warhammer",
 "club",
-"shield"
+}
+
+mtw.offweapons = {
+"dagger",
+"poniard",
+"shield",
 }
 
 --status
@@ -351,6 +354,7 @@ mtw.my = mtw.my or {
 name = "",
 stats = "",
 weapon = "",
+offweapon = "",
 rogue_weapon = "",
 class = "",
 area = "",
@@ -497,6 +501,7 @@ illusion = false
 
 --Misc statuses
 mtw.need_wield = false
+mtw.need_offwield = false
 mtw.need_heal = false
 mtw.recent_defend = false
 mtw.fleeing = false

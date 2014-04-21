@@ -38,27 +38,27 @@ end
 function mtw.magician_bash()
  if table.contains(mtw.skills, "Anachronize") and mtw.toggles.anachronizing and mtw.balance.anachronize and mtw.vitals.current.magic >= 3000 then
   mtw.send("cast anachronize")
- elseif not mtw.used.ignite and mtw.toggles.igniting and table.contains(mtw.skills, "Ignite") then
+ elseif not mtw.used.ignite and mtw.toggles.igniting and table.contains(mtw.skills, "Ignite") and not mtw.need_wield then
   mtw.send("cast ignite "..mtw.bashing.target)
- elseif mtw.used.ignite and table.contains(mtw.skills, "Immolate") and mtw.toggles.immolating and (mtw.enemy_health == "<red> 0-10%" or mtw.enemy_health == "<red> 10-25%") then
+ elseif mtw.used.ignite and table.contains(mtw.skills, "Immolate") and mtw.toggles.immolating and (mtw.enemy_health == "<red> 0-10%" or mtw.enemy_health == "<red> 10-25%") and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast immolate "..mtw.bashing.target)
- elseif mtw.balance.barrage and table.contains(mtw.skills, "Eldritch Barrage") and mtw.toggles.barraging then
+ elseif mtw.balance.barrage and table.contains(mtw.skills, "Eldritch Barrage") and mtw.toggles.barraging and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast eldritch barrage "..mtw.bashing.target)
- elseif mtw.toggles.spiking and table.contains(mtw.skills, "Ice Spikes") then
+ elseif mtw.toggles.spiking and table.contains(mtw.skills, "Ice Spikes") and not mtw.need_wield and not mtw.need_offwield then
   if mtw.defenses.def_stormfury.state == "deffed" then
-   if mtw.vitals.cadence == 3 and getStopWatchTime(mtw.last_lance) <= 15 then
+   if mtw.vitals.cadence == 3 and getStopWatchTime(mtw.last_lance) <= 15 and not mtw.need_wield and not mtw.need_offwield then
     mtw.send("cast ice spikes "..mtw.bashing.target)
-   else
+   elseif not mtw.need_wield and not mtw.need_offwield then
     mtw.send("cast stormlance "..mtw.bashing.target)
    end
-  else
+   elseif not mtw.need_wield and not mtw.need_offwield then
    mtw.send("cast ice spikes "..mtw.bashing.target)
   end
- elseif mtw.vitals.percent.magic <= 70 and mtw.vitals.cadence > 1 then
+ elseif mtw.vitals.percent.magic <= 80 and mtw.vitals.cadence >= 1 and not mtw.used.balefire and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast balefire "..mtw.bashing.target)
- elseif mtw.toggles.balefire then
+ elseif mtw.toggles.balefire and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast balefire "..mtw.bashing.target)
- else
+ elseif not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast stormlance "..mtw.bashing.target)
  end
 end
@@ -77,19 +77,19 @@ function mtw.rogue_bash()
    return
   end
  end
- if mtw.inquartata and table.contains(mtw.skills, "Inquartata") and mtw.toggles.inquartataing and not mtw.need_wield then
+ if mtw.inquartata and table.contains(mtw.skills, "Inquartata") and mtw.toggles.inquartataing and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("inq "..mtw.bashing.target)
- elseif mtw.balance.requiem and table.contains(mtw.skills, "Requiem of the Fallen") and mtw.toggles.requieming and mtw.vitals.cadence == 3 and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
+ elseif mtw.balance.requiem and table.contains(mtw.skills, "Requiem of the Fallen") and mtw.toggles.requieming and mtw.vitals.cadence == 3 and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("play requiem "..mtw.bashing.target)
- elseif (not mtw.used.balestra) and mtw.toggles.fleching and table.contains(mtw.skills, "Balestra") and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and not mtw.need_wield then
+ elseif (not mtw.used.balestra) and mtw.toggles.fleching and table.contains(mtw.skills, "Balestra") and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("balestra "..mtw.bashing.target)
- elseif (not mtw.used.fleche) and mtw.toggles.fleching and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and not mtw.need_wield then
+ elseif (not mtw.used.fleche) and mtw.toggles.fleching and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("fleche "..mtw.bashing.target)
- elseif table.contains(mtw.skills, "Bard's Canto") and mtw.toggles.cantoing and mtw.balance.canto and not mtw.need_wield then
+ elseif table.contains(mtw.skills, "Bard's Canto") and mtw.toggles.cantoing and mtw.balance.canto and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("play bard's canto "..mtw.bashing.target)
- elseif mtw.toggles.balestrating and table.contains(mtw.skills, "Balestra") and not mtw.need_wield then
+ elseif mtw.toggles.balestrating and table.contains(mtw.skills, "Balestra") and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("balestra "..mtw.bashing.target)
- elseif (not mtw.toggles.balestrating or not table.contains(mtw.skills, "Balestra")) and not mtw.need_wield then
+ elseif (not mtw.toggles.balestrating or not table.contains(mtw.skills, "Balestra")) and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("thrust "..mtw.bashing.target)
  end
 end

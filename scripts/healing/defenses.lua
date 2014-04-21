@@ -428,21 +428,25 @@ def_sanctification = "once",
 mage = {
 def_rose = "on",
 def_thirdeye = "once",
-def_hourglass = "once",
 def_skywatch = "once",
 def_deathsense = "once",
 def_nightvision = "once",
 def_insomnia = "on",
 def_forboding = "once",
-def_premonition = "once",
+--def_premonition = "once",
 def_selfishness = "on",
+--def_witchsight = "once",
+--def_psi_barrier = "once",
+--def_censer = "once",
 def_spellshield = "on",
 def_arcane_power = "on",
 def_windweave = "on",
 def_levitate = "once",
 def_waterbreathing = "once",
 def_arcane_shield = "once",
-def_mirror_image = "once"
+def_mirror_image = "once",
+def_stormfury = "on",
+def_hourglass = "once",
 }
 
 }

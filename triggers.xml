@@ -12626,6 +12626,7 @@
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
                                         <string>^You bleed for (\d+) health.$</string>
+                                        <string>^You bleed for (\d+) health and a droplet of that blood collects into Guis-wan's vial of red revelry.$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
@@ -21140,6 +21141,7 @@
                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                             <regexCodeList>
                                 <string>^You must be wielding a(.*)weapon to do that\.$</string>
+                                <string>^You must be wielding a (/w+) to do that\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
                                 <integer>1</integer>
@@ -45833,7 +45835,7 @@
                                 </Trigger>
                             </TriggerGroup>
                             <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                                <name>burdern soul</name>
+                                <name>burden soul</name>
                                 <script></script>
                                 <triggerType>0</triggerType>
                                 <conditonLineDelta>0</conditonLineDelta>

@@ -346,6 +346,7 @@ function mtw.reset_all()
  gmcp.Char.Vitals.ap = -1
 
  mtw.need_wield = false
+ mtw.need_offwield = false
  mtw.need_heal = false
 
  mtw.recovering_balance = false

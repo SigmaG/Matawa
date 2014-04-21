@@ -4069,7 +4069,16 @@ for i in ipairs(mtw.weapons) do
   mtw.my.weapon = mtw.weapons[i]
   mtw.need_wield = true
  end
- if mtw.defenses.def_grip.needit then
+ if mtw.toggles.gripping and mtw.defenses.def_grip.needit then
+  mtw.defenses.def_grip.needit = false
+ end
+end
+for i in ipairs(mtw.offweapons) do
+ if string.find(matches[2], mtw.offweapons[i]) then
+  mtw.my.offweapon = mtw.offweapons[i]
+  mtw.need_offwield = true
+ end
+ if mtw.toggles.gripping and mtw.defenses.def_grip.needit then
   mtw.defenses.def_grip.needit = false
  end
 end
@@ -4079,40 +4088,75 @@ function mtw.trigger_737(matches,multimatches)
 --if matches[2] == mtw.my.weapon then
  mtw.need_wield = false
 --end
- if mtw.defenses.def_grip.needit then
-  mtw.defenses.def_grip.needit = false
- end
+if mtw.toggles.gripping and mtw.defenses.def_grip.needit then
+ mtw.defenses.def_grip.needit = false
+end
 mtw.waiting.balance = false
 mtw.do_core()
 end
 
 function mtw.trigger_738(matches,multimatches)
-mtw.need_wield = false
-mtw.waiting.balance = false
-if mtw.toggles.gripping and mtw.defenses.def_grip.needit == false then
+for i in ipairs(mtw.weapons) do
+ if string.find(matches[2], mtw.weapons[i]) then
+  mtw.my.weapon = mtw.weapons[i]
+  mtw.need_wield = true
+ end
+end
+for i in ipairs(mtw.offweapons) do
+ if string.find(matches[2], mtw.offweapons[i]) then
+  mtw.my.offweapon = mtw.offweapons[i]
+  mtw.need_offwield = true
+ end
+end
+ mtw.waiting.balance = false
+ if mtw.toggles.gripping and mtw.defenses.def_grip.needit == false then
   mtw.defenses.def_grip.needit = true
   send(" ")
  end
-mtw.do_core()
+ mtw.do_core()
 end
 
 function mtw.trigger_739(matches,multimatches)
 if not mtw.unwielding then
  for i in ipairs(mtw.weapons) do
-  if string.find(matches[3], mtw.weapons[i]) then
-   mtw.my.weapon = mtw.weapons[i]
-   mtw.need_wield = true
-  end
+   if string.find(matches[2], mtw.weapons[i]) then
+     mtw.my.weapon = mtw.weapons[i]
+     mtw.need_wield = true
+   end
+ end
+ for i in ipairs(mtw.offweapons) do
+   if string.find(matches[2], mtw.offweapons[i]) then
+     mtw.my.offweapon = mtw.offweapons[i]
+     mtw.need_offwield = true
+   end
  end
 end
 end
 
 function mtw.trigger_740(matches,multimatches)
 mtw.need_wield = true
+ for i in ipairs(mtw.offweapons) do
+   if string.find(matches[2], mtw.offweapons[i]) then
+     mtw.my.offweapon = mtw.offweapons[i]
+     mtw.need_offwield = true
+   end
+ end
 end
 
 function mtw.trigger_741(matches,multimatches)
-mtw.need_wield = false
+--mtw.need_wield = false
+ for i in ipairs(mtw.weapons) do
+   if string.find(matches[2], mtw.weapons[i]) then
+     mtw.my.weapon = mtw.weapons[i]
+     mtw.need_wield = false
+   end
+ end
+ for i in ipairs(mtw.offweapons) do
+   if string.find(matches[2], mtw.offweapons[i]) then
+     mtw.my.offweapon = mtw.offweapons[i]
+     mtw.need_offwield = false
+   end
+ end
  if mtw.toggles.gripping and mtw.defenses.def_grip.needit == false then
   mtw.defenses.def_grip.needit = true
   send(" ")
@@ -8624,11 +8668,11 @@ mtw.atk_defend(matches[2], nil, "vision_of_death", matches[4])
 end
 
 function mtw.trigger_1815(matches,multimatches)
-mtw.atk_start(matches[2], nil, "impendingdoom")
+mtw.atk_start(matches[2], nil, "doom")
 end
 
 function mtw.trigger_1816(matches,multimatches)
-mtw.atk_hit(matches[2], nil, "impendingdoom")
+mtw.atk_hit(matches[2], nil, "doom")
 end
 
 function mtw.trigger_1817(matches,multimatches)

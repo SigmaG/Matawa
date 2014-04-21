@@ -769,7 +769,7 @@ function mtw.slow_queue()
   end
   if mtw.not_aff("sleep") then
    if mtw.need_wield and mtw.balance.balance and mtw.balance.equilibrium then
-    mtw.send("wield "..mtw.my.weapon)
+    mtw.send("wield "..mtw.my.weapon.." right")
    end
    if mtw.need_loot then
     mtw.do_loot()
