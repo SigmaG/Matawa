@@ -1271,6 +1271,8 @@ mtw.scry.target = matches[2]
 mtw.scry.env = matches[3]
 mtw.scry.distance = matches[4]
 mtw.scry_string = ""
+mtw.scry_likely = {}
+mtw.scry_possible = {}
 if mtw.scry.found == "someone" then
  mtw.scry.hidden = "hidden"
 elseif mtw.scry.found ~= mtw.scry.target then
