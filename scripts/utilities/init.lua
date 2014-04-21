@@ -363,7 +363,7 @@ function mtw.target_alias()
 mtw.target = string.title(string.lower(matches[2]))
 target = matches[2]
 echo("Target: "..mtw.target)
-if mtw.toggles.calling then
+if mtw.toggles.calling and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") then
  send("sct Attacking **"..mtw.target.."** !")
 end
 send(" ")
