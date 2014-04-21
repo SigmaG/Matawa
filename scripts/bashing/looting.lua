@@ -7,7 +7,7 @@ function mtw.do_loot()
    mtw.waiting.loot = true
    tempTimer(mtw.delay(), [[mtw.waiting.loot = false]])
   end
- elseif not mtw.waiting.ih then
+ elseif not mtw.waiting.ih and not mtw.sent.ih then
   mtw.corpses = {}
   mtw.gathering = {}
   mtw.send("ih")
