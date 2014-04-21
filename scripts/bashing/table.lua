@@ -102,7 +102,7 @@ mtw.default.areas = {
 ["Ardanian Ice Caves"] = {level = "??", krondor = "extremely far to the north", targets = {}},
 ["the City of Yabon"] = {level = "??", krondor = "extremely far to the north", prime = {"urban"}, env = {"garden"}, targets = {}},
 ["the City of LaMut"] = {level = "??", krondor = "extremely far to the north", targets = {}},
-["Wyke"] = {level = "??", krondor = "extremely far to the north", targets = {}},
+["Wyke"] = {level = "??", env = {"constructed underground"}, krondor = "extremely far to the north", targets = {}},
 ["the ruins of Armengar"] = {level = "??", krondor = "extremely far to the north", prime = {"ruins"}, env = {"constructed underground"}, targets = {"a grizzly bear", "a carrion crow", "a flea", "a blowfly", "a vulture", "a bandit guard", "Moltor, the slaver"}},
 ["Caern"] = {level = "??", krondor = "extremely far to the north", targets = {}},
 ["the town of Tyr-sog"] = {level = "??", krondor = "extremely far to the north", prime = {"urban"}, targets = {}},

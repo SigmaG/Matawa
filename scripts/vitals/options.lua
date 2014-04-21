@@ -35,7 +35,7 @@ end
 
 function mtw.get_options()
  cecho("\n<green>Matawa options:")
- for k,v in pairs(mtw.options) do
+ for k,v in mtw.pairs(mtw.options) do
   cecho("\n "..k..": "..v)
  end
  local b = mtw.check_options()
