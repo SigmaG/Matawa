@@ -1615,14 +1615,14 @@ send(&quot; &quot;)</script>
                                     <regex></regex>
                                     <Alias isActive="yes" isFolder="no">
                                         <name>Fire Crossbow Point Blank</name>
-                                        <script>mtw.al_do_rogue(&quot;fire &quot;..my.crossbow..&quot; at &quot;..mtw.target)</script>
+                                        <script>mtw.al_do_rogue(&quot;fire &quot;..mtw.options.crossbow..&quot; at &quot;..mtw.target)</script>
                                         <command></command>
                                         <packageName></packageName>
                                         <regex>^fcb$</regex>
                                     </Alias>
                                     <Alias isActive="yes" isFolder="no">
                                         <name>Fire Crossbow Dir</name>
-                                        <script>mtw.al_do_rogue(&quot;fire &quot;..my.crossbow..&quot; &quot;..matches[2]..&quot; at &quot;..mtw.target)</script>
+                                        <script>mtw.al_do_rogue(&quot;fire &quot;..mtw.options.crossbow..&quot; &quot;..matches[2]..&quot; at &quot;..mtw.target)</script>
                                         <command></command>
                                         <packageName></packageName>
                                         <regex>^fcb (\w+)$</regex>
