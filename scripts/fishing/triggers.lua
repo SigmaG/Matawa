@@ -30,6 +30,7 @@ end
 
 function mtw.fishing_trigger_5(matches,multimatches)
 mtw.waiting.balance = true
+tempTimer(mtw.delay(), [[mtw.waiting.balance = false]])
 if mtw.vitals.current.endurance > mtw.fishing.min_end then
  mtw.fishing.stat = "baiting"
 else
