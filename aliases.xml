@@ -235,6 +235,13 @@
                                 <packageName></packageName>
                                 <regex>^tcd$</regex>
                             </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>print char name in prompt</name>
+                                <script>mtw.toggle(&quot;charprompt&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tch$</regex>
+                            </Alias>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
                             <name>Bashing Toggles</name>
@@ -500,6 +507,13 @@
                                 <command></command>
                                 <packageName></packageName>
                                 <regex>^tgr$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>revitalizing</name>
+                                <script>mtw.toggle(&quot;revitalizing&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^trv$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
                                 <name>generic toggle</name>
@@ -1163,10 +1177,10 @@ send(&quot; &quot;)</script>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>lose all</name>
-                            <script>mtw.lose_all()</script>
+                            <script>mtw.lose_all(matches[2])</script>
                             <command></command>
                             <packageName></packageName>
-                            <regex>^loseall$</regex>
+                            <regex>^loseall(.*)$</regex>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>sit</name>
@@ -1622,14 +1636,14 @@ send(&quot; &quot;)</script>
                                     <regex></regex>
                                     <Alias isActive="yes" isFolder="no">
                                         <name>Fire Crossbow Point Blank</name>
-                                        <script>mtw.al_do_rogue(&quot;fire &quot;..my.crossbow..&quot; at &quot;..mtw.target)</script>
+                                        <script>mtw.al_do_rogue(&quot;fire &quot;..mtw.options.crossbow..&quot; at &quot;..mtw.target)</script>
                                         <command></command>
                                         <packageName></packageName>
                                         <regex>^fcb$</regex>
                                     </Alias>
                                     <Alias isActive="yes" isFolder="no">
                                         <name>Fire Crossbow Dir</name>
-                                        <script>mtw.al_do_rogue(&quot;fire &quot;..my.crossbow..&quot; &quot;..matches[2]..&quot; at &quot;..mtw.target)</script>
+                                        <script>mtw.al_do_rogue(&quot;fire &quot;..mtw.options.crossbow..&quot; &quot;..matches[2]..&quot; at &quot;..mtw.target)</script>
                                         <command></command>
                                         <packageName></packageName>
                                         <regex>^fcb (\w+)$</regex>
@@ -3105,6 +3119,13 @@ send(&quot; &quot;)</script>
                                         <regex>^teth$</regex>
                                     </Alias>
                                     <Alias isActive="yes" isFolder="no">
+                                        <name>astral tether (summon)</name>
+                                        <script>mtw.al_mage(&quot;tether summon&quot;)</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^teths$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
                                         <name>astral warp</name>
                                         <script>mtw.al_mage(&quot;cast warp&quot;)</script>
                                         <command></command>
@@ -3235,7 +3256,7 @@ send(&quot; &quot;)</script>
                                         <script>mtw.al_do_mage(&quot;cast rift &quot;..matches[2])</script>
                                         <command></command>
                                         <packageName></packageName>
-                                        <regex>^rift (\w+)$</regex>
+                                        <regex>^(?:cast )?rift (\w+)$</regex>
                                     </Alias>
                                     <Alias isActive="yes" isFolder="no">
                                         <name>distort</name>
@@ -5161,7 +5182,7 @@ send(&quot; &quot;)</script>
                                     <script>mtw.al_sweaver(&quot;sense&quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^sense$</regex>
+                                    <regex>^shd$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Greater Heal</name>
@@ -5175,7 +5196,7 @@ send(&quot; &quot;)</script>
                                     <script>mtw.al_do_sweaver(&quot;shadowcall passage &quot; ..matches[2])</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^spass(.*)$</regex>
+                                    <regex>^wsl(.*)$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Mimic</name>
@@ -5189,7 +5210,7 @@ send(&quot; &quot;)</script>
                                     <script>mtw.atk_sweaver(&quot;disgust &quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^disg$</regex>
+                                    <regex>^stu$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Deceit</name>
@@ -5203,14 +5224,14 @@ send(&quot; &quot;)</script>
                                     <script>mtw.al_do_sweaver(&quot;shadowcall lance &quot; ..matches[2].. &quot; at &quot; ..mtw.target)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^lnc (.*)$</regex>
+                                    <regex>^slnc (.*)$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Silentcall</name>
                                     <script>mtw.al_sweaver(&quot;night&quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^ngt$</regex>
+                                    <regex>^nt$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Marionette</name>
@@ -5237,14 +5258,14 @@ send(&quot; &quot;)</script>
                                         <script>mtw.al_sweaver(&quot;eclipse&quot;)</script>
                                         <command></command>
                                         <packageName></packageName>
-                                        <regex>^eclipse$</regex>
+                                        <regex>^eci$</regex>
                                     </Alias>
                                     <Alias isActive="yes" isFolder="no">
                                         <name>shadowcall dissolve</name>
                                         <script>mtw.al_sweaver(&quot;dissolve&quot;)</script>
                                         <command></command>
                                         <packageName></packageName>
-                                        <regex>^dissolve$</regex>
+                                        <regex>^dis$</regex>
                                     </Alias>
                                 </AliasGroup>
                                 <Alias isActive="yes" isFolder="no">
@@ -5259,28 +5280,28 @@ send(&quot; &quot;)</script>
                                     <script>mtw.desperate_prayer_alias(matches)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^desp(.*)$</regex>
+                                    <regex>^dspt(.*)$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Scarab Curse</name>
-                                    <script></script>
+                                    <script>mtw.atk_sweaver(&quot;curse &quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex></regex>
+                                    <regex>^cus$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Storm of Shadows</name>
-                                    <script></script>
+                                    <script>mtw.atk_sweaver(&quot;storm &quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex></regex>
+                                    <regex>^sto$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Night's Horror</name>
-                                    <script></script>
+                                    <script>mtw.atk_sweaver(&quot;horrify &quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex></regex>
+                                    <regex>^hor$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Shadeskin</name>
@@ -5291,17 +5312,17 @@ send(&quot; &quot;)</script>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Oubliette</name>
-                                    <script></script>
+                                    <script>mtw.atk_sweaver(&quot;imprison &quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex></regex>
+                                    <regex>^oub$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Torturous Whip</name>
                                     <script>mtw.atk_sweaver(&quot;lash &quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^shw$</regex>
+                                    <regex>^lsh$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>cloak</name>
@@ -5316,6 +5337,34 @@ send(&quot; &quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
                                     <regex>^stl$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Beckon</name>
+                                    <script>mtw.atk_sweaver(&quot;beckon&quot;)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^umb$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Projection</name>
+                                    <script>mtw.atk_sweaver(&quot;project&quot;)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^jct$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Shade</name>
+                                    <script>mtw.al_sweaver(&quot;shade&quot;)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^sd$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Road</name>
+                                    <script>mtw.al_sweaver(&quot;road&quot;)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^road$</regex>
                                 </Alias>
                             </AliasGroup>
                             <AliasGroup isActive="yes" isFolder="yes">

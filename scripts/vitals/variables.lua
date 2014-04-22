@@ -69,6 +69,7 @@ swording = true,
 balefire = false,
 palming = false,
 balestrating = false,
+revitalizing = true,
 --Name/numeric targeting
 generics = false,
 --Bashing options
@@ -116,6 +117,8 @@ atkecho = true,
 balecho = true,
 --Replace cooldown lines
 cdecho = true,
+--Print the name of the current char in the prompt
+charprompt = false,
 }
 
 --channeling

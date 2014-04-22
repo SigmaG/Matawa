@@ -112,7 +112,7 @@ function mtw.priest_bash()
   mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
  elseif (mtw.vitals.percent.health < 50) and (mtw.vitals.current.faith > 100) and table.contains(mtw.skills, "Zealous Mandate") and mtw.toggles.mandate then
   mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
- elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 35) and table.contains(mtw.skills, "Revitalization") and mtw.defenses.def_revitalization.state == "down" then
+ elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 35) and table.contains(mtw.skills, "Revitalization") and mtw.defenses.def_revitalization.state == "down" and mtw.toggles.revitalizing then
   mtw.send("pray for revitalization")
  elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 200) and table.contains(mtw.skills, "Zealous Mandate") and mtw.toggles.mandate then
   mtw.send("smite "..mtw.bashing.target.." with zealous mandate")

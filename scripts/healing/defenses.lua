@@ -7,6 +7,7 @@ mtw.defenses = {
 def_myrrh = {defense = "learning speed", type = "normal", effect = "Shortens learning telegraph", balance = {balanceneed = "vout myrrh;eat myrrh"}, state = "down", needit = false, timer = createStopWatch()},
 def_highcastle = {defense = "", type = "normal", effect = "10% damage increase vs mobs", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_veilgarden = {defense = "", type = "normal", effect = "Extends duration of defenses", skill = "veilgarden", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_sunspear = {defense = "", type = "normal, effect = "Endurance regen", skill = "sunspear", balance = {}, state = "down", needit = false", timer = createStopWatch()},
 --Vigilance
 def_notice = {defense = "increased notice", type = "endurance", effect = "Checks against stealth actions", skill = "Notice", balance = {equilibriumtake= "notice"}, state = "down", needit = false, timer = createStopWatch()},
 def_skywatch = {defense = "skywatch", type = "normal", effect = "Detect rooftop movement", skill = "Skywatch", balance = {equilibriumtake= "skywatch on"}, state = "down", needit = false, timer = createStopWatch()},

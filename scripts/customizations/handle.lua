@@ -61,3 +61,33 @@ end
 function mtw.reset_table(table,v)
  local reset = table % v --only works when there is the appropriate metatable set
 end
+
+function mtw.pairs(table)
+ if mtw.default[table] then
+  local tab = {}
+  for k,v in pairs(mtw.custom[table]) do
+   tab[k] = v
+  end
+  for k,v in pairs(mtw.default[table]) do
+   if not (mtw.custom[table][k] or mtw.unset[table][k]) then
+    tab[k] = v
+   end
+  end
+  return pairs(tab)
+ end
+end
+
+function mtw.ipairs(table)
+ if mtw.default[table] then
+  local tab = {}
+  for k,v in pairs(mtw.custom[table]) do
+   tab[k] = v
+  end
+  for k,v in pairs(mtw.default[table]) do
+   if not (mtw.custom[table][k] or mtw.unset[table][k]) then
+    tab[k] = v
+   end
+  end
+  return ipairs(tab)
+ end
+end

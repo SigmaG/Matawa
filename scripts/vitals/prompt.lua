@@ -129,6 +129,11 @@ function mtw.prompt_display()
   cecho("<dark_green>"..tostring(getTime(true,"hh:mm:ss:zzz| ")))
  end
 
+--Print the char name on the left
+ if mtw.toggles.charprompt then
+  cecho("<yellow>["..mtw.my.name.."] ")
+ end
+
 --Display vitals (health, endurance, magic, guile, faith, xp)
  if mtw.toggles.percents then
   cecho(mtw.coloring(mtw.vitals.percent.health)..mtw.vitals.percent.health.."%h, ")

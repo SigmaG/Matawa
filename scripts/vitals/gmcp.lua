@@ -187,7 +187,9 @@ end
 function gmcp_players()
  if mtw.losingall then
   for i,v in ipairs(gmcp.Comm.Channel.Players) do
-   mtw.send("lose "..v.name)
+   if mtw.losingall[v.name] then
+    mtw.send("lose "..v.name)
+   end
   end
   cecho("\n<green>Lost everyone!")
  end

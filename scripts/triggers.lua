@@ -473,6 +473,7 @@ mtw.inquartata = true
 end
 
 function mtw.trigger_81(matches,multimatches)
+if not mtw.crits.hits then mtw.crits.hits = 0 end
 if string.find(matches[2], " ") then
  mtw.crits.hits = mtw.crits.hits+1
  mtw.bashing.engaged = true
@@ -1273,6 +1274,8 @@ mtw.scry.target = matches[2]
 mtw.scry.env = matches[3]
 mtw.scry.distance = matches[4]
 mtw.scry_string = ""
+mtw.scry_likely = {}
+mtw.scry_possible = {}
 if mtw.scry.found == "someone" then
  mtw.scry.hidden = "hidden"
 elseif mtw.scry.found ~= mtw.scry.target then
@@ -1290,7 +1293,7 @@ else
 end
 
 if gmcp.Room.Info.area == "Krondor" then
- for i in pairs(mtw.areas) do
+ for i in mtw.pairs(mtw.areas) do
   if mtw.areas[i].krondor == mtw.scry.distance then
 if mtw.areas[i].prime ~= nil then
    for x in pairs(mtw.areas[i].prime) do
@@ -3414,6 +3417,10 @@ end
 
 function mtw.trigger_579(matches,multimatches)
 mtw.def_def("veilgarden")
+end
+
+function mtw.trigger_579b(matches,multimatches)
+mtw.def_def("sunspear")
 end
 
 function mtw.trigger_580(matches,multimatches)
@@ -9458,11 +9465,19 @@ mtw.attack_hit(matches[2], "sever")
 end
 
 function mtw.trigger_2002(matches,multimatches)
-echo("\n===BEHEAD!!!===\n===BEHEAD!!!===\n===BEHEAD!!!===")
+cecho("\n<red>==========================\n<yellow>"..matches[2].."<red> is DECAPITATING YOU! (1/5)\n<red>================================\n")
 end
 
 function mtw.trigger_2003(matches,multimatches)
-echo("\n===BEHEAD!!!===\n===BEHEAD!!!===\n===BEHEAD!!!===")
+local num = 4
+if matches[4] == "aiming" then
+ num = 2
+elseif matches[4] == "barreling" then
+ num = 3
+elseif matches[4] == "drawing" then
+ num = 4
+end
+cecho("\n<red>==========================\n<yellow>"..matches[2].."<red> is DECAPITATING YOU! ("..num.."/5)\n<red>================================\n")
 end
 
 function mtw.trigger_2004(matches,multimatches)
