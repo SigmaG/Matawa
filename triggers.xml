@@ -12630,6 +12630,7 @@
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
+                                        <integer>1</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
                                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
@@ -21164,6 +21165,7 @@
                                 <string>^You must be wielding a (/w+) to do that\.$</string>
                             </regexCodeList>
                             <regexCodePropertyList>
+                                <integer>1</integer>
                                 <integer>1</integer>
                             </regexCodePropertyList>
                         </Trigger>
