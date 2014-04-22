@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.0">
+    <TimerPackage>
+        <TimerGroup isActive="yes" isFolder="yes" isTempTimer="no">
+            <name>matawa</name>
+            <script></script>
+            <command></command>
+            <packageName></packageName>
+            <time>00:00:00.000</time>
+        </TimerGroup>
+    </TimerPackage>
+</MudletPackage>
