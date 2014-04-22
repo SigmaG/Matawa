@@ -878,3 +878,4 @@ o Added a tether summon alias 'teths' -Gianna
 o Added a sunspear defense -Raelyr
 o Added some functions to check inventory/vault/IH -Naftali
 o Added a revitalizing toggle 'trv' for priest bashing -Savil
+o Added a 'tch' toggle to print the current char name in the prompt -Gianna

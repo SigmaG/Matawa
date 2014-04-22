@@ -115,6 +115,8 @@ atkecho = true,
 balecho = true,
 --Replace cooldown lines
 cdecho = true,
+--Print the name of the current char in the prompt
+charprompt = false,
 }
 
 --channeling

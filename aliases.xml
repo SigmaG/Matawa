@@ -235,6 +235,13 @@
                                 <packageName></packageName>
                                 <regex>^tcd$</regex>
                             </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>print char name in prompt</name>
+                                <script>mtw.toggle(&quot;charprompt&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tch$</regex>
+                            </Alias>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
                             <name>Bashing Toggles</name>

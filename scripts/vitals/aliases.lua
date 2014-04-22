@@ -87,6 +87,7 @@ function mtw.toggles_alias()
  mtw.disp_toggle("passecho", "tpass: colored echoes for passive effects")
  mtw.disp_toggle("balecho", "tbal: colored echoes for balance alerts")
  mtw.disp_toggle("cdecho", "tcd: colored echoes for cooldown alerts")
+ mtw.disp_toggle("charprompt", "tch: print the char name in the prompt")
  echo("\nClass Toggles:")
  if mtw.my.class == "soldier" then
   mtw.disp_toggle("marching", "tmch: marching instead of move")
