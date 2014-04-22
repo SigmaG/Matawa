@@ -2,7 +2,7 @@
 
 function mtw.do_loot()
  if mtw.have_items then
-  if mtw.balance.balance and mtw.balance.equilibrium and not mtw.waiting.balance and not mtw.waiting.equilibrium then
+  if mtw.balance.balance and mtw.balance.equilibrium and not mtw.waiting.balance and not mtw.waiting.equilibrium and not mtw.need_wield and not mtw.need_offwield then
    mtw.loot_it()
    mtw.waiting.loot = true
    tempTimer(mtw.delay(), [[mtw.waiting.loot = false]])
@@ -12,7 +12,6 @@ function mtw.do_loot()
   mtw.gathering = {}
   mtw.send("ih")
   mtw.waiting.ih = true
-  tempTimer(mtw.delay(), [[mtw.waiting.ih = false]])
  end
 end
 

@@ -145,10 +145,17 @@ if mtw.toggles.fasthunt then
  mtw.do_bashing()
 end
 
+if mtw.toggles.fastappraise then
+ --mtw.toggles.placeholder = true
+ --mtw.waiting.balance = false
+ --mtw.do_placeholder()
+end
+
 end
 
 function mtw.trigger_19(matches,multimatches)
 mtw.sent.ih = true
+tempTimer(mtw.delay(), [[mtw.sent.ih = false]])
 --tempTimer(1, [[if mtw.toggles.bashing then mtw.do_bashing() end]])
 mtw.waiting.ih = false
 mtw.have_items = true
