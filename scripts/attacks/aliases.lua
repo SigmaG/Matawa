@@ -257,7 +257,7 @@ end
 function mtw.summon_alias(matches)
 if table.contains(mtw.skills, "demonology") then
  if matches[2] == "lurker" or "battle demon" or "demon lord" then
-  set_send("vout heartstone")
+  mtw.send("vout heartstone")
  end
   mtw.set_balance("summon "..matches[2])
 end
