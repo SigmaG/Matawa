@@ -65,11 +65,13 @@ end
 function mtw.pairs(table)
  if mtw.default[table] then
   local tab = {}
+  if mtw.custom[table] then
   for k,v in pairs(mtw.custom[table]) do
    tab[k] = v
   end
+  end
   for k,v in pairs(mtw.default[table]) do
-   if not (mtw.custom[table][k] or mtw.unset[table][k]) then
+   if not ((mtw.custom[table] and mtw.custom[table][k]) or (mtw.unset[table] and mtw.unset[table][k])) then
     tab[k] = v
    end
   end
@@ -80,11 +82,13 @@ end
 function mtw.ipairs(table)
  if mtw.default[table] then
   local tab = {}
+  if mtw.custom[table] then
   for k,v in pairs(mtw.custom[table]) do
    tab[k] = v
   end
+  end
   for k,v in pairs(mtw.default[table]) do
-   if not (mtw.custom[table][k] or mtw.unset[table][k]) then
+   if not ((mtw.custom[table] and mtw.custom[table][k]) or (mtw.unset[table] and mtw.unset[table][k])) then
     tab[k] = v
    end
   end

@@ -1293,7 +1293,7 @@ else
 end
 
 if gmcp.Room.Info.area == "Krondor" then
- for i in mtw.pairs(mtw.areas) do
+ for i in mtw.pairs("areas") do
   if mtw.areas[i].krondor == mtw.scry.distance then
 if mtw.areas[i].prime ~= nil then
    for x in pairs(mtw.areas[i].prime) do
