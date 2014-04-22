@@ -11,7 +11,7 @@ function mtw.load_targets(area)
    mtw.bashing.target_type = "long"
    mtw.possible_targets = mtw.areas[area].targets
    for i,v in ipairs(mtw.areas.generic.targets) do
-    table.append(mtw.possible_targets, v)
+    table.insert(mtw.possible_targets, v)
    end
    echo("\n Level Range: "..mtw.areas[area].level)
    cecho("\n<green>Possible Targets:")
@@ -24,7 +24,7 @@ function mtw.load_targets(area)
     mtw.possible_items = {}
    end 
    for i,v in ipairs(mtw.areas.generic.items) do
-    table.append(mtw.possible_items, v)
+    table.insert(mtw.possible_items, v)
    end
    if #mtw.possible_items > 0 then
     cecho("\n<green>Gathering Items:")

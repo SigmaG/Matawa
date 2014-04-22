@@ -48,7 +48,7 @@ function mtw_struct.get_matawa_file(f)
    if fileinfo then
     if found then
      twice = true
-     table.append(others, file)
+     table.insert(others, file)
     else
      found = true
      mtw_struct.folder = file
