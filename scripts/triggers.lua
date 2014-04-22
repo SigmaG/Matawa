@@ -145,11 +145,11 @@ if mtw.toggles.fasthunt then
  mtw.do_bashing()
 end
 
-if mtw.toggles.fastappraise then
- --mtw.toggles.placeholder = true
+--if mtw.toggles.fastappraise then
+ --mtw.toggles.appraising = true
  --mtw.waiting.balance = false
- --mtw.do_placeholder()
-end
+ --mtw.do_apparaising()
+--end
 
 end
 

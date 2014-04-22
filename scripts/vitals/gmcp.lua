@@ -119,6 +119,9 @@ function gmcp_room()
   if mtw.toggles.fasthunt then
    mtw.new.room = true
   end
+  if mtw.toggles.fastappraise then
+   mtw.new.room = true
+  end
 --Check map if fleeing
   if mtw.fleeing then
    send("map", false)
