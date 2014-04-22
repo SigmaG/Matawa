@@ -879,3 +879,7 @@ o Added a sunspear defense -Raelyr
 o Added some functions to check inventory/vault/IH -Naftali
 o Added a revitalizing toggle 'trv' for priest bashing -Savil
 o Added a 'tch' toggle to print the current char name in the prompt -Gianna
+o Added a balestrating toggle for rogue bashing -Elanoron
+o A lot of useful bugfixes -Elanoron
+o Added 'ldd bard' -Elanoron
+o Added offhand rewielding -Elanoron
