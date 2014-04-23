@@ -56,7 +56,7 @@ function mtw.magician_bash()
   end
  elseif mtw.vitals.percent.magic <= 80 and mtw.vitals.cadence >= 1 and not mtw.used.balefire and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast balefire "..mtw.bashing.target)
- elseif mtw.toggles.balefire and not mtw.need_wield and not mtw.need_offwield then
+ elseif mtw.toggles.balefiring and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast balefire "..mtw.bashing.target)
  elseif not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast stormlance "..mtw.bashing.target)

@@ -160,7 +160,7 @@ function mtw.bashing_aliases()
   mtw.disp_toggle("barraging", "tbrg: toggle eldritch barrage")
   mtw.disp_toggle("immolating", "timm: toggle immolating")
   mtw.disp_toggle("spiking", "tis: toggle icespikes")
-  mtw.disp_toggle("balefire", "tblf: toggle balefire instead of stormlance")
+  mtw.disp_toggle("balefiring", "tblf: toggle balefire instead of stormlance")
   if table.contains(mtw.skills, "psionics") then
    mtw.disp_toggle("mindblasting", "tmbl: toggle mindblasting")
   end

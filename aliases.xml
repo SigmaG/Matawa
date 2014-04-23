@@ -426,7 +426,7 @@
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
                                 <name>balefire</name>
-                                <script>mtw.toggle(&quot;balefire&quot;)</script>
+                                <script>mtw.toggle(&quot;balefiring&quot;)</script>
                                 <command></command>
                                 <packageName></packageName>
                                 <regex>^tblf$</regex>
