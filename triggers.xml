@@ -40090,6 +40090,26 @@
                                     </regexCodePropertyList>
                                 </Trigger>
                                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>incoming defend</name>
+                                    <script>mtw.check_illusion(mtw.trigger_seduce_inc_dfnd,matches,multimatches)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(/w+) smiles as a seductive succubus approaches you and whispers seductive promises of pleasure to you. You blush bright red and feel suddenly befuddled. (.*)</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                                     <name>outgoing attack</name>
                                     <script>mtw.check_illusion(mtw.trigger_1552,matches,multimatches)</script>
                                     <triggerType>0</triggerType>
@@ -40103,7 +40123,7 @@
                                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
-                                        <string>^You whisper to a seductive succubus to seduce (\w+), and she fixes her with an inviting smile.$</string>
+                                        <string>^You whisper to a seductive succubus to seduce (\w+), and she fixes (him|her) with an inviting smile.$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
@@ -40123,7 +40143,7 @@
                                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
-                                        <string>^You smile as a seductive succubus approaches (\w+) and whispers seductive promises of pleasure to her, causing her to blush bright red and look befuddled.$</string>
+                                        <string>^You smile as a seductive succubus approaches (\w+) and whispers seductive promises of pleasure to (him|her), causing (him|her) to blush bright red and look befuddled.$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>

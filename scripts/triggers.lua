@@ -7578,6 +7578,10 @@ function mtw.trigger_1551(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "seduce")
 end
 
+function mtw.trigger_seduce_inc_dfnd(matches,multimatches)
+mtw.atk_defend(matches[2], nil, "seduce", matches[3])
+end
+
 function mtw.trigger_1552(matches,multimatches)
 mtw.attack_start(matches[2], "seduce")
 end
@@ -7587,7 +7591,7 @@ mtw.attack_hit(matches[2], "seduce")
 end
 
 function mtw.trigger_1554(matches,multimatches)
-attack_defend(matches[2], nil, "seduce", matches[5])
+mtw.attack_defend(matches[2], nil, "seduce", matches[5])
 end
 
 function mtw.trigger_1555(matches,multimatches)
@@ -7607,7 +7611,7 @@ mtw.attack_hit(matches[2], "curse_of_tongues")
 end
 
 function mtw.trigger_1559(matches,multimatches)
-attack_defend(matches[2], nil, "curse_of_tongues", matches[3])
+mtw.attack_defend(matches[2], nil, "curse_of_tongues", matches[3])
 end
 
 function mtw.trigger_1560(matches,multimatches)
