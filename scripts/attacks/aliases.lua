@@ -187,7 +187,7 @@ if mtw.my.class == "magician" then
  if matches[2] == "" then
   mtw.set_balance("cast compulsion "..mtw.target)
  else
-  mtw.set_balance("compel "..mtw.target..matches[2])
+  mtw.set_balance("compel "..mtw.target.." "..matches[2])
  end
 end
 end
