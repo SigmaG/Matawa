@@ -242,7 +242,7 @@ function mtw.do_overdrive(current)
     tempTimer(mtw.delay(), [[mtw.waiting.overdrive = false]])
    end
   else
-   if mtw.vitals.percent.health <= 75 and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) then
+   if mtw.vitals.percent.health <= 75 and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) and not mtw.have_def("spellshield") then
     mtw.send("overdrive")
     mtw.waiting.overdrive = true
     tempTimer(mtw.delay(), [[mtw.waiting.overdrive = false]] )
