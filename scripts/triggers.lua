@@ -370,6 +370,10 @@ function mtw.trigger_45(matches,multimatches)
 mtw.used.balestra = true
 end
 
+function mtw.trigger_2031(matches,multimatches)
+mtw.used.balefire = true
+end
+
 function mtw.trigger_46(matches,multimatches)
 mtw.used.fleche = true
 end
@@ -9623,8 +9627,4 @@ end
 function mtw.trigger_2030(matches,multimatches)
  mtw.attack_hit(matches[2], "disarm")
  cecho("\n <red>Target lost grip defense!")
-end
-
-function mtw.trigger_2031(matches,multimatches)
-  mtw.used.balefire = true
 end
