@@ -9625,3 +9625,6 @@ function mtw.trigger_2030(matches,multimatches)
  cecho("\n <red>Target lost grip defense!")
 end
 
+function mtw.trigger_2031(matches,multimatches)
+  mtw.used.balefire = true
+end
