@@ -239,6 +239,10 @@ ignite = false,
 heretic = false,
 }
 
+mtw.casted = {
+balefire = false,
+}
+
 mtw.inquartata = false
 
 mtw.new = {

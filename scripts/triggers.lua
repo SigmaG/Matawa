@@ -372,6 +372,11 @@ end
 
 function mtw.trigger_2031(matches,multimatches)
 mtw.used.balefire = true
+mtw.casted.balefire = false
+end
+
+function mtw.trigger_2032(matches,multimatches)
+mtw.casted.balefire = true
 end
 
 function mtw.trigger_46(matches,multimatches)
