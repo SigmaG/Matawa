@@ -113,6 +113,8 @@ function gmcp_room()
   mtw.status.combat = false
   --Remove Inquartata
   mtw.inquartata = false
+  --remove Balefire
+  mtw.casted.balefire = false
 --Initiate fasthunt if necessary
   mtw.need_loot = false
   mtw.toggles.bashing = false
