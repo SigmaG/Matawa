@@ -16,7 +16,11 @@ function gmcp_inv_list()
     --Record each item in our own list
     for _, thing in ipairs(home.items) do
         mtw.inventory[thing.name] = mtw.inventory[thing.name] or {}
-        mtw.inventory[thing.name][thing.id] = thing.attrib
+        if thing.attrib then
+            mtw.inventory[thing.name][thing.id] = thing.attrib
+        else
+            mtw.inventory[thing.name][thing.id] = "-"
+        end
     end
 end
 
@@ -44,9 +48,12 @@ function gmcp_inv_add()
     mtw.inventory = mtw.inventory or {}
 
     local thing = home.item
-
     mtw.inventory[thing.name] = mtw.inventory[thing.name] or {}
-    mtw.inventory[thing.name][thing.id] = thing.attrib
+    if thing.attrib then
+        mtw.inventory[thing.name][thing.id] = thing.attrib
+    else
+        mtw.inventory[thing.name][thing.id] = "-"
+    end
 end
 
 function gmcp_inv_remove()
@@ -60,6 +67,9 @@ function gmcp_inv_remove()
 
     if not ( mtw.inventory[thing.name] and mtw.inventory[thing.name][thing.id] ) then return end
     mtw.inventory[thing.name][thing.id] = nil
+    if #(mtw.inventory[thing.name]) == 0 then
+        mtw.inventory[thing.name] = nil
+    end
 end
 
 function gmcp_inv_update()
@@ -92,6 +102,7 @@ function gmcp_vault_change()
     mtw.vault = mtw.vault or {}
 
     local thing, amount = gmcp.IRE.Rift.Change.name, tonumber(gmcp.IRE.Rift.Change.amount)
+display(gmcp.IRE.Rift.Change)
 
     if amount == 0 then mtw.vault[thing] = nil return end
 
@@ -168,7 +179,11 @@ end
 
 function mtw.in_inv(item)
     item = item:match("%a+(%d+)") or item
-    return table.contains(mtw.inventory,item)
+    if tonumber(item) then
+        return table.contains(mtw.inventory,item)
+    else
+        return table.contains(mtw.inventory,item) or table.contains(mtw.inventory,"a "..item) or table.contains(mtw.inventory,"the "..item) or table.contains(mtw.inventory,"an "..item) 
+    end
 end
 
 function mtw.is_wielded(item)
@@ -180,7 +195,17 @@ function mtw.is_wielded(item)
             if table[item]:match("l") then return true end
         end
     else
-        for id, attrib in pairs(mtw.inventory[item]) do
+        local it = item
+        if not (mtw.inventory[item]) then
+            if mtw.inventory["a "..item] then
+                it = "a "..item
+            elseif mtw.inventory["an "..item] then
+                it = "an "..item
+            elseif mtw.inventory["the "..item] then
+                it = "the "..item
+            end
+        end
+        for id, attrib in pairs(mtw.inventory[it]) do
             if attrib:match("l") then return true end
         end
     end
@@ -189,7 +214,11 @@ end
 
 function mtw.in_room(item)
     item = item:match("%a+(%d+)") or item
-    return table.contains(mtw.roomitems,item)
+    if tonumber(item) then
+        return table.contains(mtw.roomitems,item)
+    else
+        return table.contains(mtw.roomitems,item) or table.contains(mtw.roomitems,"a "..item) or table.contains(mtw.roomitems,"the "..item) or table.contains(mtw.roomitems,"an "..item) 
+    end
 end
 
 function mtw.in_vault(item, amount)
