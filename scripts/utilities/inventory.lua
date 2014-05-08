@@ -102,7 +102,6 @@ function gmcp_vault_change()
     mtw.vault = mtw.vault or {}
 
     local thing, amount = gmcp.IRE.Rift.Change.name, tonumber(gmcp.IRE.Rift.Change.amount)
-display(gmcp.IRE.Rift.Change)
 
     if amount == 0 then mtw.vault[thing] = nil return end
 
