@@ -87,6 +87,16 @@ function mtw.do_balance_take(current)
      return
     end
    end
+   if current == "def_spellshield" then
+    if mtw.vitals.percent.health > 50 and mtw.vitals.percent.magic < 25 then
+     return
+    end
+   end
+   if current == "def_arcane_power" then
+    if mtw.vitals.percent.magic < 100 then
+     return
+    end
+   end
   end
   echo(" ("..mtw.defenses[current].balance.balancetake..")")
   mtw.send(mtw.defenses[current].balance.balancetake)
