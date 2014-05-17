@@ -346,6 +346,7 @@ mtw.weapons = {
 "maul",
 "warhammer",
 "club",
+"athame",
 }
 
 mtw.offweapons = {
