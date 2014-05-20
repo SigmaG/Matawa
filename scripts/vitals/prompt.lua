@@ -78,11 +78,11 @@ function mtw.prompt_function()
   mtw.check.bloodboil = false
  end
  if mtw.vitals.percent.health == 100 and mtw.my.class ~= "magician" and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
-  if mtw.check.reckless or mtw.status.combat then 
+  if mtw.check.reckless then 
    mtw.aff_have("recklessness")
   end
   elseif mtw.vitals.percent.magic == 100 and mtw.my.class == "magician" and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
-    if mtw.check.reckless or mtw.status.combat then 
+    if mtw.check.reckless then 
    mtw.aff_have("recklessness")
   end
  else
