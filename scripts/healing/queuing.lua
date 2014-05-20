@@ -24,13 +24,16 @@ mtw.priorities = {
 "aff_balance_loss",
 "aff_equilibrium_loss",
 --Afflictions
+
+--====Key Affs and Insta-Leads====--
+"aff_concussion",
 "aff_malaise",
+"aff_epilepsy",
+"aff_horror",
 "aff_astral_warp",
 "aff_indiscriminate_trust",
 "aff_mindmeld",
 "aff_impatience",
-"aff_epilepsy",
-"aff_concussion",
 "aff_burst_organs",
 "aff_broken_left_arm",
 "aff_fear",
@@ -40,11 +43,16 @@ mtw.priorities = {
 "aff_compulsion",
 "aff_lust",
 "aff_paranoia",
+
+--====Bleeding====--
+"aff_hemophilia",
 "aff_bleeding_5",
 "aff_bleeding_4",
 "aff_bleeding_3",
 "aff_bleeding_2",
 "aff_bleeding_1",
+
+--====High Priority (T1)====--
 "aff_heretic",
 "aff_atoning",
 "aff_retribution",
@@ -61,16 +69,19 @@ mtw.priorities = {
 "aff_neural_charges",
 "aff_health_10",
 "aff_magic_10",
+
+--====Defense Disablers and Severe Hinders====--
 "aff_blind",
 "aff_paralysis",
 "aff_chilled_3",
 "aff_stupidity",
 "aff_chilled_2",
 "aff_chilled_1",
-"aff_hypersomnia",
+"aff_crippled",
 "aff_battered",
 "aff_brain_damage_5",
 "aff_brain_damage_4",
+"aff_weariness",
 "aff_befuddle_5",
 "aff_befuddle_4",
 "aff_wither_5",
@@ -81,6 +92,14 @@ mtw.priorities = {
 "aff_dizziness_1",
 "aff_horror",
 "aff_terror",
+"aff_cataplexy",
+"aff_dystonia",
+"aff_maladroitness",
+"aff_ataxia",
+"aff_anemia",
+"aff_hypochondria",
+
+--====High Priority (T2)====--
 "aff_magic_35",
 "aff_health_35",
 "aff_burns_2",
@@ -97,23 +116,18 @@ mtw.priorities = {
 "aff_broken_left_leg",
 "aff_brain_damage_2",
 "aff_heart_palpitations",
+
+--====High Priority (T3)====--
 "aff_health_55",
 "aff_magic_55",
 "aff_faithrot",
 "aff_brain_damage_1",
 "aff_infirmity_3",
-"aff_cataplexy",
-"aff_dystonia",
-"aff_maladroitness",
-"aff_ataxia",
-"aff_anemia",
-"aff_hypochondria",
-"aff_crippled",
-"aff_ill_omen_1",
-"aff_ill_omen_2",
-"aff_ill_omen_3",
-"aff_ill_omen_4",
 "aff_ill_omen_5",
+"aff_ill_omen_4",
+"aff_ill_omen_3",
+"aff_ill_omen_2",
+"aff_ill_omen_1",
 "aff_hamstrung",
 "aff_vomiting",
 "aff_infirmity_2",
@@ -126,6 +140,8 @@ mtw.priorities = {
 "aff_collapsed_lungs",
 "aff_severed_nerves_3",
 "aff_sensitivity",
+
+--====Medium Priority====--
 "aff_psychic_feedback",
 "aff_headache",
 "aff_repenting_3",
@@ -135,10 +151,8 @@ mtw.priorities = {
 "aff_exhaustion",
 "aff_repenting_1",
 "aff_astral_tether",
-"aff_weariness",
 "aff_cut_tendon_3",
 "aff_dementia_3",
-"aff_hemophilia",
 "aff_cut_tendon_2",
 "aff_cut_tendon_1",
 "aff_clumsiness",
@@ -146,6 +160,8 @@ mtw.priorities = {
 "aff_sun_allergy",
 "aff_health_75",
 "aff_magic_75",
+
+--====Low Priority====--
 "aff_dementia_2",
 "aff_weak_legs",
 "aff_somnolence",
@@ -160,24 +176,6 @@ mtw.priorities = {
 "aff_repenting_2",
 "aff_severed_tendons",
 "aff_deaf",
---"aff_amnesia",
-"aff_aphasia",
-"aff_black_lung",
-"aff_curse_of_tongues",
-"aff_scabies",
-"aff_plague",
-"aff_nightmares",
-"aff_asthma",
-"aff_repenting_1",
-"aff_disloyalty", 
-"aff_waking_dreams",
-"aff_confusion",
-"aff_anorexia",
-"aff_porphyria",
-"aff_manaleech",
-"aff_slit_throat",
-"aff_burnt_tongue",
-
 
 "def_myrrh",
 --Vigilance
@@ -403,6 +401,7 @@ mtw.priorities = {
 --"atk_coup_de_grace",
 --Rogue: Subtlety
 "atk_backstab",
+"atk_slit_throat",
 "atk_crossbow",
 --Rogue: Thievery
 "atk_vileblade",
