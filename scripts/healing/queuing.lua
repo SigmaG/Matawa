@@ -57,6 +57,7 @@ mtw.priorities = {
 "aff_atoning",
 "aff_retribution",
 "aff_unstable",
+"aff_sensitivity",
 "aff_burning_left_arm",
 "aff_burning_left_leg",
 "aff_burning_right_arm",
@@ -90,7 +91,6 @@ mtw.priorities = {
 "aff_infirmity_4",
 "aff_dizziness_2",
 "aff_dizziness_1",
-"aff_horror",
 "aff_terror",
 "aff_cataplexy",
 "aff_dystonia",
@@ -139,7 +139,6 @@ mtw.priorities = {
 "aff_severed_nerves_4",
 "aff_collapsed_lungs",
 "aff_severed_nerves_3",
-"aff_sensitivity",
 
 --====Medium Priority====--
 "aff_psychic_feedback",
