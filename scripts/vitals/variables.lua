@@ -69,6 +69,7 @@ swording = true,
 balefiring = false,
 palming = false,
 revitalizing = true,
+raking = true,
 --Name/numeric targeting
 generics = false,
 --Bashing options
@@ -237,6 +238,7 @@ balestra = false,
 savage = false,
 ignite = false,
 heretic = false,
+rake = false,
 }
 
 mtw.casted = {
@@ -436,7 +438,8 @@ sent = false,
 clotting = false,
 recover = false,
 wield = false,
-loot = false
+loot = false,
+bash = false,
 }
 
 --Balance reset timers

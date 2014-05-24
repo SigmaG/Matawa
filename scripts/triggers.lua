@@ -379,6 +379,10 @@ function mtw.trigger_2032(matches,multimatches)
 mtw.casted.balefire = true
 end
 
+function mtw.trigger_2033(matches,multimatches)
+mtw.used.rake = true
+end
+
 function mtw.trigger_46(matches,multimatches)
 mtw.used.fleche = true
 end
@@ -386,6 +390,7 @@ end
 function mtw.trigger_47(matches,multimatches)
 mtw.used.fleche = false
 mtw.used.savage = false
+mtw.used.rake = false
 end
 
 function mtw.trigger_48(matches,multimatches)

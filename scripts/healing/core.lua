@@ -93,10 +93,11 @@ function mtw.do_bashing()
  if mtw.balance.equilibrium and not mtw.waiting.equilibrium and mtw.bashing.engaged then
   mtw.do_bashing_eq()
  end
- if mtw.balance.balance and not mtw.waiting.balance then
+ if mtw.balance.balance and not mtw.waiting.balance and not mtw.waiting.bash then
   if mtw.bashing.targeted then
    mtw.waiting.balance = true
    tempTimer(0.5, [[mtw.waiting.balance = false]])
+   tempTimer(mtw.delay(), [[mtw.waiting.bash = false]])
    mtw.bashing_function()
   end
  end

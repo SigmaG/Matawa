@@ -431,6 +431,13 @@
                                 <packageName></packageName>
                                 <regex>^tblf$</regex>
                             </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>rake</name>
+                                <script>mtw.toggle(&quot;raking&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^trk$</regex>
+                            </Alias>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
                             <name>Misc Toggles</name>

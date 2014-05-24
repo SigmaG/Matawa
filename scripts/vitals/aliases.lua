@@ -127,6 +127,9 @@ function mtw.bashing_aliases()
   if table.contains(mtw.skills, "swordmastery") then
    mtw.disp_toggle("starfurying", "tsf: toggle starfurying")
   end
+    if table.contains(mtw.skills, "brutality") then
+   mtw.disp_toggle("raking", "trk: toggle raking")
+  end
  elseif mtw.my.class == "rogue" then
   mtw.disp_toggle("fleching", "tflh: toggle fleching")
   mtw.disp_toggle("hiding", "thid: toggle hiding")
