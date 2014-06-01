@@ -1463,7 +1463,7 @@
                                 <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                 <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                 <regexCodeList>
-                                    <string>^You slice ([^\.]+?) across (.*)'s body, savagely raking (\w+).$</string>
+                                    <string>^You slice ([^\.]+?) across (.*)('s|') body, savagely raking (\w+).$</string>
                                 </regexCodeList>
                                 <regexCodePropertyList>
                                     <integer>1</integer>
@@ -7839,9 +7839,10 @@
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
                                         <string>^You reject your unnatural attraction to (\w+).$</string>
+                                        <string>^There is no reason to reject (\w+).$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
-                                        <integer>1</integer>
+                                        <integer>2</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
                             </TriggerGroup>
@@ -7895,9 +7896,10 @@
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
                                         <string>^You reject (\w+)'s presence in your mind.$</string>
+                                        <string>^There is no reason to reject (\w+).$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
-                                        <integer>1</integer>
+                                        <integer>2</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
                                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
@@ -41895,9 +41897,9 @@
                                 </Trigger>
                                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                                     <name>claustrophobic</name>
-                                    <script></script>
+                                    <script>mtw.check_illusion(mtw.trigger_2030,matches,multimatches)</script>
                                     <triggerType>0</triggerType>
-                                    <conditonLineDelta>99</conditonLineDelta>
+                                    <conditonLineDelta>3</conditonLineDelta>
                                     <mStayOpen>0</mStayOpen>
                                     <mCommand></mCommand>
                                     <packageName></packageName>
