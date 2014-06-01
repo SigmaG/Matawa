@@ -7878,6 +7878,10 @@ function mtw.trigger_1621(matches,multimatches)
 mtw.aff_have("agoraphobia")
 end
 
+function mtw.trigger_2030(matches,multimatches)
+mtw.aff_have("claustrophobia")
+end
+
 function mtw.trigger_1622(matches,multimatches)
 mtw.aff_have("dizziness_1")
 mtw.aff_have("confusion")
@@ -9638,3 +9642,6 @@ function mtw.trigger_2030(matches,multimatches)
  mtw.attack_hit(matches[2], "disarm")
  cecho("\n <red>Target lost grip defense!")
 end
+
+
+
