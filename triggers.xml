@@ -38037,7 +38037,7 @@
                                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
-                                        <string>^You shrug off (\w+)('s|') feeble visions\.$</string>
+                                        <string>^As (\w+) ceases casting, everything around you changes subtly, your eyes flickering as they try to focus on your surroundings.$.</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
