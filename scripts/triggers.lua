@@ -5446,14 +5446,14 @@ mtw.attack_defend(matches[2], matches[4], "starfury", matches[5])
 end
 
 function mtw.trigger_1049(matches,multimatches)
-mtw.atk_hit(matches[2], nil, "wisplight")
+mtw.atk_hit(matches[4], nil, "wisplight")
 end
 
 function mtw.trigger_1050(matches,multimatches)
 mtw.attack_hit(matches[4], "wisplight")
 mtw.balance_lose("offhand")
 cecho("\n<brown> You gave: <green>")
-if matches[2] == "indigo" then
+if matches[3] == "indigo" then
  cecho("HEADACHE")
 else
  cecho("IMPATIENCE")
@@ -5731,7 +5731,7 @@ function mtw.trigger_1114(matches,multimatches)
 mtw.attack_hit(matches[4], "sunburst")
 mtw.balance_lose("offhand")
 cecho("\n<brown> You gave: <green>")
-if matches[2] == "orange" then
+if matches[3] == "orange" then
  cecho("EPILEPSY")
 else
  cecho("BRAIN DAMAGE")

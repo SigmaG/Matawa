@@ -28963,7 +28963,7 @@
                                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
-                                        <string>^([^\.]+) traces a mystic star in the air and invokes a pale burst of moonlight in your face.$</string>
+                                        <string>^([^\.]+) traces a mystic star in the air and invokes a (\w+) burst of moonlight in your face.$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
