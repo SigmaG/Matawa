@@ -49,7 +49,6 @@ end
 if mtw.have_aff("blackout") then 
  tempLineTrigger(1,1,[[if not isPrompt() then mtw.afflictions.aff_blackout.state = "healed" mtw.queue_diag() mtw.soft_reset() end]])
 end
-
 end
 
 function mtw.trigger_2(matches,multimatches)
@@ -4244,7 +4243,7 @@ mtw.atk_start(matches[3], matches[2], "obliterate")
 end
 
 function mtw.trigger_755(matches,multimatches)
-mtw.atk_hit(matches[4], matches[5], "obliterate")
+mtw.atk_hit(matches[3], matches[4], "obliterate")
 end
 
 function mtw.trigger_756(matches,multimatches)
@@ -5310,7 +5309,7 @@ end
 
 function mtw.trigger_1015(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "stomp")
-
+mtw.aff_have("blackout")
 end
 
 function mtw.trigger_1016(matches,multimatches)
@@ -5383,6 +5382,10 @@ end
 
 function mtw.trigger_1033(matches,multimatches)
 mtw.attack_miss(matches[3], "burst_organs")
+end
+
+function mtw.trigger_2035(matches,multimatches)
+mtw.attack_hit(matches[3], "burst_organs")
 end
 
 function mtw.trigger_1034(matches,multimatches)
@@ -7878,7 +7881,7 @@ function mtw.trigger_1621(matches,multimatches)
 mtw.aff_have("agoraphobia")
 end
 
-function mtw.trigger_2030(matches,multimatches)
+function mtw.trigger_2034(matches,multimatches)
 mtw.aff_have("claustrophobia")
 end
 

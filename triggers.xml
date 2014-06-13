@@ -27867,7 +27867,7 @@
                                 </Trigger>
                                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                                     <name>outgoing hit</name>
-                                    <script></script>
+                                    <script>mtw.check_illusion(mtw.trigger_2035,matches,multimatches)</script>
                                     <triggerType>0</triggerType>
                                     <conditonLineDelta>40</conditonLineDelta>
                                     <mStayOpen>0</mStayOpen>
@@ -27879,10 +27879,10 @@
                                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
-                                        <string>^You slam a fine Rodezian steel longsword into Nemi's gut, bursting her organs and causing a hideous bruise to distend her stomach.$</string>
+                                        <string>^You slam ([^\.]+) into (\w+)('s|') gut, bursting (\w+) organs and causing a hideous bruise to distend (\w+) stomach.$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
-                                        <integer>0</integer>
+                                        <integer>1</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
                                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
