@@ -89,6 +89,13 @@
                                 <regex>^tcoun$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
+                                <name>counterstroke</name>
+                                <script>mtw.toggle(&quot;counterstroke&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tcstroke$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
                                 <name>gathering</name>
                                 <script>mtw.toggle(&quot;gathering&quot;)</script>
                                 <command></command>

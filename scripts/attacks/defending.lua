@@ -326,7 +326,7 @@ end
 function mtw.do_counter()
  if mtw.recent_defend and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") then
   if mtw.toggles.killing and mtw.toggles.countering and mtw.balance.balance and not mtw.waiting.balance and mtw.not_aff("prone") and mtw.not_entangled() then
-   if mtw.my.class == "soldier" and table.contains(mtw.skills, "Counter") then
+   if mtw.my.class == "soldier" and table.contains(mtw.skills, "Counter") and not counter_sent and not counterstroke then
     mtw.send("counter "..mtw.target)
     counter_sent = true
     mtw.waiting.balance = true
@@ -336,6 +336,15 @@ function mtw.do_counter()
     mtw.send("inquartata "..mtw.target)
     mtw.waiting.balance = true
     tempTimer(mtw.delay(), [[mtw.waiting.balance = false]])
+   end
+  end
+ end
+  if mtw.recent_defend and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") then
+  if mtw.toggles.killing and mtw.toggles.countering and mtw.not_aff("prone") and mtw.not_entangled() then
+   if mtw.my.class == "soldier" and table.contains(mtw.skills, "Counter") and not counter_sent and not counterstroke then
+    mtw.send("counter "..mtw.target)
+    counter_sent = true
+    tempTimer(mtw.delay(), [[counter_sent = false]])
    end
   end
  end

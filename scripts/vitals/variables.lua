@@ -41,6 +41,7 @@ mining = false,
 bleeding = true,
 --Using counter/inquartata
 countering = false,
+counterstroke = false,
 --Bashing skill toggles
 berserking = false,
 sundering = false,
