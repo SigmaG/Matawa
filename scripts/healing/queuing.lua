@@ -79,6 +79,7 @@ mtw.priorities = {
 "aff_chilled_2",
 "aff_chilled_1",
 "aff_crippled",
+"aff_hypersomnia",
 "aff_battered",
 "aff_brain_damage_5",
 "aff_brain_damage_4",
@@ -141,6 +142,7 @@ mtw.priorities = {
 "aff_severed_nerves_3",
 
 --====Medium Priority====--
+"aff_black_lung",
 "aff_psychic_feedback",
 "aff_headache",
 "aff_repenting_3",
@@ -499,6 +501,7 @@ mtw.priorities = {
 "atk_melt",
 "atk_incinerate",
 "atk_burning_embers",
+"atk_embers",
 --Priest: Shadoweaving
 "atk_torturous_whip",
 --"atk_shadow_theft",
