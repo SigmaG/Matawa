@@ -9220,7 +9220,7 @@ mtw.atk_hit(matches[2], nil, "lunar_bay")
 end
 
 function mtw.trigger_1936(matches,multimatches)
-mtw.atk_defend(matches[2], nil, "lunar_bay", matches[6])
+mtw.atk_defend(matches[2], nil, "lunar_bay", matches[5])
 end
 
 function mtw.trigger_1937(matches,multimatches)
@@ -9308,15 +9308,15 @@ mtw.atk_defend(matches[2], nil, "carnal_scream", matches[4])
 end
 
 function mtw.trigger_1958(matches,multimatches)
-mtw.atk_start(matches[2], nil, "scarlethorror")
+mtw.atk_start(matches[2], nil, "scarlet_horror")
 end
 
 function mtw.trigger_1959(matches,multimatches)
-mtw.atk_hit(matches[2], nil, "scarlethorror")
+mtw.atk_hit(matches[2], nil, "scarlet_horror")
 end
 
 function mtw.trigger_1960(matches,multimatches)
-mtw.atk_defend(matches[2], nil, "scarlethorror", matches[4])
+mtw.atk_defend(matches[2], nil, "scarlet_horror", matches[4])
 end
 
 function mtw.trigger_1961(matches,multimatches)
