@@ -868,7 +868,7 @@ o Added a way to handle bashing areas with commands (?area) -Savil
 o Lots of useful fixes (psionics triggers, recklessness check, commanded affliction, counter, loot/rage, suckerpunch) -Elanoron
 o Inking a tattoo and deepshrouding now prevents the system from processing commands, as rifting does -Savil
 
-v
+v9.8
 o Made decapitate easier to notice -Savil
 o Both aliases 'rift' and 'cast rift' can work -Savil
 o Added a 'generic' area in which you can add mobs that you want to bash in every area (wyrms, pumpkins...) -Savil
@@ -879,7 +879,55 @@ o Added a sunspear defense -Raelyr
 o Added some functions to check inventory/vault/IH -Naftali
 o Added a revitalizing toggle 'trv' for priest bashing -Savil
 o Added a 'tch' toggle to print the current char name in the prompt -Gianna
-o Added a balestrating toggle for rogue bashing -Elanoron
-o A lot of useful bugfixes -Elanoron
-o Added 'ldd bard' -Elanoron
-o Added offhand rewielding -Elanoron
+o Pyromancer updates to attack table and triggers - Elanoron
+o Blood priest updates to attack table and triggers - Elanoron
+o Priest Righteousness changes to attack table and triggers - Elanoron
+o Healing queue receives a big update with missing afflictions filled in - Elanoron
+o Berserking added to the prompt trigger - Elanoron
+o Berserker udpates to attack tables and triggers - Elanoron
+o Rake added to soldier bash function - trk to toggle raking - Elanoron
+o A counterstroke upon has been added for those with the balanceless counter mastery - use tcstroke to toggle - Elanoron
+o Swordmastery burst attack triggers updated - Elanoron
+o Dementia has a new healing got message (updated) - Elanoron
+o Claustrophobia has a new healing got message (updated) - Elanoron
+o Off-hand rewielding added to the system with checks for off-hand rewielding in bashing functions - Elanoron
+o Fixed the mtw.status.combat check for check.recklessness - Elanoron
+o added additional recklessness checks for magicians - Elanoron
+o added casted.balefire checks in room checking function - Elanoron
+o lowered the priority action for 'do reject' in the queuing lua - Elanoron
+o added spellshield check for overdriving - Elanoron
+o fixed compel alias - Elanoron
+o added incoming and outgoing messages for demonologiy seduce attack - Elanoron
+o skeleton for fast appraising added (will flesh out in the future) - Elanoron
+o fixed demon summoning alias - Elanoron
+o optimized the looting function - Elanoron
+o added safety checks to target calling function - Elanoron
+o new outgoing triggers for rogues - Elanoron
+o attack table list updated with appropriate def variable checks for each attack (still work in progress) - Elanoron
+o tbalestra function added for advanced rogue bashing - Elanoron
+o change in gripping defense check for artie users - Elanoron
+o shields added to mtw.weapons table - Elanoron
+o inquartata added to gmcp_room check - Elanoron
+o fixed the prelude check for bards when bashing - Elanoron
+o rogue hiding fixes added for when bashing - Elanoron
+o incoming and outgoing trigger for immolate (fixed again...) - Elanoron
+o flee check to looting added - Elanoron
+o added a stand queue check - Elanoron
+o added a got line for concussion from suckerpunch - Elanoron
+o added greatsword to mtw.weapons table - Elanoron
+o changed the way divinecommand is cured - Elanoron
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
