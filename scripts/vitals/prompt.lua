@@ -67,6 +67,16 @@ function mtw.prompt_function()
   end
  end
 
+ if mtw.status.combat and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") then
+  if mtw.toggles.berserking and mtw.balance.balance and not mtw.waiting.balance and mtw.not_aff("prone") and mtw.not_entangled() then
+   if mtw.my.class == "soldier" and table.contains(mtw.skills, "Berserking") and mtw.defenses.def_berserking.state ~= "deffed" and not berserk_sent then
+    mtw.send("berserk")
+    berserk_sent = true
+    tempTimer(mtw.delay(), [[berserk_sent = false]])
+   end
+  end
+ end
+
 --Reset important commands without ending lines
  for i in pairs(mtw.sent) do
   mtw.sent[i] = false
@@ -77,8 +87,12 @@ function mtw.prompt_function()
   mtw.aff_have("blackout")
   mtw.check.bloodboil = false
  end
- if mtw.vitals.percent.health == 100 and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
+ if mtw.vitals.percent.health == 100 and mtw.my.class ~= "magician" and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
   if mtw.check.reckless then 
+   mtw.aff_have("recklessness")
+  end
+  elseif mtw.vitals.percent.magic == 100 and mtw.my.class == "magician" and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
+    if mtw.check.reckless then 
    mtw.aff_have("recklessness")
   end
  else

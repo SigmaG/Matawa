@@ -22,15 +22,17 @@ function mtw.soldier_bash()
   mtw.send("berserk")
  end
 -- mtw.send("threaten "..mtw.bashing.target)
- if table.contains(mtw.skills, "Desperate Strike") and mtw.balance.desperate and mtw.vitals.adrenaline < 15 and mtw.vitals.percent.health < 25 then
+ if table.contains(mtw.skills, "Desperate Strike") and mtw.balance.desperate and mtw.vitals.adrenaline < 15 and mtw.vitals.percent.health < 25 and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("strike "..mtw.bashing.target)
- elseif not mtw.used.sunder and table.contains(mtw.skills, "Sunder Armor") and mtw.toggles.sundering then
+ elseif not mtw.used.rake and table.contains(mtw.skills, "Rake") and mtw.toggles.raking and not mtw.need_wield and not mtw.need_offwield then
+  mtw.send("rake "..mtw.bashing.target)
+ elseif not mtw.used.sunder and table.contains(mtw.skills, "Sunder Armor") and mtw.toggles.sundering and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("sunder "..mtw.bashing.target)
- elseif table.contains(mtw.skills, "swordmastery") and table.contains(mtw.skills, "Starfury Slash") and mtw.toggles.starfurying and not mtw.used.starfury and mtw.vitals.adrenaline >= 85 then
+ elseif table.contains(mtw.skills, "swordmastery") and table.contains(mtw.skills, "Starfury Slash") and mtw.toggles.starfurying and not mtw.used.starfury and mtw.vitals.adrenaline >= 85 and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("starfuryslash "..mtw.bashing.target)
- elseif mtw.vitals.adrenaline > 89 and mtw.toggles.obliterating and not mtw.need_wield then
+ elseif mtw.vitals.adrenaline > 89 and mtw.toggles.obliterating and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("obliterate "..mtw.bashing.target)
- elseif mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping") and not mtw.need_wield then
+ elseif (mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping")) and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("slash "..mtw.bashing.target)
  end
 end
@@ -108,7 +110,7 @@ function mtw.priest_bash()
   elseif table.contains(mtw.skills, "thanatology") then
    mtw.send("deathcall desperate prayer")
   end
- elseif (mtw.vitals.percent.health < 25) and (mtw.vitals.current.faith > 30) and table.contains(mtw.skills, "Zealous Mandate") then
+ elseif (mtw.vitals.percent.health < 60) and (mtw.vitals.current.faith > 65) and table.contains(mtw.skills, "Zealous Mandate") then
   mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
  elseif (mtw.vitals.percent.health < 50) and (mtw.vitals.current.faith > 100) and table.contains(mtw.skills, "Zealous Mandate") and mtw.toggles.mandate then
   mtw.send("smite "..mtw.bashing.target.." with zealous mandate")

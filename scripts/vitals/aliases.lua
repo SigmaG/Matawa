@@ -72,6 +72,7 @@ function mtw.toggles_alias()
  mtw.disp_toggle("closing", "tcl: closing pack")
  mtw.disp_toggle("looping", "tlp: looping a single attack")
  mtw.disp_toggle("countering", "tcoun: use of counter or inquartata")
+ mtw.disp_toggle("counterstroke", "tcstroke: toggle for coutnerstroke mastery")
  echo("\nDisplay Toggles:")
  mtw.disp_toggle("percents", "tpr: numbers/percents on prompt")
  mtw.disp_toggle("fullprompt", "tfp: display 0 as change in vital stats on prompt")
@@ -126,6 +127,9 @@ function mtw.bashing_aliases()
   mtw.disp_toggle("sundering", "tsnd: toggle sundering")
   if table.contains(mtw.skills, "swordmastery") then
    mtw.disp_toggle("starfurying", "tsf: toggle starfurying")
+  end
+    if table.contains(mtw.skills, "brutality") then
+   mtw.disp_toggle("raking", "trk: toggle raking")
   end
  elseif mtw.my.class == "rogue" then
   mtw.disp_toggle("fleching", "tflh: toggle fleching")
