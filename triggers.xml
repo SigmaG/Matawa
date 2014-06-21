@@ -6597,7 +6597,7 @@
                                 <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                 <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                 <regexCodeList>
-                                    <string>^The (gold|silver|gem|iron|marble|platinum|coal) (vein|deposit) is depleted.$</string>
+                                    <string>^The (gold|silver|gem|iron|marble|platinum|coal|copper|zinc|tin) (vein|deposit) is depleted.$</string>
                                 </regexCodeList>
                                 <regexCodePropertyList>
                                     <integer>1</integer>
