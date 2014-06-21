@@ -8540,7 +8540,7 @@ mtw.atk_hit(matches[2], matches[3], "verdict")
 end
 
 function mtw.trigger_1781(matches,multimatches)
-mtw.attack_hit(matches[2], "hallowed_verdict")
+mtw.attack_hit(matches[2], "verdict")
 end
 
 function mtw.trigger_1782(matches,multimatches)
