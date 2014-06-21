@@ -180,8 +180,13 @@ function mtw.do_writhe(current)
     mtw.send("writhe")
    end
    if mtw.not_slow() then
-    mtw.last_type = "writhe"
-    mtw.last_item = "send"
+    if table.contains(mtw.skills, "Contort") and mtw.vitals.adrenaline >= 20 then
+     mtw.last_type = "contort"
+     mtw.last_item = "send"
+    else
+     mtw.last_type = "writhe"
+     mtw.last_item = "send"    
+    end
     mtw.waiting.writhe = true
     tempTimer(mtw.delay(), [[mtw.waiting.writhe = false]])
     mtw.afflictions[current].state = "waiting"
