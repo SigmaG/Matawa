@@ -656,6 +656,20 @@
                             <packageName></packageName>
                             <regex>^GMCPcheck$</regex>
                         </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>list saved options</name>
+                            <script>mtw.display_older_option_files()</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^\?import$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>import saved options</name>
+                            <script>mtw.import_option_files(matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^!import (.*)$</regex>
+                        </Alias>
                     </AliasGroup>
                 </AliasGroup>
                 <AliasGroup isActive="yes" isFolder="yes">
