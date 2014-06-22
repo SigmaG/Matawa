@@ -7845,6 +7845,7 @@
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>2</integer>
+                                        <integer>2</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
                             </TriggerGroup>
@@ -7901,6 +7902,7 @@
                                         <string>^There is no reason to reject (\w+).$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
+                                        <integer>2</integer>
                                         <integer>2</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
