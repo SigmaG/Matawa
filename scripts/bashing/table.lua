@@ -118,7 +118,7 @@ mtw.default.areas = {
 ["Cutter's Gap"] = {level = "??", krondor = "extremely far to the north", prime = {"mountains"}, targets = {}},
 ["a track through the High Wold"] = {level = "??", krondor = "extremely far to the north", prime = {"path"}, env = {"mountains"}, targets = {}},
 ["Hush"] = {level = "Group", krondor = "distantly to the northwest", prime = {"urban"}, targets = {"a Goblin Bloodraider", "a Black Slayer of the Northlands"}},
-["Fort Dannis"] = {level = "Group", krondor = "extremely far to the northwest", prime = {"mountain", "ruins"}, env = {"hills"}, targets = {"a goblin conscript", "a troll mercenary", "a wily goblin fighter", "a Moredhel warrior", "a savage troll warrior", "a vicious goblin warrior", "a Moredhel battlemaster"}},
+["Fort Dannis"] = {level = "Group", krondor = "extremely far to the northwest", prime = {"mountain", "ruins"}, env = {"hills"}, targets = {"a goblin conscript", "a troll mercenary", "a wily goblin fighter", "a Moredhel warrior", "a savage troll warrior", "a vicious goblin warrior", "a Moredhel battlemaster", "a Krondorian skirmisher", "a well-armored Krondorian soldier", "a veteran Krondorian warrior", "a Tsurani swordsman", "a captain of Krondor", "a Tsurani berserker", "a stout dwarven warrior"}},
 ["the Ruins of Veilgarden"] = {level = "Siege", krondor = "extremely far to the northwest", prime = {"ruins", "forest"}, targets = {}},
 ["Highcastle"] = {level = "Siege", krondor = "extremely far to the north", targets = {"a moredhel ranger", "a scrappy goblin warrior", "an armored Krondorian soldier", "a rogue of Krondor"}},
 ["Sunspear"] = {level = "Siege", krondor = "very far to the southwest", prime = {"urban"}, env = {"mines"}, targets = {}},
