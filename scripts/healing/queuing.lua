@@ -165,6 +165,7 @@ mtw.priorities = {
 
 --====Low Priority====--
 "aff_dementia_2",
+"aff_asthma",
 "aff_weak_legs",
 "aff_somnolence",
 "aff_sundered_armor",
