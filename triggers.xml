@@ -7122,8 +7122,8 @@
                                         <string>^(\w+) releases (his|her) vice-like grip, allowing you to slip away with ease.$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
-                                        <integer>2</integer>
-                                        <integer>2</integer>
+                                        <integer>1</integer>
+                                        <integer>1</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
                             </TriggerGroup>
@@ -7844,8 +7844,8 @@
                                         <string>^There is no reason to reject (\w+).$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
-                                        <integer>2</integer>
-                                        <integer>2</integer>
+                                        <integer>1</integer>
+                                        <integer>1</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
                             </TriggerGroup>
@@ -7902,8 +7902,8 @@
                                         <string>^There is no reason to reject (\w+).$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
-                                        <integer>2</integer>
-                                        <integer>2</integer>
+                                        <integer>1</integer>
+                                        <integer>1</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
                                 <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
