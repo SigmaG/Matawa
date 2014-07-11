@@ -3989,8 +3989,10 @@
                                             <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                             <regexCodeList>
                                                 <string>^An imp hurls a putrid glob of smoke at (\w+), striking her dead in the chest.$</string>
+                                                <string>^Drawing a poison-coated knife from his robes, the Pantathian Serpent-Priest lunges forward and stabs you between the ribs.$</string>
                                             </regexCodeList>
                                             <regexCodePropertyList>
+                                                <integer>1</integer>
                                                 <integer>1</integer>
                                             </regexCodePropertyList>
                                         </Trigger>
@@ -24893,7 +24895,7 @@
                                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
-                                        <string>^You swing (.*) towards (\w+), attempting to lacerate (him|her).$</string>
+                                        <string>^You swing (.*) towards (.+?), attempting to lacerate (him|her).$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
@@ -24913,7 +24915,7 @@
                                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
-                                        <string>^You slice (.*) across (\w+)'s body, savagely raking (him|her).$</string>
+                                        <string>^You slice (.*) across (.+?)('s|') body, savagely raking (him|her).$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
