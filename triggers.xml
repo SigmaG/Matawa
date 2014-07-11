@@ -20303,9 +20303,11 @@
                                         <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                         <regexCodeList>
                                             <string>^Reality shifts subtly around you as you pray to (.*) for refuge from violence.$</string>
+                                            <string>Reality shifts subtly around you.</string>
                                         </regexCodeList>
                                         <regexCodePropertyList>
                                             <integer>1</integer>
+                                            <integer>3</integer>
                                         </regexCodePropertyList>
                                     </Trigger>
                                     <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
