@@ -460,7 +460,7 @@ recover = {timer = createStopWatch(), cap = 0},
 concentrate = {timer = createStopWatch(), cap = 0},
 perfect = {timer = createStopWatch(), cap = 305},
 desperate = {timer = createStopWatch(), cap = 125},
-rage = {timer = createStopWatch(), cap = 185},
+rage = {timer = createStopWatch(), cap = 200},
 immunity = {timer = createStopWatch(), cap = 125},
 psi = {timer = createStopWatch(), cap = 18},
 }
