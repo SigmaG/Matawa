@@ -49147,7 +49147,7 @@
                                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
-                                        <string>^(\w+) finishes (his|her) prayer and the spectral wolves mutilate you with their rabid fangs. (.*)</string>
+                                        <string>^(\w+) finishes (his|her) prayer and the spectral wolves mutilate you. (.*)</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
@@ -49901,7 +49901,7 @@
                                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
-                                        <string>^(\w+) hurls (.*) at you, which strikes you. Suddenly, the blood dripping on ([^\.]+) forms into living blood-knives and impale you a dozen times.$</string>
+                                        <string>^(\w+) hurls ([^\.]+) at you, which strikes you. Suddenly, the blood dripping on ([^\.]+) forms into living blood-knives and impale you a dozen times.$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
