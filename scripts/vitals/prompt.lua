@@ -87,6 +87,7 @@ function mtw.prompt_function()
   mtw.aff_have("blackout")
   mtw.check.bloodboil = false
  end
+
  if mtw.vitals.percent.health == 100 and mtw.my.class ~= "magician" and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
   if mtw.check.reckless then 
    mtw.aff_have("recklessness")
@@ -97,8 +98,8 @@ function mtw.prompt_function()
   end
  else
   mtw.aff_remove("recklessness")
+  mtw.check.reckless = false
  end
- mtw.check.reckless = false
 
  for i in pairs(mtw.afflictions) do
   if mtw.afflictions[i].state == "possible" then
