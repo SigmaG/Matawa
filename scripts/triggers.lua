@@ -4114,6 +4114,7 @@ end
 function mtw.trigger_737(matches,multimatches)
 --if matches[2] == mtw.my.weapon then
  mtw.need_wield = false
+ mtw.need_offwield = false
 --end
 if mtw.toggles.gripping and mtw.defenses.def_grip.needit then
  mtw.defenses.def_grip.needit = false
@@ -4126,13 +4127,13 @@ function mtw.trigger_738(matches,multimatches)
 for i in ipairs(mtw.weapons) do
  if string.find(matches[2], mtw.weapons[i]) then
   mtw.my.weapon = mtw.weapons[i]
-  mtw.need_wield = true
+  mtw.need_wield = false
  end
 end
 for i in ipairs(mtw.offweapons) do
  if string.find(matches[2], mtw.offweapons[i]) then
   mtw.my.offweapon = mtw.offweapons[i]
-  mtw.need_offwield = true
+  mtw.need_offwield = false
  end
 end
  mtw.waiting.balance = false
