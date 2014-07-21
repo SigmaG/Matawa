@@ -1527,7 +1527,7 @@ send(&quot; &quot;)</script>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>inquartata</name>
-                                    <script>mtw.al_press(&quot;inquartata&quot;)</script>
+                                    <script>mtw.al_rogue(&quot;inquartata&quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
                                     <regex>^inq$</regex>
