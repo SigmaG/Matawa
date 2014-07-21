@@ -9647,5 +9647,17 @@ function mtw.trigger_2030(matches,multimatches)
  cecho("\n <red>Target lost grip defense!")
 end
 
+function mtw.trigger_2036(matches,multimatches)
+if mtw.defenses.def_hiding.needit then
+ mtw.defenses.def_hiding.needit = false
+ echo("\nNo longer keeping hide.")
+ send(" ")
+end
+
+if mtw.toggles.hiding then
+ mtw.toggle("hiding")
+ send(" ")
+end
+end
 
 
