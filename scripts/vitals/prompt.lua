@@ -69,6 +69,14 @@ function mtw.prompt_function()
   end
  end
 
+if not mtw.status.combat and mtw.balance.balance and not mtw.waiting.balance and not mtw.status.combat and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") and mtw.not_aff("prone") and mtw.not_entangled() then
+  if mtw.my.class == "rogue" and mtw.defenses.def_hiding.state ~= "deffed" and (mtw.vitals.percent.guile <= 80 or mtw.toggles.hiding) and not hiding_sent and not mtw.need_loot then
+   mtw.send("hide")
+   hiding_sent = true
+   tempTimer(mtw.delay(), [[hiding_sent = false]])
+  end
+end
+
  if mtw.status.combat and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") then
   if mtw.toggles.berserking and mtw.balance.balance and not mtw.waiting.balance and mtw.not_aff("prone") and mtw.not_entangled() then
    if mtw.my.class == "soldier" and table.contains(mtw.skills, "Berserking") and mtw.defenses.def_berserking.state ~= "deffed" and not berserk_sent then
