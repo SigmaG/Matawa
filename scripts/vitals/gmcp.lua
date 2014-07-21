@@ -112,7 +112,7 @@ function gmcp_room()
   mtw.def_remove("prelude")
   mtw.status.combat = false
   --Remove Inquartata
-  mtw.inquartata = false
+  --mtw.inquartata = false
   --remove Balefire
   mtw.casted.balefire = false
 --Initiate fasthunt if necessary
