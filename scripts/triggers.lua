@@ -6520,7 +6520,7 @@ mtw.attack_hit(matches[2], "cheap_shot")
 end
 
 function mtw.trigger_1299(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "cheap shot", matches[3])
+mtw.attack_defend(matches[2], nil, "cheap_shot", matches[3])
 end
 
 function mtw.trigger_1300(matches,multimatches)
@@ -6621,7 +6621,7 @@ mtw.attack_miss(matches[2], "sucker_punch")
 end
 
 function mtw.trigger_1324(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "sucker punch", matches[4])
+mtw.attack_defend(matches[2], nil, "sucker_punch", matches[4])
 end
 
 function mtw.trigger_1325(matches,multimatches)
