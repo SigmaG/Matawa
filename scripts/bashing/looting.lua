@@ -29,7 +29,9 @@ function mtw.loot_it()
   else
    mtw.send("get "..mtw.gathering[h])
    if string.find(mtw.gathering[h], "coins") then
-    mtw.do_pack("put coins in "..mtw.options.container)
+     if mtw.options.container ~= nil then 
+      mtw.do_pack("put coins in "..mtw.options.container) 
+    end
    end
   end
  end
