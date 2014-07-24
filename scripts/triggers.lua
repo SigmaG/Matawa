@@ -6350,7 +6350,7 @@ end
 
 function mtw.trigger_1258(matches,multimatches)
 mtw.attack_start(matches[2], "inquartata")
-recent_defend = false
+mtw.recent_defend = false
 end
 
 function mtw.trigger_1259(matches,multimatches)
