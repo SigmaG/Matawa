@@ -432,6 +432,7 @@ mtw.priorities = {
 "atk_tomb",
 "atk_immolate",
 --Magician: Arcana
+"atk_balefire",
 "atk_sleep",
 "atk_dementia",
 "atk_counterspell",
