@@ -23,8 +23,10 @@ for k,v in pairs(to_load) do
 end
 end
 
-function mtw.save_options()
+function mtw.save_options(donotprint)
+if not donotprint then
 cecho("<green>\nSaving Options...")
+end
 local save_dir = getMudletHomeDir() .. mtw_struct.sep .. "matawa_options" .. mtw_struct.sep
 if not lfs.attributes(save_dir) then
  lfs.mkdir(save_dir)
@@ -34,7 +36,9 @@ for k,v in pairs(to_save) do
  table.save(save_dir .. v, mtw[k])
 end
 table.save(save_dir .. "version", mtw.version)
+if not donotprint then
 cecho("<green> Done!")
+end
 end
 
 if not mtw_struct.reloading then

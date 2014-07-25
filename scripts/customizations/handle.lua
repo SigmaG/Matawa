@@ -25,6 +25,7 @@ function mtw_struct.set_metatable_custom(table)
     mtw.custom[table] = mtw.custom[table] or {}
     mtw.custom[table][k] = v
    end
+   mtw.save_options(true)
   end,
   __mod = function(t,k) --that function will be used to reset a value to its default (mtw.area % "Elvandar" would reset mtw.area["Elvandar"] to its default value, written in the code)
    mtw.unset[table] = mtw.unset[table] or {}
