@@ -142,6 +142,7 @@ mtw.priorities = {
 "aff_severed_nerves_3",
 
 --====Medium Priority====--
+"aff_waking_dreams",
 "aff_black_lung",
 "aff_psychic_feedback",
 "aff_headache",
