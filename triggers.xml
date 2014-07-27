@@ -5096,6 +5096,7 @@
                                         <string>^You thrust your arms skywards and the air tears apart with a screeching sound, forming a malevolent Demon Gate to (.*).$</string>
                                         <string>You must be standing at a summoning circle in order to open a Demon Gate.</string>
                                         <string>You stop carefully weaving a Demon Gate through space-time.</string>
+                                        <string>You walk in Divine Grace and cannot harm anything until you RENOUNCE GRACE.</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
@@ -5104,6 +5105,7 @@
                                         <integer>3</integer>
                                         <integer>3</integer>
                                         <integer>1</integer>
+                                        <integer>3</integer>
                                         <integer>3</integer>
                                         <integer>3</integer>
                                     </regexCodePropertyList>
