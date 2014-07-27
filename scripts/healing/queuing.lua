@@ -527,7 +527,7 @@ mtw.priorities = {
 "atk_rending_strike",
 "atk_yellow_bile",
 "atk_sanguishift",
---"atk_knife_of_woe",
+"atk_knife_of_woe",
 "atk_carnal_scream",
 "atk_black_bile",
 "atk_betrayal_of_blood",
