@@ -528,3 +528,27 @@ mtw.roulette.betting = matches[2]
 echo("Now betting on: "..mtw.roulette.betting)
 send(" ")
 end
+
+
+function mtw.check_latest_version()
+ downloadFile(getMudletHomeDir().."/version.txt", "http://mko.kadarniad.fr/matawa/version.txt")
+end
+
+function mtw.file_downloaded(file)
+ if file:match("version.txt", 1, true) then
+  mtw.compare_versions(file)
+ end
+end
+
+function mtw.compare_versions(version_file)
+ io.input(version_file)
+ local s = io.read("*all")
+ local v = tostring(s:match("([0-9.]+)"))
+ io.close()
+ os.remove(version_file)
+ if v ~= mtw.version[1] then
+  cecho("\n<yellow>A new version (<green>"..v.."<yellow>) of <red>Matawa<yellow> is now available! You can download it ")
+  echoLink("here", [[openUrl("http://mko.kadarniad.fr/matawa/master/matawa.mpackage.zip")]], "Matawa version "..v)
+  cecho("<yellow>! Manual can be found here: <cyan>http://mko.kadarniad.fr/matawa/")
+ end
+end

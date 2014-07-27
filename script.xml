@@ -423,6 +423,16 @@ end</script>
                         <string>gmcp.Char.Vitals</string>
                     </eventHandlerList>
                 </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>file_download</name>
+                    <packageName></packageName>
+                    <script>function file_download(_, filename)
+ mtw.file_downloaded(filename)
+end</script>
+                    <eventHandlerList>
+                        <string>sysDownloadDone</string>
+                    </eventHandlerList>
+                </Script>
             </ScriptGroup>
             <Script isActive="yes" isFolder="no">
                 <name>Map Window</name>

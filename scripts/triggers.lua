@@ -1652,6 +1652,7 @@ end
 end
 
 function mtw.trigger_234(matches,multimatches)
+mtw.check_latest_version()
 mtw.load_def("none")
 cecho("<blue>\nWelcome to Matawa "..mtw.version[1].."!")
 cecho("<green>\n Send ?help to get some help.")
