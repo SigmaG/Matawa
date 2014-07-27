@@ -11,6 +11,10 @@ end
 
 --Run on telegraphs of incoming attacks
 function mtw.atk_start(attacker, weapon, attack)
+-- We don't want of a nil attacker, prevents the function from bugging, and makes it easier to spot what attacks do that.
+ if attacker == nil then
+  attacker = "GENERIC"
+ end
 --Display attack echo
  if mtw.toggles.defecho then
   deleteLine()
@@ -138,6 +142,10 @@ end
 
 --Run on successful incoming attacks
 function mtw.atk_hit(attacker, weapon, attack)
+-- We don't want of a nil attacker, prevents the function from bugging, and makes it easier to spot what attacks do that.
+ if attacker == nil then
+  attacker = "GENERIC"
+ end
 --Make sure the attack will match the table
  if not string.find(attack, "atk_") then
   attack = "atk_"..attack
@@ -167,6 +175,10 @@ end
 
 --Run on missed incoming attacks
 function mtw.atk_miss(attacker, weapon, attack)
+-- We don't want of a nil attacker, prevents the function from bugging, and makes it easier to spot what attacks do that.
+ if attacker == nil then
+  attacker = "GENERIC"
+ end
 --Make sure the attack will match the table
  if not string.find(attack, "atk_") then
   attack = "atk_"..attack
@@ -232,6 +244,10 @@ end
 
 --Properly end completed attacks
 function mtw.atk_end(attacker, weapon, attack)
+-- We don't want of a nil attacker, prevents the function from bugging, and makes it easier to spot what attacks do that.
+ if attacker == nil then
+  attacker = "GENERIC"
+ end
 --Make sure the attack will match the table
  if not string.find(attack, "atk_") then
   attack = "atk_"..attack
@@ -298,6 +314,10 @@ end
 
 --Display defense types when used
 function mtw.atk_defended(attacker, defense)
+-- We don't want of a nil attacker, prevents the function from bugging, and makes it easier to spot what attacks do that.
+ if attacker == nil then
+  attacker = "GENERIC"
+ end
  if mtw.toggles.defecho then
   cecho("<purple>\nYou: <green>"..defense.." <purple>"..attacker.."!")
  end
