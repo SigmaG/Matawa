@@ -918,3 +918,6 @@ o added greatsword to mtw.weapons table - Elanoron
 o changed the way divinecommand is cured - Elanoron
 o added ?import and !import <profile> to fetch saved options from other matawa profiles - Savil
 o added a conversion module -Savil
+o added a 'reconnect' alias -Savil
+o the system will now tell if there is a new version available -Savil
+o Added a repeat alias '#<number> <action>' will do <action> <number> times -Savil
