@@ -17140,8 +17140,10 @@
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
                                         <string>The sands of time are blasted away.</string>
+                                        <string>The sands of the hourglass tattoo around you are striped away.</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
+                                        <integer>3</integer>
                                         <integer>3</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
