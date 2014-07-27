@@ -22,6 +22,7 @@ aff_timewarp = {state = "healed", cures = {}, assess = false, effect = "delay be
 aff_bolero = {state = "healed", cures = {}, assess = false, effect = "can't clot", timer = createStopWatch()},
 aff_blood_omen = {state = "healed", msg = "suffused with a blood omen", cures = {}, assess = false, effect = "can't heal ill omen", timer = createStopWatch()},
 aff_blood_betrayal = {state = "healed", msg = "betrayed by your writhing blood", cures = {}, assess = false, effect = "OD heals nothing", timer = createStopWatch()},
+aff_illuminated = {state = "healed", msg = "illuminated by glowing phosphorescence", cures = {}, assess = false, effect = "can't hide or deepshroud", timer = createStopWatch()},
 
 aff_balance_loss = {state = "healed", msg = "knocked permanently off-balance", cures = {recover = "balance"}, assess = false, effect = "can't regain balance", timer = createStopWatch()},
 aff_equilibrium_loss = {state = "healed", msg = "knocked permanently off-equilibrium", cures = {recover = "equilibrium"}, assess = false, effect = "can't regain equilibrium", timer = createStopWatch()},

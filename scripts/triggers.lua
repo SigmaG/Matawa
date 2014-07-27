@@ -9658,6 +9658,19 @@ if mtw.toggles.hiding then
  mtw.toggle("hiding")
  send(" ")
 end
+
+function mtw.trigger_2037(matches,multimatches)
+ mtw.atk_start(matches[2], nil, "revelation")
+end
+
+function mtw.trigger_2038(matches,multimatches)
+ mtw.atk_hit(matches[2], nil, "revelation")
+end
+
+function mtw.trigger_2039(matches,multimatches)
+ mtw.atk_defend(matches[2], nil, "revelation")
+end
+
 end
 
 

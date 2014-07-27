@@ -251,5 +251,5 @@ atk_crushing_smite = {def = "dodge", class = "priest", aff = "concussion", aff_d
 atk_dominating_strike = {def = "instant", class = "priest", aff = "damage", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_virtuous_smite = {def = "parry", class = "priest", aff = "epileptic", aff_def = "dizziness" , getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_coward = {def = "instant", class = "priest", aff = "shieldbreak stun retribution adrenaline", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
-atk_revelation = {def = "jump", class = "priest", aff = "illumination", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_revelation = {def = "jump", class = "priest", aff = "illuminated", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 }
