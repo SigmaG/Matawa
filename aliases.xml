@@ -1119,6 +1119,15 @@
                             <regex>^cfs$</regex>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
+                            <name>repeat</name>
+                            <script>for i=1,tonumber(matches[2]) do
+ expandAlias(matches[3],false)
+end</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^#(\d+) (.*)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
                             <name>landmarks</name>
                             <script>mtw.landmarks_alias(matches)</script>
                             <command></command>
