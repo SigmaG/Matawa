@@ -626,7 +626,7 @@ function mtw.set_balance(my_balance)
 end
 
 function mtw.do_balance()
- if mtw.toggles.killing and (mtw.next.balance ~= "none") and mtw.not_aff("prone") and mtw.not_entangled() then
+ if mtw.toggles.killing and (mtw.next.balance ~= "none") and mtw.not_aff("prone") then
   if mtw.balance.balance and not mtw.waiting.balance then
    mtw.send(mtw.next.balance)
    if string.find(mtw.next.balance, "cast rift") or string.find(mtw.next.balance, "demoncall gate") then
