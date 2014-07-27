@@ -622,6 +622,13 @@
                             <regex>^rst$</regex>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
+                            <name>reconnect</name>
+                            <script>reconnect()</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^reconnect$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
                             <name>death beam</name>
                             <script>mtw.deathbeam()</script>
                             <command></command>
