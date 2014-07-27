@@ -235,6 +235,10 @@ function mtw.aff_have(affliction)
  if not string.find(affliction, "aff_") then
   affliction = "aff_"..affliction
  end
+ if not mtw.afflictions[affliction] then
+  cecho("Affliction <red>"..affliction.."<white> not tracked by the system!")
+  return
+ end
  if mtw.afflictions[affliction].state == "healed" then
   mtw.afflictions[affliction].state = "possible"
  end
@@ -286,6 +290,10 @@ end
 function mtw.aff_remove(affliction)
  if not string.find(affliction, "aff_") then
   affliction = "aff_"..affliction
+ end
+ if not mtw.afflictions[affliction] then
+  cecho("Affliction <red>"..affliction.."<white> not tracked by the system!")
+  return
  end
  if mtw.afflictions[affliction].cures.writhe ~= nil then
   mtw.status.writhing = false
