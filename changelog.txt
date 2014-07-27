@@ -917,3 +917,4 @@ o added a got line for concussion from suckerpunch - Elanoron
 o added greatsword to mtw.weapons table - Elanoron
 o changed the way divinecommand is cured - Elanoron
 o added ?import and !import <profile> to fetch saved options from other matawa profiles - Savil
+o added a conversion module -Savil

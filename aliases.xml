@@ -1297,6 +1297,34 @@ send(&quot; &quot;)</script>
                             <regex>^tbet$</regex>
                         </Alias>
                     </AliasGroup>
+                    <AliasGroup isActive="yes" isFolder="yes">
+                        <name>Conversion</name>
+                        <script></script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex></regex>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>start conversion</name>
+                            <script>mtw.convert(matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^conv (.*)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>reset conversion</name>
+                            <script>mtw.reset_convert()</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^convrst$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>attempt convertion</name>
+                            <script>mtw.attempt_conversion(matches[2],matches[3])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^attempt (.*) (\d+)$</regex>
+                        </Alias>
+                    </AliasGroup>
                 </AliasGroup>
                 <AliasGroup isActive="yes" isFolder="yes">
                     <name>Healing</name>
