@@ -7461,7 +7461,7 @@ end
 
 function mtw.trigger_1519(matches,multimatches)
 if mtw.my.class == "magician" and string.find(mtw.target, matches[2]) then
- mtw.set_attack("cast counterspell "..mtw.target)
+ mtw.set_balance("cast counterspell "..mtw.target)
 end
 if string.find(mtw.target, matches[2]) and mtw.my.class == "rogue" and mtw.toggles.flourishing then
  mtw.set_balance("flourish "..matches[2])
