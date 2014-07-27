@@ -63,6 +63,8 @@ end
 
 function mtw.fishing_trigger_9(matches,multimatches)
 if mtw.toggles.fishing then
+mtw.unwielding = true
+tempTimer(1, [[mtw.unwielding = false]])
  send("unwield left")
  send("unwield right")
  send("wield pole")
