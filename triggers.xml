@@ -1279,14 +1279,16 @@
                                 <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                 <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                 <regexCodeList>
-                                    <string>^Gazing intently at (.*), you make a dramatic upwards gesture, causing the fire consuming (him|her) to flare up, immolating (.*) in a fiery display of raw, magical prowess.</string>
+                                    <string>^Gazing intently at ([^\.]+), you make a dramatic upwards gesture, causing the fire consuming (\w+) to (detonate in an explosion of searing flames|flare up), immolating ([^\.]+) in a fiery display of raw, magical prowess.$</string>
                                     <string>^The fire consuming (.*) dies out.$</string>
                                     <string>You raise your hand upwards in a dramatic gesture, but look on in frustration as you realize your target is not on fire and nothing happens.</string>
+                                    <string>^(.*) burns alive in the fire, consumed by flames.$</string>
                                 </regexCodeList>
                                 <regexCodePropertyList>
                                     <integer>1</integer>
                                     <integer>1</integer>
                                     <integer>3</integer>
+                                    <integer>1</integer>
                                 </regexCodePropertyList>
                             </Trigger>
                             <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
@@ -37807,7 +37809,7 @@
                                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
-                                        <string>^You hiss incantations at (\w+), your eyes glowing with flickering fire.$</string>
+                                        <string>^You hiss incantations at ([^\.]+), your eyes glowing with flickering fire.$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
@@ -37827,7 +37829,7 @@
                                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
-                                        <string>^Gazing intently at (\w+), you make a dramatic upwards gesture, causing the fire consuming (him|her) to flare up, immolating (\w+) in a fiery display of raw, magical prowess.$</string>
+                                        <string>^Gazing intently at ([^\.]+), you make a dramatic upwards gesture, causing the fire consuming (\w+) to (detonate in an explosion of searing flames|flare up), immolating ([^\.]+) in a fiery display of raw, magical prowess.$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>
