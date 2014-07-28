@@ -123,7 +123,9 @@ end
 end
 
 function mtw.fishing_trigger_17(matches,multimatches)
- mtw.fishing.stat = "casting"
+ if not matches[2]:find("bauble") then
+  mtw.fishing.stat = "casting"
+ end
 end
 
 function mtw.fishing_trigger_18(matches,multimatches)
