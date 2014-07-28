@@ -3,9 +3,8 @@
 function mtw.do_loot()
  if mtw.have_items then
   if mtw.balance.balance and mtw.balance.equilibrium and not mtw.waiting.balance and not mtw.waiting.equilibrium and not mtw.need_wield and not mtw.need_offwield then
-   mtw.loot_it()
    mtw.waiting.loot = true
-   tempTimer(mtw.delay(), [[mtw.waiting.loot = false]])
+   mtw.loot_it()
   end
  elseif not mtw.waiting.ih and not mtw.sent.ih then
   mtw.corpses = {}
@@ -39,4 +38,5 @@ function mtw.loot_it()
  mtw.gathering = {}
  mtw.have_items = false
  mtw.need_loot = false
+ mtw.waiting.loot = false
 end

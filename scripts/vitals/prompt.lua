@@ -60,17 +60,12 @@ function mtw.prompt_function()
      mtw.set_equil("shadowmend")
      mtw.bashing.shadowmend = false
     end
---    if mtw.balance.balance and not mtw.waiting.balance and mtw.defenses.def_hiding.state ~= "deffed" and mtw.vitals.percent.guile <= 80 and not mtw.need_loot and not hide_sent then
---     mtw.send("hide")
---     hiding_sent = true
---     tempTimer(mtw.delay(), [[hiding_sent = false]])
---    end
    end
   end
  end
 
 if not mtw.status.combat and mtw.balance.balance and not mtw.waiting.balance and not mtw.status.combat and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") and mtw.not_aff("prone") and mtw.not_entangled() then
-  if mtw.my.class == "rogue" and mtw.defenses.def_hiding.state ~= "deffed" and mtw.toggles.hiding and not hiding_sent and not mtw.need_loot then
+  if mtw.my.class == "rogue" and mtw.defenses.def_hiding.state ~= "deffed" and mtw.toggles.hiding and not hiding_sent and not mtw.need_loot and not mtw.waiting.loot then
    mtw.send("hide")
    hiding_sent = true
    tempTimer(mtw.delay(), [[hiding_sent = false]])
