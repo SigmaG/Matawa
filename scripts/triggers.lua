@@ -7261,6 +7261,14 @@ function mtw.trigger_1469(matches,multimatches)
 mtw.attack_hit(matches[2], "counterspell")
 end
 
+function mtw.trigger_1469b(matches,multimatches)
+mtw.atk_hit(matches[2], nil, "counterspell")
+end
+
+function mtw.trigger_1469c(matches,multimatches)
+mtw.atk_start(matches[2], nil, "counterspell")
+end
+
 function mtw.trigger_1470(matches,multimatches)
 deleteLine()
 cecho("\n<red>Nothing to counter! Counterspell failed.\n")

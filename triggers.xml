@@ -38451,6 +38451,46 @@
                                         <integer>1</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>incoming hit</name>
+                                    <script>mtw.check_illusion(mtw.trigger_1469b,matches,multimatches)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>0</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) makes a slicing gesture at you, and you stagger as a purple burst of arcane magic disrupts your spellcasting\.$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>incoming attack</name>
+                                    <script>mtw.check_illusion(mtw.trigger_1469c,matches,multimatches)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>0</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) quickly begins casting a spell, the air around you glittering softly\.$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
                             </TriggerGroup>
                             <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                                 <name>Illusions</name>
