@@ -898,6 +898,8 @@ end
 
 function mtw.trigger_137(matches,multimatches)
 mtw.pacting = 1
+mtw.waiting.balance = true
+tempTimer(mtw.delay(), [[mtw.waiting.balance = false]])
 mtw.set_balance("pact demon with threats")
 end
 
