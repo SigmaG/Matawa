@@ -32113,11 +32113,9 @@
                                     <colorTriggerFgColor>#000000</colorTriggerFgColor>
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
-                                        <string>^(\w+) beats at your (.*) with a sharp strike of (.*), but fails to connect.$</string>
                                         <string>^(\w+) beats at your (.*) with a sharp strike of ([^\.]+), but fails to connect.$</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
-                                        <integer>1</integer>
                                         <integer>1</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
@@ -33306,6 +33304,26 @@
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
                                         <string>^(\w+) flexes (his|her) hand, curling the fingers into a fist. (\w+) lashes out at you with a quick backhand, sending you reeling and seeing stars.$</string>
+                                    </regexCodeList>
+                                    <regexCodePropertyList>
+                                        <integer>1</integer>
+                                    </regexCodePropertyList>
+                                </Trigger>
+                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                    <name>incoming miss</name>
+                                    <script>mtw.check_illusion(mtw.trigger_1262b,matches,multimatches)</script>
+                                    <triggerType>0</triggerType>
+                                    <conditonLineDelta>18</conditonLineDelta>
+                                    <mStayOpen>0</mStayOpen>
+                                    <mCommand></mCommand>
+                                    <packageName></packageName>
+                                    <mFgColor>#ff0000</mFgColor>
+                                    <mBgColor>#ffff00</mBgColor>
+                                    <mSoundFile></mSoundFile>
+                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                    <regexCodeList>
+                                        <string>^(\w+) flexes (\w+) hand, curling the fingers into a fist. (\w+) lashes out at you with a quick backhand, sending you reeling and seeing stars. (.*)</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>1</integer>

@@ -6151,7 +6151,9 @@ cecho("<red>\n"..matches[2].." HIT beat you!")
 end
 
 function mtw.trigger_1210(matches,multimatches)
-mtw.atk_miss(matches[2], nil, "beat")
+deleteLine()
+cecho("<red>\n"..matches[2].." MISS beat you!")
+--mtw.atk_miss(matches[2], nil, "beat")
 end
 
 function mtw.trigger_1211(matches,multimatches)
@@ -6372,6 +6374,11 @@ end
 function mtw.trigger_1262(matches,multimatches)
 deleteLine()
 cecho("<red>\n"..matches[2].." HIT backhand you!")
+end
+
+function mtw.trigger_1262b(matches,multimatches)
+deleteLine()
+cecho("<red>\n"..matches[2].." FAILED backhand you!")
 end
 
 function mtw.trigger_1263(matches,multimatches)
