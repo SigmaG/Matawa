@@ -24,6 +24,8 @@ end
 
 function mtw.fishing_trigger_4(matches,multimatches)
 send("fishing reel")
+mtw.waiting.balance = true
+tempTimer(mtw.delay(), [[mtw.waiting.balance = false]])
 mtw.fishing.recast = false
 mtw.fishing.stat = "baiting"
 end
@@ -87,6 +89,8 @@ mtw.fishing.failures = mtw.fishing.failures + 1
 if mtw.fishing.failures == 2 then
  mtw.fishing.failures = 0
  send("fishing reel")
+ mtw.waiting.balance = true
+ tempTimer(mtw.delay(), [[mtw.waiting.balance = false]])
  mtw.fishing.stat = "casting"
  mtw.fishing.recast = true
 end
