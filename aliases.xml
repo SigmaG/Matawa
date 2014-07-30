@@ -249,6 +249,13 @@
                                 <packageName></packageName>
                                 <regex>^tch$</regex>
                             </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>print conversion spam</name>
+                                <script>mtw.toggle(&quot;conversion_display&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tconv$</regex>
+                            </Alias>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
                             <name>Bashing Toggles</name>
@@ -1303,6 +1310,13 @@ send(&quot; &quot;)</script>
                         <command></command>
                         <packageName></packageName>
                         <regex></regex>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>conversion commands</name>
+                            <script>mtw.conversion_aliases()</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^\?conv$</regex>
+                        </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>start conversion</name>
                             <script>mtw.convert(matches[2])</script>

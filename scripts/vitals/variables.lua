@@ -120,6 +120,8 @@ balecho = true,
 cdecho = true,
 --Print the name of the current char in the prompt
 charprompt = false,
+--Print the conversion spam
+conversion_display = false,
 }
 
 --channeling
