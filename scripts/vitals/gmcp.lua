@@ -192,7 +192,7 @@ end
 function gmcp_players()
  if mtw.losingall then
   for i,v in ipairs(gmcp.Comm.Channel.Players) do
-   if mtw.losingall[v.name] then
+   if not mtw.losingall[v.name] then
     mtw.send("lose "..v.name)
    end
   end
