@@ -957,6 +957,20 @@
                             <packageName></packageName>
                             <regex>^fmdis (\d+)$</regex>
                         </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>set teasing time</name>
+                            <script>mtw.fishing_set_tease_time(matches)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^ftease (\d+\.?\d*)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>set jerking time</name>
+                            <script>mtw.fishing_set_jerk_time(matches)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^fjerk (\d+\.?\d*)$</regex>
+                        </Alias>
                     </AliasGroup>
                     <AliasGroup isActive="yes" isFolder="yes">
                         <name>Chat</name>
