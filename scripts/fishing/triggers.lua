@@ -2,7 +2,7 @@
 
 function mtw.fishing_trigger_1(matches,multimatches)
 if not (mtw.fishing.stat == "reeling") and string.find(mtw.fishing.get,matches[2]) then
- tempTimer( 1.5 - getNetworkLatency(), [[send("fishing jerk")]] )
+ tempTimer( mtw.fishing.jerk_time - getNetworkLatency(), [[send("fishing jerk")]] )
  mtw.fishing.stat = "waiting"
 else
  echo("\nNot getting that one!")
@@ -13,7 +13,7 @@ end
 end
 
 function mtw.fishing_trigger_2(matches,multimatches)
-tempTimer( 1.8, [[send("fishing tease", false)]] )
+tempTimer( mtw.fishing.tease_time , [[send("fishing tease", false)]] )
 end
 
 function mtw.fishing_trigger_3(matches,multimatches)

@@ -274,6 +274,8 @@ reels = 0,
 recast = false,
 failures = 0,
 probe = false,
+jerk_time = 1.5,
+tease_time = 1.8,
 }
 
 --Poison stuff

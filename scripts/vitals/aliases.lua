@@ -214,6 +214,8 @@ if string.find(mtw.fishing.get,"l") then
  end
 end
 echo("\n fget X / fget X Y / fget X Y Z: get only a specific size of fish (current: "..s..")")
+echo("\n fjerk X: set the jerking time to X (current: "..mtw.fishing.jerk_time..")")
+echo("\n ftease X: set the teasing time to X (current: "..mtw.fishing.tease_time..")")
 end
 
 function mtw.reset_alias()

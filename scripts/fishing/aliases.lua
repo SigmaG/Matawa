@@ -114,3 +114,14 @@ echo("Now getting "..s.." fish")
 send(" ")
 end
 
+function mtw.fishing_set_tease_time(matches)
+ mtw.fishing.tease_time = tonumber(matches[2])
+ echo("Now teasing after "..matches[2].." seconds")
+ send(" ")
+end
+
+function mtw.fishing_set_jerk_time(matches)
+ mtw.fishing.jerk_time = tonumber(matches[2])
+ echo("Now jerking after "..matches[2].." seconds")
+ send(" ")
+end
