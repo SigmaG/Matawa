@@ -63,6 +63,8 @@ function mtw_struct.get_matawa_file(f)
    else
     mtw_struct.folder = &quot;xml&quot;
     cecho(&quot;\n&lt;white&gt;Using scripts taken from &lt;yellow&gt;lua.xml&quot;)
+    cecho(&quot;\n&lt;white&gt;It should happen &lt;green&gt;only&lt;white&gt; if you chose to get the non-standard package where nothing is in external lua files.&quot;)
+    cecho(&quot;\n&lt;white&gt;If not, make sure you have imported the whole &lt;yellow&gt;matawa.mpackage.zip&lt;white&gt; in mudlet using the &lt;yellow&gt;Package Manager&lt;white&gt;.&quot;)
    end
   end
  end
