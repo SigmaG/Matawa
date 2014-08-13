@@ -1140,6 +1140,13 @@
                             <regex>^cfs$</regex>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
+                            <name>search in code</name>
+                            <script>mtw.search_code(matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^?search (.*)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
                             <name>repeat</name>
                             <script>for i=1,tonumber(matches[2]) do
  expandAlias(matches[3],false)
