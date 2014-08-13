@@ -326,7 +326,7 @@ end
 mtw.set_balance("flee")
 end
 
-function mtw.moving_alias()
+function mtw.moving_alias(matches)
 if mtw.toggles.marching and table.contains(mtw.skills, "Marching") then
  mtw.send("march "..matches[1])
 elseif mtw.toggles.retreating and table.contains(mtw.skills, "Tactical Retreat") then
@@ -368,7 +368,7 @@ else
 end
 end
 
-function mtw.target_alias()
+function mtw.target_alias(matches)
 mtw.target = string.title(string.lower(matches[2]))
 target = matches[2]
 echo("Target: "..mtw.target)

@@ -1171,7 +1171,7 @@ end</script>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>moving</name>
-                            <script>mtw.moving_alias()</script>
+                            <script>mtw.moving_alias(matches)</script>
                             <command></command>
                             <packageName></packageName>
                             <regex>^(in|out|u|d|n|s|e|w|ne|nw|se|sw)$</regex>
@@ -1186,7 +1186,7 @@ send(&quot; &quot;)</script>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>target</name>
-                            <script>mtw.target_alias()</script>
+                            <script>mtw.target_alias(matches)</script>
                             <command></command>
                             <packageName></packageName>
                             <regex>^t (.*)$</regex>
