@@ -15,6 +15,9 @@ mtw_struct.load_external("utilities/gmcp_checking")
 -- conversion functions
 mtw_struct.load_external("utilities/conversion")
 
+-- searching utility
+mtw_struct.load_external("utilities/search")
+
 -- crits
 mtw_struct.set_metatable_saved("crits")
 
