@@ -9676,6 +9676,7 @@ if mtw.toggles.hiding then
  mtw.toggle("hiding")
  send(" ")
 end
+end
 
 function mtw.trigger_2037(matches,multimatches)
  mtw.atk_start(matches[2], nil, "revelation")
@@ -9689,6 +9690,8 @@ function mtw.trigger_2039(matches,multimatches)
  mtw.atk_defend(matches[2], nil, "revelation")
 end
 
+function mtw.trigger_2040(matches,multimatches)
+ mtw.def_def("soullink")
 end
 
 

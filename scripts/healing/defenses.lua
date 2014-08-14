@@ -82,7 +82,7 @@ def_anachronize = {defense = "anachronize", type = "normal", effect = "All balan
 --Magician: Demonology
 def_witchsight = {defense = "witchsight", type = "normal", effect = "Increase vigilance checks, allows special demon-related commands", skill = "Witchsight", balance = {needybalancetake="witchsight"}, state = "down", needit = false, timer = createStopWatch()},
 def_augury = {defense = "", type = "normal", effect = "A random stat is increased +10", skill = "Black Augury", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_soullink = {defense = "", type = "normal", effect = "Damage taken is split between you and your demon, damage resistance", skill = "Soul Link", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_soullink = {defense = "soullink", type = "normal", effect = "Damage taken is split between you and your demon, damage resistance", skill = "Soul Link", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Magician: Psionics
 def_psi_barrier = {defense = "mental barrier", type = "normal", effect = "psionic damage resistance", balance = {balanceneed = "psi barrier"}, state = "down", needit = false, timer = createStopWatch()},
 def_thalamus = {defense = "amplified thalamus", type = "normal", effect = "stun cooldown reduction", balance = {balanceneed = "psi amplify thalamus"}, state = "down", needit = false, timer = createStopWatch()},
