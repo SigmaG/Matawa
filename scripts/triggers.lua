@@ -9694,4 +9694,8 @@ function mtw.trigger_2040(matches,multimatches)
  mtw.def_def("soullink")
 end
 
-
+function mtw.trigger_2041(matches,multimatches)
+ local comm = multimatches[2][2]
+ if comm == "lazuli" then comm = "lapis" end
+ send("vin "..comm)
+end
