@@ -69,6 +69,7 @@ if not mtw.status.combat and mtw.balance.balance and not mtw.waiting.balance and
    mtw.send("hide")
    hiding_sent = true
    tempTimer(mtw.delay(), [[hiding_sent = false]])
+   mtw.waiting.balance = true
   end
 end
 
