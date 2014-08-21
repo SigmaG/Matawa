@@ -38,3 +38,6 @@ mtw_struct.load_external("options")
 
 --triggers
 mtw_struct.load_external("triggers")
+
+--GUI
+mtw_struct.load_external("GUI")
