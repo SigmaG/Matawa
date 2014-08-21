@@ -354,6 +354,9 @@ mtw.weapons = {
 "warhammer",
 "club",
 "athame",
+"pole",
+"pick",
+"ax",
 }
 
 mtw.offweapons = {
@@ -417,6 +420,7 @@ anachronize = true,
 barrage = true,
 canto = true,
 requiem = true,
+refrain = true,
 last_stand = true,
 recover = true,
 concentrate = true,

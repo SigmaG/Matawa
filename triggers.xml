@@ -1673,6 +1673,66 @@
                                     <integer>3</integer>
                                 </regexCodePropertyList>
                             </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>refrained</name>
+                                <script>mtw.check_illusion(mtw.trigger_129c,matches,multimatches)</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>0</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>You sing of how Laurie escaped captivity, rising from the depths of slavery to become a Duke and achieve new heights of grandeur, directing your nearby songs to do the same.</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>3</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>no refrain</name>
+                                <script>mtw.check_illusion(mtw.trigger_129b,matches,multimatches)</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>40</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>Laurie's Refrain is not ready yet.</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>3</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
+                            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                                <name>can refrain</name>
+                                <script>mtw.check_illusion(mtw.trigger_129,matches,multimatches)</script>
+                                <triggerType>0</triggerType>
+                                <conditonLineDelta>39</conditonLineDelta>
+                                <mStayOpen>0</mStayOpen>
+                                <mCommand></mCommand>
+                                <packageName></packageName>
+                                <mFgColor>#ff0000</mFgColor>
+                                <mBgColor>#ffff00</mBgColor>
+                                <mSoundFile></mSoundFile>
+                                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                                <regexCodeList>
+                                    <string>You can play another Refrain.</string>
+                                </regexCodeList>
+                                <regexCodePropertyList>
+                                    <integer>3</integer>
+                                </regexCodePropertyList>
+                            </Trigger>
                         </TriggerGroup>
                     </TriggerGroup>
                     <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
@@ -3521,26 +3581,6 @@
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
                                         <string>You continue playing the harmonic chords of the Prelude of Harmony, creating a symphony of overlapping melodies that herald a bright new future on the horizon.</string>
-                                    </regexCodeList>
-                                    <regexCodePropertyList>
-                                        <integer>3</integer>
-                                    </regexCodePropertyList>
-                                </Trigger>
-                                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-                                    <name>refrain</name>
-                                    <script>mtw.check_illusion(mtw.trigger_129,matches,multimatches)</script>
-                                    <triggerType>0</triggerType>
-                                    <conditonLineDelta>0</conditonLineDelta>
-                                    <mStayOpen>0</mStayOpen>
-                                    <mCommand></mCommand>
-                                    <packageName></packageName>
-                                    <mFgColor>#ff0000</mFgColor>
-                                    <mBgColor>#ffff00</mBgColor>
-                                    <mSoundFile></mSoundFile>
-                                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
-                                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
-                                    <regexCodeList>
-                                        <string>You can play another Refrain.</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
                                         <integer>3</integer>

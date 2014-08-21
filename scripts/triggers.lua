@@ -841,6 +841,15 @@ deleteLine()
 cecho("\n\n<cyan>=======================================")
 cecho("\n<green>*************PLAY REFRAIN**************")
 cecho("\n<cyan>=======================================\n\n")
+mtw.balance_regain("refrain")
+end
+
+function mtw.trigger_129b(matches,multimatches)
+mtw.balance_take("refrain")
+end
+
+function mtw.trigger_129c(matches,multimatches)
+mtw.balance_lose("refrain")
 end
 
 function mtw.trigger_130(matches,multimatches)
