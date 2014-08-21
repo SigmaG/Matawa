@@ -118,7 +118,9 @@ mtw.default.areas = {
 ["Cutter's Gap"] = {level = "??", krondor = "extremely far to the north", prime = {"mountains"}, targets = {}},
 ["a track through the High Wold"] = {level = "??", krondor = "extremely far to the north", prime = {"path"}, env = {"mountains"}, targets = {}},
 ["Hush"] = {level = "Group", krondor = "distantly to the northwest", prime = {"urban"}, targets = {"a Goblin Bloodraider", "a Black Slayer of the Northlands", "a Spellweaver Adept", "a Warder of the Queen's Guard"}},
-["Fort Dannis"] = {level = "Group", krondor = "extremely far to the northwest", prime = {"mountain", "ruins"}, env = {"hills"}, targets = {"a goblin conscript", "a troll mercenary", "a wily goblin fighter", "a Moredhel warrior", "a savage troll warrior", "a vicious goblin warrior", "a Moredhel battlemaster", "a Krondorian skirmisher", "a well-armored Krondorian soldier", "a veteran Krondorian warrior", "a Tsurani swordsman", "a captain of Krondor", "a Tsurani berserker", "a stout dwarven warrior"}},
+--["Fort Dannis"] = {level = "Group", krondor = "extremely far to the northwest", prime = {"mountain", "ruins"}, env = {"hills"}, targets = {"a veteran Krondorian warrior", "a Tsurani swordsman", "a Krondorian skirmisher", "a well%-armored Krondorian soldier",  "a captain of Krondor", "a Tsurani berserker", "a stout dwarven warrior"}},
+--["Fort Dannis"] = {level = "Group", krondor = "extremely far to the northwest", prime = {"mountain", "ruins"}, env = {"hills"}, targets = {"a warrior of Elvandar", "a master warrior of Elvandar", "an Eledhel ranger", "an Eledhel scout",  "an Eledhel commander", "an Eledhel scoutmaster", "a scarred Eledhel veteran"}},
+--["Fort Dannis"] = {level = "Group", krondor = "extremely far to the northwest", prime = {"mountain", "ruins"}, env = {"hills"}, targets = {"a goblin conscript", "a troll mercenary", "a wily goblin fighter", "a Moredhel warrior", "a savage troll warrior", "a vicious goblin warrior", "a Moredhel battlemaster"}},
 ["the Ruins of Veilgarden"] = {level = "Siege", krondor = "extremely far to the northwest", prime = {"ruins", "forest"}, targets = {}},
 ["Highcastle"] = {level = "Siege", krondor = "extremely far to the north", targets = {"a moredhel ranger", "a scrappy goblin warrior", "an armored Krondorian soldier", "a rogue of Krondor"}},
 ["Sunspear"] = {level = "Siege", krondor = "very far to the southwest", prime = {"urban"}, env = {"mines"}, targets = {}},
@@ -129,3 +131,23 @@ mtw.default.areas = {
 ["the Black Cathedral"] = {level = "none", krondor = "distantly to the north", prime = {"temple"}, env = {"garden"}, targets = {}},
 }
 
+mtw.default.areas["Fort Dannis"] = {level = "Group", krondor = "extremely far to the northwest", prime = {"mountain", "ruins"}, env = {"hills"}}
+local mt = {
+ __index = function(t,k)
+  if k == "targets" then
+   local c = gmcp.Char.Status.city:gsub(" %(.*%)", "")
+   if c == "Elvandar" then
+    return {"a goblin conscript", "a troll mercenary", "a wily goblin fighter", "a Moredhel warrior", "a savage troll warrior", "a vicious goblin warrior", "a Moredhel battlemaster", "a veteran Krondorian warrior", "a Tsurani swordsman", "a Krondorian skirmisher", "a well%-armored Krondorian soldier",  "a captain of Krondor", "a Tsurani berserker", "a stout dwarven warrior"}
+   elseif c == "Krondor" then
+    return {"a warrior of Elvandar", "a master warrior of Elvandar", "an Eledhel ranger", "an Eledhel scout",  "an Eledhel commander", "an Eledhel scoutmaster", "a scarred Eledhel veteran", "a goblin conscript", "a troll mercenary", "a wily goblin fighter", "a Moredhel warrior", "a savage troll warrior", "a vicious goblin warrior", "a Moredhel battlemaster"}
+   elseif c == "Sar-Sargoth" then
+    return {"a veteran Krondorian warrior", "a Tsurani swordsman", "a Krondorian skirmisher", "a well%-armored Krondorian soldier",  "a captain of Krondor", "a Tsurani berserker", "a stout dwarven warrior", "a warrior of Elvandar", "a master warrior of Elvandar", "an Eledhel ranger", "an Eledhel scout",  "an Eledhel commander", "an Eledhel scoutmaster", "a scarred Eledhel veteran"}
+   else
+    return {"a veteran Krondorian warrior", "a Tsurani swordsman", "a Krondorian skirmisher", "a well%-armored Krondorian soldier",  "a captain of Krondor", "a Tsurani berserker", "a stout dwarven warrior", "a warrior of Elvandar", "a master warrior of Elvandar", "an Eledhel ranger", "an Eledhel scout",  "an Eledhel commander", "an Eledhel scoutmaster", "a scarred Eledhel veteran", "a goblin conscript", "a troll mercenary", "a wily goblin fighter", "a Moredhel warrior", "a savage troll warrior", "a vicious goblin warrior", "a Moredhel battlemaster"}
+   end
+  else
+   return nil 
+  end
+ end
+}
+setmetatable(mtw.default.areas["Fort Dannis"], mt)
