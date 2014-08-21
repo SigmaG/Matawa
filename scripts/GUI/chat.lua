@@ -12,7 +12,7 @@ mtw.gui.chat_ctabs = mtw.gui.chat_ctabs or Geyser.Container:new({
  x = 0,
  y = 0,
  width = "100%",
- height = "5%",
+ height = "3%",
 }, mtw.gui.r_cont)
 mtw.gui.chat_tabs = mtw.gui.chat_tabs or {}
 
@@ -42,7 +42,7 @@ for _,v in pairs(tabList) do
   x = 0,
   y = "5%",
   width = "100%",
-  height = "55%",
+  height = "57%",
  }, mtw.gui.r_cont)
 
  mtw.gui.chat_win[v] = mtw.gui.chat_win[v] or Geyser.MiniConsole:new({
@@ -51,17 +51,18 @@ for _,v in pairs(tabList) do
   y = 0,
   width = "100%",
   height = "100%",
+  color = "black",
  }, mtw.gui.chat_cwin[v])
  mtw.gui.chat_cwin[v]:hide()
 end
 
 --cannot put a callback function in a table...
-function chat_label_click(name) {
+function chat_label_click(name) 
  mtw.gui.chat_cwin[mtw.gui.chat_selected]:hide()
  mtw.gui.chat_tabs[mtw.gui.chat_selected]:setColor(mtw.gui.chat_inactive)
  mtw.gui.chat_cwin[name]:show()
  mtw.gui.chat_tabs[name]:setColor(mtw.gui.chat_active)
  mtw.gui.chat_selected = name
-}
+end
 
 chat_label_click("All")

@@ -40,4 +40,4 @@ mtw_struct.load_external("options")
 mtw_struct.load_external("triggers")
 
 --GUI
-mtw_struct.load_external("GUI")
+mtw_struct.load_external("GUI/init")

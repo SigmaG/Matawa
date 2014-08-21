@@ -8,7 +8,7 @@ mtw.gui.r_cont = mtw.gui.r_cont or Geyser.Container:new({
  name = "mtw_right",
  x = "-30%",
  y = 0,
- width = "30%",
+ width = "40%",
  height = "100%",
 })
 
@@ -17,7 +17,7 @@ mtw.gui.b_cont = mtw.gui.b_cont or Geyser.Container:new({
  name = "mtw_bottom",
  x = 0,
  y = "-10%",
- width = "70%",
+ width = "60%",
  height = "10%",
 })
 
