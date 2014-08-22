@@ -74,4 +74,43 @@ function mtw.gui.chat(win)
  mtw.gui.chat_win["All"]:append()
 end
 
+for _,v in pairs(mtw.gui.chat_cwin) do
+ v:hide()
+end
 chat_label_click("All")
+
+function mtw.gui.chat_tells(matches)
+ if not string.find(matches[1], "OOC") and not string.find(matches[1], "%/%/") and not string.find(matches[1], "%(%(") then
+  mtw.gui.chat("Tells")
+ end
+end
+
+function mtw.gui.chat_says(matches)
+ if string.find(multimatches[2][2], "\"") then
+  if not string.find(multimatches[2][1], "\"U\"") and not string.find(multimatches[2][1], "OOC") and not string.find(multimatches[2][1], "%/%/") and not string.find(multimatches[2][1], "%(%(") and not string.find(multimatches[2][1], "graffiti") then
+   mtw.gui.chat("Says")
+  end
+ end
+end
+
+function mtw.gui.chat_misc(matches)
+ if not string.find(matches[1], "OOC") and not string.find(matches[1], "%/%/") and not string.find(matches[1], "%(%(") then
+  mtw.gui.chat("Misc")
+ end
+end
+
+function mtw.gui.chat_deathsense(matches)
+ selectString(matches[1], 1)
+ fg("purple")
+ bg("black")
+ resetFormat()
+ mtw.gui.chat("Misc")
+end
+
+function mtw.gui.chat_shouts(matches)
+ selectString(matches[1], 1)
+ fg("CadetBlue")
+ bg("black")
+ resetFormat()
+ mtw.gui.chat("Misc")
+end
