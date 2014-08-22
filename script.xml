@@ -278,7 +278,7 @@ end</script>
                         </eventHandlerList>
                     </Script>
                 </ScriptGroup>
-                <ScriptGroup isActive="yes" isFolder="yes">
+                <ScriptGroup isActive="no" isFolder="yes">
                     <name>chat</name>
                     <packageName></packageName>
                     <script></script>
@@ -436,27 +436,6 @@ end</script>
                     </eventHandlerList>
                 </Script>
             </ScriptGroup>
-            <Script isActive="yes" isFolder="no">
-                <name>Map Window</name>
-                <packageName></packageName>
-                <script>
-local main = Geyser.Container:new({x=0,y=0,width=&quot;100%&quot;,height=&quot;100%&quot;,name=&quot;mapper container&quot;})
- 
-local mapper = Geyser.Mapper:new({
-  name = &quot;mapper&quot;,
-  x = &quot;64%&quot;, y = &quot;40%&quot;, -- edit here if you want to move it
-  width = &quot;35%&quot;, height = &quot;60%&quot;
-}, main)
-
-function hideMap()
- main:hide()
-end
-
-function showMap()
- main:show()
-end</script>
-                <eventHandlerList/>
-            </Script>
         </ScriptGroup>
     </ScriptPackage>
 </MudletPackage>

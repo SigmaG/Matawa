@@ -65,4 +65,13 @@ function chat_label_click(name)
  mtw.gui.chat_selected = name
 end
 
+function mtw.gui.chat(win)
+ if win ~= "Combat" then
+  selectCurrentLine()
+ end
+ copy()
+ mtw.gui.chat_win[win]:append()
+ mtw.gui.chat_win["All"]:append()
+end
+
 chat_label_click("All")

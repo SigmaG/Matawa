@@ -41,10 +41,11 @@ mtw.gui.status_bars.xp = mtw.gui.status_bars.xp or Geyser.Gauge:new({
  name = "mtw_xpbar",
  x = "80%",
  y = 0,
- width = "10%",
+ width = "20%",
  height = "50%",
 }, mtw.gui.b_cont)
 
+--[[
 mtw.gui.target_bar = mtw.gui.target_bar or Geyser.Label:new({
  name = "mtw_target", 
  x = "90%",
@@ -53,6 +54,7 @@ mtw.gui.target_bar = mtw.gui.target_bar or Geyser.Label:new({
  height = "50%",
  message = "Target: none",
 }, mtw.gui.b_cont)
+--]]
 
 function mtw.gui.update_location_bar()
  local s = "<white>Area: <yellow>" .. gmcp.Room.Info.area .. "<white> | RoomID: <yellow>" .. gmcp.Room.Info.num 
@@ -73,3 +75,5 @@ function mtw.gui.update_status_bars()
  mtw.gui.status_bars.ap:setValue(math.min(mv.adrenaline, 100), 100, "A: "..mv.adrenaline.."%")
  mtw.gui.status_bars.xp:setValue(mv.xp, 100, "Level "..gmcp.Char.Status.level)
 end
+
+mtw.gui.r_cont:show()

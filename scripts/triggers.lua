@@ -9595,39 +9595,41 @@ mtw.see_illusion = true
 end
 
 function mtw.trigger_2015(matches,multimatches)
-mtw.chat_tells(matches)
+mtw.gui.chat("Tells")
 end
 
 function mtw.trigger_2016(matches,multimatches)
-mtw.chat_says(matches)
+mtw.gui.chat("Says")
 end
 
 function mtw.trigger_2017(matches,multimatches)
-demonnic.chat:append("City")
+mtw.gui.chat("City")
 end
 
 function mtw.trigger_2018(matches,multimatches)
-demonnic.chat:append("Guild")
+mtw.gui.chat("Guild")
 end
 
 function mtw.trigger_2019(matches,multimatches)
-demonnic.chat:append("SCTs")
+mtw.gui.chat("Societies")
 end
 
 function mtw.trigger_2020(matches,multimatches)
-demonnic.chat:append("OOC")
+mtw.gui.chat("OOC")
 end
 
 function mtw.trigger_2021(matches,multimatches)
-mtw.chat_misc(matches)
+mtw.gui.chat("Misc")
 end
 
 function mtw.trigger_2022(matches,multimatches)
-mtw.chat_deathsense(matches)
+mtw.gui.chat("Misc")
+--mtw.chat_deathsense(matches)
 end
 
 function mtw.trigger_2023(matches,multimatches)
-mtw.chat_shouts(matches)
+mtw.gui.chat("Misc")
+--mtw.chat_shouts(matches)
 end
 
 function mtw.trigger_2024(matches,multimatches)

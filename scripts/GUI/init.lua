@@ -3,10 +3,16 @@
 -- here we will create the layout.
 mtw.gui = mtw.gui or {}
 
+-- make room around the screen
+local w,h = getMainWindowSize()
+setBorderLeft(math.floor(0.15*w)+1)
+setBorderRight(math.floor(0.4*w)+1)
+setBorderBottom(math.floor(0.05*h)+1)
+
 -- right side windows
 mtw.gui.r_cont = mtw.gui.r_cont or Geyser.Container:new({
  name = "mtw_right",
- x = "-30%",
+ x = "-40%",
  y = 0,
  width = "40%",
  height = "100%",
@@ -16,9 +22,9 @@ mtw.gui.r_cont = mtw.gui.r_cont or Geyser.Container:new({
 mtw.gui.b_cont = mtw.gui.b_cont or Geyser.Container:new({
  name = "mtw_bottom",
  x = 0,
- y = "-10%",
+ y = "-5%",
  width = "60%",
- height = "10%",
+ height = "5%",
 })
 
 -- left side windows
@@ -26,9 +32,14 @@ mtw.gui.l_cont = mtw.gui.l_cont or Geyser.Container:new({
  name = "mtw_left",
  x = 0,
  y = 0,
- width = "20%",
+ width = "15%",
  height = "90%",
 })
 
+mtw.gui.r_cont:show()
+mtw.gui.l_cont:show()
+mtw.gui.b_cont:show()
+
 mtw_struct.load_external("GUI/chat")
 mtw_struct.load_external("GUI/map")
+mtw_struct.load_external("GUI/bars")
