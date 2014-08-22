@@ -135,7 +135,7 @@ def_righteous_word = {defense = "righteous word", type = "normal", effect = "+10
 def_vengeful_mantle = {defense = "", type = "normal", effect = "Damages all enemies in your presence", skill = "Vengeful Mantle", balance = {needybalancetake = "pray for vengeful mantle"}, state = "down", needit = false, timer = createStopWatch()},
 def_blessed_word = {defense = "blessed word", type = "normal", effect = "+10 Constitution", skill = "Blessed Word", balance = {needybalancetake="pray for blessed word"}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Thanatology
-def_deathsight = {defense = "deathsight", type = "normal", effect = "", skill = "Deathsight", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_deathsight = {defense = "deathsight", type = "normal", effect = "", skill = "Deathsight", balance = {balancetake = "deathcall deathsight"}, state = "down", needit = false, timer = createStopWatch()},
 def_spectral_vision = {defense = "", type = "normal", effect = "", skill = "Spectral Vision", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_deathwhisper = {defense = "aura of spectral whispers", type = "normal", effect = "", skill = "Deathwhisper", balance = {balancetake = "deathcall deathwhisper"}, state = "down", needit = false, timer = createStopWatch()},
 def_pale_horse = {defense = "", type = "normal", effect = "", skill = "On a Pale Horse", balance = {}, state = "down", needit = false, timer = createStopWatch()},
