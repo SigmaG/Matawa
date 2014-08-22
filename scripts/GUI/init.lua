@@ -1,5 +1,7 @@
 -- MTW : GUI functions
 
+mtw_struct.load_external("GUI/geyser")
+
 -- here we will create the layout.
 mtw.gui = mtw.gui or {}
 
