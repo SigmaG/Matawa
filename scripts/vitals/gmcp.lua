@@ -168,6 +168,8 @@ function gmcp_status()
 
 --Set character name
  mtw.my.name = gmcp.Char.Status.name
+
+ mtw.gui.update_random_boxes()
 end
 
 
