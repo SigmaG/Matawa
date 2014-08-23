@@ -1144,7 +1144,7 @@
                             <script>mtw.search_code(matches[2])</script>
                             <command></command>
                             <packageName></packageName>
-                            <regex>^?search (.*)$</regex>
+                            <regex>^\?search (.*)$</regex>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>repeat</name>
