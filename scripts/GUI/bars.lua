@@ -8,53 +8,30 @@ mtw.gui.location_bar = mtw.gui.location_bar or Geyser.Label:new({
  height = "50%",
 }, mtw.gui.b_cont)
 
-mtw.gui.status_bars = mtw.gui.status_bars or {}
-mtw.gui.status_bars.hp = mtw.gui.status_bars.hp or Geyser.Gauge:new({
- name = "mtw_hpbar",
- x = "0%",
+mtw.gui.status_b = mtw.gui.status_b or Geyser.HBox:new({
+ name = "mtw_statusbars",
+ x = 0,
  y = 0,
- width = "20%",
- height = "50%",
-}, mtw.gui.b_cont)
-mtw.gui.status_bars.pp = mtw.gui.status_bars.pp or Geyser.Gauge:new({
- name = "mtw_ppbar",
- x = "20%",
- y = 0,
- width = "20%",
- height = "50%",
-}, mtw.gui.b_cont)
-mtw.gui.status_bars.ep = mtw.gui.status_bars.ep or Geyser.Gauge:new({
- name = "mtw_epbar",
- x = "40%",
- y = 0,
- width = "20%",
- height = "50%",
-}, mtw.gui.b_cont)
-mtw.gui.status_bars.ap = mtw.gui.status_bars.ap or Geyser.Gauge:new({
- name = "mtw_apbar",
- x = "60%",
- y = 0,
- width = "20%",
- height = "50%",
-}, mtw.gui.b_cont)
-mtw.gui.status_bars.xp = mtw.gui.status_bars.xp or Geyser.Gauge:new({
- name = "mtw_xpbar",
- x = "80%",
- y = 0,
- width = "20%",
+ width = "100%",
  height = "50%",
 }, mtw.gui.b_cont)
 
---[[
-mtw.gui.target_bar = mtw.gui.target_bar or Geyser.Label:new({
- name = "mtw_target", 
- x = "90%",
- y = 0,
- width = "10%",
- height = "50%",
- message = "Target: none",
-}, mtw.gui.b_cont)
---]]
+mtw.gui.status_bars = mtw.gui.status_bars or {}
+mtw.gui.status_bars.hp = mtw.gui.status_bars.hp or Geyser.Gauge:new({
+ name = "mtw_hpbar",
+}, mtw.gui.status_b)
+mtw.gui.status_bars.pp = mtw.gui.status_bars.pp or Geyser.Gauge:new({
+ name = "mtw_ppbar",
+}, mtw.gui.status_b)
+mtw.gui.status_bars.ep = mtw.gui.status_bars.ep or Geyser.Gauge:new({
+ name = "mtw_epbar",
+}, mtw.gui.status_b)
+mtw.gui.status_bars.ap = mtw.gui.status_bars.ap or Geyser.Gauge:new({
+ name = "mtw_apbar",
+}, mtw.gui.status_b)
+mtw.gui.status_bars.xp = mtw.gui.status_bars.xp or Geyser.Gauge:new({
+ name = "mtw_xpbar",
+}, mtw.gui.status_b)
 
 function mtw.gui.update_location_bar()
  local s = "<white>Area: <yellow>" .. gmcp.Room.Info.area .. "<white> | RoomID: <yellow>" .. gmcp.Room.Info.num 
@@ -75,5 +52,3 @@ function mtw.gui.update_status_bars()
  mtw.gui.status_bars.ap:setValue(math.min(mv.adrenaline, 100), 100, "A: "..mv.adrenaline.."%")
  mtw.gui.status_bars.xp:setValue(mv.xp, 100, "Level "..gmcp.Char.Status.level)
 end
-
-mtw.gui.r_cont:show()

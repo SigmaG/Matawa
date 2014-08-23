@@ -90,6 +90,8 @@ function gmcp_vitals()
   end
  end
 
+ mtw.gui.update_status_bars()
+
 --Start running actions
  if mtw.have_slow() then
 
@@ -143,6 +145,8 @@ function gmcp_room()
    mtw.new.area = true
   end
  end
+
+ mtw.gui.update_location_bar()
 
 end
 
