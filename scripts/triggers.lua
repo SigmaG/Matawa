@@ -1664,6 +1664,7 @@ if not mtw.gmcp_enabled() then
 else
  cecho("\nGMCP is <green>enabled<white>!")
 end
+mtw.gui.chat_init()
 end
 
 function mtw.trigger_235(matches,multimatches)

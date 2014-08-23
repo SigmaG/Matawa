@@ -8,15 +8,15 @@ mtw.gui = mtw.gui or {}
 -- make room around the screen
 local w,h = getMainWindowSize()
 setBorderLeft(math.floor(0.15*w)+1)
-setBorderRight(math.floor(0.4*w)+1)
+setBorderRight(math.floor(0.3*w)+1)
 setBorderBottom(math.floor(0.05*h)+1)
 
 -- right side windows
 mtw.gui.r_cont = mtw.gui.r_cont or Geyser.Container:new({
  name = "mtw_right",
- x = "-40%",
+ x = "-30%",
  y = 0,
- width = "40%",
+ width = "30%",
  height = "100%",
 })
 
@@ -25,7 +25,7 @@ mtw.gui.b_cont = mtw.gui.b_cont or Geyser.Container:new({
  name = "mtw_bottom",
  x = 0,
  y = "-5%",
- width = "60%",
+ width = "70%",
  height = "5%",
 })
 
