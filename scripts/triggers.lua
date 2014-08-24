@@ -610,7 +610,7 @@ end
 
 function mtw.trigger_96(matches,multimatches)
 deleteLine()
-cecho("<brown>\nYou: FOCUS SPRIIT")
+cecho("<brown>\nYou: FOCUS SPIRIT")
 end
 
 function mtw.trigger_97(matches,multimatches)
