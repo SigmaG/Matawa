@@ -382,17 +382,31 @@ function mtw.blessings_alias(matches)
 if mtw.my.class == "priest" then
  if matches[2] == "" then
   send("pray for glorious word", false)
-  tempTimer(3.3, [[send("pray for radiant word", false)]] )
-  tempTimer(6.4, [[send("pray for illuminated word", false)]] )
-  tempTimer(9.6, [[send("pray for righteous word", false)]] )
-  tempTimer(12.79, [[send("pray for blessed word", false)]] )
+  if table.contains(mtw.skills, "Balance Queue") then
+   send("bqa pray for radiant word", false)
+   send("bqa pray for illuminated word", false)
+   send("bqa pray for righteous word", false)
+   send("bqa pray for blessed word", false)
+  else
+   tempTimer(3.3, [[send("pray for radiant word", false)]] )
+   tempTimer(6.4, [[send("pray for illuminated word", false)]] )
+   tempTimer(9.6, [[send("pray for righteous word", false)]] )
+   tempTimer(12.79, [[send("pray for blessed word", false)]] )
+  end
  else
   blessed = matches[2]
   send("pray for glorious word to "..blessed, false)
-  tempTimer(3.3, [[send("pray for radiant word to "..blessed, false)]] )
-  tempTimer(6.4, [[send("pray for illuminated word to "..blessed, false)]] )
-  tempTimer(9.6, [[send("pray for righteous word to "..blessed, false)]] )
-  tempTimer(12.8, [[send("pray for blessed word to "..blessed, false)]] )
+  if table.contains(mtw.skills, "Balance Queue") then
+   send("bqa pray for radiant word to "..blessed, false)
+   send("bqa pray for illuminated word to "..blessed, false)
+   send("bqa pray for righteous word to "..blessed, false)
+   send("bqa pray for blessed word to "..blessed, false)
+  else
+   tempTimer(3.3, [[send("pray for radiant word to "..blessed, false)]] )
+   tempTimer(6.4, [[send("pray for illuminated word to "..blessed, false)]] )
+   tempTimer(9.6, [[send("pray for righteous word to "..blessed, false)]] )
+   tempTimer(12.8, [[send("pray for blessed word to "..blessed, false)]] )
+  end
  end
 end
 end
