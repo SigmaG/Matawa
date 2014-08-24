@@ -206,4 +206,6 @@ function gmcp_players()
  end
 end
 
-
+function gmcp_players_in_room()
+ mtw.gui.update_who_here()
+end

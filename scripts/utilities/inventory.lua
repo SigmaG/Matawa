@@ -117,8 +117,9 @@ function gmcp_room_list()
 
     for _, thing in ipairs(home.items) do
         mtw.roomitems[thing.name] = mtw.roomitems[thing.name] or {}
-        mtw.roomitems[thing.name][thing.id] = thing.attrib
+        mtw.roomitems[thing.name][thing.id] = thing.attrib or ""
     end
+    mtw.gui.update_IH()
 end
 
 --Sample result if the room has 2 bulls and 1 steel helm in the room:
@@ -142,7 +143,8 @@ function gmcp_room_add()
     local thing = home.item
 
     mtw.roomitems[thing.name] = mtw.roomitems[thing.name] or {}
-    mtw.roomitems[thing.name][thing.id] = thing.attrib
+    mtw.roomitems[thing.name][thing.id] = thing.attrib or ""
+    mtw.gui.update_IH()
 end
 
 function gmcp_room_remove()
@@ -157,6 +159,8 @@ function gmcp_room_remove()
     if not ( mtw.roomitems[thing.name] and mtw.roomitems[thing.name][thing.id] ) then return end
     mtw.roomitems[thing.name][thing.id] = nil
     if table.is_empty(mtw.roomitems[thing.name]) then mtw.roomitems[thing.name] = nil end
+
+    mtw.gui.update_IH()
 end
 
 function gmcp_room_update()
@@ -169,7 +173,9 @@ function gmcp_room_update()
     local thing = home.item
 
     mtw.roomitems[thing.name] = mtw.roomitems[thing.name] or {}
-    mtw.roomitems[thing.name][thing.id] = thing.attrib
+    mtw.roomitems[thing.name][thing.id] = thing.attrib or ""
+
+    mtw.gui.update_IH()
 end
 
 --I wanted the first three functions to take an input in the format of either "battleaxe", "12345", or "battleaxe12345".

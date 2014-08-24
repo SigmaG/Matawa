@@ -403,6 +403,16 @@ end</script>
                         </eventHandlerList>
                     </Script>
                     <Script isActive="yes" isFolder="no">
+                        <name>gmcp_players_in_room_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_players_in_room_()
+ gmcp_players_in_room()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Room.Players</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
                         <name>gmcp_players_</name>
                         <packageName></packageName>
                         <script>function gmcp_players_()

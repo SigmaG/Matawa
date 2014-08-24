@@ -245,6 +245,7 @@ function mtw.aff_have(affliction)
  if affliction == "aff_blackout" then
   mtw.aff_remove("stun")
  end
+ mtw.gui.update_affs()
 end
 
 function mtw.aff_diag(affliction)
@@ -307,6 +308,7 @@ function mtw.aff_remove(affliction)
 --  end
  end
  mtw.afflictions[affliction].state = "healed"
+ mtw.gui.update_affs()
 end
 
 

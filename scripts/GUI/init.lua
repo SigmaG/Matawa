@@ -35,7 +35,7 @@ mtw.gui.l_cont = mtw.gui.l_cont or Geyser.Container:new({
  x = 0,
  y = 0,
  width = "15%",
- height = "90%",
+ height = "95%",
 })
 
 mtw.gui.r_cont:show()
