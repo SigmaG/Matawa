@@ -124,6 +124,6 @@ end
 function mtw.gui.update_who_here()
  mtw.gui.who_box:clear()
  for _,v in pairs(gmcp.Room.Players) do
-  echoLink(mtw.gui.who_box.name, v.name.."\n", string.format([[send("honors %s)]], v.name), v.fullname, true)
+  echoLink(mtw.gui.who_box.name, v.name.."\n", string.format([[send("honors %s")]], v.name), v.fullname, true)
  end
 end
