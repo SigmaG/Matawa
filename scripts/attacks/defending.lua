@@ -62,6 +62,10 @@ function mtw.atk_start(attacker, weapon, attack)
  else
 --Otherwise, use the default time for the current attack
   mtw.defending.delay = mtw.attacks[attack]["delay"]-0.5-getNetworkLatency()
+--But modify it by personal speed
+  if mtw.attack_times[attacker]["speed"] ~= nil then
+   mtw.defending.delay = mtw.defending.delay - mtw.attack_times[attacker]["speed"];
+  end
  end
 --Check if the attacker is anachronized, adjust defense delays accordingly
  for z in pairs(mtw.anachronized) do
@@ -256,6 +260,8 @@ function mtw.atk_end(attacker, weapon, attack)
  if mtw.attacks[attack].getting_hit then
 --Adjust for lag and capture the telegraph time
   mtw.tele_time = stopStopWatch(mtw.attack_timers[attacker][attack])-getNetworkLatency()
+--Get the theoretical defending point
+  mtw.default_time = mtw.attacks[attack]["delay"]-0.5-getNetworkLatency();
 --Reset the timer for the current attack, once time is stored
   resetStopWatch(mtw.attack_timers[attacker][attack])
 --Check that the time is a reasonable, not corrupted one
@@ -273,6 +279,10 @@ function mtw.atk_end(attacker, weapon, attack)
    end
    if not mtw.anach then
     mtw.attack_times[attacker][attack] = mtw.tele_time
+--Here we also consider adding a personal attack modifier
+    if mtw.default_time > mtw.tele_time then
+     mtw.attack_times[attacker]["speed"] = mtw.default_time - mtw.tele_time;
+    end
    end
 --Display the final telegraph time
    echo(" "..mtw.tele_time)
@@ -383,4 +393,3 @@ shield = "A scintillating shield of light blossoms before you, protecting you.",
 warlord = "With preternatural grace, you dart fluidly to one side.",
 perfect = "You whirl about in a blur of motion, your perfect defense impossible to penetrate.",
 }
-
