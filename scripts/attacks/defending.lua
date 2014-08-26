@@ -62,7 +62,7 @@ function mtw.atk_start(attacker, weapon, attack)
  else
 --Otherwise, use the default time for the current attack
   mtw.defending.delay = mtw.attacks[attack]["delay"]-0.5-getNetworkLatency()
---But modify it by personal speed
+--But modify it by personal speed, to be slightly more accurate
   if mtw.attack_times[attacker]["speed"] ~= nil then
    mtw.defending.delay = mtw.defending.delay - mtw.attack_times[attacker]["speed"];
   end
@@ -261,7 +261,7 @@ function mtw.atk_end(attacker, weapon, attack)
 --Adjust for lag and capture the telegraph time
   mtw.tele_time = stopStopWatch(mtw.attack_timers[attacker][attack])-getNetworkLatency()
 --Get the theoretical defending point
-  mtw.default_time = mtw.attacks[attack]["delay"]-0.5-getNetworkLatency();
+  mtw.default_time = mtw.attacks[attack]["delay"]-getNetworkLatency();
 --Reset the timer for the current attack, once time is stored
   resetStopWatch(mtw.attack_timers[attacker][attack])
 --Check that the time is a reasonable, not corrupted one
@@ -279,9 +279,11 @@ function mtw.atk_end(attacker, weapon, attack)
    end
    if not mtw.anach then
     mtw.attack_times[attacker][attack] = mtw.tele_time
---Here we also consider adding a personal attack modifier
+--If the telegraph hits before the default telegraph time, record the difference
     if mtw.default_time > mtw.tele_time then
      mtw.attack_times[attacker]["speed"] = mtw.default_time - mtw.tele_time;
+    else
+     mtw.attack_times[attacker]["speed"] = nil;
     end
    end
 --Display the final telegraph time
