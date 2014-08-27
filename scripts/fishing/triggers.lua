@@ -71,7 +71,7 @@ mtw.unwielding = true
 tempTimer(1, [[mtw.unwielding = false]])
  send("unwield left")
  send("unwield right")
- send("wield pole")
+ send("wield pole right")
 end
 end
 

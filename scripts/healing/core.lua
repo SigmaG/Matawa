@@ -49,12 +49,12 @@ function mtw.do_healing()
   end
   if mtw.not_aff("sleep") then
    if mtw.need_wield and mtw.balance.balance and (not mtw.waiting.wield) and mtw.fleeing == false then
-    mtw.send("wield "..mtw.my.weapon.." left")
+    mtw.send("wield "..mtw.my.weapon.." right")
     mtw.waiting.wield = true
     tempTimer(mtw.delay(), [[mtw.waiting.wield = false]])
    end
    if mtw.need_offwield and mtw.balance.balance and (not mtw.waiting.offwield) and (not mtw.waiting.wield and not mtw.need_wield) and mtw.fleeing == false then
-    mtw.send("wield "..mtw.my.offweapon.." right")
+    mtw.send("wield "..mtw.my.offweapon.." left")
     mtw.waiting.offwield = true
     tempTimer(mtw.delay(), [[mtw.waiting.offwield = false]])
    end
