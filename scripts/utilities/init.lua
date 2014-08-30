@@ -384,11 +384,11 @@ end
 
 function mtw.order_guard_move(matches)
 local s = "guard"
-if gmcp.Char.Status.City == "Krondor" then
+if gmcp.Room.Info.area == "Krondor" then
  s = "constable"
-elseif gmcp.Char.Status.City == "Elvandar" then
+elseif gmcp.Room.Info.area == "Elvandar" then
  s = "warden"
-elseif gmcp.Char.Status.City == "Sar-Sargoth" then
+elseif gmcp.Room.Info.area == "Sar-Sargoth" then
  s = "bladedancer"
 end
 s = "order "..s.." move "..matches[3]
