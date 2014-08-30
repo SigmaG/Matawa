@@ -18,10 +18,6 @@ function mtw.bashing_function()
 end
 
 function mtw.soldier_bash()
- if mtw.toggles.gripping and mtw.defenses.def_grip.state ~= "deffed" and (mtw.need_offwield == false or mtw.need_offwield == false) then
-   mtw.defenses.def_grip.needit = true
-   mtw.send("grip")
- end  
   
  if mtw.toggles.berserking and table.contains(mtw.skills, "Berserking") and mtw.bashing.engaged and mtw.defenses.def_berserking.state ~= "deffed" and mtw.balance.balance then
   mtw.send("berserk")
@@ -43,7 +39,7 @@ function mtw.soldier_bash()
   mtw.send("starfuryslash "..mtw.bashing.target)
  elseif mtw.vitals.adrenaline > 89 and mtw.toggles.obliterating and not mtw.need_wield and not mtw.need_offwield and mtw.enemy_health ~= "<red> 0-10%" then
   mtw.send("obliterate "..mtw.bashing.target)
- elseif (mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping")) and not mtw.need_wield and not mtw.need_offwield then
+ elseif (mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping")) and not mtw.need_wield then
   mtw.send("slash "..mtw.bashing.target)
  end
 end
@@ -77,10 +73,6 @@ function mtw.magician_bash()
 end
 
 function mtw.rogue_bash()
-  if mtw.toggles.gripping and mtw.defenses.def_grip.state ~= "deffed" and (mtw.need_offwield == false or mtw.need_offwield == false) then
-   mtw.defenses.def_grip.needit = true
-   mtw.send("grip")
-  end
 
  if table.contains(mtw.skills, "performance") and table.contains(mtw.skills, "Prelude of Harmony") and mtw.toggles.prelude and mtw.bashing.engaged and mtw.defenses.def_prelude.state ~= "deffed" then
   if mtw.songs.prelude.id ~= "" and table.contains(mtw.skills, "Allegro") then
@@ -95,22 +87,24 @@ function mtw.rogue_bash()
    return
   end
  end
-
- if mtw.inquartata and table.contains(mtw.skills, "Inquartata") and mtw.toggles.inquartataing and not mtw.need_wield and not mtw.need_offwield then
+ 
+if mtw.toggles.gripping and (mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping")) and not mtw.need_wield then
+ if mtw.inquartata and table.contains(mtw.skills, "Inquartata") and mtw.toggles.inquartataing then
   mtw.send("inq "..mtw.bashing.target)
- elseif mtw.balance.requiem and table.contains(mtw.skills, "Requiem of the Fallen") and mtw.toggles.requieming and mtw.vitals.cadence == 3 and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and not mtw.need_wield and not mtw.need_offwield then
+ elseif mtw.balance.requiem and table.contains(mtw.skills, "Requiem of the Fallen") and mtw.toggles.requieming and mtw.vitals.cadence == 3 and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
   mtw.send("play requiem "..mtw.bashing.target)
- elseif (not mtw.used.balestra) and mtw.toggles.fleching and table.contains(mtw.skills, "Balestra") and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and not mtw.need_wield and not mtw.need_offwield then
+ elseif (not mtw.used.balestra) and mtw.toggles.fleching and table.contains(mtw.skills, "Balestra") and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
   mtw.send("balestra "..mtw.bashing.target)
- elseif (not mtw.used.fleche) and mtw.toggles.fleching and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and not mtw.need_wield and not mtw.need_offwield then
+ elseif (not mtw.used.fleche) and mtw.toggles.fleching and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
   mtw.send("fleche "..mtw.bashing.target)
- elseif table.contains(mtw.skills, "Bard's Canto") and mtw.toggles.cantoing and mtw.balance.canto and not mtw.need_wield and not mtw.need_offwield then
+ elseif table.contains(mtw.skills, "Bard's Canto") and mtw.toggles.cantoing and mtw.balance.canto then
   mtw.send("play bard's canto "..mtw.bashing.target)
- elseif mtw.toggles.balestrating and table.contains(mtw.skills, "Balestra") and not mtw.need_wield and not mtw.need_offwield then
+ elseif mtw.toggles.balestrating and table.contains(mtw.skills, "Balestra") then
   mtw.send("balestra "..mtw.bashing.target)
- elseif (not mtw.toggles.balestrating or not table.contains(mtw.skills, "Balestra")) and not mtw.need_wield and not mtw.need_offwield then
+ elseif (not mtw.toggles.balestrating or not table.contains(mtw.skills, "Balestra")) then
   mtw.send("thrust "..mtw.bashing.target)
  end
+end
 end
 
 function mtw.priest_bash()
