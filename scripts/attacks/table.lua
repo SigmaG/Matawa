@@ -184,7 +184,7 @@ atk_searing_arc = {def = "jump", class = "priest", aff = "damage", getting_hit =
 atk_vindication = {def = "dodge", class = "priest", aff = "prone", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 --atk_indolent_penance
 atk_holy_sword = {def = "parry", class = "priest", aff = "damage holy_shock", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
-atk_ill_omen = {def = "block", class = "priest", aff = "ill_omen ill_omen", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_ill_omen = {def = "block", class = "priest", aff = "ill_omen ill_omen", getting_hit = false, attacker = "none", defend_now = false, delay = 2, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_divine_censure = {def = "block", class = "priest", aff = "censure", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_repentance = {def = "duck", class = "priest", aff = "repenting", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_damnation = {def = "block", class = "priest", aff = "damnation", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
@@ -215,7 +215,7 @@ atk_melt = {def = "parry", class = "priest", aff = "defense_strip", getting_hit 
 atk_incinerate = {def = "none", class = "priest", aff = "death OR burns", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_embers = {def = "jump", class = "priest", aff = "cataplexy OR anemia OR collapsed_lungs OR weariness", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 --Priest: Shadoweaving
-atk_torturous_whip = {def = "jump", class = "priest", aff = "maladroitness", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_torturous_whip = {def = "jump", class = "priest", aff = "maladroitness", getting_hit = false, attacker = "none", defend_now = false, delay = 2, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_shadow_theft = {def = "none", class = "priest", aff = "", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_grotesque_visage = {def = "dodge", class = "priest", aff = "stun OR paralysis", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_deceit = {def = "dodge", class = "priest", aff = "lust", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
