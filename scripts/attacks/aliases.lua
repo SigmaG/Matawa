@@ -457,7 +457,7 @@ end
 end
 
 function mtw.greater_heal_sw_alias(matches)
-if mtw.my.class == "priest" then
+if mtw.my.class == "priest" and mtw.skills.shadowweaving then
  if matches[2] == "" then
   mtw.set_balance("shadowcall greater heal")
  else
