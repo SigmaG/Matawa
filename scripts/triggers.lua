@@ -8820,7 +8820,7 @@ mtw.atk_start(matches[2], nil, "funeral_mass")
 end
 
 function mtw.trigger_1811(matches,multimatches)
-mtw.atk_hit(matches[2], nil, "funeral_mass")
+mtw.atk_hit(matches[3], nil, "funeral_mass")
 end
 
 function mtw.trigger_1811a(matches,multimatches)
