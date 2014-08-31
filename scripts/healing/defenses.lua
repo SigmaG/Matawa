@@ -135,12 +135,12 @@ def_righteous_word = {defense = "righteous word", type = "normal", effect = "+10
 def_vengeful_mantle = {defense = "", type = "normal", effect = "Damages all enemies in your presence", skill = "Vengeful Mantle", balance = {needybalancetake = "pray for vengeful mantle"}, state = "down", needit = false, timer = createStopWatch()},
 def_blessed_word = {defense = "blessed word", type = "normal", effect = "+10 Constitution", skill = "Blessed Word", balance = {needybalancetake="pray for blessed word"}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Thanatology
-def_deathsight = {defense = "deathsight", type = "normal", effect = "", skill = "Deathsight", balance = {balancetake = "deathcall deathsight"}, state = "down", needit = false, timer = createStopWatch()},
-def_spectral_vision = {defense = "", type = "normal", effect = "", skill = "Spectral Vision", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_deathwhisper = {defense = "aura of spectral whispers", type = "normal", effect = "", skill = "Deathwhisper", balance = {balancetake = "deathcall deathwhisper"}, state = "down", needit = false, timer = createStopWatch()},
+def_deathsight = {defense = "deathsight", type = "normal", effect = "See location of death when people die", skill = "Deathsight", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_spectral_vision = {defense = "", type = "normal", effect = "Increased vigilance and see spirits", skill = "Spectral Vision", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_deathwhisper = {defense = "aura of spectral whispers", type = "normal", effect = "Speak to the decreased", skill = "Deathwhisper", balance = {balancetake = "deathcall deathwhisper"}, state = "down", needit = false, timer = createStopWatch()},
 def_pale_horse = {defense = "", type = "normal", effect = "", skill = "On a Pale Horse", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_ghostwalk = {defense = "", type = "normal", effect = "", skill = "Ghostwalk", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_deaths_door = {defense = "death's door", type = "normal", effect = "", skill = "Death's Door", balance = {balanceequilibriumtake = "deathcall death's door"}, state = "down", needit = false, timer = createStopWatch()},
+def_deaths_door = {defense = "death's door", type = "normal", effect = "Resurection on death", skill = "Death's Door", balance = {balanceequilibriumtake = "deathcall death's door"}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Pyromania
 def_flameborne = {defense = "", type = "normal", effect = "", skill = "Flameborne", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Shadoweaving
