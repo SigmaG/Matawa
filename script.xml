@@ -417,11 +417,29 @@ end</script>
                         <packageName></packageName>
                         <script>function gmcp_players_()
  gmcp_players()
-end
-
-</script>
+end</script>
                         <eventHandlerList>
                             <string>gmcp.Comm.Channel.Players</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_add_player_in_room_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_add_player_in_room_()
+ gmcp_add_player_in_room()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Room.AddPlayer</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_rm_player_in_room_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_rm_player_in_room_()
+ gmcp_rm_player_in_room()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Room.RemovePlayer</string>
                         </eventHandlerList>
                     </Script>
                 </ScriptGroup>

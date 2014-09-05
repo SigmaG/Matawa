@@ -1,30 +1,43 @@
 -- MTW : chat window
 
-mtw.gui.label_fg = "white"
-mtw.gui.chat_active = "green"
-mtw.gui.chat_inactive = "grey"
 mtw.gui.chat_selected = "All"
-mtw.gui.chat_labels_per_line = 4
-mtw.gui.chat_font_size = 9
 
-local w,h = getMainWindowSize()
-local cw,ch = calcFontSize(mtw.gui.chat_font_size)
-w = math.floor(0.3*w/cw)
+mtw.gui.label_fg = "white" -> mtw.cgui.chat_label_text
+mtw.gui.chat_active = "green" -> mtw.cgui.chat_label_active_color
+mtw.gui.chat_inactive = "grey" -> mtw.cgui.chat_label_inactive_color
+mtw.gui.chat_labels_per_line = 4 -> mtw.cgui.chat_labels_per_line
+mtw.gui.chat_font_size = 9 -> mtw.cgui.chat_font_size
+
+local w,h = getMainWindowSize() -> mtw.gui.w,h
+local cw,ch = calcFontSize(mtw.cgui.chat_font_size)
+local w = math.floor(mtw.gui.value_to_px("right_bar_width",mtw.gui.w)/cw)
+
+local cont = nil
+if mtw.cgui.chat_enabled then
+ cont = mtw.gui.r_cont
+else
+ cont = mtw.gui.disabled_win
+end
+mtw.gui.chat_window = mtw.gui.chat_window or Geyser.Container:new({
+ name = "mtw_chat_windows",
+ x = 0,
+ y = 0,
+ width = "100%",
+ height = mtw.gui.value_to_px("chat_height", mtw.gui.w),
+}, cont)
 
 local tabList = {"All", "Tells", "Says", "City", "Guild", "Order", "Societies", "OOC", "Misc", "Combat"}
-local lines = #tabList / mtw.gui.chat_labels_per_line
+local lines = #tabList / mtw.cgui.chat_labels_per_line
 if lines > math.floor(lines) then
  lines = math.floor(lines) + 1
 end
-local ch = 2*lines
-local cw = 60 - ch
 
 mtw.gui.chat_ctabs = mtw.gui.chat_ctabs or Geyser.VBox:new({
  name = "mtw_chattabs",
  x = 0,
  y = 0,
  width = "100%",
- height = ""..ch.."%",
+ height = 15*lines, --fixed for now
 }, mtw.gui.r_cont)
 
 mtw.gui.chat_ltabs = mtw.gui.chat_ltabs or {}
@@ -38,6 +51,7 @@ mtw.gui.chat_tabs = mtw.gui.chat_tabs or {}
 mtw.gui.chat_cwin = mtw.gui.chat_win or {}
 mtw.gui.chat_win = mtw.gui.chat_win or {}
 
+local cw = 60 - ch
 
 
 local i = 0
@@ -45,12 +59,12 @@ local n = 1
 for _,v in pairs(tabList) do
  mtw.gui.chat_tabs[v] = mtw.gui.chat_tabs[v] or Geyser.Label:new({
   name = "mtw_lchat_"..v,
-  fgColor = mtw.gui.label_fg,
-  color = mtw.gui.chat_inactive,
+  fgColor = mtw.cgui.chat_label_text,
+  color = mtw.cgui.chat_label_inactive_color,
   message = string.format([[<center>%s</center>]], v),
  }, mtw.gui.chat_ltabs[n])
  i = i + 1
- if (i == mtw.gui.chat_labels_per_line) then
+ if (i == mtw.cgui.chat_labels_per_line) then
   i = 0
   n = n + 1
  end
@@ -59,9 +73,9 @@ for _,v in pairs(tabList) do
  mtw.gui.chat_cwin[v] = mtw.gui.chat_cwin[v] or Geyser.Container:new({
   name = "mtw_chatwin",
   x = 0,
-  y = ""..ch.."%",
+  y = 15*lines,
   width = "100%",
-  height = ""..cw.."%",
+  height = mtw.gui.value_to_px("chat_height",mtw.gui.h)-15*lines,
  }, mtw.gui.r_cont)
 
  mtw.gui.chat_win[v] = mtw.gui.chat_win[v] or Geyser.MiniConsole:new({
@@ -72,7 +86,7 @@ for _,v in pairs(tabList) do
   height = "100%",
   color = "black",
  }, mtw.gui.chat_cwin[v])
- mtw.gui.chat_win[v]:setFontSize(mtw.gui.chat_font_size)
+ mtw.gui.chat_win[v]:setFontSize(mtw.cgui.chat_font_size)
  mtw.gui.chat_win[v]:setWrap(w)
  mtw.gui.chat_cwin[v]:hide()
 end
@@ -81,9 +95,9 @@ end
 function chat_label_click(name) 
  if name ~= mtw.gui.chat_selected then
  mtw.gui.chat_cwin[mtw.gui.chat_selected]:hide()
- mtw.gui.chat_tabs[mtw.gui.chat_selected]:setColor(mtw.gui.chat_inactive)
+ mtw.gui.chat_tabs[mtw.gui.chat_selected]:setColor(mtw.cgui.chat_label_inactive_color)
  mtw.gui.chat_cwin[name]:show()
- mtw.gui.chat_tabs[name]:setColor(mtw.gui.chat_active)
+ mtw.gui.chat_tabs[name]:setColor(mtw.cgui.chat_label_active_color)
  mtw.gui.chat_selected = name
  end
 end
@@ -103,7 +117,7 @@ function mtw.gui.chat_init()
   v:hide()
  end
  mtw.gui.chat_cwin["All"]:show()
- mtw.gui.chat_tabs["All"]:setColor(mtw.gui.chat_active)
+ mtw.gui.chat_tabs["All"]:setColor(mtw.cgui.chat_label_active_color)
  mtw.gui.chat_selected = "All"
 end
 

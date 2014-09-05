@@ -1,12 +1,25 @@
 -- MTW : create the various bars at the bottom of the screen
 
+local cont
+if mtw.cgui.location_enabled then
+ cont = mtw.gui.b_cont
+else
+ cont = mtw.gui.disabled_win
+end
+
 mtw.gui.location_bar = mtw.gui.location_bar or Geyser.Label:new({
  name = "mtw_location",
  x = 0,
  y = "50%",
  width = "100%",
  height = "50%",
-}, mtw.gui.b_cont)
+}, cont)
+
+if mtw.cgui.gauges_enabled then
+ cont = mtw.gui.b_cont
+else
+ cont = mtw.gui.disabled_win
+end
 
 mtw.gui.status_b = mtw.gui.status_b or Geyser.HBox:new({
  name = "mtw_statusbars",
@@ -14,27 +27,58 @@ mtw.gui.status_b = mtw.gui.status_b or Geyser.HBox:new({
  y = 0,
  width = "100%",
  height = "50%",
-}, mtw.gui.b_cont)
+}, cont)
 
 mtw.gui.status_bars = mtw.gui.status_bars or {}
+if mtw.cgui.hp_gauge_enabled then
+ cont = mtw.gui.status_b
+else
+ cont = mtw.gui.disabled_win
+end
 mtw.gui.status_bars.hp = mtw.gui.status_bars.hp or Geyser.Gauge:new({
  name = "mtw_hpbar",
-}, mtw.gui.status_b)
+}, cont)
+if mtw.cgui.pp_gauge_enabled then
+ cont = mtw.gui.status_b
+else
+ cont = mtw.gui.disabled_win
+end
 mtw.gui.status_bars.pp = mtw.gui.status_bars.pp or Geyser.Gauge:new({
  name = "mtw_ppbar",
-}, mtw.gui.status_b)
+}, cont)
+if mtw.cgui.ep_gauge_enabled then
+ cont = mtw.gui.status_b
+else
+ cont = mtw.gui.disabled_win
+end
 mtw.gui.status_bars.ep = mtw.gui.status_bars.ep or Geyser.Gauge:new({
  name = "mtw_epbar",
-}, mtw.gui.status_b)
+}, cont)
+if mtw.cgui.ap_gauge_enabled then
+ cont = mtw.gui.status_b
+else
+ cont = mtw.gui.disabled_win
+end
 mtw.gui.status_bars.ap = mtw.gui.status_bars.ap or Geyser.Gauge:new({
  name = "mtw_apbar",
-}, mtw.gui.status_b)
+}, cont)
+if mtw.cgui.xp_gauge_enabled then
+ cont = mtw.gui.status_b
+else
+ cont = mtw.gui.disabled_win
+end
 mtw.gui.status_bars.xp = mtw.gui.status_bars.xp or Geyser.Gauge:new({
  name = "mtw_xpbar",
-}, mtw.gui.status_b)
+}, cont)
 
 function mtw.gui.update_location_bar()
- local s = "<white>Area: <yellow>" .. gmcp.Room.Info.area .. "<white> | RoomID: <yellow>" .. gmcp.Room.Info.num 
+ local cw = [[<font color="white">]]
+ local cy = [[<font color="yellow">]]
+ local s = cw.."Area: "..cy..gmcp.Room.Info.area..cw.." | Room: "..cy..gmcp.Room.Info.num..cw.." ("..cy..gmcp.Room.Info.name:gsub("%.$","")..cw..") | Exits: "..cy
+ for k,_ in pairs(gmcp.Room.Info.exits) do
+  s = s..k..cw..","..cy
+ end                 
+ s = s:gsub(","..cy.."$","")
  mtw.gui.location_bar:echo(s)
 end
 

@@ -209,3 +209,22 @@ end
 function gmcp_players_in_room()
  mtw.gui.update_who_here()
 end
+
+function gmcp_add_player_in_room()
+ mtw.remove_player(gmcp.Room.AddPlayer.name)
+ table.insert(gmcp.Room.Players, gmcp.Room.AddPlayer)
+ mtw.gui.update_who_here()
+end
+
+function gmcp_rm_player_in_room()
+ mtw.remove_player(gmcp.Room.RemovePlayer)
+ mtw.gui.update_who_here()
+end
+
+function mtw.remove_player(name)
+ for k,v in pairs(gmcp.Room.Players) do
+  if v.name == name then
+   table.remove(gmcp.Room.Players, k)
+  end
+ end
+end
