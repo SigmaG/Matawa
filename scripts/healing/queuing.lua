@@ -468,7 +468,7 @@ mtw.priorities = {
 "atk_convocation",
 "atk_wrathful_thunder",
 "atk_avenging_flame",
-"atk_divine_command",
+--"atk_divine_command",
 "atk_retribution",
 "atk_righteous_lance",
 "atk_searing_arc",
