@@ -79,6 +79,9 @@ if mtw.toggles.balecho then
  deleteLine()
  cecho("<brown>\nYou: OVERDRIVE")
 end
+if mtw.vitals.adrenaline == -1 then
+ mtw.vitals.adrenaline = 10
+end
 mtw.balance_lose("overdrive")
 end
 
@@ -600,16 +603,25 @@ end
 
 function mtw.trigger_94(matches,multimatches)
 deleteLine()
+if mtw.vitals.adrenaline == -1 then
+ mtw.vitals.adrenaline = 10
+end
 cecho("<brown>\nYou: FOCUS BODY")
 end
 
 function mtw.trigger_95(matches,multimatches)
 deleteLine()
+if mtw.vitals.adrenaline == -1 then
+ mtw.vitals.adrenaline = 10
+end
 cecho("<brown>\nYou: FOCUS MIND")
 end
 
 function mtw.trigger_96(matches,multimatches)
 deleteLine()
+if mtw.vitals.adrenaline == -1 then
+ mtw.vitals.adrenaline = 10
+end
 cecho("<brown>\nYou: FOCUS SPIRIT")
 end
 
