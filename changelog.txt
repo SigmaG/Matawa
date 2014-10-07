@@ -926,3 +926,4 @@ v9.9
 o Added 'ftease' and 'fjerk' to customize jerking/teasing times -Savil
 o Added '?search' to search for text in the code -Savil
 o Added soullink defense -Savil
+o Changed threaten alias: thrn -Savil

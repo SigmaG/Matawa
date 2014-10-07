@@ -2818,7 +2818,7 @@ send(&quot; &quot;)</script>
                                     <script>mtw.al_soldier(&quot;threaten&quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^thrt$</regex>
+                                    <regex>^thrn$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Charge</name>
