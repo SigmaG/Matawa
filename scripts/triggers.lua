@@ -1290,6 +1290,8 @@ cecho("\n\n<red>===SUPERNOVA===\n\n")
 end
 
 function mtw.trigger_192(matches,multimatches)
+deleteLine()
+cecho("\n\n<yellow>=== ICEWALL DOWN: <red>"..matches[2].."<yellow> ===\n\n")
 if (not mtw.status.combat) and mtw.toggles.rewall and table.contains(mtw.skills, "Icewall") then
  send("bqa cast icewall "..matches[2])
 end
