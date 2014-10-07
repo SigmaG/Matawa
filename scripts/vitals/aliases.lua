@@ -101,10 +101,12 @@ function mtw.toggles_alias()
   mtw.disp_toggle("hiding", "thid: hide when out of combat")
   mtw.disp_toggle("poisondisplay", "tpoi: display next poison layer on prompt")
  elseif mtw.my.class == "magician" then
-  mtw.disp_toggle("warding", "tward: maintain warding/lightball")
+  mtw.disp_toggle("warding", "tward: maintain warding when out of combat")
+  mtw.disp_toggle("antirogue", "trog: maintain lodestone/lightball when out of combat")
+  mtw.disp_toggle("rewall", "twall: maintain icewall when out of combat")
   mtw.disp_toggle("freezing", "tfrz: maintain freezing the ground")
  elseif mtw.my.class == "priest" then
-  mtw.disp_toggle("warding", "tward: liturgy when available")
+  mtw.disp_toggle("liturgy", "tlit: liturgy when available")
  end
  send(" ")
 end

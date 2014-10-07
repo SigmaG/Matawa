@@ -1250,13 +1250,13 @@ end
 end
 
 function mtw.trigger_187(matches,multimatches)
-if mtw.toggles.warding and table.contains(mtw.skills, "Warding") then
+if (not mtw.status.combat) and mtw.toggles.warding and table.contains(mtw.skills, "Warding") then
  mtw.set_balance("cast warding")
 end
 end
 
 function mtw.trigger_188(matches,multimatches)
-if mtw.toggles.warding and table.contains(mtw.skills, "Lightball") then
+if (not mtw.status.combat) and mtw.toggles.antirogue and table.contains(mtw.skills, "Lightball") then
  mtw.set_balance("cast lightball")
 end
 end
@@ -1278,13 +1278,13 @@ cecho("\n\n<red>===SUPERNOVA===\n\n")
 end
 
 function mtw.trigger_192(matches,multimatches)
-if mtw.toggles.warding and table.contains(mtw.skills, "Icewall") then
+if (not mtw.status.combat) and mtw.toggles.rewall and table.contains(mtw.skills, "Icewall") then
  send("bqa cast icewall "..matches[2])
 end
 end
 
 function mtw.trigger_193(matches,multimatches)
-if mtw.toggles.warding and table.contains(mtw.skills, "Lodestone") then
+if (not mtw.status.combat) and mtw.toggles.antirogue and table.contains(mtw.skills, "Lodestone") then
  mtw.set_balance("cast lodestone")
 end
 end
@@ -1421,7 +1421,7 @@ if mtw.toggles.cdecho then
  deleteLine()
  cecho("\n<green>=====<cyan>LITURGY<green> READY=====\n")
 end
-if mtw.toggles.healing and not mtw.toggles.fishing and mtw.toggles.warding then
+if mtw.toggles.healing and not mtw.toggles.fishing and mtw.toggles.liturgy then
  mtw.set_equil("pray for liturgy")
 end
 end

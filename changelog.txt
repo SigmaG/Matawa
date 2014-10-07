@@ -927,3 +927,4 @@ o Added 'ftease' and 'fjerk' to customize jerking/teasing times -Savil
 o Added '?search' to search for text in the code -Savil
 o Added soullink defense -Savil
 o Changed threaten alias: thrn -Savil
+o Split the tward toggle: tward is now only for warding, trog for lightball/lodestone, twall for icewall, tlit for liturgy. -Savil

@@ -488,6 +488,27 @@
                                 <regex>^tward$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
+                                <name>recast icewall</name>
+                                <script>mtw.toggle(&quot;rewall&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^twall$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>antirogue mage skills (lightball, lodestone)</name>
+                                <script>mtw.toggle(&quot;antirogue&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^trog$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>liturgy</name>
+                                <script>mtw.toggle(&quot;liturgy&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tlit$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
                                 <name>freezing</name>
                                 <script>mtw.toggle(&quot;freezing&quot;)</script>
                                 <command></command>
