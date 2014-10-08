@@ -101,6 +101,7 @@ mtw.priorities = {
 "aff_hypochondria",
 
 --====High Priority (T2)====--
+"aff_disloyalty",
 "aff_magic_35",
 "aff_health_35",
 "aff_burns_2",
