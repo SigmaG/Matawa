@@ -61,9 +61,9 @@ function mtw.magician_bash()
    elseif not mtw.need_wield and not mtw.need_offwield then
    mtw.send("cast ice spikes "..mtw.bashing.target)
   end
- elseif mtw.vitals.percent.magic <= 80 and mtw.vitals.cadence >= 1 and not mtw.used.balefire and not mtw.casted.balefire and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and not mtw.need_wield and not mtw.need_offwield then
+ elseif table.contains(mtw.skills, "Balefire") and mtw.vitals.percent.magic <= 80 and mtw.vitals.cadence >= 1 and not mtw.used.balefire and not mtw.casted.balefire and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast balefire "..mtw.bashing.target)
- elseif mtw.toggles.balefiring and not mtw.need_wield and not mtw.need_offwield then
+ elseif table.contains(mtw.skills, "Balefire") and mtw.toggles.balefiring and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast balefire "..mtw.bashing.target)
  elseif not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast stormlance "..mtw.bashing.target)
