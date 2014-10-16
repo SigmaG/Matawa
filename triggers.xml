@@ -10083,8 +10083,10 @@
                                     <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                     <regexCodeList>
                                         <string>A Demon Lord waves at you, unleashing a wave of roiling blackness.</string>
+                                        <string>A feral goblin clambers onto your back and fastens his bony hands around your throat. The world recedes from view before you finally shake him loose.</string>
                                     </regexCodeList>
                                     <regexCodePropertyList>
+                                        <integer>3</integer>
                                         <integer>3</integer>
                                     </regexCodePropertyList>
                                 </Trigger>
