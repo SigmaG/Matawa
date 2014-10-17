@@ -15,7 +15,9 @@ function mtw.load_targets(area)
    for i,v in ipairs(mtw.areas.generic.targets) do
     table.insert(mtw.possible_targets, v)
    end
-   echo("\n Level Range: "..mtw.areas[area].level)
+   if mtw.areas[area].level then
+    echo("\n Level Range: "..mtw.areas[area].level)
+   end
    cecho("\n<green>Possible Targets:")
    for h in ipairs(mtw.possible_targets) do
     echo("\n "..mtw.possible_targets[h])
