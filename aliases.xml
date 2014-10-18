@@ -657,13 +657,6 @@
                             <regex>^reconnect$</regex>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
-                            <name>death beam</name>
-                            <script>mtw.deathbeam()</script>
-                            <command></command>
-                            <packageName></packageName>
-                            <regex>^deathbeam$</regex>
-                        </Alias>
-                        <Alias isActive="yes" isFolder="no">
                             <name>setup</name>
                             <script>mtw.setup_alias()</script>
                             <command></command>
