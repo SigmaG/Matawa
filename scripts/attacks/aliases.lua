@@ -264,18 +264,22 @@ end
 end
 
 function mtw.order_demon_attack(matches)
-if matches[2] == nil then
- send("order thrall attack "..mtw.target)
-else
- send("order thrall attack "..matches[2])
+if mtw.my.class == "magician" and table.contains(mtw.skills, "demonology") then
+ if matches[2] == "" then
+  send("order thrall attack "..mtw.target)
+ else
+  mtw.set_balance("order thrall attack "..matches[2])
+ end
 end
 end
 
 function mtw.blood_command_attack(matches)
+if mtw.my.class == "magician" and table.contains(mtw.skills, "demonology") then
 if matches[2] == nil then
  mtw.set_balance("blood command thrall attack "..mtw.target)
 else
  mtw.set_balance("blood command thrall attack "..matches[2])
+end
 end
 end
 

@@ -6,30 +6,26 @@ function mtw.do_stand(current)
  if mtw.have_aff(current) then
   if mtw.toggles.standing and (not mtw.waiting.stand) and not mtw.stand_queued and table.contains(mtw.skills, "Balance Queue") and mtw.not_slow() then
    echo("(stand)")
-   mtw.last_type = "stand"
-   mtw.last_item = "send"
    mtw.send("bq insert 1 stand")
-   if mtw.have_aff("blackout") then
-    mtw.send("bq insert 1 wake")
+   if mtw.not_slow() then
+    mtw.last_type = "stand"
+    mtw.last_item = "send"
    end
    mtw.waiting.stand = true
    tempTimer(mtw.delay(), [[mtw.waiting.stand = false]])
    mtw.afflictions[current].state = "waiting"
    startStopWatch(mtw.afflictions[current].timer)
-  elseif mtw.toggles.standing and (not mtw.waiting.stand) and mtw.balance.balance and not mtw.stand_queued and not mtw.waiting.balance then
-   if mtw.have_aff("blackout") then
-    mtw.send("wake")
-   end
+  elseif mtw.toggles.standing and (not mtw.waiting.stand) and not mtw.stand_queued and mtw.balance.balance and not mtw.waiting.balance then
    mtw.send("stand")
+   echo("(stand)")
    if mtw.not_slow() then
-    echo("(stand)")
     mtw.last_type = "stand"
     mtw.last_item = "send"
+   end
     mtw.waiting.stand = true
     tempTimer(mtw.delay(), [[mtw.waiting.stand = false]])
     mtw.afflictions[current].state = "waiting"
     startStopWatch(mtw.afflictions[current].timer)
-   end
   end
  end
 end
