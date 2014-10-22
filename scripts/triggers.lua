@@ -6418,7 +6418,7 @@ mtw.attack_miss(matches[2], "backhand")
 end
 
 function mtw.trigger_1266(matches,multimatches)
-attack_defend(matches[2], nil, "backhand", matches[4])
+mtw.attack_defend(matches[2], nil, "backhand", matches[4])
 end
 
 function mtw.trigger_1267(matches,multimatches)
