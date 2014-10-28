@@ -8623,7 +8623,26 @@ end
 
 function mtw.trigger_1788(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "terror", matches[3])
---Not in 9.3
+end
+
+function mtw.trigger_1788a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "terror")
+end
+
+function mtw.trigger_1788b(matches,multimatches)
+mtw.attack_start(matches[3], "terror")
+end
+
+function mtw.trigger_1788c(matches,multimatches)
+mtw.attack_hit(matches[3], "terror")
+end
+
+function mtw.trigger_1788d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "terror", matches[3])
+end
+
+function mtw.trigger_1788e(matches,multimatches)
+mtw.attack_miss(matches[2], "terror")
 end
 
 function mtw.trigger_1789(matches,multimatches)
@@ -8632,18 +8651,30 @@ end
 
 function mtw.trigger_1790(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "soulspear")
-
---Not in Matawa 9.3
--- You twirl to the side, partially dodging Zur's attack.
---^(\w+) forms an ethereal soulspear of dripping violet matter, launching it to lance into you. You clutch your chest and stagger as the death energies pound your too-frail body.$
 end
 
 function mtw.trigger_1791(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "soulspear", matches[3])
+end
 
---mtw.atk_defend("Someone", nil, "soulspear", matches[4])
---^You clutch your chest and stagger as the death energies pound your too-frail body. (.*)
---Not in 9.3
+function mtw.trigger_1791a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "soulspear")
+end
+
+function mtw.trigger_1791b(matches,multimatches)
+mtw.attack_start(matches[3], "soulspear")
+end
+
+function mtw.trigger_1791c(matches,multimatches)
+mtw.attack_hit(matches[2], "soulspear")
+end
+
+function mtw.trigger_1791d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "soulspear", matches[4])
+end
+
+function mtw.trigger_1791e(matches,multimatches)
+mtw.attack_miss(matches[2], "soulspear")
 end
 
 function mtw.trigger_1792(matches,multimatches)
@@ -8656,7 +8687,26 @@ end
 
 function mtw.trigger_1794(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "burden_soul", matches[3])
---not in 9.3
+end
+
+function mtw.trigger_1794a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "burden_soul")
+end
+
+function mtw.trigger_1794b(matches,multimatches)
+mtw.attack_start(matches[3], "burden_soul")
+end
+
+function mtw.trigger_1794c(matches,multimatches)
+mtw.attack_hit(matches[2], "burden_soul")
+end
+
+function mtw.trigger_1794d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "burden_soul", matches[4])
+end
+
+function mtw.trigger_1794e(matches,multimatches)
+mtw.attack_miss(matches[2], "burden_soul")
 end
 
 function mtw.trigger_1795(matches,multimatches)
@@ -8665,12 +8715,30 @@ end
 
 function mtw.trigger_1796(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "withering_touch")
-
 end
 
 function mtw.trigger_1797(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "withering_touch", matches[4])
---not in 9.3
+end
+
+function mtw.trigger_1797a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "withering_touch")
+end
+
+function mtw.trigger_1797b(matches,multimatches)
+mtw.attack_start(matches[3], "withering_touch")
+end
+
+function mtw.trigger_1797c(matches,multimatches)
+mtw.attack_hit(matches[2], "withering_touch")
+end
+
+function mtw.trigger_1797d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "withering_touch", matches[4])
+end
+
+function mtw.trigger_1797e(matches,multimatches)
+mtw.attack_miss(matches[2], "withering_touch")
 end
 
 function mtw.trigger_1798(matches,multimatches)
@@ -8679,6 +8747,30 @@ end
 
 function mtw.trigger_1799(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "exorcism")
+end
+
+function mtw.trigger_1799a(matches,multimatches)
+mtw.atk_defend(matches[2], nil, "exorcism", matches[4])
+end
+
+function mtw.trigger_1799b(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "exorcism")
+end
+
+function mtw.trigger_1799c(matches,multimatches)
+mtw.attack_start(matches[3], "exorcism")
+end
+
+function mtw.trigger_1799d(matches,multimatches)
+mtw.attack_hit(matches[2], "exorcism")
+end
+
+function mtw.trigger_1799e(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "exorcism", matches[3])
+end
+
+function mtw.trigger_1799f(matches,multimatches)
+mtw.attack_miss(matches[2], "exorcism")
 end
 
 function mtw.trigger_1800(matches,multimatches)
@@ -8695,12 +8787,26 @@ end
 
 function mtw.trigger_1803(matches,multimatches)
 mtw.atk_miss(matches[2], nil, "gravechill")
---not in 9.3
+end
+
+function mtw.trigger_1803a(matches,multimatches)
+mtw.attack_start(matches[3], "gravechill")
+end
+
+function mtw.trigger_1803b(matches,multimatches)
+mtw.attack_hit(matches[2], "gravechill")
+end
+
+function mtw.trigger_1803c(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "gravechill", matches[3])
+end
+
+function mtw.trigger_1803d(matches,multimatches)
+mtw.attack_miss(matches[2], "gravechill")
 end
 
 function mtw.trigger_1804(matches,multimatches)
 mtw.atk_start(matches[2], nil, "icy_grasp")
---not in 9.3
 end
 
 function mtw.trigger_1805(matches,multimatches)
@@ -8710,7 +8816,30 @@ end
 
 function mtw.trigger_1806(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "icy_grasp", matches[3])
---not in 9.3
+end
+
+function mtw.trigger_1806a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "icy_grasp")
+end
+
+function mtw.trigger_1806b(matches,multimatches)
+mtw.attack_start(matches[3], "icy_grasp")
+end
+
+function mtw.trigger_1806c(matches,multimatches)
+mtw.attack_hit(matches[2], "icy_grasp")
+end
+
+function mtw.trigger_1806d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "icy_grasp", matches[3])
+end
+
+function mtw.trigger_1806e(matches,multimatches)
+mtw.attack_miss(matches[2], "icy_grasp")
+end
+
+function mtw.trigger_1806f(matches,multimatches)
+mtw.attack_miss(mtw.target, nil, "icy_grasp")
 end
 
 function mtw.trigger_1807(matches,multimatches)
@@ -8719,12 +8848,29 @@ end
 
 function mtw.trigger_1808(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "despair")
-
 end
 
 function mtw.trigger_1809(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "despair", matches[4])
+end
 
+function mtw.trigger_1809a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "despair")
+end
+
+function mtw.trigger_1809b(matches,multimatches)
+mtw.attack_start(matches[3], "despair")
+end
+function mtw.trigger_1809c(matches,multimatches)
+mtw.attack_hit(matches[2], "despair")
+end
+
+function mtw.trigger_1809d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "despair", matches[5])
+end
+
+function mtw.trigger_1809e(matches,multimatches)
+mtw.attack_miss(matches[2], "despair")
 end
 
 function mtw.trigger_1810(matches,multimatches)
@@ -8733,6 +8879,30 @@ end
 
 function mtw.trigger_1811(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "funeral_mass")
+end
+
+function mtw.trigger_1811a(matches,multimatches)
+mtw.atk_defend(matches[3], nil, "funeral_mass", matches[4])
+end
+
+function mtw.trigger_1811b(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "funeral_mass")
+end
+
+function mtw.trigger_1811c(matches,multimatches)
+mtw.attack_start(matches[2], "funeral_mass")
+end
+
+function mtw.trigger_1811d(matches,multimatches)
+mtw.attack_hit(matches[3], "funeral_mass")
+end
+
+function mtw.trigger_1811e(matches,multimatches)
+mtw.attack_defend(matches[3], nil, "funeral_mass", matches[4])
+end
+
+function mtw.trigger_1811f(matches,multimatches)
+mtw.attack_miss(matches[2], "funeral_mass")
 end
 
 function mtw.trigger_1812(matches,multimatches)
@@ -8748,6 +8918,26 @@ function mtw.trigger_1814(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "vision_of_death", matches[4])
 end
 
+function mtw.trigger_1814a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "vision_of_death")
+end
+
+function mtw.trigger_1814b(matches,multimatches)
+mtw.attack_start(matches[3], "vision_of_death")
+end
+
+function mtw.trigger_1814c(matches,multimatches)
+mtw.attack_hit(matches[2], "vision_of_death")
+end
+
+function mtw.trigger_1814d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "vision_of_death", matches[5])
+end
+
+function mtw.trigger_1814e(matches,multimatches)
+mtw.attack_miss(matches[3], "vision_of_death")
+end
+
 function mtw.trigger_1815(matches,multimatches)
 mtw.atk_start(matches[2], nil, "doom")
 end
@@ -8756,14 +8946,36 @@ function mtw.trigger_1816(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "doom")
 end
 
+function mtw.trigger_1816a(matches,multimatches)
+mtw.atk_defend(matches[2], nil, "doom", matches[7])
+end
+
+function mtw.trigger_1816b(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "doom")
+end
+
+function mtw.trigger_1816c(matches,multimatches)
+mtw.attack_start(matches[3], "doom")
+end
+
+function mtw.trigger_1816d(matches,multimatches)
+mtw.attack_hit(matches[3], "doom")
+end
+
+function mtw.trigger_1816e(matches,multimatches)
+mtw.attack_defend(matches[3], nil, "doom", matches[5])
+end
+
+function mtw.trigger_1816f(matches,multimatches)
+mtw.attack_miss(matches[3], "doom")
+end
+
 function mtw.trigger_1817(matches,multimatches)
 mtw.atk_start(matches[2], nil, "entropy")
---not in 9.3
 end
 
 function mtw.trigger_1818(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "entropy")
---Not in 9.3
 end
 
 function mtw.trigger_1819(matches,multimatches)
@@ -8772,7 +8984,22 @@ end
 
 function mtw.trigger_1820(matches,multimatches)
 mtw.atk_miss(matches[2], nil, "entropy")
---not in 9.3
+end
+
+function mtw.trigger_1820a(matches,multimatches)
+mtw.attack_start(matches[3], "entropy")
+end
+
+function mtw.trigger_1820b(matches,multimatches)
+mtw.attack_hit(matches[2], "entropy")
+end
+
+function mtw.trigger_1820c(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "entropy", matches[5])
+end
+
+function mtw.trigger_1820d(matches,multimatches)
+mtw.attack_miss(matches[2], "entropy")
 end
 
 function mtw.trigger_1821(matches,multimatches)
