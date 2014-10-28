@@ -6690,8 +6690,26 @@
                                 <colorTriggerBgColor>#000000</colorTriggerBgColor>
                                 <regexCodeList>
                                     <string>^You unearth (a|an) (.*) (vein|deposit) here!$</string>
+                                    <string>(A) vein of (zinc) is exposed here, its muted grey color barely distinguishable from the adjacent stone.</string>
+                                    <string>Layers (of) brownish-black (coal) stand out in the rock nearby.</string>
+                                    <string>Small bits (of) crystalline (tin) are dispersed through a nearby vein of stone.</string>
+                                    <string>The light sparkles alluringly on rich veins (of) (gold) in the rock's surface.</string>
+                                    <string>In contrast to the dull surrounding rock, folds (of) milky-white (marble) shine brightly.</string>
+                                    <string>Glinting a gray-silver, a thick vein (of) (platinum) has been exposed.</string>
+                                    <string>Trails (of) matted green (copper) swirl through an exposed vein here.</string>
+                                    <string>A vein (of) gray (iron) ore is exposed in the surrounding rock.</string>
+                                    <string>Bright streaks (of) raw (silver) gleam, standing out in the surrounding rock.</string>
                                 </regexCodeList>
                                 <regexCodePropertyList>
+                                    <integer>1</integer>
+                                    <integer>1</integer>
+                                    <integer>1</integer>
+                                    <integer>1</integer>
+                                    <integer>1</integer>
+                                    <integer>1</integer>
+                                    <integer>1</integer>
+                                    <integer>1</integer>
+                                    <integer>1</integer>
                                     <integer>1</integer>
                                 </regexCodePropertyList>
                             </Trigger>
