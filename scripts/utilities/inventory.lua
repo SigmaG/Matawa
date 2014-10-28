@@ -226,7 +226,13 @@ function mtw.in_vault(item, amount)
 end
 
 function item_tracking_init()
-    gmod.enableModule(gmcp.Char.Status.name,"IRE.Rift")
-    sendGMCP("Char.Items.Inv")
-    sendGMCP("IRE.Rift.Request")
+    tempTimer(5, [[item_tracking_init_2()]])
+end
+
+function item_tracking_init_2()
+    if gmcp.Char and gmcp.Char.Status then
+     gmod.enableModule(gmcp.Char.Status.name,"IRE.Rift")
+     sendGMCP("Char.Items.Inv")
+     sendGMCP("IRE.Rift.Request")
+    end
 end
