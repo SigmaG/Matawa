@@ -317,6 +317,9 @@ function mtw.prompt_display()
  if not mtw.toggles.focusing then
   cecho("<brown>+<grey>FOCUSING OFF<brown>+")
  end
+ if not mtw.toggles.overdriving then
+  cecho("<pink>+<grey>OVERDRIVE OFF<pink>+")
+ end
  if mtw.my.class == "magician" then
   if mtw.defenses.def_spellshield.state ~= "deffed" then
    cecho("<orange>+<grey>SPELLSHIELD DOWN<orange>+")
