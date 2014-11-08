@@ -128,7 +128,7 @@ function mtw.bashing_aliases()
  echo("\n offrs: check II CORPSE and then offer all the corpses to sanctify")
  if mtw.my.class == "soldier" then
   mtw.disp_toggle("berserking", "tbrk: toggle berserking")
-  mtw.disp_toggle("threatening", "trt: toggle threatening")
+  mtw.disp_toggle("threatening", "trt: toggle threatening - requires the mastery Terrifying Presence to THREATEN EVERYONE")
   mtw.disp_toggle("obliterating", "tobt: toggle obliterating")
   mtw.disp_toggle("sundering", "tsnd: toggle sundering")
   if table.contains(mtw.skills, "swordmastery") then

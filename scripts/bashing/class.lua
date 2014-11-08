@@ -26,7 +26,13 @@ function mtw.soldier_bash()
  if mtw.toggles.berserking and table.contains(mtw.skills, "Berserking") and mtw.bashing.engaged and mtw.defenses.def_berserking.state ~= "deffed" and mtw.balance.balance then
   mtw.send("berserk")
  end
--- mtw.send("threaten "..mtw.bashing.target)
+ if table.contains(mtw.skills, "Threaten") and mtw.toggles.threaten then
+  if mtw.defenses.def_defensive_stance ~= "deffed" then
+   cecho("<yellow>Defensive stance is disabled, cannot threaten!\n")
+  else
+   mtw.send("threaten everyone")
+  end
+ end
  if table.contains(mtw.skills, "Desperate Strike") and mtw.balance.desperate and mtw.vitals.adrenaline < 15 and mtw.vitals.percent.health < 25 and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("strike "..mtw.bashing.target)
  elseif not mtw.used.rake and table.contains(mtw.skills, "Rake") and mtw.toggles.raking and not mtw.need_wield and not mtw.need_offwield then
