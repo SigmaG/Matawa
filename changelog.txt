@@ -929,3 +929,4 @@ o Added soullink defense -Savil
 o Changed threaten alias: thrn -Savil
 o Split the tward toggle: tward is now only for warding, trog for lightball/lodestone, twall for icewall, tlit for liturgy. -Savil
 o Added threaten (with its toggle) to the soldier bashing function. -Savil
+o Updated bashing table
