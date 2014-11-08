@@ -5265,7 +5265,7 @@ send(&quot; &quot;)</script>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>icy grasp</name>
-                                    <script>mtw.al_thana(&quot;icy grasp &quot;)</script>
+                                    <script>mtw.al_thana(&quot;grasp &quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
                                     <regex>^icy$</regex>
