@@ -8396,6 +8396,8 @@ end
 
 function mtw.trigger_1735(matches,multimatches)
 mtw.atk_hit(matches[2], matches[3], "searing_arc")
+--temporary fix since we don't get the affline when Mind Sear mastery is selected by the attacker
+mtw.queue_diag()
 end
 
 function mtw.trigger_1736(matches,multimatches)
