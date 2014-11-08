@@ -186,7 +186,8 @@ mtw.aff_color = ""
 --GATHERING STUFF
 mtw.mining = {
 material = "none",
-found = false
+found = false,
+targets = {},
 }
 
 

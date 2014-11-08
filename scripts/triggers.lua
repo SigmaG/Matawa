@@ -1796,66 +1796,6 @@ if mtw.channeling.inking then
 end
 end
 
-function mtw.trigger_247(matches,multimatches)
-if mtw.toggles.mining then
- deleteLine()
- cecho("\n<yellow>-----------------------")
- cecho("\n<yellow>    FOUND: "..matches[3])
- cecho("\n<yellow>-----------------------")
- mtw.mining.found = true
- if matches[3]=="gem" then
-  mtw.mining.material = "gems"
- else
-  mtw.mining.material = matches[3]
- end
-end
-end
-
-function mtw.trigger_248(matches,multimatches)
-if mtw.toggles.mining then
- deleteLine()
- cecho("\n<red>-----------------------")
- cecho("\n<red>   "..matches[2].." depleted")
- cecho("\n<red>-----------------------")
- send("vin 10 "..mtw.mining.material)
- mtw.mining.found = false
- mtw.mining.material = "none"
-end
-end
-
-function mtw.trigger_249(matches,multimatches)
-if mtw.toggles.mining and mtw.mining.found then
- if mtw.mining.material == "trees" then
-  send("chop trees")
- else
-  send("mine "..mtw.mining.material)
- end
-end
-end
-
-function mtw.trigger_250(matches,multimatches)
-if mtw.toggles.mining then
- deleteLine()
- cecho("\n<yellow>-----------------------")
- cecho("\n<yellow>    FOUND: trees")
- cecho("\n<yellow>-----------------------")
- mtw.mining.found = true
- mtw.mining.material = "trees"
-end
-end
-
-function mtw.trigger_251(matches,multimatches)
-if mtw.toggles.mining then
- deleteLine()
- cecho("\n<red>-----------------------")
- cecho("\n<red>   trees depleted")
- cecho("\n<red>-----------------------")
- send("vin 10 wood")
- mtw.mining.found = false
- mtw.mining.material = "none"
-end
-end
-
 function mtw.trigger_252(matches,multimatches)
 if mtw.sent.inv then
  mtw.roulette.total = tonumber(matches[2])

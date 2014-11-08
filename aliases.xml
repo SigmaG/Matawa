@@ -104,7 +104,7 @@
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
                                 <name>mining</name>
-                                <script>mtw.toggle(&quot;mining&quot;)</script>
+                                <script>mtw.toggle_mining()</script>
                                 <command></command>
                                 <packageName></packageName>
                                 <regex>^tmin$</regex>
@@ -1316,6 +1316,13 @@ send(&quot; &quot;)</script>
                             <command>appraise</command>
                             <packageName></packageName>
                             <regex>^apr$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>load mining targets</name>
+                            <script>mtw.load_mining_targets(matches)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^h (.*)$</regex>
                         </Alias>
                     </AliasGroup>
                     <AliasGroup isActive="yes" isFolder="yes">

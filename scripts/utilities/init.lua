@@ -18,6 +18,9 @@ mtw_struct.load_external("utilities/conversion")
 -- searching utility
 mtw_struct.load_external("utilities/search")
 
+-- gathering functions
+mtw_struct.load_external("utilities/gathering")
+
 -- crits
 mtw_struct.set_metatable_saved("crits")
 

@@ -30,6 +30,9 @@ function mtw.do_core()
    if mtw.toggles.fishing then
     mtw.do_fishing()
    end
+   if mtw.toggles.mining then
+    mtw.do_mining()
+   end
   end
  end
 end
