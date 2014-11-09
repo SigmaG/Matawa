@@ -19,6 +19,10 @@ if mtw.cgit.enabled then
  mtw_struct.load_external("GUI/mainwindows")
 
  --now we create the actual windows :)
+ mtw_struct.load_external("GUI/bars")
+ mtw_struct.load_external("GUI/chat")
+ mtw_struct.load_external("GUI/mapper")
+ mtw_struct.load_external("GUI/infobar")
 
 else
  -- we just want to prevent any call to the GUI when it's not enabled

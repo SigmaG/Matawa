@@ -20,7 +20,7 @@ mtw.default.cgui = {
 
 -- mapper config
  mapper_enabled = true,
- geyser_mapper = true,
+ geyser_mapper = true, --if not the geyser mapper, it's a miniwindow that you obtain by extracting the map data
  
 -- left panel config
  target_enabled = true,
@@ -31,6 +31,9 @@ mtw.default.cgui = {
  aff_enabled = true,
  who_enabled = true,
  action_who = "honors %s",
+ ih_size = "40%",
+ aff_size = "50%",
+ --who here takes what's left
 
 -- gauges config
  gauges_enabled = true,
