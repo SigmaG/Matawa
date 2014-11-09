@@ -4,7 +4,7 @@ mtw_struct.load_external("GUI/geyser")
 
 mtw_struct.load_external("GUI/config")
 
-if mtw.cgit.enabled then
+if mtw.cgui.enabled then
  mtw.gui = mtw.gui or {}
 
  mtw_struct.load_external("GUI/utils")

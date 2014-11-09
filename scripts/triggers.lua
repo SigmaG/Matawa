@@ -10173,7 +10173,7 @@ mtw.gui.chat("Guild")
 end
 
 function mtw.trigger_2019(matches,multimatches)
-mtw.gui.chat("SCTs")
+mtw.gui.chat("Societies")
 end
 
 function mtw.trigger_2020(matches,multimatches)

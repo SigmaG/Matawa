@@ -8,11 +8,11 @@ mtw.gui.root = mtw.gui.root or {
  end,
  remove = function(self,win)
  end,
- resize_chidren = function(self)
-  if mtw.cgui.chat_enabled or mtw.cgui.mapper_enabled then
+ resize_children = function(self)
+  if mtw.cgui.target_enabled or mtw.cgui.system_info_enabled or mtw.cgui.ih_enabled or mtw.cgui.game_info_enabled or mtw.cgui.aff_enabled or mtw.cgui.who_enabled then
    setBorderLeft(mtw.gui.value_to_px("left_bar_width", mtw.gui.w))
   end
-  if mtw.cgui.target_enabled or mtw.cgui.system_info_enabled or mtw.cgui.ih_enabled or mtw.cgui.game_info_enabled or mtw.cgui.aff_enabled or mtw.cgui.who_enabled then
+  if mtw.cgui.chat_enabled or mtw.cgui.mapper_enabled then
    setBorderRight(mtw.gui.value_to_px("right_bar_width", mtw.gui.w))
   end
   if mtw.cgui.gauges_enabled or mtw.cgui.location_enabled then

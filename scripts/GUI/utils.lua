@@ -1,7 +1,7 @@
 -- MTW : utils to help with managing the GUI
 
 function mtw.gui.update_window_size()
- gui.w,gui.h = getMainWindowSize()
+ mtw.gui.w,mtw.gui.h = getMainWindowSize()
 end
 
 function mtw.gui.value_to_px(str, scale)
@@ -51,13 +51,19 @@ function mtw.gui.value_to_px(str, scale)
 end
 
 function mtw.gui.parse_constraints(cons)
+ local r
  if type(cons) == "table" then
-  return cons
+  r = cons
  else
-  local r = assert(loadstring(cons))()
+  r = assert(loadstring(cons))()
   while type(r) == "function" do
    r = r()
   end
-  return r
  end
+ if not r then r = {} end
+ if not r.x then r.x = 0 end
+ if not r.y then r.y = 0 end
+ if not r.width then r.width = 0 end
+ if not r.height then r.height = 0 end
+ return r
 end

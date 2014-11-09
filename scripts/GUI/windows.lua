@@ -2,7 +2,7 @@
 -- It is advised to have a look at a lua manual before touching this...
 
 function mtw.gui.new(
- type, --the kind of Geyser window, like Geyser.Container, Geyser.HBox, Geyser.Label...
+ Gtype, --the kind of Geyser window, like Geyser.Container, Geyser.HBox, Geyser.Label...
  cons, --the constraints, in a special format: either as a string that represents a constraints table '[[{x = 0, y = 42, width = blah, height = foo, ...}]]' or a function that will return such a table '[[function() return {x=42, y=whatever} end]]'
        -- we want to store something that has not been interpreted, for later reuse
  enabled, --check whether it's enabled or not on creation.
@@ -32,10 +32,10 @@ function mtw.gui.new(
 
  t.enabled = enabled
  if enabled then
-  t.win = type:new(mtw.gui.parse_constraints(t.cons), container.win)
+  t.win = Gtype:new(mtw.gui.parse_constraints(t.cons), container.win)
   t.win:show(true)
  else
-  t.win = type:new(mtw.gui.parse_constraints(t.cons), mtw.gui.disabled)
+  t.win = Gtype:new(mtw.gui.parse_constraints(t.cons), mtw.gui.disabled)
  end
 
  t.container = container
@@ -95,8 +95,9 @@ function mtw.gui.new(
  end
 
  setmetatable(t, {__index = function (tab,k)
-  return t.win(k)
+  return tab.win[k]
  end})
  --the metatable magic :) here we want to be able to use the standard geyser functions without having to fetch the geyser component
 
+ return t
 end
