@@ -90,6 +90,8 @@ function gmcp_vitals()
   end
  end
 
+ mtw.gui.update_status_bars()
+
 --Start running actions
  if mtw.have_slow() then
 
@@ -144,6 +146,7 @@ function gmcp_room()
   end
  end
 
+ mtw.gui.update_location_bar()
 end
 
 
@@ -164,6 +167,8 @@ function gmcp_status()
 
 --Set character name
  mtw.my.name = gmcp.Char.Status.name
+
+ mtw.gui.update_random_boxes()
 end
 
 
@@ -200,4 +205,25 @@ function gmcp_players()
  end
 end
 
+function gmcp_players_in_room()
+ mtw.gui.update_who_here()
+end
 
+function gmcp_add_player_in_room()
+ mtw.remove_player(gmcp.Room.AddPlayer.name)
+ table.insert(gmcp.Room.Players, gmcp.Room.AddPlayer)
+ mtw.gui.update_who_here()
+end
+
+function gmcp_rm_player_in_room()
+ mtw.remove_player(gmcp.Room.RemovePlayer)
+ mtw.gui.update_who_here()
+end
+
+function mtw.remove_player(name)
+ for k,v in pairs(gmcp.Room.Players) do
+  if v.name == name then
+   table.remove(gmcp.Room.Players, k)
+  end
+ end
+end

@@ -1687,6 +1687,7 @@ if not mtw.gmcp_enabled() then
 else
  cecho("\nGMCP is <green>enabled<white>!")
 end
+mtw.gui.chat_init()
 end
 
 function mtw.trigger_235(matches,multimatches)
@@ -9787,39 +9788,39 @@ mtw.see_illusion = true
 end
 
 function mtw.trigger_2015(matches,multimatches)
-mtw.chat_tells(matches)
+mtw.gui.chat_tells(matches)
 end
 
 function mtw.trigger_2016(matches,multimatches)
-mtw.chat_says(matches)
+mtw.gui.chat_says(matches)
 end
 
 function mtw.trigger_2017(matches,multimatches)
-demonnic.chat:append("City")
+mtw.gui.chat("City")
 end
 
 function mtw.trigger_2018(matches,multimatches)
-demonnic.chat:append("Guild")
+mtw.gui.chat("Guild")
 end
 
 function mtw.trigger_2019(matches,multimatches)
-demonnic.chat:append("SCTs")
+mtw.gui.chat("SCTs")
 end
 
 function mtw.trigger_2020(matches,multimatches)
-demonnic.chat:append("OOC")
+mtw.gui.chat("OOC")
 end
 
 function mtw.trigger_2021(matches,multimatches)
-mtw.chat_misc(matches)
+mtw.gui.chat_misc(matches)
 end
 
 function mtw.trigger_2022(matches,multimatches)
-mtw.chat_deathsense(matches)
+mtw.gui.chat_deathsense(matches)
 end
 
 function mtw.trigger_2023(matches,multimatches)
-mtw.chat_shouts(matches)
+mtw.gui.chat_shouts(matches)
 end
 
 function mtw.trigger_2024(matches,multimatches)

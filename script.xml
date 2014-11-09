@@ -278,7 +278,7 @@ end</script>
                         </eventHandlerList>
                     </Script>
                 </ScriptGroup>
-                <ScriptGroup isActive="yes" isFolder="yes">
+                <ScriptGroup isActive="no" isFolder="yes">
                     <name>chat</name>
                     <packageName></packageName>
                     <script></script>
@@ -407,11 +407,39 @@ end</script>
                         <packageName></packageName>
                         <script>function gmcp_players_()
  gmcp_players()
-end
-
-</script>
+end</script>
                         <eventHandlerList>
                             <string>gmcp.Comm.Channel.Players</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_players_in_room_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_players_in_room_()
+ gmcp_players_in_room()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Comm.Channel.Players</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_add_player_in_room_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_add_player_in_room_()
+ gmcp_add_player_in_room()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Room.AddPlayer</string>
+                        </eventHandlerList>
+                    </Script>
+                    <Script isActive="yes" isFolder="no">
+                        <name>gmcp_rm_player_in_room_</name>
+                        <packageName></packageName>
+                        <script>function gmcp_rm_player_in_room_()
+ gmcp_rm_player_in_room()
+end</script>
+                        <eventHandlerList>
+                            <string>gmcp.Room.RemovePlayer</string>
                         </eventHandlerList>
                     </Script>
                 </ScriptGroup>
@@ -436,27 +464,6 @@ end</script>
                     </eventHandlerList>
                 </Script>
             </ScriptGroup>
-            <Script isActive="yes" isFolder="no">
-                <name>Map Window</name>
-                <packageName></packageName>
-                <script>
-local main = Geyser.Container:new({x=0,y=0,width=&quot;100%&quot;,height=&quot;100%&quot;,name=&quot;mapper container&quot;})
- 
-local mapper = Geyser.Mapper:new({
-  name = &quot;mapper&quot;,
-  x = &quot;64%&quot;, y = &quot;40%&quot;, -- edit here if you want to move it
-  width = &quot;35%&quot;, height = &quot;60%&quot;
-}, main)
-
-function hideMap()
- main:hide()
-end
-
-function showMap()
- main:show()
-end</script>
-                <eventHandlerList/>
-            </Script>
         </ScriptGroup>
     </ScriptPackage>
 </MudletPackage>
