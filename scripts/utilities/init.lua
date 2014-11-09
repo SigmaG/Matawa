@@ -382,10 +382,11 @@ if mtw.toggles.calling and mtw.not_aff("timewarp") and mtw.not_aff("divine_censu
  send("sct Attacking **"..mtw.target.."** !")
 end
 send(" ")
-if id then killTrigger(id) end
-id = tempTrigger(mtw.target, [[selectString("]] .. mtw.target .. [[", 1) fg("DarkOrchid") resetFormat()]])
-if idlow then killTrigger(idlow) end
-idlow = tempTrigger(string.lower(mtw.target), [[selectString("]] .. string.lower(mtw.target) .. [[", 1) fg("DarkOrchid") resetFormat()]])
+mtw.gui.update_target()
+if mtw.target_trigger_id then killTrigger(mtw.target_trigger_id) end
+mtw.target_trigger_id = tempTrigger(mtw.target, [[selectString("]] .. mtw.target .. [[", 1) fg("DarkOrchid") resetFormat()]])
+if mtw.target_trigger_idlow then killTrigger(mtw.target_trigger_idlow) end
+mtw.target_trigger_idlow = tempTrigger(string.lower(mtw.target), [[selectString("]] .. string.lower(mtw.target) .. [[", 1) fg("DarkOrchid") resetFormat()]])
 end
 
 function mtw.order_guard_move(matches)
@@ -562,5 +563,7 @@ function mtw.compare_versions(version_file)
   cecho("\n<yellow>A new version (<green>"..v.."<yellow>) of <red>Matawa<yellow> is now available! You can download it ")
   echoLink("here", [[openUrl("http://mko.kadarniad.fr/matawa/master/matawa.mpackage.zip")]], "Matawa version "..v)
   cecho("<yellow>! Manual can be found here: <cyan>http://mko.kadarniad.fr/matawa/")
+  mtw.upgrade = true
  end
+ mtw.gui.matawa()
 end
