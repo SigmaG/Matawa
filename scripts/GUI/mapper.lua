@@ -7,14 +7,15 @@ mtw.gui.c_mapper = mtw.gui.c_mapper or mtw.gui.new(Geyser.Container,
    h = mtw.gui.h - y
   else
    y = 0
-   h = "100%",
+   h = "100%"
   end
   return {name = "mtw_mapper_cont",
    x = "0%",
    y = y,
    width = "100%",
    height = h,
-  }]] end, 
+  }
+ end]], 
  mtw.cgui.mapper_enabled,
  mtw.gui.cont.r)
 

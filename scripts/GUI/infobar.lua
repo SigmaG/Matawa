@@ -40,8 +40,8 @@ function mtw.gui.calculate_infobar_constraints(which)
     end
     ihh = 0
    else
-    if not mtw.gui.who_enabled then
-     afh = math.floor((lbs * ifh)/(lbs - whh))
+    if not mtw.cgui.who_enabled then
+     afh = math.floor((lbs * ihh)/(lbs - whh))
      ifh = lbs - afh
      whh = 0
     end
@@ -76,7 +76,7 @@ end
 
 mtw.gui.small_info_box = mtw.gui.small_info_box or mtw.gui.new(Geyser.VBox,
  [[ mtw.gui.calculate_infobar_constraints("infobar") ]],
- mtw.cgui.system_info_enabled or mtw.cgui.game_info_enabled or mtw.cgui.target_enabled 
+ mtw.cgui.system_info_enabled or mtw.cgui.game_info_enabled or mtw.cgui.target_enabled,
  mtw.gui.cont.l)
 
 mtw.gui.matawa_label = mtw.gui.matawa_label or mtw.gui.new(Geyser.Label,
@@ -146,19 +146,19 @@ function mtw.gui.update_target()
 end
 
 mtw.gui.IH_box = mtw.gui.IH_box or mtw.gui.new(Geyser.MiniConsole,
- [[ mtw.gui.calculate_infobar_constraints("infobar") ]],
+ [[ mtw.gui.calculate_infobar_constraints("ih") ]],
  mtw.cgui.ih_enabled,
  mtw.gui.cont.l)
 
 mtw.gui.aff_box = mtw.gui.aff_box or mtw.gui.new(Geyser.MiniConsole,
- [[ mtw.gui.calculate_infobar_constraints("infobar") ]],
+ [[ mtw.gui.calculate_infobar_constraints("aff") ]],
  mtw.cgui.aff_enabled,
- mtw.gui.large_info_box)
+ mtw.gui.cont.l)
 
 mtw.gui.who_box = mtw.gui.who_box or mtw.gui.new(Geyser.MiniConsole,
- [[ mtw.gui.calculate_infobar_constraints("infobar") ]],
+ [[ mtw.gui.calculate_infobar_constraints("who") ]],
  mtw.cgui.who_enabled,
- mtw.gui.large_info_box)
+ mtw.gui.cont.l)
 
 function mtw.gui.expand_IH(thing)
  if mtw.gui.expanded == thing then

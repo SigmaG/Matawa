@@ -17,7 +17,7 @@ mtw.gui.chat_window = mtw.gui.chat_window or mtw.gui.new(Geyser.Container,
    y = 0,
    width = "100%",
    height = h, }
-  end]]
+  end]],
  mtw.cgui.chat_enabled,
  mtw.gui.cont.r)
 
@@ -60,12 +60,12 @@ local i = 0
 local n = 1
 for _,v in pairs(tabList) do
  mtw.gui.chat_tabs[v] = mtw.gui.chat_tabs[v] or mtw.gui.new(Geyser.Label,
-  [[
-  { name = "mtw_lchat_"..v,
+  string.format([[
+  { name = "mtw_lchat_%s",
    fgColor = mtw.cgui.chat_label_text,
    color = mtw.cgui.chat_label_inactive_color,
-   message = "<center>"..v.."</center>",
-  } ]],
+   message = "<center>%s</center>",
+  } ]], v, v),
   true,
   mtw.gui.chat_ltabs[n])
  i = i + 1
@@ -76,20 +76,21 @@ for _,v in pairs(tabList) do
  mtw.gui.chat_tabs[v]:setClickCallback("chat_label_click", v)
 
  mtw.gui.chat_cwin[v] = mtw.gui.chat_cwin[v] or mtw.gui.new(Geyser.Container,
-  [[function()
+  string.format([[function()
    local tabList = {"All", "Tells", "Says", "City", "Guild", "Order", "Societies", "OOC", "Misc", "Combat"}
    local lines = #tabList / mtw.cgui.chat_labels_per_line
    if lines > math.floor(lines) then
     lines = math.floor(lines) + 1
    end
    local cy = 15 * lines 
-   local h = -cy,
-   return { name = "mtw_chatwin",
+   local h = -cy
+   return { name = "mtw_chatwin%s",
     x = 0,
     y = cy,
-    width = "100%",
+    width = "100%%",
     height = h,
-    } end]],
+    }
+   end]], v),
   true,
   mtw.gui.chat_window)
 
