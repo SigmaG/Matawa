@@ -419,7 +419,7 @@ end</script>
  gmcp_players_in_room()
 end</script>
                         <eventHandlerList>
-                            <string>gmcp.Comm.Channel.Players</string>
+                            <string>gmcp.Room.Players</string>
                         </eventHandlerList>
                     </Script>
                     <Script isActive="yes" isFolder="no">

@@ -309,6 +309,7 @@ function mtw.aff_remove(affliction)
 --  end
  end
  mtw.afflictions[affliction].state = "healed"
+ mtw.gui.update_affs()
 end
 
 
