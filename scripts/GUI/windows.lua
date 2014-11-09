@@ -76,7 +76,9 @@ function mtw.gui.new(
  end
 
  function t:reload()
-  self.win:set_constraints(mtw.gui.parse_constraints(self.cons))
+  if self.container.type ~= "hbox" and self.container.type ~= "VBox" then
+   self.win:set_constraints(mtw.gui.parse_constraints(self.cons))
+  end
   self:resize_children()
  end
 

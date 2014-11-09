@@ -24,6 +24,8 @@ if mtw.cgui.enabled then
  mtw_struct.load_external("GUI/mapper")
  mtw_struct.load_external("GUI/infobar")
 
+ mtw.gui.root:resize_children()
+
 else
  -- we just want to prevent any call to the GUI when it's not enabled
  mtw.gui = {}

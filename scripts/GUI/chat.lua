@@ -8,7 +8,7 @@ local w = math.floor(mtw.gui.value_to_px("right_bar_width",mtw.gui.w)/cw)
 mtw.gui.chat_window = mtw.gui.chat_window or mtw.gui.new(Geyser.Container,
  [[function()
   if mtw.cgui.mapper_enabled then
-   h = mtw.gui.value_to_px("chat_height", mtw.gui.w)
+   h = mtw.gui.value_to_px("chat_height", mtw.gui.h)
   else
    h = "100%"
   end

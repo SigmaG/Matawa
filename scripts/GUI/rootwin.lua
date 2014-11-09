@@ -4,11 +4,16 @@
 mtw.gui.root = mtw.gui.root or {
  win = nil,
  children = {},
+ type = "container",
  add = function(self,win)
  end,
  remove = function(self,win)
  end,
  resize_children = function(self)
+  self:r()
+  self:r()
+ end,
+ r = function(self)
   if mtw.cgui.target_enabled or mtw.cgui.system_info_enabled or mtw.cgui.ih_enabled or mtw.cgui.game_info_enabled or mtw.cgui.aff_enabled or mtw.cgui.who_enabled then
    setBorderLeft(mtw.gui.value_to_px("left_bar_width", mtw.gui.w))
   end

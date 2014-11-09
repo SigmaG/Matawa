@@ -68,7 +68,8 @@ function mtw.gui.calculate_infobar_constraints(which)
    return { name = "mtw_whobox",
     x = 0,
     y = wy,
-    height = whh }
+    height = whh,
+    width = "100%" }
   end
   return {}
  end
