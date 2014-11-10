@@ -15,6 +15,16 @@ if mtw.toggles.fishing then
  if mtw.fishing.stat == "waiting" then send("fishing reel") end
  mtw.toggle("fishing")
 else
+ --check if pole is wielded
+ if not (mtw.is_wielded("quicksilver fishing pole") or mtw.is_wielded("fishing pole")) then
+  mtw.unwielding = true
+  tempTimer(1, [[mtw.unwielding = false]])
+  send("unwield left")
+  send("unwield right")
+  send("wield pole")
+  mtw.waiting.balance = true
+  tempTimer(mtw.delay(), [[mtw.waiting.balance = false]])
+ end
  send("probe pole")
  mtw.waiting.probe = true
 end
