@@ -1,13 +1,39 @@
 -- MTW GUI : create the framework to start using the rest.
 -- mtw.gui.root is an abstraction of the main window, mtw.gui.disabled is where the disabled windows go to die (or not).
 
+if not mtw.gui.root then
+ setBorderBottom(0)
+ setBorderTop(0)
+ setBorderLeft(0)
+ setBorderRight(0)
+end
+
 mtw.gui.root = mtw.gui.root or {
- win = nil,
+ win = Geyser.Container:new({name = "mtw_root", x = 0, y = 0, width = "100%", height = "100%"}),
  children = {},
  type = "container",
- add = function(self,win)
+ enabled = true,
+ add = function(self,w)
+  self.win:add(w.win,mtw.gui.parse_constraints(w.cons))
+  self:r()
  end,
- remove = function(self,win)
+ remove = function(self,w)
+  self.win:remove(w)
+  self:r()
+ end,
+ disable = function(self)
+  if self.enabled then
+   self.enabled = false
+   for _,c in pairs(mtw.gui.cont) do c:hide() end
+  end
+  self:update_borders(0, 0, 0, 0)
+ end,
+ enable = function(self)
+  if not self.enabled then
+   self.enabled = true
+   for _,c in pairs(mtw.gui.cont) do c:show() end
+  end
+  self:r()
  end,
  resize_children = function(self)
   mtw.gui.update_window_size()

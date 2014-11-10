@@ -14,6 +14,7 @@ if mtw.cgui.enabled then
 
  --here happens the magic!
  mtw_struct.load_external("GUI/windows")
+ mtw_struct.load_external("GUI/toggle")
 
  --we construct the three main containers (left/right/bottom) in there
  mtw_struct.load_external("GUI/mainwindows")

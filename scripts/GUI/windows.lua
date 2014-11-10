@@ -31,42 +31,54 @@ function mtw.gui.new(
  -- what've done here, is to rewrite the cons so that its interpretation can be easily done later
 
  t.enabled = enabled
+ t.cnt = container
  if enabled then
   t.win = Gtype:new(mtw.gui.parse_constraints(t.cons), container.win)
   t.win:show(true)
+  table.insert(t.cnt.children, t)
  else
   t.win = Gtype:new(mtw.gui.parse_constraints(t.cons), mtw.gui.disabled)
  end
 
- t.container = container
  t.children = {}
- table.insert(t.container.children, t)
 
  function t:enable()
   if not self.enabled then
+   self.cnt:add(self)
    mtw.gui.disabled:remove(self.win)
-   self.container:add(self)
-   table.insert(self.container.children, self)
    self.enabled = true
   end
  end
 
  function t:disable()
   if self.enabled then
-   self.container:remove(self)
-   mtw.gui.disabled:add(self.win, mtw.gui.parse_constraints(t.cons))
-   for k,v in pairs(self.container.children) do
+   for k,v in pairs(self.cnt.children) do
     if v == self then
-     table.remove(self.container.children, k)
+     table.remove(self.cnt.children, k)
      break
     end
+   end
+   self.cnt:remove(self)
+   mtw.gui.disabled:add(self.win, mtw.gui.parse_constraints(t.cons))
+   if self.cnt == mtw.gui.root then
+    mtw.gui.root:r()
+   end
+   local parent_empty = true
+   for _,_ in pairs(self.cnt.children) do
+    parent_empty = false
+    break
+   end
+   if parent_empty then
+    self.cnt:disable()
    end
    self.enabled = false
   end
  end
 
  function t:add(window)
+  table.insert(self.children,window)
   self.win:add(window.win, mtw.gui.parse_constraints(window.cons))
+  self:enable()
   self:resize_children()
  end
 
@@ -76,7 +88,7 @@ function mtw.gui.new(
  end
 
  function t:reload()
-  if self.container.type ~= "hbox" and self.container.type ~= "VBox" then
+  if self.cnt.type ~= "hbox" and self.cnt.type ~= "VBox" then
    self.win:set_constraints(mtw.gui.parse_constraints(self.cons))
   end
   self:resize_children()
