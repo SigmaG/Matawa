@@ -101,9 +101,25 @@ end
 function gmcp_vault_change()
     mtw.vault = mtw.vault or {}
 
-    local thing, amount = gmcp.IRE.Rift.Change.name, tonumber(gmcp.IRE.Rift.Change.amount)
+    local thing, amount, desc = gmcp.IRE.Rift.Change.name, tonumber(gmcp.IRE.Rift.Change.amount), gmcp.IRE.Rift.Change.desc
 
     if amount == 0 then mtw.vault[thing] = nil return end
+
+    if (not mtw.vault[thing]) or amount > mtw.vault[thing] then -- that means that some comms have been removed from inventory (there is no Char.Items.Remove message for this at the moment)
+        local toremove
+        if mtw.vault[thing] then toremove = amount - mtw.vault[thing] else toremove = amount end
+        for k,_ in pairs(mtw.inventory[desc]) do
+            mtw.inventory[desc][k] = nil
+            toremove = toremove - 1
+            if toremove == 0 then break end
+        end
+        local remaining = false
+        for _,_ in pairs(mtw.inventory[desc]) do
+            remaining = true
+            break
+        end
+        if not remaining then mtw.inventory[desc] = nil end
+    end
 
     mtw.vault[thing] = amount
 end
@@ -186,12 +202,12 @@ function mtw.in_inv(item)
 end
 
 function mtw.is_wielded(item)
-    if not in_inv(item) then return false end
+    if not mtw.in_inv(item) then return false end
     item = item:match("%a+(%d+)") or item
 
     if tonumber(item) then
         for name, table in pairs(mtw.inventory) do
-            if table[item]:match("l") then return true end
+            if table[item] and table[item]:match("l") then return true end
         end
     else
         local it = item
@@ -234,5 +250,6 @@ function item_tracking_init_2()
      gmod.enableModule(gmcp.Char.Status.name,"IRE.Rift")
      sendGMCP("Char.Items.Inv")
      sendGMCP("IRE.Rift.Request")
+     send(" ")
     end
 end
