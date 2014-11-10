@@ -158,7 +158,7 @@ mtw_struct.load()</script>
                 <eventHandlerList/>
             </Script>
             <ScriptGroup isActive="yes" isFolder="yes">
-                <name>GMCP</name>
+                <name>events</name>
                 <packageName></packageName>
                 <script></script>
                 <eventHandlerList/>
@@ -458,6 +458,16 @@ end</script>
                     <packageName></packageName>
                     <script>function file_download(_, filename)
  mtw.file_downloaded(filename)
+end</script>
+                    <eventHandlerList>
+                        <string>sysDownloadDone</string>
+                    </eventHandlerList>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>window_resized</name>
+                    <packageName></packageName>
+                    <script>function window_resized()
+ mtw.gui.resize_event()
 end</script>
                     <eventHandlerList>
                         <string>sysDownloadDone</string>
