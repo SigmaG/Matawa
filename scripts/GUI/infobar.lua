@@ -197,7 +197,7 @@ function mtw.gui.update_affs()
     if v.cures.focus == "body" then c = "red" end
     if v.cures.focus == "mind" then c = "green" end
     if v.cures.focus == "spirit" then c = "blue" end
-    mtw.gui.aff_box:cecho(string.format([[<%s>%s\n]], c, k:gsub("aff_","")))
+    mtw.gui.aff_box:cecho(string.format([[<%s>%s]].."\n", c, k:gsub("aff_","")))
    end
   end
  end
