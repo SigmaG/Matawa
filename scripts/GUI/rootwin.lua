@@ -10,6 +10,7 @@ mtw.gui.root = mtw.gui.root or {
  remove = function(self,win)
  end,
  resize_children = function(self)
+  mtw.gui.update_window_size()
   self:r()
   self:r()
  end,
@@ -36,3 +37,11 @@ mtw.gui.disabled = mtw.gui.disabled or Geyser.Container:new({
  width = 0,
  height = 0,
 })
+
+function mtw.gui.resize_event()
+ if mtw.gui.lastresizerequest then
+  killTimer(mtw.gui.lastresizerequest)
+  mtw.gui.lastresizerequest = nil
+ end
+ mtw.gui.lastresizerequest = tempTimer(3, [[mtw.gui.root:resize_children()]])
+end
