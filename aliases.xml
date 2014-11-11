@@ -986,62 +986,62 @@
                             <regex>^fjerk (\d+\.?\d*)$</regex>
                         </Alias>
                     </AliasGroup>
-                    <AliasGroup isActive="yes" isFolder="yes">
+                    <AliasGroup isActive="no" isFolder="yes">
                         <name>Chat</name>
                         <script></script>
                         <command></command>
                         <packageName></packageName>
                         <regex></regex>
-                        <Alias isActive="yes" isFolder="no">
+                        <Alias isActive="no" isFolder="no">
                             <name>citytells</name>
                             <script>mtw.chat_thingy(matches)</script>
                             <command></command>
                             <packageName></packageName>
                             <regex>^ctells$</regex>
                         </Alias>
-                        <Alias isActive="yes" isFolder="no">
+                        <Alias isActive="no" isFolder="no">
                             <name>ordertells</name>
                             <script>mtw.chat_thingy(matches)</script>
                             <command></command>
                             <packageName></packageName>
                             <regex>^otells$</regex>
                         </Alias>
-                        <Alias isActive="yes" isFolder="no">
+                        <Alias isActive="no" isFolder="no">
                             <name>guildtells</name>
                             <script>mtw.chat_thingy(matches)</script>
                             <command></command>
                             <packageName></packageName>
                             <regex>^gtells$</regex>
                         </Alias>
-                        <Alias isActive="yes" isFolder="no">
+                        <Alias isActive="no" isFolder="no">
                             <name>markettells</name>
                             <script>mtw.chat_thingy(matches)</script>
                             <command></command>
                             <packageName></packageName>
                             <regex>^mtells$</regex>
                         </Alias>
-                        <Alias isActive="yes" isFolder="no">
+                        <Alias isActive="no" isFolder="no">
                             <name>newbie tells</name>
                             <script>mtw.chat_thingy(matches)</script>
                             <command></command>
                             <packageName></packageName>
                             <regex>^ntells$</regex>
                         </Alias>
-                        <Alias isActive="yes" isFolder="no">
+                        <Alias isActive="no" isFolder="no">
                             <name>societytells</name>
                             <script>mtw.chat_thingy(matches)</script>
                             <command></command>
                             <packageName></packageName>
                             <regex>^sctells$</regex>
                         </Alias>
-                        <Alias isActive="yes" isFolder="no">
+                        <Alias isActive="no" isFolder="no">
                             <name>novice tells</name>
                             <script>mtw.chat_thingy(matches)</script>
                             <command></command>
                             <packageName></packageName>
                             <regex>^gntells$</regex>
                         </Alias>
-                        <Alias isActive="yes" isFolder="no">
+                        <Alias isActive="no" isFolder="no">
                             <name>leaderstells</name>
                             <script>mtw.chat_thingy(matches)</script>
                             <command></command>
@@ -6044,21 +6044,21 @@ send(&quot; &quot;)</script>
                 <command></command>
                 <packageName></packageName>
                 <regex></regex>
-                <Alias isActive="yes" isFolder="no">
+                <Alias isActive="no" isFolder="no">
                     <name>Toggle blinking (temporary change)</name>
                     <script>mtw.chat_blinking()</script>
                     <command></command>
                     <packageName></packageName>
                     <regex>^dblink$</regex>
                 </Alias>
-                <Alias isActive="yes" isFolder="no">
+                <Alias isActive="no" isFolder="no">
                     <name>hide chat</name>
                     <script>demonnic.chat.container:hide()</script>
                     <command></command>
                     <packageName></packageName>
                     <regex>^hidechat$</regex>
                 </Alias>
-                <Alias isActive="yes" isFolder="no">
+                <Alias isActive="no" isFolder="no">
                     <name>show chat</name>
                     <script>demonnic.chat.container:show()</script>
                     <command></command>

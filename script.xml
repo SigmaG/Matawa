@@ -283,7 +283,7 @@ end</script>
                     <packageName></packageName>
                     <script></script>
                     <eventHandlerList/>
-                    <Script isActive="yes" isFolder="no">
+                    <Script isActive="no" isFolder="no">
                         <name>demonnicOnStart_</name>
                         <packageName></packageName>
                         <script>function demonnicOnStart_()
@@ -293,7 +293,7 @@ end</script>
                             <string>sysLoadEvent</string>
                         </eventHandlerList>
                     </Script>
-                    <Script isActive="yes" isFolder="no">
+                    <Script isActive="no" isFolder="no">
                         <name>demonnic_rilist_</name>
                         <packageName></packageName>
                         <script>function demonnic_rilist_()
@@ -303,7 +303,7 @@ end</script>
                             <string>gmcp.Char.Items.List</string>
                         </eventHandlerList>
                     </Script>
-                    <Script isActive="yes" isFolder="no">
+                    <Script isActive="no" isFolder="no">
                         <name>demonnic_riadd_</name>
                         <packageName></packageName>
                         <script>function demonnic_riadd_()
@@ -313,7 +313,7 @@ end</script>
                             <string>gmcp.Char.Items.Add</string>
                         </eventHandlerList>
                     </Script>
-                    <Script isActive="yes" isFolder="no">
+                    <Script isActive="no" isFolder="no">
                         <name>demonnic_rileave_</name>
                         <packageName></packageName>
                         <script>function demonnic_rileave_()
@@ -323,7 +323,7 @@ end</script>
                             <string>gmcp.Char.Items.Remove</string>
                         </eventHandlerList>
                     </Script>
-                    <Script isActive="yes" isFolder="no">
+                    <Script isActive="no" isFolder="no">
                         <name>demonnic_skillGroups_</name>
                         <packageName></packageName>
                         <script>function demonnic_skillGroups_()
@@ -333,7 +333,7 @@ end</script>
                             <string>gmcp.Char.Skills.Groups</string>
                         </eventHandlerList>
                     </Script>
-                    <Script isActive="yes" isFolder="no">
+                    <Script isActive="no" isFolder="no">
                         <name>demonnic_skillsList_</name>
                         <packageName></packageName>
                         <script>function demonnic_skillsList_()
