@@ -7,6 +7,7 @@ function mtw.check_options()
   "baldric1",
   "baldric2",
   "crossbow",
+  "default_society",
  }
  local b = true
  for _,k in ipairs(opt) do

@@ -10,6 +10,7 @@ mtw.default.options = {
  baldric1 = "-",
  baldric2 = "-",
  crossbow = "-",
+ default_society = 1,
 }
 
 --TIMES

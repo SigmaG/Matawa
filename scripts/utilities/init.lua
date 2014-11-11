@@ -21,6 +21,9 @@ mtw_struct.load_external("utilities/search")
 -- gathering functions
 mtw_struct.load_external("utilities/gathering")
 
+-- society functions (SWHO<#> SHELP<#> ...)
+mtw_struct.load_external("utilities/society.lua")
+
 -- crits
 mtw_struct.set_metatable_saved("crits")
 

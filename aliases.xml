@@ -1381,6 +1381,48 @@ send(&quot; &quot;)</script>
                             <regex>^attempt (.*) (\d+)$</regex>
                         </Alias>
                     </AliasGroup>
+                    <AliasGroup isActive="yes" isFolder="yes">
+                        <name>Societies</name>
+                        <script></script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex></regex>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>shelp</name>
+                            <script>mtw.society_do(matches[2], &quot;shelp&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^sc?help(\d+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>shelp something</name>
+                            <script>mtw.society_do(matches[2], &quot;shelp&quot; .. matches[3])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^sc?help(\d+)( .*)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>swho</name>
+                            <script>mtw.society_do(matches[2], &quot;swho&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^sc?swho(\d+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>society something</name>
+                            <script>mtw.society_do(matches[2], &quot;society &quot; .. matches[3)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^society(\d+) (.*)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>society switch</name>
+                            <script>mtw.society_switch(matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^society switch (.*)$</regex>
+                        </Alias>
+                    </AliasGroup>
                 </AliasGroup>
                 <AliasGroup isActive="yes" isFolder="yes">
                     <name>Healing</name>
