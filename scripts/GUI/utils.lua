@@ -67,3 +67,17 @@ function mtw.gui.parse_constraints(cons)
  if not r.height then r.height = 0 end
  return r
 end
+
+function mtw.gui.change_size_param(k, v)
+ mtw.cgui[k] = v
+ mtw.gui.root:resize_children()
+end
+
+function mtw.gui.change_param_requires_profile_restart(k, v)
+ mtw.cgui[k] = v
+ cecho("\n<red>WARNING:\n<yellow>The new setting will only be taken into account when you restart your Mudlet profile. It will change in a future version. Sorry for the inconvenience.")
+end
+
+function mtw.gui.change_param(k, v)
+ mtw.cgui[k] = v
+end
