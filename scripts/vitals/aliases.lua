@@ -12,6 +12,7 @@ function mtw.help_alias()
  echo("\n ?fish: display fishing commands")
  echo("\n ?conv: display conversion commands")
  echo("\n ?variables: display system variables (mount id, type of container...)")
+ echo("\n ?gui: display GUI configuration commands")
  echo("\n rst: reset most variables to default")
  echo("\n reload: reload system scripts")
  echo("\n reload hard: reload system scripts without keeping toggles/options/...")
@@ -92,6 +93,11 @@ function mtw.toggles_alias()
  mtw.disp_toggle("balecho", "tbal: colored echoes for balance alerts")
  mtw.disp_toggle("cdecho", "tcd: colored echoes for cooldown alerts")
  mtw.disp_toggle("charprompt", "tch: print the char name in the prompt")
+ if mtw.cgui.enabled then
+  cecho("\n <green>tgui: GUI with chat/mapper/... windows")
+ else
+  cecho("\n <red>tgui: GUI with chat/mapper/... windows")
+ end
  echo("\nClass Toggles:")
  if mtw.my.class == "soldier" then
   mtw.disp_toggle("marching", "tmch: marching instead of move")

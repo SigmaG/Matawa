@@ -5995,6 +5995,223 @@ send(&quot; &quot;)</script>
                         <regex>^tsh$</regex>
                     </Alias>
                 </AliasGroup>
+                <AliasGroup isActive="yes" isFolder="yes">
+                    <name>GUI</name>
+                    <script></script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex></regex>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>Enable/disable the whole GUI</name>
+                        <script>mtw.GUI_toggle()</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^tgui$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
+                        <name>GUI aliases</name>
+                        <script>mtw.GUI_aliases()</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^\?gui$</regex>
+                    </Alias>
+                    <AliasGroup isActive="yes" isFolder="no">
+                        <name>Resize GUI windows</name>
+                        <script></script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex></regex>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>resize right bar</name>
+                            <script>mtw.gui.change_size_param(&quot;right_bar_width&quot;, matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-rbar (.*)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>resize left bar</name>
+                            <script>mtw.gui.change_size_param(&quot;left_bar_width&quot;, matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-lbar (.*)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>resize bottom bar</name>
+                            <script>mtw.gui.change_size_param(&quot;bottom_bar_height&quot;, matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-bbar (.*)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>resize chat window</name>
+                            <script>mtw.gui.change_size_param(&quot;chat_height&quot;, matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-chat-height (.*)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>resize IH window</name>
+                            <script>mtw.gui.change_size_param(&quot;ih_size&quot;, matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-ih-height (.*)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>resize affliction window</name>
+                            <script>mtw.gui.change_size_param(&quot;aff_size&quot;, matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-aff-height (.*)$</regex>
+                        </Alias>
+                    </AliasGroup>
+                    <AliasGroup isActive="yes" isFolder="no">
+                        <name>Enable/disable GUI windows</name>
+                        <script></script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex></regex>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle chat window</name>
+                            <script>mtw.gui.toggle(&quot;chat&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-chat$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle mapper window</name>
+                            <script>mtw.gui.toggle(&quot;mapper&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-mapper$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle gauges</name>
+                            <script>mtw.gui.toggle(&quot;gauges&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-gauges$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle XP gauge</name>
+                            <script>mtw.gui.toggle(&quot;xp_gauge&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-xpgauge$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle AP gauge</name>
+                            <script>mtw.gui.toggle(&quot;ap_gauge&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-apgauge$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle HP gauge</name>
+                            <script>mtw.gui.toggle(&quot;hp_gauge&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-hpgauge$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle EP gauge</name>
+                            <script>mtw.gui.toggle(&quot;ep_gauge&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-epgauge$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle MP/FP/GP gauge</name>
+                            <script>mtw.gui.toggle(&quot;pp_gauge&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-ppgauge$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle location bar</name>
+                            <script>mtw.gui.toggle(&quot;location&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-loc$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle target box</name>
+                            <script>mtw.gui.toggle(&quot;target&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-targ$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle IH window</name>
+                            <script>mtw.gui.toggle(&quot;ih&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-ih$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle aff window</name>
+                            <script>mtw.gui.toggle(&quot;aff&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-aff$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle who here window</name>
+                            <script>mtw.gui.toggle(&quot;who&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-who$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle system info (matawa versions + clickable link)</name>
+                            <script>mtw.gui.toggle(&quot;system_info&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-version$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle game info (news/msg/gold)</name>
+                            <script>mtw.gui.toggle(&quot;game_info&quot;)</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-info$</regex>
+                        </Alias>
+                    </AliasGroup>
+                    <AliasGroup isActive="yes" isFolder="no">
+                        <name>Other customizations</name>
+                        <script></script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex></regex>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>chat font size</name>
+                            <script>mtw.gui.change_param_requires_profile_restart(&quot;chat_font_size&quot;, tonumber(matches[2]))</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-chat-font-size (\d+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>chat labels per line</name>
+                            <script>mtw.gui.change_param_requires_profile_restart(&quot;chat_labels_per_line&quot;, tonumber(matches[2]))</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-chat-labels-per-line (\d+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>expandable IH</name>
+                            <script>mtw.gui.change_param(&quot;ih_expandable&quot;, matches[2] == "y"))</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-exp-ih (\w+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>action when clicking a name in the who list</name>
+                            <script>mtw.gui.change_param(&quot;ih_expandable&quot;, matches[2]))</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-click-name (.*)$</regex>
+                        </Alias>
+                    </AliasGroup>
+                </AliasGroup>
             </AliasGroup>
             <AliasGroup isActive="yes" isFolder="yes">
                 <name>Chat</name>

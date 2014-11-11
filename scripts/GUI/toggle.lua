@@ -27,3 +27,16 @@ function mtw.gui.enable_window(what)
  mtw.cgui[what.."_enabled"] = true
  mtw.gui.win_list[what]:enable()
 end
+
+function mtw.gui.toggle(what)
+ if what then
+  local s = what.."_enabled"
+  if mtw.cgui[s] then --we disable
+   mtw.cgui[s] = false
+   mtw.gui.win_list[what]:disable()
+  else
+   mtw.cgui[s] = true
+   mtw.gui.win_list[what]:enable()
+  end
+ end
+end
