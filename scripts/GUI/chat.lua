@@ -21,7 +21,7 @@ mtw.gui.chat_window = mtw.gui.chat_window or mtw.gui.new(Geyser.Container,
  mtw.cgui.chat_enabled,
  mtw.gui.cont.r)
 
-local tabList = {"All", "Tells", "Says", "City", "Guild", "Order", "Societies", "OOC", "Misc", "Combat"}
+local tabList = {"All", "Tells", "Says", "City", "Guild", "Order", "Societies", "OOC", "Misc", "Combat", "Spam"}
 local lines = #tabList / mtw.cgui.chat_labels_per_line
 if lines > math.floor(lines) then
  lines = math.floor(lines) + 1
@@ -29,7 +29,7 @@ end
 
 mtw.gui.chat_ctabs = mtw.gui.chat_ctabs or mtw.gui.new(Geyser.VBox,
  [[function()
-  local tabList = {"All", "Tells", "Says", "City", "Guild", "Order", "Societies", "OOC", "Misc", "Combat"}
+  local tabList = {"All", "Tells", "Says", "City", "Guild", "Order", "Societies", "OOC", "Misc", "Combat", "Spam"}
   local lines = #tabList / mtw.cgui.chat_labels_per_line
   if lines > math.floor(lines) then
    lines = math.floor(lines) + 1
@@ -77,7 +77,7 @@ for _,v in pairs(tabList) do
 
  mtw.gui.chat_cwin[v] = mtw.gui.chat_cwin[v] or mtw.gui.new(Geyser.Container,
   string.format([[function()
-   local tabList = {"All", "Tells", "Says", "City", "Guild", "Order", "Societies", "OOC", "Misc", "Combat"}
+   local tabList = {"All", "Tells", "Says", "City", "Guild", "Order", "Societies", "OOC", "Misc", "Combat", "Spam"}
    local lines = #tabList / mtw.cgui.chat_labels_per_line
    if lines > math.floor(lines) then
     lines = math.floor(lines) + 1
@@ -173,4 +173,11 @@ function mtw.gui.chat_shouts(matches)
  bg("black")
  resetFormat()
  mtw.gui.chat("Misc")
+end
+
+function mtw.gui.spam(matches)
+ selectCurrentLine()
+ copy()
+ mtw.gui.chat_win["Spam"]:append()
+ deleteLine()
 end
