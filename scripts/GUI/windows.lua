@@ -90,6 +90,9 @@ function mtw.gui.new(
  function t:reload()
   if self.cnt.type ~= "hbox" and self.cnt.type ~= "VBox" then
    self.win:set_constraints(mtw.gui.parse_constraints(self.cons))
+   if self.type == "miniConsole" then -- we need to fix wrapping there
+    self.win:setWrap(math.floor(self.win:getWidth()/self.win.fontSize))
+   end
   end
   self:resize_children()
  end

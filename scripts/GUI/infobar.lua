@@ -178,11 +178,15 @@ function mtw.gui.update_IH()
    local n = 0
    for _,_ in pairs(ids) do n = n+1 end
    local str = thing.." x"..tostring(n).."\n"
-   echoLink(mtw.gui.IH_box.name, str, string.format([[mtw.gui.expand_IH("%s")]], thing), "Expand", true)
-   if mtw.gui.expanded == thing then
-    for k,_ in pairs(ids) do
-     echoLink(mtw.gui.IH_box.name, " "..k.."\n", string.format([[send("probe %s")]], k), "Probe", true)
+   if mtw.cgui.ih_expandable then
+    echoLink(mtw.gui.IH_box.name, str, string.format([[mtw.gui.expand_IH("%s")]], thing), "Expand", true)
+    if mtw.gui.expanded == thing then
+     for k,_ in pairs(ids) do
+      echoLink(mtw.gui.IH_box.name, " "..k.."\n", string.format([[send("probe %s")]], k), "Probe", true)
+     end
     end
+   else
+    mtw.gui.IH_box:echo(str)
    end
   end
  end
