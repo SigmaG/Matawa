@@ -6009,13 +6009,20 @@ send(&quot; &quot;)</script>
                         <regex>^tgui$</regex>
                     </Alias>
                     <Alias isActive="yes" isFolder="no">
+                        <name>Refresh GUI</name>
+                        <script>mtw.gui.root:resize_children()</script>
+                        <command></command>
+                        <packageName></packageName>
+                        <regex>^rgui$</regex>
+                    </Alias>
+                    <Alias isActive="yes" isFolder="no">
                         <name>GUI aliases</name>
                         <script>mtw.GUI_aliases()</script>
                         <command></command>
                         <packageName></packageName>
                         <regex>^\?gui$</regex>
                     </Alias>
-                    <AliasGroup isActive="yes" isFolder="no">
+                    <AliasGroup isActive="yes" isFolder="yes">
                         <name>Resize GUI windows</name>
                         <script></script>
                         <command></command>
@@ -6064,7 +6071,7 @@ send(&quot; &quot;)</script>
                             <regex>^tgui-aff-height (.*)$</regex>
                         </Alias>
                     </AliasGroup>
-                    <AliasGroup isActive="yes" isFolder="no">
+                    <AliasGroup isActive="yes" isFolder="yes">
                         <name>Enable/disable GUI windows</name>
                         <script></script>
                         <command></command>
@@ -6176,7 +6183,7 @@ send(&quot; &quot;)</script>
                             <regex>^tgui-info$</regex>
                         </Alias>
                     </AliasGroup>
-                    <AliasGroup isActive="yes" isFolder="no">
+                    <AliasGroup isActive="yes" isFolder="yes">
                         <name>Other customizations</name>
                         <script></script>
                         <command></command>
@@ -6198,14 +6205,16 @@ send(&quot; &quot;)</script>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>expandable IH</name>
-                            <script>mtw.gui.change_param(&quot;ih_expandable&quot;, matches[2] == "y"))</script>
+                            <script>mtw.gui.change_param(&quot;ih_expandable&quot;, matches[2] == "y")
+mtw.gui.update_IH()</script>
                             <command></command>
                             <packageName></packageName>
                             <regex>^tgui-exp-ih (\w+)$</regex>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>action when clicking a name in the who list</name>
-                            <script>mtw.gui.change_param(&quot;ih_expandable&quot;, matches[2]))</script>
+                            <script>mtw.gui.change_param(&quot;action_who&quot;, matches[2])
+mtw.gui.update_who_here()</script>
                             <command></command>
                             <packageName></packageName>
                             <regex>^tgui-click-name (.*)$</regex>
