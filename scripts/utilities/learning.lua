@@ -10,6 +10,8 @@ end
 function mtw.learn_next(token)
 	if not mtw.learning then return end
 	if token then
+        mtw.waiting.balance = true
+        tempTimer(mtw.delay(), [[mtw.waiting.balance = false]])
 		mtw.set_balance("learn " .. math.min(mtw.learning.lessons, 15) .. " " .. mtw.learning.skill .. " from " .. mtw.learning.teacher)
 	else
 		send("learn " .. math.min(mtw.learning.lessons, 15) .. " " .. mtw.learning.skill .. " from " .. mtw.learning.teacher,false)
