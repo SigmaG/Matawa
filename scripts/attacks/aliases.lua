@@ -425,7 +425,7 @@ end
 end
 
 function mtw.al_do_pyro(skill)
-if mtw.my.class == "priest" then
+if mtw.my.class == "priest" and mtw.skills.pyromania then
  mtw.set_balance("firecall "..skill)
 end
 end
@@ -445,19 +445,19 @@ end
 end
 
 function mtw.al_thana(skill)
-if mtw.my.class == "priest" then
+if mtw.my.class == "priest" and mtw.skills.thanatology then
  mtw.set_balance("deathcall "..skill.." "..mtw.target)
 end
 end
 
 function mtw.al_sweaver(skill)
-if mtw.my.class == "priest" then
+if mtw.my.class == "priest" and mtw.skills.shadoweaving then
 	mtw.set_balance("shadowcall "..skill)
 end
 end
 
 function mtw.greater_heal_sw_alias(matches)
-if mtw.my.class == "priest" and mtw.skills.shadowweaving then
+if mtw.my.class == "priest" and mtw.skills.shadoweaving then
  if matches[2] == "" then
   mtw.set_balance("shadowcall greater heal")
  else
@@ -475,7 +475,7 @@ end
 end
 
 function mtw.atk_sweaver(skill)
-if mtw.my.class == "priest" then
+if mtw.my.class == "priest" and mtw.skills.shadoweaving then
 	mtw.set_balance("shadowcall "..skill.." "..mtw.target)
 end
 end

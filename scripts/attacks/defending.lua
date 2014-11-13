@@ -171,9 +171,9 @@ function mtw.atk_hit(attacker, weapon, attack)
 --Make sure to end the attack properly
  mtw.atk_end(attacker, weapon, attack)
 --Check for recklessness on the next prompt, successful attacks deal damage
- if mtw.attacks[attack].class ~= "priest" then
+ --if mtw.attacks[attack].class ~= "priest" then
   mtw.check.reckless = true
- end
+ --end
 raiseEvent("mtw.atk.hit", attacker, weapon, attack)
 end
 

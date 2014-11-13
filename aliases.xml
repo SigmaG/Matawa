@@ -4708,7 +4708,7 @@ send(&quot; &quot;)</script>
                                     <script>mtw.al_smite(&quot;holy sword&quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^hswd$</regex>
+                                    <regex>^hsw$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>ill omen</name>

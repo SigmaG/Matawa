@@ -2777,7 +2777,9 @@ mtw.aff_gain("bolero")
 end
 
 function mtw.trigger_448(matches,multimatches)
+if mtw.not_aff("bleeding_2") and mtw.not_aff("bleeding_3") and mtw.not_aff("bleeding_4") and mtw.not_aff("bleeding_5") then
 mtw.aff_have("bleeding_1")
+end
 end
 
 function mtw.trigger_449(matches,multimatches)
@@ -8116,7 +8118,7 @@ mtw.attack_hit(matches[2], "spirit_wrack")
 end
 
 function mtw.trigger_1682(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "spirit_wrack", matches[4])
+mtw.attack_defend(matches[2], nil, "spirit_wrack", matches[5])
 end
 
 function mtw.trigger_1683(matches,multimatches)
@@ -8286,7 +8288,7 @@ mtw.atk_defend(matches[2], matches[3], "sword_spirit", matches[4])
 end
 
 function mtw.trigger_1723(matches,multimatches)
-mtw.attack_start(matches[2], "sword_spirit")
+mtw.attack_start(matches[3], "sword_spirit")
 end
 
 function mtw.trigger_1724(matches,multimatches)
@@ -9367,6 +9369,15 @@ end
 
 function mtw.trigger_1920(matches,multimatches)
 mtw.attack_hit(matches[2], "phlegm")
+cecho("\n<brown> You gave: <green>")
+if matches[3] == "blister" then
+ cecho("DIZZINESS")
+elseif matches[3] == "flay" then
+ cecho("DIZZINESS")
+ cecho(" and ")
+ cecho("PARANOIA")
+end
+cecho("<brown>!")
 end
 
 function mtw.trigger_1921(matches,multimatches)
@@ -9411,7 +9422,7 @@ mtw.atk_defend(matches[2], nil, "heart_thrum", matches[3])
 end
 
 function mtw.trigger_1931(matches,multimatches)
-mtw.attack_start(matches[2], "savage", matches[3])
+mtw.attack_start(matches[2], "heart_thrum", matches[3])
 end
 
 function mtw.trigger_1932(matches,multimatches)

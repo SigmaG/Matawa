@@ -105,7 +105,7 @@ mtw.priorities = {
 "aff_magic_35",
 "aff_health_35",
 "aff_burns_2",
-"aff_burns_1",
+--"aff_burns_1",
 "aff_severed_nerves_5",
 "aff_befuddle_3",
 "aff_befuddle_2",
