@@ -79,9 +79,6 @@ if mtw.toggles.balecho then
  deleteLine()
  cecho("<brown>\nYou: OVERDRIVE")
 end
-if mtw.vitals.adrenaline == -1 then
- mtw.vitals.adrenaline = 10
-end
 mtw.balance_lose("overdrive")
 end
 
@@ -603,26 +600,17 @@ end
 
 function mtw.trigger_94(matches,multimatches)
 deleteLine()
-if mtw.vitals.adrenaline == -1 then
- mtw.vitals.adrenaline = 10
-end
 cecho("<brown>\nYou: FOCUS BODY")
 end
 
 function mtw.trigger_95(matches,multimatches)
 deleteLine()
-if mtw.vitals.adrenaline == -1 then
- mtw.vitals.adrenaline = 10
-end
 cecho("<brown>\nYou: FOCUS MIND")
 end
 
 function mtw.trigger_96(matches,multimatches)
 deleteLine()
-if mtw.vitals.adrenaline == -1 then
- mtw.vitals.adrenaline = 10
-end
-cecho("<brown>\nYou: FOCUS SPIRIT")
+cecho("<brown>\nYou: FOCUS SPRIIT")
 end
 
 function mtw.trigger_97(matches,multimatches)
@@ -1262,13 +1250,13 @@ end
 end
 
 function mtw.trigger_187(matches,multimatches)
-if (not mtw.status.combat) and mtw.toggles.warding and table.contains(mtw.skills, "Warding") then
+if mtw.toggles.warding and table.contains(mtw.skills, "Warding") then
  mtw.set_balance("cast warding")
 end
 end
 
 function mtw.trigger_188(matches,multimatches)
-if (not mtw.status.combat) and mtw.toggles.antirogue and table.contains(mtw.skills, "Lightball") then
+if mtw.toggles.warding and table.contains(mtw.skills, "Lightball") then
  mtw.set_balance("cast lightball")
 end
 end
@@ -1290,15 +1278,13 @@ cecho("\n\n<red>===SUPERNOVA===\n\n")
 end
 
 function mtw.trigger_192(matches,multimatches)
-deleteLine()
-cecho("\n\n<yellow>=== ICEWALL DOWN: <red>"..matches[2].."<yellow> ===\n\n")
-if (not mtw.status.combat) and mtw.toggles.rewall and table.contains(mtw.skills, "Icewall") then
+if mtw.toggles.warding and table.contains(mtw.skills, "Icewall") then
  send("bqa cast icewall "..matches[2])
 end
 end
 
 function mtw.trigger_193(matches,multimatches)
-if (not mtw.status.combat) and mtw.toggles.antirogue and table.contains(mtw.skills, "Lodestone") then
+if mtw.toggles.warding and table.contains(mtw.skills, "Lodestone") then
  mtw.set_balance("cast lodestone")
 end
 end
@@ -1435,7 +1421,7 @@ if mtw.toggles.cdecho then
  deleteLine()
  cecho("\n<green>=====<cyan>LITURGY<green> READY=====\n")
 end
-if mtw.toggles.healing and not mtw.toggles.fishing and mtw.toggles.liturgy then
+if mtw.toggles.healing and not mtw.toggles.fishing and mtw.toggles.warding then
  mtw.set_equil("pray for liturgy")
 end
 end
@@ -1793,6 +1779,66 @@ end
 function mtw.trigger_246c(matches,multimatches)
 if mtw.channeling.inking then
  mtw.channeling.inking = false
+end
+end
+
+function mtw.trigger_247(matches,multimatches)
+if mtw.toggles.mining then
+ deleteLine()
+ cecho("\n<yellow>-----------------------")
+ cecho("\n<yellow>    FOUND: "..matches[3])
+ cecho("\n<yellow>-----------------------")
+ mtw.mining.found = true
+ if matches[3]=="gem" then
+  mtw.mining.material = "gems"
+ else
+  mtw.mining.material = matches[3]
+ end
+end
+end
+
+function mtw.trigger_248(matches,multimatches)
+if mtw.toggles.mining then
+ deleteLine()
+ cecho("\n<red>-----------------------")
+ cecho("\n<red>   "..matches[2].." depleted")
+ cecho("\n<red>-----------------------")
+ send("vin 10 "..mtw.mining.material)
+ mtw.mining.found = false
+ mtw.mining.material = "none"
+end
+end
+
+function mtw.trigger_249(matches,multimatches)
+if mtw.toggles.mining and mtw.mining.found then
+ if mtw.mining.material == "trees" then
+  send("chop trees")
+ else
+  send("mine "..mtw.mining.material)
+ end
+end
+end
+
+function mtw.trigger_250(matches,multimatches)
+if mtw.toggles.mining then
+ deleteLine()
+ cecho("\n<yellow>-----------------------")
+ cecho("\n<yellow>    FOUND: trees")
+ cecho("\n<yellow>-----------------------")
+ mtw.mining.found = true
+ mtw.mining.material = "trees"
+end
+end
+
+function mtw.trigger_251(matches,multimatches)
+if mtw.toggles.mining then
+ deleteLine()
+ cecho("\n<red>-----------------------")
+ cecho("\n<red>   trees depleted")
+ cecho("\n<red>-----------------------")
+ send("vin 10 wood")
+ mtw.mining.found = false
+ mtw.mining.material = "none"
 end
 end
 
@@ -6360,7 +6406,7 @@ mtw.attack_miss(matches[2], "backhand")
 end
 
 function mtw.trigger_1266(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "backhand", matches[4])
+attack_defend(matches[2], nil, "backhand", matches[4])
 end
 
 function mtw.trigger_1267(matches,multimatches)
@@ -8338,8 +8384,6 @@ end
 
 function mtw.trigger_1735(matches,multimatches)
 mtw.atk_hit(matches[2], matches[3], "searing_arc")
---temporary fix since we don't get the affline when Mind Sear mastery is selected by the attacker
-mtw.queue_diag()
 end
 
 function mtw.trigger_1736(matches,multimatches)
@@ -8659,6 +8703,7 @@ end
 
 function mtw.trigger_1796(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "withering_touch")
+
 end
 
 function mtw.trigger_1797(matches,multimatches)
@@ -8792,6 +8837,7 @@ end
 
 function mtw.trigger_1808(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "despair")
+
 end
 
 function mtw.trigger_1809(matches,multimatches)
@@ -8805,6 +8851,7 @@ end
 function mtw.trigger_1809b(matches,multimatches)
 mtw.attack_start(matches[3], "despair")
 end
+
 function mtw.trigger_1809c(matches,multimatches)
 mtw.attack_hit(matches[2], "despair")
 end
@@ -9331,6 +9378,10 @@ function mtw.trigger_1910(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "savage", matches[4])
 end
 
+function mtw.trigger_1910a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "savage")
+end
+
 function mtw.trigger_1911(matches,multimatches)
 mtw.attack_start(matches[2], "savage", matches[3])
 end
@@ -9359,6 +9410,10 @@ function mtw.trigger_1917(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "phlegm", matches[3])
 end
 
+function mtw.trigger_1917a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "phlegm")
+end
+
 function mtw.trigger_1918(matches,multimatches)
 mtw.attack_start(matches[2], "phlegm", matches[3])
 end
@@ -9380,6 +9435,10 @@ end
 cecho("<brown>!")
 end
 
+function mtw.trigger_1920(matches,multimatches)
+mtw.attack_miss(matches[3], "phlegm")
+end
+
 function mtw.trigger_1921(matches,multimatches)
 mtw.atk_start(matches[2], nil, "mutilate")
 end
@@ -9391,6 +9450,10 @@ end
 
 function mtw.trigger_1923(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "mutilate", matches[4])
+end
+
+function mtw.trigger_1923a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "mutilate")
 end
 
 function mtw.trigger_1924(matches,multimatches)
@@ -9421,6 +9484,10 @@ function mtw.trigger_1930(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "heart_thrum", matches[3])
 end
 
+function mtw.trigger_1930a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "heart_thrum")
+end
+
 function mtw.trigger_1931(matches,multimatches)
 mtw.attack_start(matches[2], "heart_thrum", matches[3])
 end
@@ -9431,6 +9498,10 @@ end
 
 function mtw.trigger_1933(matches,multimatches)
 mtw.attack_hit(matches[2], "heart_thrum")
+end
+
+function mtw.trigger_1933a(matches,multimatches)
+mtw.attack_miss(matches[3], "heart_thrum")
 end
 
 function mtw.trigger_1934(matches,multimatches)
@@ -9445,6 +9516,26 @@ function mtw.trigger_1936(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "lunar_bay", matches[5])
 end
 
+function mtw.trigger_1936a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "lunar_bay")
+end
+
+function mtw.trigger_1936b(matches,multimatches)
+mtw.attack_start(matches[2], "lunar_bay")
+end
+
+function mtw.trigger_1936c(matches,multimatches)
+mtw.attack_hit(matches[2], "lunar_bay")
+end
+
+function mtw.trigger_1936d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "lunar_bay", matches[4])
+end
+
+function mtw.trigger_1936e(matches,multimatches)
+mtw.attack_miss(matches[3], "lunar_bay")
+end
+
 function mtw.trigger_1937(matches,multimatches)
 mtw.atk_start(matches[2], nil, "gluttonous_lust")
 end
@@ -9455,6 +9546,26 @@ end
 
 function mtw.trigger_1939(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "gluttonous_lust", matches[3])
+end
+
+function mtw.trigger_1939a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "gluttonous_lust")
+end
+
+function mtw.trigger_1939b(matches,multimatches)
+mtw.attack_start(matches[2], "gluttonous_lust")
+end
+
+function mtw.trigger_1939c(matches,multimatches)
+mtw.attack_hit(matches[2], "gluttonous_lust")
+end
+
+function mtw.trigger_1939d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "gluttonous_lust", matches[4])
+end
+
+function mtw.trigger_1939e(matches,multimatches)
+mtw.attack_miss(matches[3], "gluttonous_lust")
 end
 
 function mtw.trigger_1940(matches,multimatches)
@@ -9469,6 +9580,35 @@ function mtw.trigger_1942(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "sanguis", matches[3])
 end
 
+function mtw.trigger_1942a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "sanguis")
+end
+
+function mtw.trigger_1942b(matches,multimatches)
+mtw.attack_start(matches[3], "sanguis")
+end
+
+function mtw.trigger_1942c(matches,multimatches)
+mtw.attack_hit(matches[2], "sanguis")
+cecho("\n<brown> You gave: <green>")
+if matches[3] == "blister" then
+ cecho("DYSTONIA")
+elseif matches[3] == "flay" then
+ cecho("DYSTONIA")
+ cecho(" and ")
+ cecho("SENSITIVITY")
+end
+cecho("<brown>!")
+end
+
+function mtw.trigger_1942d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "sanguis", matches[4])
+end
+
+function mtw.trigger_1942e(matches,multimatches)
+mtw.attack_miss(matches[3], "sanguis")
+end
+
 function mtw.trigger_1943(matches,multimatches)
 mtw.atk_start(matches[2], nil, "feral_rake")
 end
@@ -9479,6 +9619,26 @@ end
 
 function mtw.trigger_1945(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "feral_rake", matches[4])
+end
+
+function mtw.trigger_1945a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "feral_rake")
+end
+
+function mtw.trigger_1945b(matches,multimatches)
+mtw.attack_start(matches[2], "feral_rake")
+end
+
+function mtw.trigger_1945c(matches,multimatches)
+mtw.attack_hit(matches[2], "feral_rake")
+end
+
+function mtw.trigger_1945d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "feral_rake", matches[3])
+end
+
+function mtw.trigger_1945e(matches,multimatches)
+mtw.attack_miss(matches[3], "feral_rake")
 end
 
 function mtw.trigger_1946(matches,multimatches)
@@ -9493,6 +9653,26 @@ function mtw.trigger_1948(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "rending_strike", matches[3])
 end
 
+function mtw.trigger_1948a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "rending_strike")
+end
+
+function mtw.trigger_1948b(matches,multimatches)
+mtw.attack_start(matches[3], "rending_strike")
+end
+
+function mtw.trigger_1948c(matches,multimatches)
+mtw.attack_hit(matches[2], "rending_strike")
+end
+
+function mtw.trigger_1948d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "rending_strike", matches[4])
+end
+
+function mtw.trigger_1948e(matches,multimatches)
+mtw.attack_miss(matches[3], "rending_strike")
+end
+
 function mtw.trigger_1949(matches,multimatches)
 mtw.atk_start(matches[2], nil, "yellow_bile")
 end
@@ -9505,8 +9685,37 @@ function mtw.trigger_1951(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "yellow_bile", matches[3])
 end
 
+function mtw.trigger_1951a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "yellow_bile")
+end
+
+function mtw.trigger_1951b(matches,multimatches)
+mtw.attack_start(matches[3], "yellow_bile")
+end
+
+function mtw.trigger_1951c(matches,multimatches)
+mtw.attack_hit(matches[2], "yellow_bile")
+cecho("\n<brown> You gave: <green>")
+if matches[3] == "blister" then
+ cecho("MALADROITNESS")
+elseif matches[3] == "flay" then
+ cecho("MALADROITNESS")
+ cecho(" and ")
+ cecho("RECKLESSNESS")
+end
+cecho("<brown>!")
+end
+
+function mtw.trigger_1951d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "yellow_bile", matches[4])
+end
+
+function mtw.trigger_1951e(matches,multimatches)
+mtw.attack_miss(matches[3], "yellow_bile")
+end
+
 function mtw.trigger_1952(matches,multimatches)
-mtw.atk_start(matches[3], nil, "knife_of_woe")
+mtw.atk_start(matches[3], "knife_of_woe")
 end
 
 function mtw.trigger_1953(matches,multimatches)
@@ -9515,6 +9724,26 @@ end
 
 function mtw.trigger_1954(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "knife_of_woe", matches[4])
+end
+
+function mtw.trigger_1954a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "knife_of_woe")
+end
+
+function mtw.trigger_1954b(matches,multimatches)
+mtw.attack_start(matches[2], "knife_of_woe")
+end
+
+function mtw.trigger_1954c(matches,multimatches)
+mtw.attack_hit(matches[3], "knife_of_woe")
+end
+
+function mtw.trigger_1954d(matches,multimatches)
+mtw.attack_defend(matches[3], nil, "knife_of_woe", matches[5])
+end
+
+function mtw.trigger_1954e(matches,multimatches)
+mtw.attack_miss(matches[3], "knife_of_woe")
 end
 
 function mtw.trigger_1955(matches,multimatches)
@@ -9529,6 +9758,26 @@ function mtw.trigger_1957(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "carnal_scream", matches[4])
 end
 
+function mtw.trigger_1957a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "carnal_scream")
+end
+
+function mtw.trigger_1957b(matches,multimatches)
+mtw.attack_start(matches[2], "carnal_scream")
+end
+
+function mtw.trigger_1957c(matches,multimatches)
+mtw.attack_hit(matches[2], "carnal_scream")
+end
+
+function mtw.trigger_1957d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "carnal_scream", matches[3])
+end
+
+function mtw.trigger_1957e(matches,multimatches)
+mtw.attack_miss(matches[3], "carnal_scream")
+end
+
 function mtw.trigger_1958(matches,multimatches)
 mtw.atk_start(matches[2], nil, "scarlet_horror")
 end
@@ -9539,6 +9788,26 @@ end
 
 function mtw.trigger_1960(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "scarlet_horror", matches[4])
+end
+
+function mtw.trigger_1960a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "scarlet_horror")
+end
+
+function mtw.trigger_1960b(matches,multimatches)
+mtw.attack_start(matches[2], "scarlet_horror")
+end
+
+function mtw.trigger_1960c(matches,multimatches)
+mtw.attack_hit(matches[2], "scarlet_horror")
+end
+
+function mtw.trigger_1960d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "scarlet_horror", matches[3])
+end
+
+function mtw.trigger_1960e(matches,multimatches)
+mtw.attack_miss(matches[3], "scarlet_horror")
 end
 
 function mtw.trigger_1961(matches,multimatches)
@@ -9553,6 +9822,35 @@ function mtw.trigger_1963(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "black_bile", matches[3])
 end
 
+function mtw.trigger_1963a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "black_bile")
+end
+
+function mtw.trigger_1963b(matches,multimatches)
+mtw.attack_start(matches[3], "black_bile")
+end
+
+function mtw.trigger_1963c(matches,multimatches)
+mtw.attack_hit(matches[2], "black_bile")
+cecho("\n<brown> You gave: <green>")
+if matches[3] == "blister" then
+ cecho("ANEMIA")
+elseif matches[3] == "flay" then
+ cecho("ANEMIA")
+ cecho(" and ")
+ cecho("ATAXIA")
+end
+cecho("<brown>!")
+end
+
+function mtw.trigger_1963d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "black_bile", matches[4])
+end
+
+function mtw.trigger_1963e(matches,multimatches)
+mtw.attack_miss(matches[3], "black_bile")
+end
+
 function mtw.trigger_1964(matches,multimatches)
 mtw.atk_start(matches[2], nil, "betrayal_of_blood")
 end
@@ -9563,6 +9861,26 @@ end
 
 function mtw.trigger_1966(matches,multimatches)
 mtw.atk_defend(matches[2], nil, "betrayal_of_blood", matches[3])
+end
+
+function mtw.trigger_1966a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "betrayal_of_blood")
+end
+
+function mtw.trigger_1966b(matches,multimatches)
+mtw.attack_start(matches[3], "betrayal_of_blood")
+end
+
+function mtw.trigger_1966c(matches,multimatches)
+mtw.attack_hit(matches[2], "betrayal_of_blood")
+end
+
+function mtw.trigger_1966d(matches,multimatches)
+mtw.attack_defend(matches[2], nil, "betrayal_of_blood", matches[5])
+end
+
+function mtw.trigger_1966e(matches,multimatches)
+mtw.attack_miss(matches[3], "betrayal_of_blood")
 end
 
 function mtw.trigger_1967(matches,multimatches)
@@ -9577,6 +9895,46 @@ if mtw.vitals.adrenaline >= 50 then
 		n = n + 1
 	end
 end
+end
+
+function mtw.trigger_1968a(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "sanguishift")
+end
+
+function mtw.trigger_1968b(matches,multimatches)
+mtw.attack_start(matches[3], "sanguishift")
+end
+
+function mtw.trigger_1968c(matches,multimatches)
+mtw.attack_hit(matches[2], "sanguishift")
+end
+
+function mtw.trigger_1968d(matches,multimatches)
+mtw.attack_miss(matches[3], "sanguishift")
+end
+
+function mtw.trigger_1969a(matches,multimatches)
+mtw.atk_start(matches[2], nil, "forbidden_revel")
+end
+
+function mtw.trigger_1969b(matches,multimatches)
+mtw.atk_hit(matches[2], nil, "forbidden_revel")
+end
+
+function mtw.trigger_1969c(matches,multimatches)
+mtw.atk_miss(matches[2], nil, "forbidden_revel")
+end
+
+function mtw.trigger_1969d(matches,multimatches)
+mtw.attack_start(matches[3], "forbidden_revel")
+end
+
+function mtw.trigger_1969e(matches,multimatches)
+mtw.attack_hit(matches[2], "forbidden_revel")
+end
+
+function mtw.trigger_1969f(matches,multimatches)
+mtw.attack_miss(matches[3], "forbidden_revel")
 end
 
 function mtw.trigger_1969(matches,multimatches)
@@ -9879,7 +10237,6 @@ if mtw.toggles.hiding then
  mtw.toggle("hiding")
  send(" ")
 end
-end
 
 function mtw.trigger_2037(matches,multimatches)
  mtw.atk_start(matches[2], nil, "revelation")
@@ -9893,12 +10250,6 @@ function mtw.trigger_2039(matches,multimatches)
  mtw.atk_defend(matches[2], nil, "revelation")
 end
 
-function mtw.trigger_2040(matches,multimatches)
- mtw.def_def("soullink")
 end
 
-function mtw.trigger_2041(matches,multimatches)
- local comm = multimatches[2][2]
- if comm == "lazuli" then comm = "lapis" end
- send("vin "..comm)
-end
+
