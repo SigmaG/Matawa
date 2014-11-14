@@ -7,7 +7,7 @@ function mtw.society_do(num, what)
   if mtw.current_society then
    send("society switch "..mtw.current_society)
   else
-   send("society switch "..mtw.default_society)
+   send("society switch "..mtw.options.default_society)
   end
  end
 end
