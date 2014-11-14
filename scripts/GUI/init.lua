@@ -68,14 +68,13 @@ if mtw.cgui.enabled then
 else
  -- we just want to prevent any call to the GUI when it's not enabled
  mtw.gui = {}
- local mt = {
-  __call = function (...) return nil end,
-  __newindex = function (k,v,t)
-  end,
-  __index = function (k,v)
+ local mt = {}
+ mt.__call = function (...) return nil end
+ mt.__newindex = function (k,v,t)
+  end
+ mt.__index = function (k,v)
    local z = {}
    return setmetatable(z, mt)
-  end,
- }
+  end
  setmetatable(mtw.gui,mt)
 end
