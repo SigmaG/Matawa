@@ -16,6 +16,11 @@ function mtw.GUI_toggle()
  else
   mtw.cgui.enabled = true
   mtw_struct.reload_external("GUI/init")
+  for k,_ in pairs(mtw.gui.win_list) do
+   if not mtw.cgui[k.."_enabled"] then
+    mtw.gui.enable_window(k)
+   end
+  end
  end
 end
 
