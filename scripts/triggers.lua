@@ -8164,7 +8164,7 @@ mtw.attack_hit(matches[2], "spirit_wrack")
 end
 
 function mtw.trigger_1682(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "spirit_wrack", matches[5])
+mtw.attack_defend(matches[2], nil, "spirit_wrack", matches[4])
 end
 
 function mtw.trigger_1683(matches,multimatches)
@@ -8334,7 +8334,7 @@ mtw.atk_defend(matches[2], matches[3], "sword_spirit", matches[4])
 end
 
 function mtw.trigger_1723(matches,multimatches)
-mtw.attack_start(matches[3], "sword_spirit")
+mtw.attack_start(matches[2], "sword_spirit")
 end
 
 function mtw.trigger_1724(matches,multimatches)
@@ -8869,7 +8869,7 @@ mtw.atk_start(matches[2], nil, "funeral_mass")
 end
 
 function mtw.trigger_1811(matches,multimatches)
-mtw.atk_hit(matches[3], nil, "funeral_mass")
+mtw.atk_hit(matches[2], nil, "funeral_mass")
 end
 
 function mtw.trigger_1811a(matches,multimatches)
