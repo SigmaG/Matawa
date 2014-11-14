@@ -14,7 +14,9 @@ mtw.gui.root = mtw.gui.root or {
  type = "container",
  enabled = true,
  add = function(self,w)
+  table.insert(self.children, w)
   self.win:add(w.win,mtw.gui.parse_constraints(w.cons))
+  self:enable()
   self:r()
  end,
  remove = function(self,w)
