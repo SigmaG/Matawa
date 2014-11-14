@@ -15,7 +15,7 @@ function mtw.GUI_toggle()
   cecho("\n<red>WARNING:\n<green>All windows have been hidden. to disable the whole GUI, please restart your client.\n")
  else
   mtw.cgui.enabled = true
-  mtw.struct.reload_external("GUI/init.lua")
+  mtw_struct.reload_external("GUI/init")
  end
 end
 
