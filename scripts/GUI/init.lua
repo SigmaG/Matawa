@@ -6,15 +6,29 @@ mtw_struct.load_external("GUI/config")
 
 function mtw.GUI_toggle()
  if mtw.cgui.enabled then
+  mtw.gui_mt = mtw.gui_mt or {}
   mtw.cgui.enabled = false
   for k,_ in pairs(mtw.gui.win_list) do
    if mtw.cgui[k.."_enabled"] then
     mtw.gui.disable_window(k)
    end
   end
+  mtw.gui_mt.__call = function (...) return nil end
+  mtw.gui_mt.__index = function (k,v)
+    local z = {}
+    return setmetatable(z, mtw.gui_mt)
+   end
+  mtw.gui_mt.__newindex = function (k,v,t)
+   end
+  setmetatable(mtw.gui, mtw.gui_mt)
   cecho("\n<red>WARNING:\n<green>All windows have been hidden. to disable the whole GUI, please restart your client.\n")
  else
   mtw.cgui.enabled = true
+  mtw.gui_mt = mtw.gui_mt or {}
+  mtw.gui_mt.__newindex = nil
+  mtw.gui_mt.__call = nil
+  mtw.gui_mt.__index = nil
+  setmetatable(mtw.gui, mtw.gui_mt)
   mtw_struct.reload_external("GUI/init")
   for k,_ in pairs(mtw.gui.win_list) do
    if not mtw.cgui[k.."_enabled"] then
@@ -73,13 +87,13 @@ if mtw.cgui.enabled then
 else
  -- we just want to prevent any call to the GUI when it's not enabled
  mtw.gui = {}
- local mt = {}
- mt.__call = function (...) return nil end
- mt.__newindex = function (k,v,t)
+ mtw.gui_mt = {}
+ mtw.gui_mt.__newindex = function (k,v,t)
   end
- mt.__index = function (k,v)
+ mtw.gui_mt.__call = function (...) return nil end
+ mtw.gui_mt.__index = function (k,v)
    local z = {}
-   return setmetatable(z, mt)
+   return setmetatable(z, mtw.gui_mt)
   end
- setmetatable(mtw.gui,mt)
+ setmetatable(mtw.gui,mtw.gui_mt)
 end
