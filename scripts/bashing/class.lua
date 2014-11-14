@@ -88,7 +88,7 @@ function mtw.rogue_bash()
   end
  end
  
-if mtw.toggles.gripping and (mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping")) and not mtw.need_wield then
+if (mtw.have_def("grip") or not mtw.toggles.gripping) and not mtw.need_wield then
  if mtw.inquartata and table.contains(mtw.skills, "Inquartata") and mtw.toggles.inquartataing then
   mtw.send("inq "..mtw.bashing.target)
  elseif mtw.balance.requiem and table.contains(mtw.skills, "Requiem of the Fallen") and mtw.toggles.requieming and mtw.vitals.cadence == 3 and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
@@ -108,6 +108,7 @@ end
 end
 
 function mtw.priest_bash()
+
  if mtw.need_heal then
   mtw.priest_heal()
   mtw.need_heal = false
@@ -121,34 +122,37 @@ function mtw.priest_bash()
   elseif table.contains(mtw.skills, "thanatology") then
    mtw.send("deathcall desperate prayer")
   end
- elseif (mtw.vitals.percent.health < 60) and (mtw.vitals.current.faith > 30) and table.contains(mtw.skills, "Zealous Mandate") then
-  mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
- elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 35) and table.contains(mtw.skills, "Revitalization") and mtw.defenses.def_revitalization.state == "down" then
-  mtw.send("pray for revitalization")
- elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 30) and table.contains(mtw.skills, "Zealous Mandate") then
-  mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
- elseif (mtw.vitals.percent.health < 60) then
-  mtw.ally = nil
-  mtw.priest_heal()
- elseif (not mtw.used.heretic) and mtw.toggles.hereticing and (mtw.vitals.current.faith > 100) and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
-  mtw.send("smite "..mtw.bashing.target.." with heresy")
- elseif (not mtw.used.savage) and mtw.toggles.savaging and table.contains(mtw.skills, "Savage") then
-  mtw.send("bloodcall savage "..mtw.bashing.target)
- elseif mtw.my.area == "an Imp Cave" and table.contains(mtw.skills, "Exorcism") then
-  mtw.send("deathcall exorcism "..mtw.bashing.target)
- elseif mtw.vitals.current.faith > 100 and table.contains(mtw.skills, "Torturous Whip") and mtw.toggles.lashing then
-  mtw.send("shadowcall lash "..mtw.bashing.target)
- elseif mtw.vitals.current.faith > 200 and mtw.toggles.swording and table.contains(mtw.skills, "Holy Sword") and mtw.enemy_health ~= "<red> 0-10%" then
-  mtw.send("smite "..mtw.bashing.target.." with holy sword")
- elseif mtw.vitals.current.faith > 75 and table.contains(mtw.skills, "Zealous Mandate") and mtw.toggles.mandate then
-  mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
- elseif (mtw.enemy_health == "<brown> UNDEAD" or mtw.my.area == "a crypt in the Highlands") and table.contains(mtw.skills, "Holy Fire") then
-  mtw.send("smite "..mtw.bashing.target.." with holy fire")
- else
-  mtw.send("smite "..mtw.bashing.target.." with fury")
  end
-end
- 
+
+ if (mtw.have_def("grip") or not mtw.toggles.gripping) and not mtw.need_wield then
+  if (mtw.vitals.percent.health < 60) and (mtw.vitals.current.faith > 30) and table.contains(mtw.skills, "Zealous Mandate") then
+   mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
+  elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 35) and table.contains(mtw.skills, "Revitalization") and mtw.defenses.def_revitalization.state == "down" then
+   mtw.send("pray for revitalization")
+  elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 30) and table.contains(mtw.skills, "Zealous Mandate") then
+   mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
+  elseif (mtw.vitals.percent.health < 60) then
+   mtw.ally = nil
+   mtw.priest_heal()
+  elseif (not mtw.used.heretic) and mtw.toggles.hereticing and (mtw.vitals.current.faith > 100) and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
+   mtw.send("smite "..mtw.bashing.target.." with heresy")
+  elseif (not mtw.used.savage) and mtw.toggles.savaging and table.contains(mtw.skills, "Savage") then
+   mtw.send("bloodcall savage "..mtw.bashing.target)
+  elseif mtw.my.area == "an Imp Cave" and table.contains(mtw.skills, "Exorcism") then
+   mtw.send("deathcall exorcism "..mtw.bashing.target)
+  elseif mtw.vitals.current.faith > 100 and table.contains(mtw.skills, "Torturous Whip") and mtw.toggles.lashing then
+   mtw.send("shadowcall lash "..mtw.bashing.target)
+  elseif mtw.vitals.current.faith > 200 and mtw.toggles.swording and table.contains(mtw.skills, "Holy Sword") and mtw.enemy_health ~= "<red> 0-10%" then
+   mtw.send("smite "..mtw.bashing.target.." with holy sword")
+  elseif mtw.vitals.current.faith > 75 and table.contains(mtw.skills, "Zealous Mandate") and mtw.toggles.mandate then
+   mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
+  elseif (mtw.enemy_health == "<brown> UNDEAD" or mtw.my.area == "a crypt in the Highlands") and table.contains(mtw.skills, "Holy Fire") then
+   mtw.send("smite "..mtw.bashing.target.." with holy fire")
+  else
+   mtw.send("smite "..mtw.bashing.target.." with fury")
+  end
+ end
+end 
 function mtw.priest_heal()
  if mtw.ally == nil then
   mtw.send("pray for healing")
@@ -157,3 +161,4 @@ function mtw.priest_heal()
   mtw.ally = nil
  end
 end
+
