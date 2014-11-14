@@ -22,7 +22,7 @@ mtw_struct.load_external("utilities/search")
 mtw_struct.load_external("utilities/gathering")
 
 -- society functions (SWHO<#> SHELP<#> ...)
-mtw_struct.load_external("utilities/society.lua")
+mtw_struct.load_external("utilities/society")
 
 -- crits
 mtw_struct.set_metatable_saved("crits")
