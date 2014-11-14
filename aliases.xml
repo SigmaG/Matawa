@@ -1410,7 +1410,7 @@ send(&quot; &quot;)</script>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>society something</name>
-                            <script>mtw.society_do(matches[2], &quot;society &quot; .. matches[3)</script>
+                            <script>mtw.society_do(matches[2], &quot;society &quot; .. matches[3])</script>
                             <command></command>
                             <packageName></packageName>
                             <regex>^society(\d+) (.*)$</regex>
