@@ -1406,7 +1406,7 @@ send(&quot; &quot;)</script>
                             <script>mtw.society_do(matches[2], &quot;swho&quot;)</script>
                             <command></command>
                             <packageName></packageName>
-                            <regex>^sc?swho(\d+)$</regex>
+                            <regex>^sc?who(\d+)$</regex>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>society something</name>
