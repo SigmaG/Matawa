@@ -929,6 +929,12 @@ o Added soullink defense -Savil
 o Changed threaten alias: thrn -Savil
 o Split the tward toggle: tward is now only for warding, trog for lightball/lodestone, twall for icewall, tlit for liturgy. -Savil
 o Added threaten (with its toggle) to the soldier bashing function. -Savil
-o Updated bashing table
+o Updated bashing table -Savil, Elanoron
 o Rewrote the gathering module, added an alias 'h X Y' that works like 'q X Y', to select what to mine. -Savil
 o Changed aliases for night's horror and scarlet horror due to conflict. Now it's nhor and shor. -Savil
+o Added Laurie's refrain in the bashing function for bards -Elanoron
+o *huge* add of triggers for thana/bloodpriest -Elanoron 
+o Added some aliases to have SWHO<number>, SHELP<number> just like SCT<number> -Savil
+o update with grip in the bashing function -Elanoron
+o Added a GUI. '?gui' to have all the functions. It's missing some decorations, will do them over time (feel free to provide though!) -Savil
+o Squished a few fishing/bashing system bugs -Elanoron,Savil
