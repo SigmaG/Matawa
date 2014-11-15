@@ -79,6 +79,9 @@ if mtw.toggles.balecho then
  deleteLine()
  cecho("<brown>\nYou: OVERDRIVE")
 end
+if mtw.vitals.adrenaline == -1 then
+ mtw.vitals.adrenaline = 10
+end
 mtw.balance_lose("overdrive")
 end
 
@@ -600,16 +603,25 @@ end
 
 function mtw.trigger_94(matches,multimatches)
 deleteLine()
+if mtw.vitals.adrenaline == -1 then
+ mtw.vitals.adrenaline = 10
+end
 cecho("<brown>\nYou: FOCUS BODY")
 end
 
 function mtw.trigger_95(matches,multimatches)
 deleteLine()
+if mtw.vitals.adrenaline == -1 then
+ mtw.vitals.adrenaline = 10
+end
 cecho("<brown>\nYou: FOCUS MIND")
 end
 
 function mtw.trigger_96(matches,multimatches)
 deleteLine()
+if mtw.vitals.adrenaline == -1 then
+ mtw.vitals.adrenaline = 10
+end
 cecho("<brown>\nYou: FOCUS SPRIIT")
 end
 
@@ -1250,13 +1262,13 @@ end
 end
 
 function mtw.trigger_187(matches,multimatches)
-if mtw.toggles.warding and table.contains(mtw.skills, "Warding") then
+if (not mtw.status.combat) and mtw.toggles.warding and table.contains(mtw.skills, "Warding") then
  mtw.set_balance("cast warding")
 end
 end
 
 function mtw.trigger_188(matches,multimatches)
-if mtw.toggles.warding and table.contains(mtw.skills, "Lightball") then
+if (not mtw.status.combat) and mtw.toggles.antirogue and table.contains(mtw.skills, "Lightball") then
  mtw.set_balance("cast lightball")
 end
 end
@@ -1278,13 +1290,15 @@ cecho("\n\n<red>===SUPERNOVA===\n\n")
 end
 
 function mtw.trigger_192(matches,multimatches)
-if mtw.toggles.warding and table.contains(mtw.skills, "Icewall") then
+deleteLine()
+cecho("\n\n<yellow>=== ICEWALL DOWN: <red>"..matches[2].."<yellow> ===\n\n")
+if (not mtw.status.combat) and mtw.toggles.rewall and table.contains(mtw.skills, "Icewall") then
  send("bqa cast icewall "..matches[2])
 end
 end
 
 function mtw.trigger_193(matches,multimatches)
-if mtw.toggles.warding and table.contains(mtw.skills, "Lodestone") then
+if (not mtw.status.combat) and mtw.toggles.antirogue and table.contains(mtw.skills, "Lodestone") then
  mtw.set_balance("cast lodestone")
 end
 end
@@ -1421,7 +1435,7 @@ if mtw.toggles.cdecho then
  deleteLine()
  cecho("\n<green>=====<cyan>LITURGY<green> READY=====\n")
 end
-if mtw.toggles.healing and not mtw.toggles.fishing and mtw.toggles.warding then
+if mtw.toggles.healing and not mtw.toggles.fishing and mtw.toggles.liturgy then
  mtw.set_equil("pray for liturgy")
 end
 end
@@ -1780,66 +1794,6 @@ end
 function mtw.trigger_246c(matches,multimatches)
 if mtw.channeling.inking then
  mtw.channeling.inking = false
-end
-end
-
-function mtw.trigger_247(matches,multimatches)
-if mtw.toggles.mining then
- deleteLine()
- cecho("\n<yellow>-----------------------")
- cecho("\n<yellow>    FOUND: "..matches[3])
- cecho("\n<yellow>-----------------------")
- mtw.mining.found = true
- if matches[3]=="gem" then
-  mtw.mining.material = "gems"
- else
-  mtw.mining.material = matches[3]
- end
-end
-end
-
-function mtw.trigger_248(matches,multimatches)
-if mtw.toggles.mining then
- deleteLine()
- cecho("\n<red>-----------------------")
- cecho("\n<red>   "..matches[2].." depleted")
- cecho("\n<red>-----------------------")
- send("vin 10 "..mtw.mining.material)
- mtw.mining.found = false
- mtw.mining.material = "none"
-end
-end
-
-function mtw.trigger_249(matches,multimatches)
-if mtw.toggles.mining and mtw.mining.found then
- if mtw.mining.material == "trees" then
-  send("chop trees")
- else
-  send("mine "..mtw.mining.material)
- end
-end
-end
-
-function mtw.trigger_250(matches,multimatches)
-if mtw.toggles.mining then
- deleteLine()
- cecho("\n<yellow>-----------------------")
- cecho("\n<yellow>    FOUND: trees")
- cecho("\n<yellow>-----------------------")
- mtw.mining.found = true
- mtw.mining.material = "trees"
-end
-end
-
-function mtw.trigger_251(matches,multimatches)
-if mtw.toggles.mining then
- deleteLine()
- cecho("\n<red>-----------------------")
- cecho("\n<red>   trees depleted")
- cecho("\n<red>-----------------------")
- send("vin 10 wood")
- mtw.mining.found = false
- mtw.mining.material = "none"
 end
 end
 
@@ -6407,7 +6361,7 @@ mtw.attack_miss(matches[2], "backhand")
 end
 
 function mtw.trigger_1266(matches,multimatches)
-attack_defend(matches[2], nil, "backhand", matches[4])
+mtw.attack_defend(matches[2], nil, "backhand", matches[4])
 end
 
 function mtw.trigger_1267(matches,multimatches)
@@ -8385,6 +8339,8 @@ end
 
 function mtw.trigger_1735(matches,multimatches)
 mtw.atk_hit(matches[2], matches[3], "searing_arc")
+--temporary fix since we don't get the affline when Mind Sear mastery is selected by the attacker
+mtw.queue_diag()
 end
 
 function mtw.trigger_1736(matches,multimatches)
@@ -8704,7 +8660,6 @@ end
 
 function mtw.trigger_1796(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "withering_touch")
-
 end
 
 function mtw.trigger_1797(matches,multimatches)
@@ -8838,7 +8793,6 @@ end
 
 function mtw.trigger_1808(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "despair")
-
 end
 
 function mtw.trigger_1809(matches,multimatches)
@@ -10228,6 +10182,7 @@ function mtw.trigger_2030(matches,multimatches)
 end
 
 function mtw.trigger_2036(matches,multimatches)
+
 if mtw.defenses.def_hiding.needit then
  mtw.defenses.def_hiding.needit = false
  echo("\nNo longer keeping hide.")
@@ -10237,6 +10192,8 @@ end
 if mtw.toggles.hiding then
  mtw.toggle("hiding")
  send(" ")
+end
+
 end
 
 function mtw.trigger_2037(matches,multimatches)
@@ -10251,6 +10208,12 @@ function mtw.trigger_2039(matches,multimatches)
  mtw.atk_defend(matches[2], nil, "revelation")
 end
 
+function mtw.trigger_2040(matches,multimatches)
+ mtw.def_def("soullink")
 end
 
-
+function mtw.trigger_2041(matches,multimatches)
+ local comm = multimatches[2][2]
+ if comm == "lazuli" then comm = "lapis" end
+ send("vin "..comm)
+end
