@@ -5471,7 +5471,7 @@ send(&quot; &quot;)</script>
                                     <script>mtw.atk_sweaver(&quot;horrify &quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^hor$</regex>
+                                    <regex>^nhor$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Shadeskin</name>
@@ -5695,7 +5695,7 @@ send(&quot; &quot;)</script>
                                     <script>mtw.atk_hema(&quot;horror &quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^hor$</regex>
+                                    <regex>^shor$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Heart of Greed</name>

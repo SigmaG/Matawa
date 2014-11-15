@@ -931,3 +931,4 @@ o Split the tward toggle: tward is now only for warding, trog for lightball/lode
 o Added threaten (with its toggle) to the soldier bashing function. -Savil
 o Updated bashing table
 o Rewrote the gathering module, added an alias 'h X Y' that works like 'q X Y', to select what to mine. -Savil
+o Changed aliases for night's horror and scarlet horror due to conflict. Now it's nhor and shor. -Savil
