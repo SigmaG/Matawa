@@ -11,7 +11,7 @@ function mtw.do_fishing()
  if mtw.vitals.loss.endurance < -11 and mtw.fishing.count < 4 then
   mtw.fishing.count = 4
  end
- if mtw.balance.balance and mtw.balance.equilibrium and (not mtw.waiting.balance) and (not mtw.have_aff("prone")) then
+ if mtw.balance.balance and (not mtw.waiting.balance) and (not mtw.have_aff("prone")) then
   if mtw.fishing.stat == "baiting" then
    if (not mtw.inventory[mtw.fishing.bait]) and table.contains(mtw.skills, "Vaults") and mtw.vault[mtw.fishing.bait] > 0 then
     send("vout "..mtw.fishing.bait, false)

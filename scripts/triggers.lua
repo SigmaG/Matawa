@@ -1435,7 +1435,7 @@ if mtw.toggles.cdecho then
  deleteLine()
  cecho("\n<green>=====<cyan>LITURGY<green> READY=====\n")
 end
-if mtw.toggles.healing and not mtw.toggles.fishing and mtw.toggles.liturgy then
+if mtw.toggles.healing and mtw.toggles.liturgy then
  mtw.set_equil("pray for liturgy")
 end
 end
