@@ -120,13 +120,19 @@ function chat_label_click(name)
  end
 end
 
+function mtw.gui.append_to_win(win)
+ if mtw.gui.chat_win[win] then
+  mtw.gui.chat_win[win]:append()
+ end
+end
+
 function mtw.gui.chat(win)
  if win ~= "Combat" then
   selectCurrentLine()
  end
  copy()
- mtw.gui.chat_win[win]:append()
- mtw.gui.chat_win["All"]:append()
+ mtw.gui.append_to_win(win)
+ mtw.gui.append_to_win("All")
 end
 
 
@@ -134,9 +140,12 @@ function mtw.gui.chat_init()
  for _,v in pairs(mtw.gui.chat_cwin) do
   v:hide()
  end
- mtw.gui.chat_cwin["All"]:show()
- mtw.gui.chat_tabs["All"]:setColor(mtw.cgui.chat_label_active_color)
- mtw.gui.chat_selected = "All"
+ for k,v in pairs(mtw.gui.chat_cwin) do
+  v:show()
+  mtw.gui.chat_tabs[k]:setColor(mtw.cgui.chat_label_active_color)
+  mtw.gui.chat_selected = k
+  break
+ end
 end
 
 function mtw.gui.chat_tells(matches)
@@ -178,6 +187,6 @@ end
 function mtw.gui.spam(matches)
  selectCurrentLine()
  copy()
- mtw.gui.chat_win["Spam"]:append()
+ mtw.gui.append_to_win("Spam")
  deleteLine()
 end
