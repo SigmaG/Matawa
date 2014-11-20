@@ -9670,7 +9670,7 @@ mtw.attack_miss(matches[3], "yellow_bile")
 end
 
 function mtw.trigger_1952(matches,multimatches)
-mtw.atk_start(matches[3], "knife_of_woe")
+mtw.atk_start(matches[3], nil, "knife_of_woe")
 end
 
 function mtw.trigger_1953(matches,multimatches)
