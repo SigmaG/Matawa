@@ -1683,7 +1683,9 @@ cecho("<blue>\nWelcome to Matawa "..mtw.version[1].."!")
 cecho("<green>\n Send ?help to get some help.")
 mtw.check_options()
 if not mtw.gmcp_enabled() then
+ cecho("\n<red>=====================================================================================\n")
  cecho("\nGMCP is <red>disabled<white>, please enable it in Mudlet settings and restart Mudlet.")
+ cecho("\n\n<red>=====================================================================================")
 else
  cecho("\nGMCP is <green>enabled<white>!")
 end
