@@ -17,6 +17,7 @@ mtw.default.cgui = {
  chat_label_text = "white",
  chat_label_font = "",
  chat_height = "60%",
+ chat_tabs = {"All", "Tells", "Says", "City", "Guild", "Order", "Societies", "OOC", "Misc", "Combat", "Spam"},
 
 -- mapper config
  mapper_enabled = true,

@@ -6261,6 +6261,27 @@ mtw.gui.update_who_here()</script>
                             <packageName></packageName>
                             <regex>^tgui-click-name (.*)$</regex>
                         </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>add chat tab</name>
+                            <script>mtw.gui.add_chat_tab(matches[2],tonumber(matches[3]))</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-add-tab-chat (\w+)( \d+)?$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>remove chat tab</name>
+                            <script>mtw.gui.remove_chat_tab(matches[2])</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-rm-tab-chat (\w+)$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>move chat tab</name>
+                            <script>mtw.gui.move_chat_tab(matches[2],tonumber(matches[3]))</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-mv-tab-chat (\w+)( \d+)?$</regex>
+                        </Alias>
                     </AliasGroup>
                 </AliasGroup>
             </AliasGroup>

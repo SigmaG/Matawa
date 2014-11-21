@@ -57,6 +57,9 @@ function mtw.GUI_aliases()
  echo("\n  tgui-chat-labels-per-line X: Change the number of labels printed on one line of tabs, for the chat window (requires a restart)")
  echo("\n  tgui-exp-ih y/n: Enable or not the possibility to expand each item in the IH window to get their ID")
  echo("\n  tgui-click-name X: Sets to X the action to do when you click a name in the WHO HERE window. %s will be replaced by the name")
+ echo("\n  tgui-add-chat-tab X [n]: Adds a chat tab named X at position n (or at the end if you didn't specify a position) (requires a restart)")
+ echo("\n  tgui-rm-chat-tab X: Removes chat tab named X (requires a restart)")
+ echo("\n  tgui-mv-chat-tab X n: Moves a chat tab named X at position n (requires a restart)")
 end
 
 if mtw.cgui.enabled then

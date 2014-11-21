@@ -21,16 +21,14 @@ mtw.gui.chat_window = mtw.gui.chat_window or mtw.gui.new(Geyser.Container,
  mtw.cgui.chat_enabled,
  mtw.gui.cont.r)
 
-local tabList = {"All", "Tells", "Says", "City", "Guild", "Order", "Societies", "OOC", "Misc", "Combat", "Spam"}
-local lines = #tabList / mtw.cgui.chat_labels_per_line
+local lines = #mtw.cgui.chat_tabs / mtw.cgui.chat_labels_per_line
 if lines > math.floor(lines) then
  lines = math.floor(lines) + 1
 end
 
 mtw.gui.chat_ctabs = mtw.gui.chat_ctabs or mtw.gui.new(Geyser.VBox,
  [[function()
-  local tabList = {"All", "Tells", "Says", "City", "Guild", "Order", "Societies", "OOC", "Misc", "Combat", "Spam"}
-  local lines = #tabList / mtw.cgui.chat_labels_per_line
+  local lines = #mtw.cgui.chat_tabs / mtw.cgui.chat_labels_per_line
   if lines > math.floor(lines) then
    lines = math.floor(lines) + 1
   end
@@ -58,7 +56,7 @@ mtw.gui.chat_win = mtw.gui.chat_win or {}
 
 local i = 0
 local n = 1
-for _,v in pairs(tabList) do
+for _,v in pairs(mtw.cgui.chat_tabs) do
  mtw.gui.chat_tabs[v] = mtw.gui.chat_tabs[v] or mtw.gui.new(Geyser.Label,
   string.format([[
   { name = "mtw_lchat_%s",
@@ -77,8 +75,7 @@ for _,v in pairs(tabList) do
 
  mtw.gui.chat_cwin[v] = mtw.gui.chat_cwin[v] or mtw.gui.new(Geyser.Container,
   string.format([[function()
-   local tabList = {"All", "Tells", "Says", "City", "Guild", "Order", "Societies", "OOC", "Misc", "Combat", "Spam"}
-   local lines = #tabList / mtw.cgui.chat_labels_per_line
+   local lines = #mtw.cgui.chat_tabs / mtw.cgui.chat_labels_per_line
    if lines > math.floor(lines) then
     lines = math.floor(lines) + 1
    end
@@ -189,4 +186,58 @@ function mtw.gui.spam(matches)
  copy()
  mtw.gui.append_to_win("Spam")
  deleteLine()
+end
+
+local duplicate_chat_tabs = function ()
+ if not mtw.custom.cgui.chat_tabs then
+  mtw.custom.cgui.chat_tabs = {}
+  for _,v in ipairs(mtw.default.cgui.chat_tabs) do
+   table.insert(mtw.custom.cgui.chat_tabs,v)
+  end
+ end
+end
+
+local chat_tabs_warning = function ()
+ cecho("\n<yellow>You've arranged your chat window tabs. For now, you have to restart your profile for the changes to be accounted for.")
+end
+
+function mtw.gui.add_chat_tab(name,position)
+ duplicate_chat_tabs()
+ if not position then
+  position = #mtw.cgui.chat_tabs + 1
+ end
+ if position > #mtw.cgui.chat_tabs then
+  position = #mtw.cgui.chat_tabs + 1
+ end
+ table.insert(mtw.custom.cgui.chat_tabs,position,name)
+ chat_tabs_warning()
+end
+
+function mtw.gui.remove_chat_tab(name)
+ duplicate_chat_tabs()
+ for k,v in ipairs(mtw.custom.cgui.chat_tabs) do
+  if name == v then
+   table.remove(mtw.custom.cgui.chat_tabs,k)
+   break
+  end
+ end
+ chat_tabs_warning()
+end
+
+function mtw.gui.move_chat_tab(name,position)
+ duplicate_chat_tabs()
+ if not position then
+  position = #mtw.cgui.chat_tabs
+ end
+ if position > #mtw.cgui.chat_tabs then
+  position = #mtw.cgui.chat_tabs
+ end
+ for k,v in ipairs(mtw.custom.cgui.chat_tabs) do
+  if name == v then
+   table.remove(mtw.custom.cgui.chat_tabs,k)
+   table.insert(mtw.custom.cgui.chat_tabs,position,name)
+   break
+  end
+ end
+ chat_tabs_warning()
 end
