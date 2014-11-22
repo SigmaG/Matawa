@@ -38,3 +38,23 @@ mtw.gui.mapper_m = mtw.gui.mapper_m or mtw.gui.new(Geyser.MiniConsole,
  },
  not mtw.cgui.geyser_mapper,
  mtw.gui.c_mapper)
+
+function mtw.gui.print_map()
+ selectString(line,1)
+ copy()
+ mtw.gui.mapper_m:append()
+ deleteLine()
+end
+
+function mtw.gui.mapper_toggle()
+ if mtw.cgui.geyser_mapper then
+  mtw.cgui.geyser_mapper = false
+  mtw.gui.mapper_g:disable()
+  mtw.gui.mapper_m:enable()
+  sendAll("config mapview on", "map radius 5", "map height 5", "map width 5")
+ else
+  mtw.cgui.geyser_mapper = true
+  mtw.gui.mapper_m:disable()
+  mtw.gui.mapper_g:enable() 
+ end
+end

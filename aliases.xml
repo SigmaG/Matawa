@@ -6231,6 +6231,13 @@ send(&quot; &quot;)</script>
                             <packageName></packageName>
                             <regex>^tgui-info$</regex>
                         </Alias>
+                        <Alias isActive="yes" isFolder="no">
+                            <name>toggle between mudlet mapper and MAP window</name>
+                            <script>mtw.gui.mapper_toggle()</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^tgui-map-type$</regex>
+                        </Alias>
                     </AliasGroup>
                     <AliasGroup isActive="yes" isFolder="yes">
                         <name>Other customizations</name>
