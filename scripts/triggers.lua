@@ -156,6 +156,9 @@ end
 end
 
 function mtw.trigger_19(matches,multimatches)
+if not mtw.toggles.ihbashing then
+ deleteLine()
+end
 mtw.sent.ih = true
 tempTimer(mtw.delay(), [[mtw.sent.ih = false]])
 --tempTimer(1, [[if mtw.toggles.bashing then mtw.do_bashing() end]])
@@ -190,6 +193,9 @@ end
 end
 
 function mtw.trigger_23(matches,multimatches)
+if not mtw.toggles.ihbashing then
+ deleteLine()
+end
 mtw.bashing.target_word = matches[2]
 mtw.bashing.target_number = matches[3]
 mtw.bashing.target_desc = matches[4]

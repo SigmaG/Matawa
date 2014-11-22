@@ -938,3 +938,4 @@ o Added some aliases to have SWHO<number>, SHELP<number> just like SCT<number> -
 o update with grip in the bashing function -Elanoron
 o Added a GUI. '?gui' to have all the functions. It's missing some decorations, will do them over time (feel free to provide though!) -Savil
 o Squished a few fishing/bashing system bugs -Elanoron,Savil
+o Added the 'bih' toggle to stop printing the IH output when bashing -Savil

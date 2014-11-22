@@ -271,6 +271,13 @@
                                 <regex>^tgen$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
+                                <name>IH printing</name>
+                                <script>mtw.toggle(&quot;ihbashing&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^bih$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
                                 <name>fasthunting</name>
                                 <script>mtw.toggle(&quot;fasthunt&quot;)</script>
                                 <command></command>

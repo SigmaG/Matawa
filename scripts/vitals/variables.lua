@@ -77,6 +77,7 @@ generics = false,
 --Bashing options
 fasthunt = false,
 ratting = false,
+ihbashing = true,
 --Misc. skill toggles
 threatening = false,
 retreating = false,
