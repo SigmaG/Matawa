@@ -39,6 +39,13 @@ mtw.gui.mapper_m = mtw.gui.mapper_m or mtw.gui.new(Geyser.MiniConsole,
  not mtw.cgui.geyser_mapper,
  mtw.gui.c_mapper)
 
+mtw.gui.mapper_m:setColor("black")
+
+function mtw.gui.map_trigger()
+ mtw.gui.mapper_m:clear()
+ tempLineTrigger(0,25,[[mtw.gui.print_map()]])
+end
+
 function mtw.gui.print_map()
  selectString(line,1)
  copy()
