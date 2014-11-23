@@ -10146,6 +10146,10 @@ function mtw.trigger_2021(matches,multimatches)
 mtw.gui.chat_misc(matches)
 end
 
+function mtw.trigger_2021b(matches,multimatches)
+mtw.gui.chat("Order")
+end
+
 function mtw.trigger_2022(matches,multimatches)
 mtw.gui.chat_deathsense(matches)
 end
