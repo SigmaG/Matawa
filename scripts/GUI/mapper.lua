@@ -42,8 +42,10 @@ mtw.gui.mapper_m = mtw.gui.mapper_m or mtw.gui.new(Geyser.MiniConsole,
 mtw.gui.mapper_m:setColor("black")
 
 function mtw.gui.map_trigger()
- mtw.gui.mapper_m:clear()
- tempLineTrigger(0,25,[[mtw.gui.print_map()]])
+ if not mtw.cgui.geyser_mapper then
+  mtw.gui.mapper_m:clear()
+  tempLineTrigger(0,25,[[mtw.gui.print_map()]])
+ end
 end
 
 function mtw.gui.print_map()
