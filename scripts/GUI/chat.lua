@@ -137,12 +137,10 @@ function mtw.gui.chat_init()
  for _,v in pairs(mtw.gui.chat_cwin) do
   v:hide()
  end
- for k,v in pairs(mtw.gui.chat_cwin) do
-  v:show()
-  mtw.gui.chat_tabs[k]:setColor(mtw.cgui.chat_label_active_color)
-  mtw.gui.chat_selected = k
-  break
- end
+ mtw.gui.chat_tabs[mtw.gui.chat_selected]:setColor(mtw.cgui.chat_label_inactive_color)
+ mtw.gui.chat_cwin[mtw.cgui.chat_tabs[1]]:show()
+ mtw.gui.chat_tabs[mtw.cgui.chat_tabs[1]]:setColor(mtw.cgui.chat_label_active_color)
+ mtw.gui.chat_selected = mtw.cgui.chat_tabs[1]
 end
 
 function mtw.gui.chat_tells(matches)
