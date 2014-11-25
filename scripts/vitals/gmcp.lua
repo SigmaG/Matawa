@@ -42,7 +42,10 @@ function gmcp_vitals()
  end
 
  if mtw.have_aff("recklessness") and mtw.toggles.bashing then
+  mtw.reckless_bashing = true
   mtw.vitals.percent.health = 75
+ else
+  mtw.reckless_bashing = false
  end
 
 --Give low vitals afflictions, if necessary
