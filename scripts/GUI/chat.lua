@@ -173,8 +173,13 @@ end
 
 function mtw.gui.chat_shouts(matches)
  selectString(matches[1], 1)
- fg("CadetBlue")
- bg("black")
+ if matches[1]:match([["]]) then
+  fg("CadetBlue")
+  bg("black")
+ else
+  fg("purple")
+  bg("black")
+ end
  resetFormat()
  mtw.gui.chat("Misc")
 end

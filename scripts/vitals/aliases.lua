@@ -241,7 +241,7 @@ send("config prompt remove adrenaline", false)
 send("config afflines on", false)
 send("config screenwidth off", false)
 send("config mxp on", false)
-send("config color deathsense 5 2", false)
+send("config color deathsense 5 0", false)
 end
 
 function mtw.fix_alias()
