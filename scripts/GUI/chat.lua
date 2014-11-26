@@ -172,6 +172,7 @@ function mtw.gui.chat_deathsense(matches)
 end
 
 function mtw.gui.chat_shouts(matches)
+if not line:match("%[.%]") then
  selectString(matches[1], 1)
  if matches[1]:match([["]]) then
   fg("CadetBlue")
@@ -182,6 +183,7 @@ function mtw.gui.chat_shouts(matches)
  end
  resetFormat()
  mtw.gui.chat("Misc")
+end
 end
 
 function mtw.gui.spam(matches)
