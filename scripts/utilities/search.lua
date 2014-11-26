@@ -19,7 +19,7 @@ function mtw.search_file(file, str)
  for l in f:lines() do
   n = n + 1
   if l:match(str) then
-   cecho("<yellow>"..file..":"..n.." <white>"..l:gsub("<","["):gsub(">","]"):gsub("("..str..")", "<red>%1<white>").."\n")
+   cecho("<yellow>"..file..":"..n.."\n  <white>"..l:gsub("<","["):gsub(">","]"):gsub("("..str..")", "<red>%1<white>"):gsub("\r","").."\n")
   end
  end
  f:close()
