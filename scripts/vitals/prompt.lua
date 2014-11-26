@@ -94,12 +94,20 @@ end
   mtw.check.bloodboil = false
  end
 
- if (mtw.vitals.percent.health == 100 or mtw.reckless_bashing) and mtw.my.class ~= "magician" and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
+ if (mtw.vitals.percent.health == 100 or mtw.reckless_bashing) and mtw.my.class == "soldier" and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
   if mtw.check.reckless then 
    mtw.aff_have("recklessness")
   end
-  elseif mtw.vitals.percent.magic == 100 and mtw.my.class == "magician" and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
-    if mtw.check.reckless then 
+ elseif (mtw.vitals.percent.health == 100 or mtw.reckless_bashing) and mtw.my.class == "rogue" and mtw.vitals.current.guile == 100 and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
+  if mtw.check.reckless then 
+   mtw.aff_have("recklessness")
+  end
+ elseif (mtw.vitals.percent.health == 100 or mtw.reckless_bashing) and mtw.my.class == "priest" and mtw.vitals.current.faith == 100 and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
+  if mtw.check.reckless then 
+   mtw.aff_have("recklessness")
+  end
+ elseif mtw.vitals.percent.magic == 100 and mtw.my.class == "magician" and mtw.vitals.percent.endurance == 100 and mtw.vitals.adrenaline == 100 then
+  if mtw.check.reckless then 
    mtw.aff_have("recklessness")
   end
  else
