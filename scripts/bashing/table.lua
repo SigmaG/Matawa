@@ -114,7 +114,6 @@ mtw.default.areas = {
 ["the Crydee Highway"] = {level = "??", krondor = "extremely far to the northwest", targets = {}},
 ["Cutter's Gap"] = {level = "??", krondor = "extremely far to the north", prime = {"mountains"}, targets = {}},
 ["a track through the High Wold"] = {level = "??", krondor = "extremely far to the north", prime = {"path"}, env = {"mountains"}, targets = {}},
-["Hush"] = {level = "Group", krondor = "distantly to the northwest", prime = {"urban"}, targets = {}},
 ["the Ruins of Veilgarden"] = {level = "Siege", krondor = "extremely far to the northwest", prime = {"ruins", "forest"}, targets = {}},
 ["Highcastle"] = {level = "Siege", krondor = "extremely far to the north", targets = {"a moredhel ranger", "a scrappy goblin warrior", "an armored Krondorian soldier", "a rogue of Krondor"}},
 ["Sunspear"] = {level = "Siege", krondor = "very far to the southwest", prime = {"urban"}, env = {"mines"}, targets = {}},
@@ -145,3 +144,24 @@ local mt = {
  end
 }
 setmetatable(mtw.default.areas["Fort Dannis"], mt)
+
+mtw.default.areas["Hush"] = {level = "Group", krondor = "distantly to the northwest", prime = {"urban"}}
+local mt2 = {
+ __index = function (t,k)
+  if k == "targets" then
+   local c = gmcp.Char.Status.city:gsub(" %(.*%)", "")
+   if c == "Krondor" then
+    return {"a Goblin Bloodraider", "a Black Slayer of the Northlands", "a Spellweaver Adept", "a Warder of the Queen%'s Guard", "an Elite Natalese Archer", "a High Ranger of the Free Cities"}
+   elseif c == "Sar-Sargoth" then
+    return {"a Royal Lancer of the West", "a Knight%-Captain of Krondor", "a Spellweaver Adept", "a Warder of the Queen%'s Guard", "an Elite Natalese Archer", "a High Ranger of the Free Cities"}
+   elseif c == "Elvandar" then
+    return {"a Goblin Bloodraider", "a Black Slayer of the Northlands", "a Royal Lancer of the West", "a Knight%-Captain of Krondor", "an Elite Natalese Archer", "a High Ranger of the Free Cities"}
+   else
+    return {"a Goblin Bloodraider", "a Black Slayer of the Northlands", "a Royal Lancer of the West", "a Knight%-Captain of Krondor", "a Spellweaver Adept", "a Warder of the Queen%'s Guard"}
+   end
+  else
+   return nil
+  end
+ end
+}
+setmetatable(mtw.default.areas["Hush"], mt2)
