@@ -385,3 +385,45 @@ function mtw.gmcpcheck_alias()
   cecho("\n<white>GMCP is <red>disabled<white>! Please enable it in Mudlet settings and restart Mudlet.")
  end
 end
+
+function mtw.check_recklessness()
+ local candidate = (mtw.vitals.adrenaline == 100 and mtw.vitals.percent.endurance == 100 and (mtw.vitals.percent.health == 100 or mtw.reckless_bashing))
+ if candidate then
+  if mtw.my.class == "rogue" then
+   candidate = (mtw.vitals.percent.guile == 100)
+  elseif mtw.my.class == "magician" then
+   candidate = (mtw.vitals.percent.magic == 100)
+  elseif mtw.my.class == "priest" then
+   candidate = (mtw.vitals.percent.faith == 100)
+  end
+ end
+
+ if not candidate then
+  mtw.aff_remove("recklessness")
+  mtw.check.reckless = false
+  mtw.check.long_reckless = false
+  return
+ end
+
+ if mtw.check.reckless then
+  mtw.aff_have("recklessness")
+  mtw.check.reckless = false
+ else
+  if not mtw.check.long_reckless then -- we want to start the check only once
+   mtw.check.long_reckless = true
+   tempTimer(0.5,[[mtw.delete_prompt = true;send(" ",false)]])
+   tempTimer(1,[[mtw.delete_prompt = true;send(" ",false)]])
+   tempTimer(1.5,[[mtw.delete_prompt = true;send(" ",false)]])
+   tempTimer(2,[[mtw.delete_prompt = true;send(" ",false)]])
+   tempTimer(2.5,[[mtw.delete_prompt = true;send(" ",false)]])
+   tempTimer(3,[[mtw.end_reckless_check()]])
+  end
+ end
+end
+
+function mtw.end_reckless_check()
+ if mtw.check_long_reckless then -- this means that no prompt went under 100%
+  mtw.aff_have("recklessness")
+  mtw.check_long_reckless = false
+ end
+end
