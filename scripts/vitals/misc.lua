@@ -387,7 +387,7 @@ function mtw.gmcpcheck_alias()
 end
 
 function mtw.check_recklessness()
- local candidate = (mtw.vitals.adrenaline == 100 and mtw.vitals.percent.endurance == 100 and (mtw.vitals.percent.health == 100 or mtw.reckless_bashing))
+ local candidate = ((mtw.vitals.adrenaline == 100 or (mtw.vitals.adrenaline == -1 and mtw.status.combat)) and mtw.vitals.percent.endurance == 100 and (mtw.vitals.percent.health == 100 or mtw.reckless_bashing))
  if candidate then
   if mtw.my.class == "rogue" then
    candidate = (mtw.vitals.percent.guile == 100)
@@ -399,13 +399,20 @@ function mtw.check_recklessness()
  end
 
  if not candidate then
+  if mtw.vitals.adrenaline == -1 and not mtw.status.combat then
+   tempTimer(2,[[if mtw.vitals.adrenaline == -1 then mtw.vitals.adrenaline = 5 end]])
+  end
   mtw.aff_remove("recklessness")
   mtw.check.reckless = false
   mtw.check.long_reckless = false
+  if mtw.timer_reckless then
+   killTimer(mtw.timer_reckless)
+   mtw.timer_reckless = nil
+  end
   return
  end
 
- if mtw.check.reckless then
+ if mtw.check.reckless and mtw.status.combat then
   mtw.aff_have("recklessness")
   mtw.check.reckless = false
  else
@@ -416,14 +423,15 @@ function mtw.check_recklessness()
    tempTimer(1.5,[[mtw.delete_prompt = true;send(" ",false)]])
    tempTimer(2,[[mtw.delete_prompt = true;send(" ",false)]])
    tempTimer(2.5,[[mtw.delete_prompt = true;send(" ",false)]])
-   tempTimer(3,[[mtw.end_reckless_check()]])
+   mtw.timer_reckless = tempTimer(3,[[mtw.end_reckless_check()]])
   end
  end
 end
 
 function mtw.end_reckless_check()
- if mtw.check_long_reckless then -- this means that no prompt went under 100%
+ if mtw.check.long_reckless then -- this means that no prompt went under 100%
   mtw.aff_have("recklessness")
-  mtw.check_long_reckless = false
+  mtw.check.long_reckless = false
+  send(" ",false)
  end
 end
