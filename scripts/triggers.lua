@@ -628,7 +628,7 @@ deleteLine()
 if mtw.vitals.adrenaline == -1 then
  mtw.vitals.adrenaline = 10
 end
-cecho("<brown>\nYou: FOCUS SPRIIT")
+cecho("<brown>\nYou: FOCUS SPIRIT")
 end
 
 function mtw.trigger_97(matches,multimatches)
