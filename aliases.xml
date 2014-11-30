@@ -5027,7 +5027,7 @@ send(&quot; &quot;)</script>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>consumption</name>
-                                    <script>mtw.al_do_pyro(&quot;consumption&quot;)</script>
+                                    <script>mtw.al_do_pyro(&quot;consume&quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
                                     <regex>^fcn$</regex>
