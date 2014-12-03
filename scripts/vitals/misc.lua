@@ -415,12 +415,12 @@ function mtw.check_recklessness()
  else
   if not mtw.check.long_reckless then -- we want to start the check only once
    mtw.check.long_reckless = true
-   tempTimer(0.5,[[mtw.delete_prompt = true;send(" ",false)]])
-   tempTimer(1,[[mtw.delete_prompt = true;send(" ",false)]])
-   tempTimer(1.5,[[mtw.delete_prompt = true;send(" ",false)]])
-   tempTimer(2,[[mtw.delete_prompt = true;send(" ",false)]])
-   tempTimer(2.5,[[mtw.delete_prompt = true;send(" ",false)]])
-   mtw.timer_reckless = tempTimer(3,[[mtw.end_reckless_check()]])
+   tempTimer(0.1,[[mtw.delete_prompt = true;send(" ",false)]])
+   tempTimer(0.4,[[mtw.delete_prompt = true;send(" ",false)]])
+   tempTimer(0.7,[[mtw.delete_prompt = true;send(" ",false)]])
+   tempTimer(1.0,[[mtw.delete_prompt = true;send(" ",false)]])
+   tempTimer(1.3,[[mtw.delete_prompt = true;send(" ",false)]])
+   mtw.timer_reckless = tempTimer(1.5,[[mtw.end_reckless_check()]])
   end
  end
 end
