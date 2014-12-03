@@ -245,20 +245,26 @@ end
 
 --overdrive
 function mtw.do_overdrive(current)
- if mtw.balance.overdrive and not mtw.waiting.overdrive and mtw.toggles.overdriving and mtw.can_overdrive() then
-  if mtw.have_def("spellshield") then
-   if mtw.vitals.percent.magic <= 75 and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) then
-    mtw.send("overdrive")
-    mtw.waiting.overdrive = true
-    tempTimer(mtw.delay(), [[mtw.waiting.overdrive = false]])
-   end
-  else
-   if mtw.vitals.percent.health <= 75 and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) and not mtw.have_def("spellshield") then
+ if mtw.balance.overdrive and not mtw.waiting.overdrive and mtw.toggles.overdriving then
+  if mtw.my.class == "magician" then
+   if mtw.have_def("spellshield") and mtw.can_overdrive(true) then 
+    if mtw.vitals.percent.magic <= 75 and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) then
+     mtw.send("overdrive")
+     mtw.waiting.overdrive = true
+     tempTimer(mtw.delay(), [[mtw.waiting.overdrive = false]])
+    end
+   elseif mtw.vitals.percent.health <= 75 and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) and not mtw.have_def("spellshield") and mtw.can_overdrive(false) then
     mtw.send("overdrive")
     mtw.waiting.overdrive = true
     tempTimer(mtw.delay(), [[mtw.waiting.overdrive = false]] )
-   elseif mtw.vitals.percent.magic <= 75 and mtw.my.class == "magician" and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) then
+   elseif mtw.vitals.percent.magic <= 75 and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) and not mtw.have_def("spellshield") and mtw.can_overdrive(true) then
     mtw.send("overdrive magic")
+    mtw.waiting.overdrive = true
+    tempTimer(mtw.delay(), [[mtw.waiting.overdrive = false]] )
+   end
+  else --not a mage here
+   if mtw.vitals.percent.health <= 75 and (mtw.vitals.adrenaline > 10 or (mtw.vitals.adrenaline > 5 and mtw.toggles.bashing)) and mtw.can_overdrive(false) then
+    mtw.send("overdrive")
     mtw.waiting.overdrive = true
     tempTimer(mtw.delay(), [[mtw.waiting.overdrive = false]] )
    end
