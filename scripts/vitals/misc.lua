@@ -113,14 +113,11 @@ function mtw.not_entangled()
  end
 end
 
-function mtw.can_overdrive()
- if mtw.not_entangled() and
-    mtw.not_aff("depression") and
-    mtw.not_aff("tainted_aura") and
-    mtw.not_aff("blood_betrayal") then
-  return true
+function mtw.can_overdrive(magic)
+ if magic then
+  return mtw.not_aff("depression")
  else
-  return false
+  return mtw.not_aff("depression") and mtw.not_aff("tainted_aura") and mtw.not_aff("blood_betrayal")
  end
 end
 
