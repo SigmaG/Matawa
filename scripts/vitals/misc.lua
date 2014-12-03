@@ -117,7 +117,7 @@ function mtw.can_overdrive(magic)
  if magic then
   return mtw.not_aff("depression")
  else
-  return mtw.not_aff("depression") and mtw.not_aff("tainted_aura") and mtw.not_aff("blood_betrayal")
+  return mtw.not_aff("depression") and mtw.not_aff("tainted_aura")
  end
 end
 
