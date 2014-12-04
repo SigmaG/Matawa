@@ -922,7 +922,7 @@ o added a 'reconnect' alias -Savil
 o the system will now tell if there is a new version available -Savil
 o Added a repeat alias '#<number> <action>' will do <action> <number> times -Savil
 
-v9.9
+v10.0
 o Added 'ftease' and 'fjerk' to customize jerking/teasing times -Savil
 o Added '?search' to search for text in the code -Savil
 o Added soullink defense -Savil
@@ -937,5 +937,6 @@ o *huge* add of triggers for thana/bloodpriest -Elanoron
 o Added some aliases to have SWHO<number>, SHELP<number> just like SCT<number> -Savil
 o update with grip in the bashing function -Elanoron
 o Added a GUI. '?gui' to have all the functions. It's missing some decorations, will do them over time (feel free to provide though!) -Savil
-o Squished a few fishing/bashing system bugs -Elanoron,Savil
+o Squished some fishing/bashing system bugs -Elanoron,Savil
 o Added the 'bih' toggle to stop printing the IH output when bashing -Savil
+o Added a 'tdp' toggle to stop printing the prompt -Savil

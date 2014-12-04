@@ -1,6 +1,6 @@
 -- MTW: handling backward compatibility
 
-mtw.version = { "9.8" }
+mtw.version = { "10.0" }
 
 function mtw.legacy()
 
