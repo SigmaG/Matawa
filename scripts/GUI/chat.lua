@@ -174,7 +174,7 @@ end
 function mtw.gui.chat_shouts(matches)
 if not line:match("%[.%]") then
  selectString(matches[1], 1)
- if matches[1]:match([["]]) then
+ if line:match([["]]) then
   fg("CadetBlue")
   bg("black")
  else

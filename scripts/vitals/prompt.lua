@@ -105,7 +105,7 @@ end
   end
  end
 --Display prompt if necessary
- if not mtw.delete_prompt then
+ if mtw.toggles.dispprompt and (not mtw.delete_prompt) then
   mtw.prompt_display()
  else
   mtw.delete_prompt = false

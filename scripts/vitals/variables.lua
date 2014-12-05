@@ -98,6 +98,7 @@ closing = true,
 looping = false,
 --Prompt display options
 percents = true,
+dispprompt = true,
 fullprompt = false,
 lefttimestamp = true,
 righttimestamp = false,

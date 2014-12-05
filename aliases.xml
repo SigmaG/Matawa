@@ -152,6 +152,13 @@
                                 <regex>^tpr$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
+                                <name>display prompt</name>
+                                <script>mtw.toggle(&quot;dispprompt&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tdp$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
                                 <name>full prompt</name>
                                 <script>mtw.toggle(&quot;fullprompt&quot;)</script>
                                 <command></command>
