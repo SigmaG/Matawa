@@ -127,16 +127,27 @@ mtw.gui.goldbox:setClickCallback("send", "score")
 function mtw.gui.update_random_boxes()
  if mtw.cgui.game_info_enabled then
   if gmcp.Char.Status.unread_news == "0" then
-   mtw.gui.newsbox:echo("No news", "white")
+   mtw.gui.newsbox:echo("<center>News: 0", "white")
   else
-   mtw.gui.newsbox:echo("News: "..gmcp.Char.Status.unread_news, "yellow")
+   mtw.gui.newsbox:echo("<center>News: "..gmcp.Char.Status.unread_news, "yellow")
   end
   if gmcp.Char.Status.unread_msgs == "0" then
-   mtw.gui.msgbox:echo("No message", "white")
+   mtw.gui.msgbox:echo("<center>MSG: 0", "white")
   else
-   mtw.gui.msgbox:echo("MSG: "..gmcp.Char.Status.unread_msgs, "yellow")
+   mtw.gui.msgbox:echo("<center>MSG: "..gmcp.Char.Status.unread_msgs, "yellow")
   end
-  mtw.gui.goldbox:echo(gmcp.Char.Status.gold, "yellow")
+  local g,s,c = "","",""
+  local tot = gmcp.Char.Status.gold
+  if tot:match("g") then
+   g = [[<font color="gold">]]..tot:gsub("g.*","")
+  end
+  if tot:match("s") then
+   s = [[<font color="SlateGray">]]..tot:gsub(".*g",""):gsub("s.*c","")
+  end
+  if tot:match("c") then
+   c = [[<font color="saddleBrown">]]..tot:gsub(".*s",""):gsub("c","")
+  end
+  mtw.gui.goldbox:echo("<center>"..g..s..c)
  end
 end
 
