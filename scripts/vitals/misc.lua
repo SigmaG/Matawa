@@ -333,6 +333,7 @@ function mtw.soft_reset()
  mtw.channeling.rifting = false
  mtw.channeling.inking = false
  mtw.channeling.deepshrouding = false
+ mtw.channeling.teleport = false
 
  mtw.reset_waiting()
  mtw.reset_balance()

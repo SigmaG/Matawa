@@ -10206,6 +10206,7 @@ if mtw.toggles.hiding then
  mtw.toggle("hiding")
  send(" ")
 end
+end
 
 end
 
@@ -10229,4 +10230,13 @@ function mtw.trigger_2041(matches,multimatches)
  local comm = multimatches[2][2]
  if comm == "lazuli" then comm = "lapis" end
  send("vin "..comm)
+end
+
+function mtw.trigger_2042(matches,multimatches)
+ mtw.channeling.teleport = true
+ tempTimer(2, [[mtw.channeling.teleport = false]])
+end
+
+function mtw.trigger_2043(matches,multimatches)
+ mtw.channeling.teleport = false
 end

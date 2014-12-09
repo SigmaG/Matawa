@@ -141,6 +141,7 @@ mtw.channeling = {
  rifting = false,
  inking = false,
  deepshrouding = false,
+ teleport = false,
 }
 setmetatable(mtw.channeling, {
  __call = function (t)
