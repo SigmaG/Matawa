@@ -45,7 +45,7 @@ if mtw.toggles.mining then
  cecho("\n<red>-----------------------")
  cecho("\n<red>   "..matches[2].." depleted")
  cecho("\n<red>-----------------------")
- send("vin 10 "..mtw.mining.material)
+ send("vin 50 "..mtw.mining.material)
  mtw.mining.found = false
  mtw.mining.material = "none"
 end
@@ -88,7 +88,7 @@ function mtw.trees_depleted(matches,multimatches)
   cecho("\n<red>-----------------------")
   cecho("\n<red>   trees depleted")
   cecho("\n<red>-----------------------")
-  send("vin 10 wood")
+  send("vin 50 wood")
   mtw.mining.found = false
   mtw.mining.material = "none"
  end
