@@ -4,8 +4,8 @@
 function mtw.deepshroud_alias()
  if mtw.my.class == "rogue" then
   send("deepshroud",false)
-  mtw.prechanneling.deepshroud = true
-  tempTimer(mtw.delay(),[[mtw.prechanneling.deepshroud = false]])
+  mtw.prechanneling.deepshrouding = true
+  tempTimer(mtw.delay(),[[mtw.prechanneling.deepshrouding = false]])
  end
 end
 
