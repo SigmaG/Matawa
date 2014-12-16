@@ -318,6 +318,9 @@ end
 
 function mtw.al_smite(skill)
 if mtw.my.class == "priest" then
+ if mtw.toggles.bloodsensing and table.contains(mtw.skills, "Bloodsense") then
+  mtw.next.bloodsense = true
+ end
  mtw.set_balance("smite ".. mtw.target .." with "..skill)
 end
 end
@@ -516,6 +519,9 @@ end
 
 function mtw.atk_hema(skill)
 if mtw.my.class == "priest" then
+ if mtw.toggles.bloodsensing and table.contains(mtw.skills, "Bloodsense") then
+  mtw.next.bloodsense = true
+ end
  mtw.set_balance("bloodcall "..skill.." "..mtw.target)
 end
 end

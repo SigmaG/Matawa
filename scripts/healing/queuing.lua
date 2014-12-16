@@ -627,6 +627,10 @@ end
 function mtw.do_balance()
  if mtw.toggles.killing and (mtw.next.balance ~= "none") and mtw.not_aff("prone") then
   if mtw.balance.balance and not mtw.waiting.balance then
+   if mtw.next.bloodsense then
+    mtw.send("bloodcall sense "..mtw.target,false)
+    mtw.next.bloodsense = false
+   end
    mtw.send(mtw.next.balance)
    if string.find(mtw.next.balance, "cast rift") or string.find(mtw.next.balance, "demoncall gate") then
     mtw.waiting.overdrive = true

@@ -940,3 +940,7 @@ o Added a GUI. '?gui' to have all the functions. It's missing some decorations, 
 o Squished some fishing/bashing system bugs -Elanoron,Savil
 o Added the 'bih' toggle to stop printing the IH output when bashing -Savil
 o Added a 'tdp' toggle to stop printing the prompt -Savil
+
+v?
+o Bugfixes
+o Added a 'tbds' toggle for hematurgists to BLOODCALL SENSE the target before attacking it. -Savil
