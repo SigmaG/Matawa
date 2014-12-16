@@ -2,6 +2,10 @@
 
 function mtw.prompt_function()
 
+ if not gmcp then
+  cecho("<red>GMCP is disabled\n")
+ end
+
 --Set some initial values
  mtw.vitals.xp=gmcp.Char.Status.level
  mtw.xp_percent_index=string.find(mtw.vitals.xp,"%%")
