@@ -1655,6 +1655,7 @@ if table.contains(mtw.skills, "Avatar of War") then
  mtw.reset_affwaiting()
  mtw.reset_affliction()
  mtw.reset_defenses()
+ mtw.load_def("none")
 end
 end
 
