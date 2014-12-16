@@ -538,6 +538,13 @@
                                 <regex>^tret$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
+                                <name>bloodsensing</name>
+                                <script>mtw.toggle(&quot;bloodsensing&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tbds$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
                                 <name>hiding</name>
                                 <script>mtw.toggle(&quot;hiding&quot;)</script>
                                 <command></command>

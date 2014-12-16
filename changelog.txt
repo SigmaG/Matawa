@@ -967,3 +967,5 @@ o
 o 
 o 
 o 
+o Bugfixes
+o Added a 'tbds' toggle for hematurgists to BLOODCALL SENSE the target before attacking it. -Savil

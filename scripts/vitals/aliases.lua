@@ -168,6 +168,7 @@ function mtw.bashing_aliases()
   if table.contains(mtw.skills, "bloodlore") then
    mtw.disp_toggle("savaging", "tsv: toggle savaging")
    mtw.disp_toggle("blood knifing", "tlit: liturgy when available")
+   mtw.disp_toggle("bloodsensing", "tbds: toggle bloodsensing (send bloodsense before every attack)")
   end
   if table.contains(mtw.skills, "shadoweaving") then
    mtw.disp_toggle("lashing", "tlsh: toggle lashing")
