@@ -10209,8 +10209,6 @@ if mtw.toggles.hiding then
 end
 end
 
-end
-
 function mtw.trigger_2037(matches,multimatches)
  mtw.atk_start(matches[2], nil, "revelation")
 end
