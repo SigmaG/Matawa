@@ -108,11 +108,13 @@ function gmcp_vault_change()
     if (not mtw.vault[thing]) or amount > mtw.vault[thing] then -- that means that some comms have been removed from inventory (there is no Char.Items.Remove message for this at the moment)
         local toremove
         if mtw.vault[thing] then toremove = amount - mtw.vault[thing] else toremove = amount end
+		if mtw.inventory and mtw.inventory[desc] then
         for k,_ in pairs(mtw.inventory[desc]) do
             mtw.inventory[desc][k] = nil
             toremove = toremove - 1
             if toremove == 0 then break end
         end
+		end
         local remaining = false
         for _,_ in pairs(mtw.inventory[desc]) do
             remaining = true
