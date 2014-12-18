@@ -37,8 +37,12 @@ send(" ")
 end
 
 function mtw.fishing_distance(matches)
+
 mtw.fishing.distance = matches[2]
 echo("Distance is: "..mtw.fishing.distance)
+if matches[2] == "short" then
+ mtw.fishing.distance = ""
+end
 send(" ")
 end
 

@@ -198,7 +198,7 @@ if not mtw.fishing.max_cast then mtw.fishing.min_end = 0 end
 if not mtw.fishing.get then mtw.fishing.get = "sml" end
 echo("\n fdr X: set fishing direction to X (current: "..mtw.fishing.dir..")")
 echo("\n cbait X: set bait type to X (current: "..mtw.fishing.bait..")")
-echo("\n fdis X: set cast distance to X [medium/long] (current: "..mtw.fishing.distance..")")
+echo("\n fdis X: set cast distance to X [short/medium/long] (current: "..mtw.fishing.distance..")")
 echo("\n fcut: queue to cut the line")
 echo("\n frl: reel in the line")
 echo("\n fc X: cast to the X")
