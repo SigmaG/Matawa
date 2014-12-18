@@ -769,6 +769,13 @@
                             <regex>^offrs$</regex>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
+                            <name>defile</name>
+                            <script>mtw.offer_defile()</script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex>^offrd$</regex>
+                        </Alias>
+                        <Alias isActive="yes" isFolder="no">
                             <name>load targets</name>
                             <script>mtw.load_targets_alias(matches)</script>
                             <command></command>
