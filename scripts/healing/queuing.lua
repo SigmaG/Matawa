@@ -330,7 +330,7 @@ mtw.priorities = {
 "atk_rend",
 "atk_enervating_jab",
 "atk_enfeeble",
-"atk_terminate",
+--"atk_terminate",
 --Soldier: Warcraft
 "atk_intercept",
 "atk_surging_smash",
