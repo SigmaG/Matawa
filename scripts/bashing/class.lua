@@ -18,7 +18,6 @@ function mtw.bashing_function()
 end
 
 function mtw.soldier_bash()
-  
  if mtw.toggles.berserking and table.contains(mtw.skills, "Berserking") and mtw.bashing.engaged and mtw.defenses.def_berserking.state ~= "deffed" and mtw.balance.balance then
   mtw.send("berserk")
  end
@@ -131,7 +130,7 @@ function mtw.priest_bash()
    mtw.send("pray for revitalization")
   elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 30) and table.contains(mtw.skills, "Zealous Mandate") then
    mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
-  elseif (mtw.vitals.percent.health < 60) then
+  elseif (mtw.vitals.percent.health < 60) and not table.contains(mtw.skills, "Pyromaniac") then
    mtw.ally = nil
    mtw.priest_heal()
   elseif (not mtw.used.heretic) and mtw.toggles.hereticing and (mtw.vitals.current.faith > 100) and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
