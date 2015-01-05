@@ -395,13 +395,19 @@ function mtw.check_recklessness()
   end
  end
 
+ if candidate and not mtw.status.combat and not mtw.check.long_reckless then -- for out of combat recklessness check, we use long reckless check
+  mtw.check.long_reckless = true
+ end
+
  if not candidate then
-  if mtw.vitals.adrenaline == -1 and not mtw.status.combat then
+   if mtw.vitals.adrenaline == -1 and not mtw.status.combat then
    tempTimer(2,[[if mtw.vitals.adrenaline == -1 then mtw.vitals.adrenaline = 5 end]])
+   if mtw.vitals.adrenaline == -1 then mtw.vitals.adrenaline = 5 end
   end
-  mtw.aff_remove("recklessness")
+  --mtw.aff_remove("recklessness")
   mtw.check.reckless = false
   mtw.check.long_reckless = false
+  mtw.check.long_reckless_waiting = false
   if mtw.timer_reckless then
    killTimer(mtw.timer_reckless)
    mtw.timer_reckless = nil
@@ -409,19 +415,23 @@ function mtw.check_recklessness()
   return
  end
 
- if mtw.check.reckless and mtw.status.combat then
-  mtw.aff_have("recklessness")
-  mtw.check.reckless = false
- else
-  if not mtw.check.long_reckless then -- we want to start the check only once
-   mtw.check.long_reckless = true
-   tempTimer(0.1,[[mtw.delete_prompt = true;send(" ",false)]])
-   tempTimer(0.4,[[mtw.delete_prompt = true;send(" ",false)]])
-   tempTimer(0.7,[[mtw.delete_prompt = true;send(" ",false)]])
-   tempTimer(1.0,[[mtw.delete_prompt = true;send(" ",false)]])
-   tempTimer(1.3,[[mtw.delete_prompt = true;send(" ",false)]])
-   mtw.timer_reckless = tempTimer(1.5,[[mtw.end_reckless_check()]])
-  end
+ if mtw.check.reckless then -- System already sets check.reckless to true when players take damage
+   mtw.aff_have("recklessness")
+   mtw.check.reckless = false
+ end
+ -- Therefore, we want to keep check.reckless separate from mtw.check.long_reckless
+ if mtw.check.long_reckless and not mtw.check.long_reckless_waiting then -- we want to start the long reckless check only once
+    mtw.check.long_reckless_waiting = true
+    tempTimer(0.5,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(1,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(1.5,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(2,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(2.5,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(3,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(3.5,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(4,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(4.5,[[mtw.delete_prompt = true;send(" ",false)]])
+    mtw.timer_reckless = tempTimer(5,[[mtw.end_reckless_check()]]) -- five seconds is how long it takes adrenaline/guile/faith to decay
  end
 end
 
@@ -429,6 +439,7 @@ function mtw.end_reckless_check()
  if mtw.check.long_reckless then -- this means that no prompt went under 100%
   mtw.aff_have("recklessness")
   mtw.check.long_reckless = false
+  mtw.check.long_reckless_waiting = false
   send(" ",false)
  end
 end
