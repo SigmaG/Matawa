@@ -29,7 +29,7 @@ atk_rupture = {def = "jump", class = "soldier", aff = "bleeding", getting_hit = 
 atk_rend = {def = "", class = "soldier", aff = "bleeding", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_enervating_jab = {def = "dodge", class = "soldier", aff = "exhaustion", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_enfeeble = {def = "duck", class = "soldier", aff = "infirm", aff_def = "infirm" , getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
-atk_terminate = {def = "none", class = "soldier", aff = "death", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_terminate = {def = "none", class = "soldier", aff = "death", getting_hit = false, attacker = "none", defend_now = false, delay = 2, hitting_with = false, targeting = "none", timer = createStopWatch()},
 --Soldier: Warcraft
 --atk_intercept
 atk_surging_smash = {def = "", class = "soldier", aff = "damage", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
@@ -215,6 +215,7 @@ atk_bloodboil = {def = "dodge", class = "priest", aff = "demention OR impatience
 atk_melt = {def = "parry", class = "priest", aff = "defense_strip", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_incinerate = {def = "none", class = "priest", aff = "death OR burns", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_embers = {def = "jump", class = "priest", aff = "cataplexy OR anemia OR collapsed_lungs OR weariness", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_engulf = {def = "none", class = "priest", aff = "burning_limb" , getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 --Priest: Shadoweaving
 atk_torturous_whip = {def = "jump", class = "priest", aff = "maladroitness", getting_hit = false, attacker = "none", defend_now = false, delay = 2, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_shadow_theft = {def = "none", class = "priest", aff = "", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
@@ -223,7 +224,7 @@ atk_deceit = {def = "dodge", class = "priest", aff = "lust", getting_hit = false
 atk_horrify = {def = "duck", class = "priest", aff = "horror", getting_hit = false, attacker = "none", defend_now = false, delay = 2, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_shadowlance = {def = "none", class = "priest", aff = "", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_scarab_curse = {def = "jump", class = "priest", aff = "scabie hemophilia", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
-atk_shadowstorm = {def = "none", class = "priest", aff = "", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_shadowbeckon = {def = "none", class = "priest", aff = "blackout paralysis", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_oubliette = {def = "jump", class = "priest", aff = "", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_shadowstorm = {def = "none", class = "priest", aff = "blind disoriented fear epilepsy maladroitness terror sun_allergy paralysis dystrophy", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 --Priest: Bloodlore

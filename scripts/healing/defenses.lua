@@ -146,6 +146,7 @@ def_flameborne = {defense = "", type = "normal", effect = "", skill = "Flameborn
 --Priest: Shadoweaving
 --Priest: Bloodlore
 def_bloody_mantle = {defense = "", type = "normal", effect = "", skill = "Bloody Mantle", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_sanguine_aspect = {defense = "", type = "normal", effect = "", skill = "Sanguine Aspect", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Crusading
 def_conviction = {defense = "conviction", type = "normal", effect = "5% precision gain when defended", skill = "Conviction", balance = {needybalancetake = "warcall conviction"}, state = "down", needit = false, timer = createStopWatch()},
 }
