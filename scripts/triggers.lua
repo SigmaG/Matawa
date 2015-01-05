@@ -501,7 +501,7 @@ if string.find(matches[2], " ") then
  mtw.bashing.engaged = true
 end
 if mtw.toggles.bashing and (not mtw.toggles.bleeding) and mtw.vitals.adrenaline >= 5 and mtw.vitals.adrenaline <= 15 then
- send("clot;clot;clot;clot;clot")
+ send("clot")
 end
 end
 
@@ -8127,7 +8127,7 @@ mtw.attack_hit(matches[2], "spirit_wrack")
 end
 
 function mtw.trigger_1682(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "spirit_wrack", matches[4])
+mtw.attack_defend(matches[2], nil, "spirit_wrack", matches[5])
 end
 
 function mtw.trigger_1683(matches,multimatches)
@@ -8269,7 +8269,7 @@ mtw.atk_defend(matches[2], nil, "retribution", matches[5])
 end
 
 function mtw.trigger_1716(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "retribution", matches[4])
+mtw.attack_defend(matches[3], nil, "retribution", matches[5])
 end
 
 function mtw.trigger_1717(matches,multimatches)
@@ -8973,7 +8973,7 @@ mtw.attack_start(matches[2], "pimmolate")
 end
 
 function mtw.trigger_1825(matches,multimatches)
-mtw.attack_start(matches[2], "pimmolate")
+mtw.attack_hit(matches[2], "pimmolate")
 end
 
 function mtw.trigger_1826(matches,multimatches)
@@ -9024,11 +9024,11 @@ mtw.atk_defend(matches[2], nil, "embers", matches[4])
 end
 
 function mtw.trigger_1836(matches,multimatches)
-mtw.attack_start(matches[3], "burningembers")
+mtw.attack_start(matches[3], "embers")
 end
 
 function mtw.trigger_1837(matches,multimatches)
-mtw.attack_hit(matches[2], "burningembers")
+mtw.attack_hit(matches[2], "embers")
 end
 
 function mtw.trigger_1838(matches,multimatches)
@@ -10229,4 +10229,16 @@ function mtw.trigger_2041(matches,multimatches)
  local comm = multimatches[2][2]
  if comm == "lazuli" then comm = "lapis" end
  send("vin "..comm)
+end
+
+function mtw.trigger_2042(matches,multimatches)
+ mtw.def_def("sanguine_aspect")
+end
+
+function mtw.trigger_2043(matches,multimatches)
+  mtw.def_gain("sanguine_aspect")
+end
+
+function mtw.trigger_2044(matches,multimatches)
+ mtw.def_take("sanguine_aspect")
 end
