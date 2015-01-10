@@ -7641,7 +7641,7 @@ mtw.attack_hit(matches[3], "scabies")
 end
 
 function mtw.trigger_1564(matches,multimatches)
-attack_defend(matches[3], nil, "scabies", matches[7])
+mtw.attack_defend(matches[3], nil, "scabies", matches[7])
 end
 
 function mtw.trigger_1565(matches,multimatches)
@@ -10241,4 +10241,35 @@ end
 
 function mtw.trigger_2044(matches,multimatches)
  mtw.def_take("sanguine_aspect")
+end
+
+function mtw.trigger_2045(matches,multimatches) 
+ cecho("\n<red>*************************************")
+ cecho("\n<red>***<blue>WARNING: UMBRAL BECKON ATTACK!!<red>***")
+ cecho("\n<red>*************************************")
+ mtw.aff_have("umbral_beckoned")
+end
+
+function mtw.trigger_2046(matches,multimatches) 
+ cecho("\n<red>********<blue>WARNING: BEING UMBRAL BECKONED!<red>***********")
+ if mtw.not_entangled() then
+  mtw.aff_have("umbral_beckoned")
+ end
+end
+
+function mtw.trigger_2047(matches,multimatches) 
+ cecho("\n<red>*************************************")
+ cecho("\n<red>******<blue>ALERT: UMBRAL BECKON HIT!<red>******")
+ cecho("\n<red>*************************************")
+ mtw.aff_have("blackout")
+ mtw.aff_have("paralysis")
+ mtw.aff_remove("umbral_beckoned")
+end
+
+
+function mtw.trigger_2048(matches,multimatches) 
+ mtw.aff_cure("umbral_beckoned")
+ cecho("\n<red>*************************************")
+ cecho("\n<red>***<blue>SUCCESS: ESCAPED UMBRAL BECKON!<red>***")
+ cecho("\n<red>*************************************")
 end

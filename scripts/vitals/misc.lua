@@ -104,6 +104,7 @@ function mtw.not_entangled()
     mtw.not_aff("earthbind") and
     mtw.not_aff("feed") and
     mtw.not_aff("oubliette") and
+    mtw.not_aff("umbral_beckoned") and
     mtw.not_aff("hogtie") and
     mtw.not_aff("hostage")) or
     mtw.have_aff("dystrophy") then
@@ -312,6 +313,7 @@ function mtw.reset_affwaiting()
  end
 end
 function mtw.reset_defenses()
+ mtw.load_def("none")
  for i in pairs(mtw.defenses) do
   mtw.def_remove(i)
  end

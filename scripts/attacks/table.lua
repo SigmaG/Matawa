@@ -214,7 +214,7 @@ atk_illuminate = {def = "jump", class = "priest", aff = "", getting_hit = false,
 atk_bloodboil = {def = "dodge", class = "priest", aff = "demention OR impatience OR blackout", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_melt = {def = "parry", class = "priest", aff = "defense_strip", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_incinerate = {def = "none", class = "priest", aff = "death OR burns", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
-atk_embers = {def = "jump", class = "priest", aff = "cataplexy OR anemia OR collapsed_lungs OR weariness", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_embers = {def = "jump", class = "priest", aff = "cataplexy OR anemia OR collapsed_lungs", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_engulf = {def = "none", class = "priest", aff = "burning_limb" , getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 --Priest: Shadoweaving
 atk_torturous_whip = {def = "jump", class = "priest", aff = "maladroitness", getting_hit = false, attacker = "none", defend_now = false, delay = 2, hitting_with = false, targeting = "none", timer = createStopWatch()},

@@ -45,7 +45,8 @@ aff_impale = {state = "healed", msg = "impaled", cures = {writhe = "send"}, asse
 aff_earthbind = {state = "healed", msg = "earthbound by grasping claws of stone", cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
 aff_hostage = {state = "healed", msg = "being held hostage", cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
 aff_hogtie = {state = "healed", msg = "", cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
-aff_oubliette = {state = "healed",  msg = "imprisoned in a horrifying oubliette",cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
+aff_oubliette = {state = "healed",  msg = "imprisoned in a horrifying oubliette", cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
+aff_umbral_beckoned = {state = "healed",  msg = "beckoning you haplessly towards their source", cures = {writhe = "send"}, assess = false, effect = "forced movement", timer = createStopWatch()},
 aff_lurker = {state = "healed", msg = "covered in sticky webbing", cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
 aff_feed = {state = "healed", msg = "being fed on by a vampire", cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
 aff_restrained = {state = "healed", msg = "restrained", cures = {writhe = "send"}, assess = false, effect = "entangled", timer = createStopWatch()},
@@ -226,7 +227,7 @@ function mtw.aff_gain(affliction)
  mtw.aff_have(affliction)
  if affliction == "aff_amnesia" and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") then
   for i = 1,5 do
-   mtw.send("stand")
+   mtw.send("blink")
   end
  end
 end
