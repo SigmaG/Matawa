@@ -357,7 +357,8 @@ mtw.weapons = {
 "morning star",
 "claymore",
 "greatsword",
-"axe",
+"battleaxe",
+"sai",
 "spear",
 "maul",
 "warhammer",
@@ -365,6 +366,7 @@ mtw.weapons = {
 "athame",
 "pole",
 "pick",
+"axe",
 "ax",
 }
 
