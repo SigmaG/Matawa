@@ -191,8 +191,8 @@ atk_repentance = {def = "duck", class = "priest", aff = "repenting", getting_hit
 atk_damnation = {def = "block", class = "priest", aff = "damnation", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 --atk_reckoning = {def = "???", class = "priest", aff = "reckoning", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_judgment = {def = "none", class = "priest", aff = "death", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
-atk_sword_spirit = {def = "parry", class = "priest", aff = "withered befuddled", getting_hit = false, attacker = "none", defend_now = false, hitting_with = false, targeting = "none", time = createStopWatch()},
-atk_verdict = {def = "instant", class = "priest", aff = "depression", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", time = createStopWatch()},
+atk_sword_spirit = {def = "parry", class = "priest", aff = "befuddled withered", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_verdict = {def = "instant", class = "priest", aff = "depression", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 --Priest: Faith
 atk_martyr = {def = "none", class = "priest", aff = "death", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 --Priest: Thanatology
@@ -201,7 +201,7 @@ atk_soulspear = {def = "dodge", class = "priest", aff = "reckless", aff_def = "d
 atk_burden_soul = {def = "jump", class = "priest", aff = "weariness", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_withering_touch = {def = "block", class = "priest", aff = "dementia", aff_def = "cataplexy", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_exorcism = {def = "parry", class = "priest", aff = "damage", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
-atk_gravechill = {def = "block", class = "priest", aff = "chill", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_gravechill = {def = "block", class = "priest", aff = "chill chill", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_despair = {def = "parry", class = "priest", aff = "malaise", aff_def = "anemia" , getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_funeral_mass = {def = "jump", class = "priest", aff = "sensitivity", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_vision_of_death = {def = "parry", class = "priest", aff = "dizziness OR epilepsy OR fear", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
@@ -241,7 +241,7 @@ atk_feral_rake = {def = "block", class = "priest", aff = "impatience", getting_h
 atk_rending_strike = {def = "parry", class = "priest", aff = "severed_nerves -servered_nerves-", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_yellow_bile = {def = "block", class = "priest", aff = "maladroitness -recklessness-", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_sanguishift = {def = "none", class = "priest", aff = "bleeding", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
-atk_knife_of_woe = {def = "jump", class = "priest", aff = "heart_palpitations tainted_aura", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_knife_of_woe = {def = "jump", class = "priest", aff = "heart_palpitations", aff_def = "depression", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_carnal_scream = {def = "none", class = "priest", aff = "concussion", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_black_bile = {def = "duck", class = "priest", aff = "anemia -ataxia-", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_betrayal_of_blood = {def = "none", class = "priest", aff = "betrayed blood", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
@@ -249,9 +249,13 @@ atk_forbidden_revel = {def = "none", class = "priest", aff = "death", getting_hi
 --Priest: Crusading
 atk_bold_smite = {def = "block", class = "priest", aff = "impatient", aff_def = "reckless" , getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_faithburn = {def = "instant", class = "priest", aff = "adrenaline", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
-atk_crushing_smite = {def = "dodge", class = "priest", aff = "concussion", aff_def = "brain_damage" , getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_crushing_smite = {def = "dodge", class = "priest", aff = "concussion", aff_def = "confusion" , getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_dominating_strike = {def = "instant", class = "priest", aff = "damage", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_virtuous_smite = {def = "parry", class = "priest", aff = "epileptic", aff_def = "dizziness" , getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_coward = {def = "instant", class = "priest", aff = "shieldbreak stun retribution adrenaline", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_revelation = {def = "jump", class = "priest", aff = "illuminated", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+--Priest: Conviction
+atk_divinestrike = {def = "jump", class = "priest", aff = "stupidity confusion", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_blasphemy = {def = "dodge", class = "priest", aff = "depression", aff_def = "reckless", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_prophesy = {def = "instant", class = "priest", aff = "interrupt", getting_hit = false, attacker = "none", defend_now = false, delay = 1, hitting_with = false, targeting = "none", timer = createStopWatch()},
 }
