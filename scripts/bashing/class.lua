@@ -32,43 +32,60 @@ function mtw.soldier_bash()
   mtw.send("strike "..mtw.bashing.target)
  elseif not mtw.used.rake and table.contains(mtw.skills, "Rake") and mtw.toggles.raking and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("rake "..mtw.bashing.target)
+  if mtw.balance.secondwind then
+    mtw.used.rake = true
+    mtw.send("secondwind")
+  end
  elseif not mtw.used.sunder and table.contains(mtw.skills, "Sunder Armor") and mtw.toggles.sundering and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("sunder "..mtw.bashing.target)
  elseif table.contains(mtw.skills, "swordmastery") and table.contains(mtw.skills, "Starfury Slash") and mtw.toggles.starfurying and not mtw.used.starfury and mtw.vitals.adrenaline >= 85 and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("starfuryslash "..mtw.bashing.target)
  elseif mtw.vitals.adrenaline > 89 and mtw.toggles.obliterating and not mtw.need_wield and not mtw.need_offwield and mtw.enemy_health ~= "<red> 0-10%" then
   mtw.send("obliterate "..mtw.bashing.target)
- elseif (mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping")) and not mtw.need_wield then
-  mtw.send("slash "..mtw.bashing.target)
+  if mtw.balance.secondwind and mtw.waiting.balance then
+    mtw.send("secondwind")
+  end
+ elseif (mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping")) and mtw.balance.balance and not mtw.need_wield then
+  mtw.send("slash "..mtw.bashing.target) echo("fired!")
+  if mtw.balance.secondwind and mtw.waiting.balance then
+    mtw.send("secondwind")
+  end
  end
 end
 
 function mtw.magician_bash()
- if table.contains(mtw.skills, "Anachronize") and mtw.toggles.anachronizing and mtw.balance.anachronize and mtw.vitals.current.magic >= 3000 then
-  mtw.send("cast anachronize")
- elseif not mtw.used.ignite and mtw.toggles.igniting and table.contains(mtw.skills, "Ignite") and not mtw.need_wield then
+if table.contains(mtw.skills, "Anachronize") and mtw.toggles.anachronizing and mtw.balance.anachronize and mtw.vitals.current.magic >= 3000 and not mtw.status.combat then
+ mtw.send("cast anachronize")
+ mtw.waiting.balance = true
+end
+
+if (mtw.have_def("grip") or not mtw.toggles.gripping) and not mtw.need_wield or not mtw.need_offwield then
+ if not mtw.used.ignite and mtw.toggles.igniting and table.contains(mtw.skills, "Ignite") then
   mtw.send("cast ignite "..mtw.bashing.target)
- elseif mtw.used.ignite and table.contains(mtw.skills, "Immolate") and mtw.toggles.immolating and (mtw.enemy_health == "<red> 0-10%" or mtw.enemy_health == "<red> 10-25%") and not mtw.need_wield and not mtw.need_offwield then
+ elseif mtw.used.ignite and table.contains(mtw.skills, "Immolate") and mtw.toggles.immolating and (mtw.enemy_health == "<red> 0-10%" or mtw.enemy_health == "<red> 10-25%") then
   mtw.send("cast immolate "..mtw.bashing.target)
- elseif mtw.balance.barrage and table.contains(mtw.skills, "Eldritch Barrage") and mtw.toggles.barraging and not mtw.need_wield and not mtw.need_offwield then
+ elseif mtw.balance.barrage and table.contains(mtw.skills, "Eldritch Barrage") and mtw.toggles.barraging and not mtw.toggles.spiking and (mtw.vitals.cadence >= 1 or mtw.defenses.def_stormfury.state ~= "deffed") then
   mtw.send("cast eldritch barrage "..mtw.bashing.target)
- elseif mtw.toggles.spiking and table.contains(mtw.skills, "Ice Spikes") and not mtw.need_wield and not mtw.need_offwield then
+ elseif mtw.balance.barrage and table.contains(mtw.skills, "Eldritch Barrage") and mtw.toggles.barraging and (mtw.vitals.cadence >= 1 or mtw.defenses.def_stormfury.state ~= "deffed") and mtw.bashing.engaged then
+  mtw.send("cast eldritch barrage "..mtw.bashing.target)
+ elseif mtw.toggles.spiking and table.contains(mtw.skills, "Ice Spikes") then
   if mtw.defenses.def_stormfury.state == "deffed" then
-   if mtw.vitals.cadence == 3 and getStopWatchTime(mtw.last_lance) <= 15 and not mtw.need_wield and not mtw.need_offwield then
+   if mtw.vitals.cadence == 3 and getStopWatchTime(mtw.last_lance) <= 20 then
     mtw.send("cast ice spikes "..mtw.bashing.target)
-   elseif not mtw.need_wield and not mtw.need_offwield then
+   else
     mtw.send("cast stormlance "..mtw.bashing.target)
    end
-   elseif not mtw.need_wield and not mtw.need_offwield then
+   else
    mtw.send("cast ice spikes "..mtw.bashing.target)
   end
- elseif table.contains(mtw.skills, "Balefire") and mtw.vitals.percent.magic <= 80 and mtw.vitals.cadence >= 1 and not mtw.used.balefire and not mtw.casted.balefire and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and not mtw.need_wield and not mtw.need_offwield then
+ elseif table.contains(mtw.skills, "Balefire") and mtw.vitals.cadence >= 1 and not mtw.used.balefire and not mtw.casted.balefire then
   mtw.send("cast balefire "..mtw.bashing.target)
- elseif table.contains(mtw.skills, "Balefire") and mtw.toggles.balefiring and not mtw.need_wield and not mtw.need_offwield then
+ elseif table.contains(mtw.skills, "Balefire") and mtw.toggles.balefiring then
   mtw.send("cast balefire "..mtw.bashing.target)
- elseif not mtw.need_wield and not mtw.need_offwield then
+ else
   mtw.send("cast stormlance "..mtw.bashing.target)
  end
+end
 end
 
 function mtw.rogue_bash()
@@ -96,7 +113,7 @@ if (mtw.have_def("grip") or not mtw.toggles.gripping) and not mtw.need_wield the
   mtw.send("balestra "..mtw.bashing.target)
  elseif (not mtw.used.fleche) and mtw.toggles.fleching and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
   mtw.send("fleche "..mtw.bashing.target)
- elseif table.contains(mtw.skills, "Bard's Canto") and mtw.toggles.cantoing and mtw.balance.canto then
+ elseif table.contains(mtw.skills, "Bard's Canto") and mtw.toggles.cantoing and mtw.balance.canto and mtw.vitals.cadence < 3 then
   mtw.send("play bard's canto "..mtw.bashing.target)
  elseif mtw.toggles.balestrating and table.contains(mtw.skills, "Balestra") then
   mtw.send("balestra "..mtw.bashing.target)
@@ -111,7 +128,7 @@ function mtw.priest_bash()
  if mtw.need_heal then
   mtw.priest_heal()
   mtw.need_heal = false
- elseif (mtw.vitals.percent.health < 30) and (mtw.vitals.current.faith > 35) and table.contains(mtw.skills, "Desperate Prayer") then
+ elseif (mtw.vitals.percent.health < 30) and (mtw.vitals.current.faith > 35) and table.contains(mtw.skills, "Desperate Prayer") and mtw.toggles.despraying then
   if table.contains(mtw.skills, "shadoweaving") then
    mtw.send("shadowcall desperate prayer")
   elseif table.contains(mtw.skills, "crusading") then
@@ -126,7 +143,7 @@ function mtw.priest_bash()
  if (mtw.have_def("grip") or not mtw.toggles.gripping) and not mtw.need_wield then
   if (mtw.vitals.percent.health < 60) and (mtw.vitals.current.faith > 30) and table.contains(mtw.skills, "Zealous Mandate") then
    mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
-  elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 35) and table.contains(mtw.skills, "Revitalization") and mtw.defenses.def_revitalization.state == "down" then
+  elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 35) and table.contains(mtw.skills, "Revitalization") and mtw.defenses.def_revitalization.state == "down" and mtw.toggles.revitalizing then
    mtw.send("pray for revitalization")
   elseif (mtw.vitals.percent.health < 75) and (mtw.vitals.current.faith > 30) and table.contains(mtw.skills, "Zealous Mandate") then
    mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
@@ -141,6 +158,10 @@ function mtw.priest_bash()
    mtw.send("deathcall exorcism "..mtw.bashing.target)
   elseif mtw.vitals.current.faith > 100 and table.contains(mtw.skills, "Torturous Whip") and mtw.toggles.lashing then
    mtw.send("shadowcall lash "..mtw.bashing.target)
+  elseif mtw.vitals.current.faith > 100 and table.contains(mtw.skills, "Knife of Woe") and mtw.toggles.knifing and (bleeding_state == true or mtw.used.savage) then
+   mtw.send("bloodcall knife "..mtw.bashing.target)
+  elseif mtw.vitals.current.faith > 100 and table.contains(mtw.skills, "Divinestrike") and mtw.toggles.divinestriking then
+   mtw.send("castigate divinestrike "..mtw.bashing.target)
   elseif mtw.vitals.current.faith > 200 and mtw.toggles.swording and table.contains(mtw.skills, "Holy Sword") and mtw.enemy_health ~= "<red> 0-10%" then
    mtw.send("smite "..mtw.bashing.target.." with holy sword")
   elseif mtw.vitals.current.faith > 75 and table.contains(mtw.skills, "Zealous Mandate") and mtw.toggles.mandate then
