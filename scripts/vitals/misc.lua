@@ -251,6 +251,9 @@ function mtw.enemy_afflictions()
  if mtw.afflictions.aff_atoning.assess and mtw.afflictions.aff_heresy and mtw.afflictions.aff_retribution.assess then
   cecho("\n<red>===Enemy CAN BE JUDGED!")
  end
+ if (mtw.afflictions.aff_hamstrung.assess) and (mtw.afflictions.aff_bleeding_3.assess or mtw.afflictions.aff_bleeding_4.assess or mtw.afflictions.aff_bleeding_5.assess) and (mtw.afflictions.aff_severed_nerves_2.assess or mtw.afflictions.aff_severed_nerves_3.assess or mtw.afflictions.aff_severed_nerves_4.assess or mtw.afflictions.aff_severed_nerves_5.assess) then
+  cecho("\n<red>===Enemy CAN BE COUP DE GRACED!")
+ end
  if mtw.afflictions.aff_tainted_aura.assess or mtw.afflictions.aff_depression.assess then
   cecho("\n<red>===Enemy can't OVERDRIVE!")
  end
