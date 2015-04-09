@@ -46,7 +46,7 @@ function mtw.soldier_bash()
     mtw.send("secondwind")
   end
  elseif (mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping")) and mtw.balance.balance and not mtw.need_wield then
-  mtw.send("slash "..mtw.bashing.target) echo("fired!")
+  mtw.send("slash "..mtw.bashing.target)
   if mtw.balance.secondwind and mtw.waiting.balance then
     mtw.send("secondwind")
   end
@@ -56,7 +56,6 @@ end
 function mtw.magician_bash()
 if table.contains(mtw.skills, "Anachronize") and mtw.toggles.anachronizing and mtw.balance.anachronize and mtw.vitals.current.magic >= 3000 and not mtw.status.combat then
  mtw.send("cast anachronize")
- mtw.waiting.balance = true
 end
 
 if (mtw.have_def("grip") or not mtw.toggles.gripping) and not mtw.need_wield or not mtw.need_offwield then

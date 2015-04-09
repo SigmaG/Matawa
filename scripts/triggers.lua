@@ -581,7 +581,7 @@ end
 
 function mtw.trigger_91(matches,multimatches)
 if matches[2] == mtw.target then
- set_attack("touch serpent "..mtw.target)
+ mtw.set_balance("touch serpent "..mtw.target)
 end
 if mtw.toggles.cdecho then 
  if matches[2] == mtw.target then
@@ -919,7 +919,7 @@ send("vin heartstone" )
 end
 
 function mtw.trigger_136(matches,multimatches)
-send( "bqa cast timeshift " ..matches[2])
+--send( "bqa cast timeshift " ..matches[2])
 expandAlias( "t " ..matches[2])
 end
 
@@ -1434,6 +1434,7 @@ if mtw.toggles.cdecho then
  deleteLine()
  cecho("\n<green>=====<red>VERDICT/KNEEL<green> READY=====\n")
 end
+mtw.balance_regain("hallowed_verdict")
 end
 
 function mtw.trigger_202(matches,multimatches)
@@ -2659,7 +2660,7 @@ elseif mtw.have_aff("infirmity_3") then
 elseif mtw.have_aff("infirmity_2") then
  mtw.aff_cure("infirmity_2")
  mtw.aff_have("infirmity_1")
-else
+elseif mtw.have_aff("infirmity_1") then
  mtw.aff_cure("infirmity_1")
 end
 end
@@ -2787,7 +2788,7 @@ end
 
 function mtw.trigger_448(matches,multimatches)
 if mtw.not_aff("bleeding_2") and mtw.not_aff("bleeding_3") and mtw.not_aff("bleeding_4") and mtw.not_aff("bleeding_5") then
-mtw.aff_have("bleeding_1")
+--mtw.aff_have("bleeding_1")
 end
 end
 
@@ -2936,6 +2937,9 @@ cecho("\n<red>********<blue>INCOMING TIMEWARP!<red>***********")
 cecho("\n<red>*************************************")
  if string.find(mtw.target, matches[3]) and mtw.my.class == "rogue" and mtw.status.combat and mtw.toggles.flourishing then
   mtw.set_balance("flourish "..matches[3])
+ end
+ if string.find(mtw.target, matches[2]) and mtw.my.class == "priest" and mtw.toggles.prophesying then
+  mtw.set_balance("castigate prophesy "..matches[2])
  end
 end
 
@@ -3824,6 +3828,7 @@ end
 
 function mtw.trigger_680(matches,multimatches)
 mtw.def_gain("grip")
+mtw.waiting.balance = false
 end
 
 function mtw.trigger_681(matches,multimatches)
@@ -7458,6 +7463,9 @@ end
 if string.find(mtw.target, matches[2]) and mtw.my.class == "rogue" and mtw.toggles.flourishing then
  mtw.set_balance("flourish "..matches[2])
 end
+if string.find(mtw.target, matches[2]) and mtw.my.class == "priest" and mtw.toggles.prophesying then
+ mtw.set_balance("castigate prophesy "..matches[2])
+end
 end
 
 function mtw.trigger_1520(matches,multimatches)
@@ -8011,7 +8019,7 @@ mtw.atk_start(matches[2], nil, "mandate")
 end
 
 function mtw.trigger_1654(matches,multimatches)
-mtw.atk_hit(matches[2], matches[3], "mandate")
+mtw.atk_hit(matches[2], nil, "mandate")
 end
 
 function mtw.trigger_1655(matches,multimatches)
@@ -8060,9 +8068,9 @@ end
 
 function mtw.trigger_1666(matches,multimatches)
 mtw.attack_hit(matches[3], "kneel")
-if mtw.my.name == "Kor" and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") then
- mtw.send("smite "..matches[3].." with verdict")
-end
+--if mtw.my.name == "Kor" and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") then
+-- mtw.send("smite "..matches[3].." with verdict")
+--end
 end
 
 function mtw.trigger_1667(matches,multimatches)
@@ -8297,7 +8305,7 @@ mtw.atk_defend(matches[2], matches[3], "sword_spirit", matches[4])
 end
 
 function mtw.trigger_1723(matches,multimatches)
-mtw.attack_start(matches[2], "sword_spirit")
+mtw.attack_start(matches[3], "sword_spirit")
 end
 
 function mtw.trigger_1724(matches,multimatches)
@@ -8536,11 +8544,13 @@ end
 
 function mtw.trigger_1781(matches,multimatches)
 mtw.attack_hit(matches[2], "verdict")
+mtw.balance_lose("hallowed_verdict")
 end
 
 function mtw.trigger_1782(matches,multimatches)
 deleteLine()
 cecho("\n<green>*************VERDICT**************")
+mtw.balance_regain("hallowed_verdict")
 end
 
 function mtw.trigger_1783(matches,multimatches)
@@ -10187,6 +10197,9 @@ function mtw.trigger_2029(matches,multimatches)
  if string.find(mtw.target, matches[2]) and mtw.my.class == "rogue" and mtw.status.combat and mtw.toggles.flourishing then
   mtw.set_balance("flourish "..matches[2])
  end
+ if string.find(mtw.target, matches[2]) and mtw.my.class == "priest" and mtw.toggles.prophesying then
+  mtw.set_balance("castigate prophesy "..matches[2])
+ end
 end
 
 function mtw.trigger_2030(matches,multimatches)
@@ -10199,6 +10212,7 @@ function mtw.trigger_2036(matches,multimatches)
 if mtw.defenses.def_hiding.needit then
  mtw.defenses.def_hiding.needit = false
  echo("\nNo longer keeping hide.")
+ mtw.def_take("hiding")
  send(" ")
 end
 

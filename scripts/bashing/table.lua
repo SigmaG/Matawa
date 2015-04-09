@@ -41,7 +41,7 @@ mtw.default.areas = {
 ["Elvandar Forest"] = {level = "Questing", krondor = "extremely far to the northwest", prime = {"forest"}, env = {"river", "natural underground"}, targets = {"a water salamander", "a yellow perch", "a plump wood fowl", "a horned beetle", "a large mosquito", "a hairy brown and white spider", "a small forest bear", "a large snail", "a powerful stag", "a tree shrew", "a brightly%-colored pheasant", "a gwali youth", "a gwali", "a delicate doe", "a delicate butterfly", "a wiry fox", "a speckled hawk", "a young fawn"}},
 ["the goblin village of Skreech"] = {level = "??", krondor = "extremely far to the northwest", prime = {"village"}, env = {"natural underground"}, targets = {"a goblin pikeman", "a goblin mercenary", "a goblin archer", "a goblin guard", "a little goblin girl", "Pikemaster Toryk", "a goblin shaman", "Skreech, the goblin chief"}},
 ["Smuggler's Cove"] = {level = "20-40", krondor = "very far to the west", prime = {"reef", "natural underground"}, env = {"beach", "ocean", "urban", "fresh water"}, targets = {"a smuggler", "a scallywag sailor", "a Quegan mariner", "a seagull", "a large sandcrawler", "a large clam"}, items = {"a cargo crate"}},
-["an Imp Cave"] = {level = "20-40", krondor = "very far to the west", prime = {"natural underground"}, targets = {"an imp rascal", "a scavenger imp", "a giant glow%-worm", "a glow%-worm"}},
+["an Imp Cave"] = {level = "20-40", krondor = "very far to the west", prime = {"natural underground"}, targets = {"a seductive succubus","an imp rascal", "a scavenger imp", "a giant glow%-worm", "a glow%-worm"}},
 ["Ig'tur Trollcamp"] = {level = "30-50", krondor = "extremely far to the north", prime = {"village"}, env = {"garden", "natural underground"}, targets = {"a lumbering cave troll", "a matronly cave troll"}},
 ["Rut Horuk Trollcamp"] = {level = "30-50", krondor = "extremely far to the north", prime = {"village"}, env = {"natural underground"}, targets = {"a hulking troll guard", "a grey mountain troll", "a brutish mountain troll", "Gul%'Thor%, Lord of Rut Horuk", "Mok%'Thul", "Apprentice Ogmol"}},
 ["the Isbandia Lake"] = {level = "30-50", krondor = "extremely far to the north", targets = {"a brook trout", "a large salmon"}},
@@ -122,6 +122,7 @@ mtw.default.areas = {
 ["temple of Prandur"] = {level = "none", krondor = "extremely far to the north", prime = {"temple"}, targets = {}},
 ["the Temple of Lims-Kragma"] = {level = "none", krondor = "extremely far to the north", prime = {"temple"}, targets = {}},
 ["the Black Cathedral"] = {level = "none", krondor = "distantly to the north", prime = {"temple"}, env = {"garden"}, targets = {}},
+["an Enchanted Glade"] = {level = "100", krondor = "extremely far to the north", targets = {"a porky piglet", "a swarm of tubby bumblebees", "a downy baby bluebird", "a frolicking red-squirrel", "a tenderfooted doe", "aa big-eyed baby fawn", "a fluffy white sheep"}},
 }
 
 mtw.default.areas["Fort Dannis"] = {level = "Group", krondor = "extremely far to the northwest", prime = {"mountain", "ruins"}, env = {"hills"}}
@@ -130,7 +131,7 @@ local mt = {
   if k == "targets" then
    local c = gmcp.Char.Status.city:gsub(" %(.*%)", "")
    if c == "Elvandar" then
-    return {"a goblin conscript", "a troll mercenary", "a wily goblin fighter", "a Moredhel warrior", "a savage troll warrior", "a vicious goblin warrior", "a Moredhel battlemaster", "a veteran Krondorian warrior", "a Tsurani swordsman", "a Krondorian skirmisher", "a well%-armored Krondorian soldier",  "a captain of Krondor", "a Tsurani berserker", "a stout dwarven warrior"}
+    return {"a goblin conscript", "a troll mercenary", "a wily goblin fighter", "a Moredhel warrior", "a Moredhel battlemaster", "a savage troll warrior", "a vicious goblin warrior", "a veteran Krondorian warrior", "a Tsurani swordsman", "a Krondorian skirmisher", "a well%-armored Krondorian soldier",  "a captain of Krondor", "a Tsurani berserker", "a stout dwarven warrior"}
    elseif c == "Krondor" then
     return {"a warrior of Elvandar", "a master warrior of Elvandar", "an Eledhel ranger", "an Eledhel scout",  "an Eledhel commander", "an Eledhel scoutmaster", "a scarred Eledhel veteran", "a goblin conscript", "a troll mercenary", "a wily goblin fighter", "a Moredhel warrior", "a savage troll warrior", "a vicious goblin warrior", "a Moredhel battlemaster"}
    elseif c == "Sar-Sargoth" then
