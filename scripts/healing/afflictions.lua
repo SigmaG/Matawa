@@ -172,10 +172,10 @@ aff_ill_omen_4 = {state = "healed", msg = "under 4 marks of ill omen", cures = {
 aff_ill_omen_5 = {state = "healed", msg = "under 5 marks of ill omen", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
 aff_impatience = {state = "healed", msg = "impatient", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
 aff_infirmity_1 = {state = "healed", msg = "infirm", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
-aff_infirmity_2 = {state = "healed", msg = "quite infirm", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
-aff_infirmity_3 = {state = "healed", msg = "very infirm", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
-aff_infirmity_4 = {state = "healed", msg = "extraordinarily infirm", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
-aff_infirmity_5 = {state = "healed", msg = "cripplingly infirm", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
+aff_infirmity_2 = {state = "healed", msg = "quite infirmed", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
+aff_infirmity_3 = {state = "healed", msg = "very infirmed", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
+aff_infirmity_4 = {state = "healed", msg = "extraordinarily infirmed", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
+aff_infirmity_5 = {state = "healed", msg = "cripplingly infirmed", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
 aff_maladroitness = {state = "healed", msg = "extremely maladroit", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
 aff_manaleech = {state = "healed", msg = "cursed with decaying magic", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
 aff_porphyria = {state = "healed", msg = "", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
@@ -217,7 +217,10 @@ function mtw.aff_timeout(affliction)
 end
 
 function mtw.aff_gain(affliction)
- if mtw.toggles.affecho then
+ if mtw.toggles.affecho and affliction == "burns_1" and mtw.status.vampire == true then
+  deleteLine()
+  tempLineTrigger(1,1,[[if isPrompt() then deleteLine() end]])
+ elseif mtw.toggles.affecho then
   deleteLine()
   cecho("<blue>\nYou: <red>GOT<blue> "..affliction.."!")
  end
@@ -283,7 +286,10 @@ function mtw.aff_diag(affliction)
 end
 
 function mtw.aff_cure(affliction)
- if mtw.toggles.affecho then
+ if mtw.toggles.affecho and affliction == "burns_1" and mtw.status.vampire == true then
+  deleteLine()
+  tempLineTrigger(1,1,[[if isPrompt() then deleteLine() end]])
+ elseif mtw.toggles.affecho then
   deleteLine()
   cecho("<blue>\nYou: <green>HEAL<blue> "..affliction.."!")
  end
