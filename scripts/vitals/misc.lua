@@ -328,7 +328,9 @@ function mtw.soft_reset()
  for i in pairs(mtw.reject) do
   mtw.reject[i] = "none"
  end
- mtw.status.writhing = false
+ --mtw.status.writhing = false
+ --moving status.writhing from soft reset to hard reset
+ --blackout while writhing causes problems
  mtw.status.clotting = false
  mtw.status.combat = false
  mtw.status.defending = false
@@ -353,6 +355,9 @@ function mtw.reset_all()
 
  mtw.recovering_balance = false
  mtw.recovering_equilibrium = false
+ --temp test--
+ mtw.status.writhing = false
+ ----
 
  mtw.toggles.bashing = false
  mtw.bashing.targeted = false
