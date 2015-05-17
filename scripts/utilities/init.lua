@@ -197,7 +197,8 @@ squall = {id = "", long = "Squall of Storms", time = 0},
 mtw.song_list = {
 "nocturne",
 "serenade",
-"anthem"
+"anthem",
+"prelude"
 }
 
 mtw.song_options = {
@@ -566,4 +567,14 @@ function mtw.compare_versions(version_file)
   mtw.upgrade = true
  end
  mtw.gui.matawa()
+end
+
+-- bashing players ignore table
+--work in progress below--
+
+function player_resetIgnore()
+ignore_players = {
+[mtw.my.name] = true,
+["ExampleName"] = true
+}
 end

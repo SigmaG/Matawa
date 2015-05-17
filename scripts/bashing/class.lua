@@ -38,8 +38,16 @@ function mtw.soldier_bash()
   end
  elseif not mtw.used.sunder and table.contains(mtw.skills, "Sunder Armor") and mtw.toggles.sundering and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("sunder "..mtw.bashing.target)
+  if mtw.balance.secondwind then
+    mtw.used.sunder = true
+    mtw.send("secondwind")
+  end
  elseif table.contains(mtw.skills, "swordmastery") and table.contains(mtw.skills, "Starfury Slash") and mtw.toggles.starfurying and not mtw.used.starfury and mtw.vitals.adrenaline >= 85 and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("starfuryslash "..mtw.bashing.target)
+  if mtw.balance.secondwind then
+    mtw.used.starfury = true
+    mtw.send("secondwind")
+  end
  elseif mtw.vitals.adrenaline > 89 and mtw.toggles.obliterating and not mtw.need_wield and not mtw.need_offwield and mtw.enemy_health ~= "<red> 0-10%" then
   mtw.send("obliterate "..mtw.bashing.target)
   if mtw.balance.secondwind and mtw.waiting.balance then

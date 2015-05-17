@@ -2970,12 +2970,11 @@ mtw.atk_hit(matches[2], nil, "shadowstorm")
 mtw.aff_have("blind")
 mtw.aff_have("disoriented")
 mtw.aff_have("fear")
-mtw.aff_have("epilepsy")
+mtw.aff_have("anemia")
 mtw.aff_have("maladroitness")
 mtw.aff_have("terror")
 mtw.aff_have("sun_allergy")
 mtw.aff_have("paralysis")
-mtw.aff_have("dystrophy")
 end
 
 function mtw.trigger_483(matches,multimatches)
@@ -3828,7 +3827,7 @@ end
 
 function mtw.trigger_680(matches,multimatches)
 mtw.def_gain("grip")
-mtw.waiting.balance = false
+--mtw.waiting.balance = false
 end
 
 function mtw.trigger_681(matches,multimatches)
@@ -4866,7 +4865,7 @@ end
 
 function mtw.trigger_911(matches,multimatches)
 mtw.atk_hit(matches[2], matches[3], "blackeye")
---mtw.aff_have("blind")
+mtw.aff_have("blind")
 mtw.aff_have("blackout")
 end
 
