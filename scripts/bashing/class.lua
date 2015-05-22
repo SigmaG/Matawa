@@ -62,37 +62,33 @@ function mtw.soldier_bash()
 end
 
 function mtw.magician_bash()
-if table.contains(mtw.skills, "Anachronize") and mtw.toggles.anachronizing and mtw.balance.anachronize and mtw.vitals.current.magic >= 3000 and not mtw.status.combat then
- mtw.send("cast anachronize")
-end
-
-if (mtw.have_def("grip") or not mtw.toggles.gripping) and not mtw.need_wield or not mtw.need_offwield then
- if not mtw.used.ignite and mtw.toggles.igniting and table.contains(mtw.skills, "Ignite") then
+ if table.contains(mtw.skills, "Anachronize") and mtw.toggles.anachronizing and mtw.balance.anachronize and mtw.vitals.current.magic >= 3000 and not mtw.status.combat then
+  mtw.send("cast anachronize")
+ elseif not mtw.used.ignite and mtw.toggles.igniting and table.contains(mtw.skills, "Ignite") and not mtw.need_wield then
   mtw.send("cast ignite "..mtw.bashing.target)
- elseif mtw.used.ignite and table.contains(mtw.skills, "Immolate") and mtw.toggles.immolating and (mtw.enemy_health == "<red> 0-10%" or mtw.enemy_health == "<red> 10-25%") then
+ elseif mtw.used.ignite and table.contains(mtw.skills, "Immolate") and mtw.toggles.immolating and (mtw.enemy_health == "<red> 0-10%" or mtw.enemy_health == "<red> 10-25%") and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast immolate "..mtw.bashing.target)
- elseif mtw.balance.barrage and table.contains(mtw.skills, "Eldritch Barrage") and mtw.toggles.barraging and not mtw.toggles.spiking and (mtw.vitals.cadence >= 1 or mtw.defenses.def_stormfury.state ~= "deffed") then
+ elseif mtw.balance.barrage and table.contains(mtw.skills, "Eldritch Barrage") and mtw.toggles.barraging and not mtw.toggles.spiking and (mtw.vitals.cadence >= 1 or mtw.defenses.def_stormfury.state ~= "deffed") and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast eldritch barrage "..mtw.bashing.target)
- elseif mtw.balance.barrage and table.contains(mtw.skills, "Eldritch Barrage") and mtw.toggles.barraging and (mtw.vitals.cadence >= 1 or mtw.defenses.def_stormfury.state ~= "deffed") and mtw.bashing.engaged then
+ elseif mtw.balance.barrage and table.contains(mtw.skills, "Eldritch Barrage") and mtw.toggles.barraging and (mtw.vitals.cadence >= 1 or mtw.defenses.def_stormfury.state ~= "deffed") and mtw.bashing.engaged and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast eldritch barrage "..mtw.bashing.target)
- elseif mtw.toggles.spiking and table.contains(mtw.skills, "Ice Spikes") then
+ elseif mtw.toggles.spiking and table.contains(mtw.skills, "Ice Spikes") and not mtw.need_wield and not mtw.need_offwield then
   if mtw.defenses.def_stormfury.state == "deffed" then
-   if mtw.vitals.cadence == 3 and getStopWatchTime(mtw.last_lance) <= 20 then
+   if mtw.vitals.cadence == 3 and getStopWatchTime(mtw.last_lance) <= 20 and not mtw.need_wield and not mtw.need_offwield then
     mtw.send("cast ice spikes "..mtw.bashing.target)
-   else
+   elseif not mtw.need_wield and not mtw.need_offwield then
     mtw.send("cast stormlance "..mtw.bashing.target)
    end
-   else
+   elseif not mtw.need_wield and not mtw.need_offwield then
    mtw.send("cast ice spikes "..mtw.bashing.target)
   end
- elseif table.contains(mtw.skills, "Balefire") and mtw.vitals.cadence >= 1 and not mtw.used.balefire and not mtw.casted.balefire then
+ elseif table.contains(mtw.skills, "Balefire") and mtw.vitals.cadence >= 1 and not mtw.used.balefire and not mtw.casted.balefire and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast balefire "..mtw.bashing.target)
- elseif table.contains(mtw.skills, "Balefire") and mtw.toggles.balefiring then
+ elseif table.contains(mtw.skills, "Balefire") and mtw.toggles.balefiring and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast balefire "..mtw.bashing.target)
- else
+ elseif not mtw.need_wield and not mtw.need_offwield then
   mtw.send("cast stormlance "..mtw.bashing.target)
  end
-end
 end
 
 function mtw.rogue_bash()
@@ -120,9 +116,9 @@ if (mtw.have_def("grip") or not mtw.toggles.gripping) and not mtw.need_wield the
   mtw.send("balestra "..mtw.bashing.target)
  elseif (not mtw.used.fleche) and mtw.toggles.fleching and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
   mtw.send("fleche "..mtw.bashing.target)
- elseif table.contains(mtw.skills, "Bard's Canto") and mtw.toggles.cantoing and mtw.balance.canto and mtw.vitals.cadence < 3 then
+ elseif table.contains(mtw.skills, "Bard's Canto") and mtw.toggles.cantoing and mtw.balance.canto then
   mtw.send("play bard's canto "..mtw.bashing.target)
- elseif mtw.toggles.balestrating and table.contains(mtw.skills, "Balestra") then
+ elseif table.contains(mtw.skills, "Balestra") and (mtw.toggles.balestrating or (mtw.enemy_health == "<red> 0-10%" and (mtw.my.area == "the Vale of Dreams" or mtw.my.area == "the edge of the Jal-Pur"))) then
   mtw.send("balestra "..mtw.bashing.target)
  elseif (not mtw.toggles.balestrating or not table.contains(mtw.skills, "Balestra")) then
   mtw.send("thrust "..mtw.bashing.target)

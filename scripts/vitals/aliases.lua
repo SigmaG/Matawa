@@ -114,6 +114,8 @@ function mtw.toggles_alias()
   mtw.disp_toggle("freezing", "tfrz: maintain freezing the ground")
  elseif mtw.my.class == "priest" then
   mtw.disp_toggle("liturgy", "tlit: liturgy when available")
+  mtw.disp_toggle("revitalizing", "tlit: liturgy when available")
+  mtw.disp_toggle("desp-praying", "tlit: liturgy when available")
  end
  send(" ")
 end
@@ -165,12 +167,16 @@ function mtw.bashing_aliases()
   mtw.disp_toggle("revitalizing", "trv: toggle revitalizing")
   if table.contains(mtw.skills, "bloodlore") then
    mtw.disp_toggle("savaging", "tsv: toggle savaging")
+   mtw.disp_toggle("blood knifing", "tlit: liturgy when available")
   end
   if table.contains(mtw.skills, "shadoweaving") then
    mtw.disp_toggle("lashing", "tlsh: toggle lashing")
   end
   if table.contains(mtw.skills, "crusading") then
    mtw.disp_toggle("dominating", "tdom: toggle dominating strike")
+  end
+  if table.contains(mtw.skills, "conviction") then
+   mtw.disp_toggle("divinestriking", "tlit: liturgy when available")
   end
  elseif mtw.my.class == "magician" then
   mtw.disp_toggle("igniting", "tigt: toggle igniting")
