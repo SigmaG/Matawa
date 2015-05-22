@@ -32,30 +32,30 @@ function mtw.soldier_bash()
   mtw.send("strike "..mtw.bashing.target)
  elseif not mtw.used.rake and table.contains(mtw.skills, "Rake") and mtw.toggles.raking and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("rake "..mtw.bashing.target)
-  if mtw.balance.secondwind then
+  if mtw.balance.secondwind and table.contains(mtw.skills, "Second Wind") then
     mtw.used.rake = true
     mtw.send("secondwind")
   end
  elseif not mtw.used.sunder and table.contains(mtw.skills, "Sunder Armor") and mtw.toggles.sundering and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("sunder "..mtw.bashing.target)
-  if mtw.balance.secondwind then
+  if mtw.balance.secondwind and table.contains(mtw.skills, "Second Wind") then
     mtw.used.sunder = true
     mtw.send("secondwind")
   end
  elseif table.contains(mtw.skills, "swordmastery") and table.contains(mtw.skills, "Starfury Slash") and mtw.toggles.starfurying and not mtw.used.starfury and mtw.vitals.adrenaline >= 85 and not mtw.need_wield and not mtw.need_offwield then
   mtw.send("starfuryslash "..mtw.bashing.target)
-  if mtw.balance.secondwind then
+  if mtw.balance.secondwind and table.contains(mtw.skills, "Second Wind") then
     mtw.used.starfury = true
     mtw.send("secondwind")
   end
  elseif mtw.vitals.adrenaline > 89 and mtw.toggles.obliterating and not mtw.need_wield and not mtw.need_offwield and mtw.enemy_health ~= "<red> 0-10%" then
   mtw.send("obliterate "..mtw.bashing.target)
-  if mtw.balance.secondwind and mtw.waiting.balance then
+  if mtw.balance.secondwind and mtw.waiting.balance and table.contains(mtw.skills, "Second Wind") then
     mtw.send("secondwind")
   end
  elseif (mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping")) and mtw.balance.balance and not mtw.need_wield then
   mtw.send("slash "..mtw.bashing.target)
-  if mtw.balance.secondwind and mtw.waiting.balance then
+  if mtw.balance.secondwind and mtw.waiting.balance and table.contains(mtw.skills, "Second Wind") then
     mtw.send("secondwind")
   end
  end
