@@ -122,7 +122,7 @@ mtw.default.areas = {
 ["temple of Prandur"] = {level = "none", krondor = "extremely far to the north", prime = {"temple"}, targets = {}},
 ["the Temple of Lims-Kragma"] = {level = "none", krondor = "extremely far to the north", prime = {"temple"}, targets = {}},
 ["the Black Cathedral"] = {level = "none", krondor = "distantly to the north", prime = {"temple"}, env = {"garden"}, targets = {}},
-["an Enchanted Glade"] = {level = "100", krondor = "extremely far to the north", targets = {"a porky piglet", "a swarm of tubby bumblebees", "a downy baby bluebird", "a frolicking red%-squirrel", "a tenderfooted doe", "aa big%-eyed baby fawn", "a fluffy white sheep"}},
+["an Enchanted Glade"] = {level = "100", krondor = "extremely far to the north", targets = {"a porky piglet", "a swarm of tubby bumblebees", "a downy baby bluebird", "a frolicking red%-squirrel", "a tenderfooted doe", "a big%-eyed baby fawn", "a fluffy white sheep"}},
 }
 
 mtw.default.areas["Fort Dannis"] = {level = "Group", krondor = "extremely far to the northwest", prime = {"mountain", "ruins"}, env = {"hills"}}
