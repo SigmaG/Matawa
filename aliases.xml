@@ -137,6 +137,22 @@
                                 <packageName></packageName>
                                 <regex>^tbug$</regex>
                             </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>contorting</name>
+                                <script>mtw.toggle(&quot;contorting&quot;)
+--add to matawa</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tcr$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>mindmeld rejecting</name>
+                                <script>mtw.toggle(&quot;mmrejecting&quot;)
+--add to matawa</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tmm$</regex>
+                            </Alias>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
                             <name>Display Toggles</name>
@@ -466,6 +482,40 @@
                                 <packageName></packageName>
                                 <regex>^trk$</regex>
                             </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>revitalizing</name>
+                                <script>mtw.toggle(&quot;revitalizing&quot;)
+--add to matawa--
+
+</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^trv$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>desperate praying</name>
+                                <script>mtw.toggle(&quot;despraying&quot;)
+--add to matawa--</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tdesp$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>divinestriking</name>
+                                <script>mtw.toggle(&quot;divinestriking&quot;)
+--add to matawa--</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tdiv$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>knifing</name>
+                                <script>mtw.toggle(&quot;knifing&quot;)
+--add to matawa--</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tkni$</regex>
+                            </Alias>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
                             <name>Misc Toggles</name>
@@ -530,6 +580,14 @@
                                 <regex>^tfrz$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
+                                <name>prophesying</name>
+                                <script>mtw.toggle(&quot;prophesying&quot;)
+--add to matawa</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tpro$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
                                 <name>poison display</name>
                                 <script>mtw.toggle(&quot;poisondisplay&quot;)</script>
                                 <command></command>
@@ -565,13 +623,6 @@
                                 <regex>^tgr$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
-                                <name>revitalizing</name>
-                                <script>mtw.toggle(&quot;revitalizing&quot;)</script>
-                                <command></command>
-                                <packageName></packageName>
-                                <regex>^trv$</regex>
-                            </Alias>
-                            <Alias isActive="yes" isFolder="no">
                                 <name>generic toggle</name>
                                 <script>mtw.generic_toggle(matches[2])</script>
                                 <command></command>
@@ -584,6 +635,13 @@
                                 <command></command>
                                 <packageName></packageName>
                                 <regex>^\?tg (.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Verdicting</name>
+                                <script>mtw.toggle(&quot;verdicting&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tver$</regex>
                             </Alias>
                         </AliasGroup>
                     </AliasGroup>
@@ -803,90 +861,90 @@
                             <packageName></packageName>
                             <regex>^aap$</regex>
                         </Alias>
-	                    <AliasGroup isActive="yes" isFolder="yes">
-    	                    <name>Handle areas</name>
-        	                <script></script>
-            	            <command></command>
-                	        <packageName></packageName>
-                    	    <regex></regex>
-                        	<Alias isActive="yes" isFolder="no">
-                            	<name>Area-related aliases</name>
-                            	<script>mtw.area_aliases()</script>
-                            	<command></command>
-	                            <packageName></packageName>
-    	                        <regex>^\?area$</regex>
-        	                </Alias>
-                        	<Alias isActive="yes" isFolder="no">
-                            	<name>Add area</name>
-                            	<script>mtw.add_area(matches[2])</script>
-                            	<command></command>
-	                            <packageName></packageName>
-    	                        <regex>^!area add( .*)$</regex>
-        	                </Alias>
-                        	<Alias isActive="yes" isFolder="no">
-                            	<name>Remove area</name>
-                            	<script>mtw.rm_area(matches[2])</script>
-                            	<command></command>
-	                            <packageName></packageName>
-    	                        <regex>^!area rm( .*)$</regex>
-        	                </Alias>
-                        	<Alias isActive="yes" isFolder="no">
-                            	<name>Reset area</name>
-                            	<script>mtw.reset_area(matches[2])</script>
-                            	<command></command>
-	                            <packageName></packageName>
-    	                        <regex>^!area reset(.*)$</regex>
-        	                </Alias>
-                        	<Alias isActive="yes" isFolder="no">
-                            	<name>Add mob in area</name>
-                            	<script>mtw.add_mob_area(matches[2],matches[3])</script>
-                            	<command></command>
-	                            <packageName></packageName>
-    	                        <regex>^!area(.*) addmob (.*)$</regex>
-        	                </Alias>
-                        	<Alias isActive="yes" isFolder="no">
-                            	<name>Remove mob from area</name>
-                            	<script>mtw.rm_mob_area(matches[2],matches[3])</script>
-                            	<command></command>
-	                            <packageName></packageName>
-    	                        <regex>^!area(.*) rmmob (.*)$</regex>
-        	                </Alias>
-                        	<Alias isActive="yes" isFolder="no">
-                            	<name>Add prize in area</name>
-                            	<script>mtw.add_prize_area(matches[2],matches[3])</script>
-                            	<command></command>
-	                            <packageName></packageName>
-    	                        <regex>^!area(.*) additem (.*)$</regex>
-        	                </Alias>
-                        	<Alias isActive="yes" isFolder="no">
-                            	<name>Remove prize from area</name>
- 	                           	<script>mtw.rm_item_area(matches[2],matches[3])</script>
-                            	<command></command>
-	                            <packageName></packageName>
-    	                        <regex>^!area(.*) rmitem (.*)$</regex>
-        	                </Alias>
-                        	<Alias isActive="yes" isFolder="no">
-                            	<name>Set area level</name>
-                            	<script>mtw.area_level(matches[2],matches[3])</script>
-                            	<command></command>
-	                            <packageName></packageName>
-    	                        <regex>^!area(.*) level (.*)$</regex>
-        	                </Alias>
-                        	<Alias isActive="yes" isFolder="no">
-                            	<name>Print area</name>
-                            	<script>mtw.print_area(matches[2])</script>
-                            	<command></command>
-	                            <packageName></packageName>
-    	                        <regex>^!area print(.*)$</regex>
-        	                </Alias>
-                        	<Alias isActive="yes" isFolder="no">
-                            	<name>Sort area targets</name>
-                            	<script>mtw.area_sort_targets(matches)</script>
-                            	<command></command>
-	                            <packageName></packageName>
-    	                        <regex>^!area(.*) sort targets((?: \d+)*)$</regex>
-        	                </Alias>
-	                    </AliasGroup>
+                        <AliasGroup isActive="yes" isFolder="yes">
+                            <name>Handle areas</name>
+                            <script></script>
+                            <command></command>
+                            <packageName></packageName>
+                            <regex></regex>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Area-related aliases</name>
+                                <script>mtw.area_aliases()</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^\?area$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Add area</name>
+                                <script>mtw.add_area(matches[2])</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^!area add( .*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Remove area</name>
+                                <script>mtw.rm_area(matches[2])</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^!area rm( .*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Reset area</name>
+                                <script>mtw.reset_area(matches[2])</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^!area reset(.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Add mob in area</name>
+                                <script>mtw.add_mob_area(matches[2],matches[3])</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^!area(.*) addmob (.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Remove mob from area</name>
+                                <script>mtw.rm_mob_area(matches[2],matches[3])</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^!area(.*) rmmob (.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Add prize in area</name>
+                                <script>mtw.add_prize_area(matches[2],matches[3])</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^!area(.*) additem (.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Remove prize from area</name>
+                                <script>mtw.rm_item_area(matches[2],matches[3])</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^!area(.*) rmitem (.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Set area level</name>
+                                <script>mtw.area_level(matches[2],matches[3])</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^!area(.*) level (.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Print area</name>
+                                <script>mtw.print_area(matches[2])</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^!area print(.*)$</regex>
+                            </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>Sort area targets</name>
+                                <script>mtw.area_sort_targets(matches)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^!area(.*) sort targets((?: \d+)*)$</regex>
+                            </Alias>
+                        </AliasGroup>
                     </AliasGroup>
                     <AliasGroup isActive="yes" isFolder="yes">
                         <name>Fishing</name>
@@ -1177,7 +1235,7 @@
                         <Alias isActive="yes" isFolder="no">
                             <name>repeat</name>
                             <script>for i=1,tonumber(matches[2]) do
- expandAlias(matches[3],false)
+expandAlias(matches[3],false)
 end</script>
                             <command></command>
                             <packageName></packageName>
@@ -1195,7 +1253,7 @@ end</script>
                             <script>mtw.fleeing_alias()</script>
                             <command></command>
                             <packageName></packageName>
-                            <regex>^flee$</regex>
+                            <regex>^(flflee|flee)$</regex>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>moving</name>
@@ -1254,7 +1312,7 @@ send(&quot; &quot;)</script>
                             <packageName></packageName>
                             <regex>^tr (.*)$</regex>
                         </Alias>
-                        <Alias isActive="yes" isFolder="no">
+                        <Alias isActive="no" isFolder="no">
                             <name>touch wheel</name>
                             <script></script>
                             <command>bqa touch wheel</command>
@@ -1303,7 +1361,7 @@ send(&quot; &quot;)</script>
                             <packageName></packageName>
                             <regex>^sqis (.*)$</regex>
                         </Alias>
-                       <Alias isActive="yes" isFolder="no">
+                        <Alias isActive="yes" isFolder="no">
                             <name>Learning</name>
                             <script>mtw.learn_start(matches[2], matches[3], matches[4])</script>
                             <command></command>
@@ -1691,28 +1749,28 @@ send(&quot; &quot;)</script>
                                             <packageName></packageName>
                                             <regex>^csb$</regex>
                                         </Alias>
-                                        <Alias isActive="yes" isFolder="no">
+                                        <Alias isActive="no" isFolder="no">
                                             <name>Throw Smokebomb</name>
                                             <script>mtw.al_do_rogue(&quot;throw smokebomb&quot;)</script>
                                             <command></command>
                                             <packageName></packageName>
                                             <regex>^tsb$</regex>
                                         </Alias>
-                                        <Alias isActive="yes" isFolder="no">
+                                        <Alias isActive="no" isFolder="no">
                                             <name>Throw Smokebomb Dir</name>
                                             <script>mtw.al_do_rogue(&quot;throw smokebomb &quot;..matches[2])</script>
                                             <command></command>
                                             <packageName></packageName>
                                             <regex>^tsb (\w+)$</regex>
                                         </Alias>
-                                        <Alias isActive="yes" isFolder="no">
+                                        <Alias isActive="no" isFolder="no">
                                             <name>Throw Smokebomb at Target</name>
                                             <script>mtw.al_do_rogue(&quot;throw smokebomb &quot;..mtw.target)</script>
                                             <command></command>
                                             <packageName></packageName>
                                             <regex>^ttsb$</regex>
                                         </Alias>
-                                        <Alias isActive="yes" isFolder="no">
+                                        <Alias isActive="no" isFolder="no">
                                             <name>Throw Smokebomb From Rooftops</name>
                                             <script>mtw.al_do_rogue(&quot;throw smokebomb at ground&quot;)</script>
                                             <command></command>
@@ -1733,28 +1791,28 @@ send(&quot; &quot;)</script>
                                             <packageName></packageName>
                                             <regex>^ccb$</regex>
                                         </Alias>
-                                        <Alias isActive="yes" isFolder="no">
+                                        <Alias isActive="no" isFolder="no">
                                             <name>Throw Cusser</name>
                                             <script>mtw.al_do_rogue(&quot;throw cusser&quot;)</script>
                                             <command></command>
                                             <packageName></packageName>
                                             <regex>^tcb$</regex>
                                         </Alias>
-                                        <Alias isActive="yes" isFolder="no">
+                                        <Alias isActive="no" isFolder="no">
                                             <name>Throw Cusser Dir</name>
                                             <script>mtw.al_do_rogue(&quot;throw cusser &quot;..matches[2])</script>
                                             <command></command>
                                             <packageName></packageName>
                                             <regex>^tcb (\w+)$</regex>
                                         </Alias>
-                                        <Alias isActive="yes" isFolder="no">
+                                        <Alias isActive="no" isFolder="no">
                                             <name>Throw Cusser at Target</name>
                                             <script>mtw.al_do_rogue(&quot;throw cusser &quot;..mtw.target)</script>
                                             <command></command>
                                             <packageName></packageName>
                                             <regex>^ttcb$</regex>
                                         </Alias>
-                                        <Alias isActive="yes" isFolder="no">
+                                        <Alias isActive="no" isFolder="no">
                                             <name>Throw Cusser From Rooftops</name>
                                             <script>mtw.al_do_rogue(&quot;throw cusser at ground&quot;)</script>
                                             <command></command>
@@ -1898,7 +1956,7 @@ send(&quot; &quot;)</script>
                                 </AliasGroup>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Backstab</name>
-                                    <script>mtw.al_do_rogue(&quot;envenom knife with mortoxis;backstab &quot;..mtw.target)</script>
+                                    <script>mtw.al_do_rogue(&quot;backstab &quot;..mtw.target)</script>
                                     <command></command>
                                     <packageName></packageName>
                                     <regex>^bst$</regex>
@@ -1953,21 +2011,24 @@ send(&quot; &quot;)</script>
                                     <regex></regex>
                                     <Alias isActive="yes" isFolder="no">
                                         <name>Shiv with Impatience</name>
-                                        <script>mtw.al_do_rogue(&quot;envenom knife with duroxin;shiv &quot;..mtw.target)</script>
+                                        <script>mtw.al_do_rogue(&quot;envenom dagger with duroxin;shiv &quot;..mtw.target)
+--add to matawa</script>
                                         <command></command>
                                         <packageName></packageName>
                                         <regex>^svi$</regex>
                                     </Alias>
                                     <Alias isActive="yes" isFolder="no">
                                         <name>Shiv with Epilepsy</name>
-                                        <script>mtw.al_do_rogue(&quot;envenom knife with salenin;shiv &quot;..mtw.target)</script>
+                                        <script>mtw.al_do_rogue(&quot;envenom dagger with salenin;shiv &quot;..mtw.target)
+--add to matawa</script>
                                         <command></command>
                                         <packageName></packageName>
                                         <regex>^sve$</regex>
                                     </Alias>
                                     <Alias isActive="yes" isFolder="no">
                                         <name>Shiv with Paralysis</name>
-                                        <script>mtw.al_do_rogue(&quot;envenom knife with mortoxis;shiv &quot;..mtw.target)</script>
+                                        <script>mtw.al_do_rogue(&quot;envenom dagger with mortoxis;shiv &quot;..mtw.target)
+--add to matawa</script>
                                         <command></command>
                                         <packageName></packageName>
                                         <regex>^svp$</regex>
@@ -2426,7 +2487,7 @@ send(&quot; &quot;)</script>
                                     <script>mtw.al_do_rogue(&quot;play allegro &quot;..matches[2]..&quot;;bqa play allegro &quot;..matches[3]..&quot;;bqa play allegro &quot;..matches[4])</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^pal (\d)(\d)(\d)$</regex>
+                                    <regex>^pal (\d+)(\d+)(\d+)$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>load song list</name>
@@ -3039,7 +3100,8 @@ send(&quot; &quot;)</script>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>crush skull</name>
-                                    <script>mtw.al_soldier(&quot;crushskull&quot;)</script>
+                                    <script>mtw.al_berserker(&quot;crushskull&quot;)
+--add to matawa</script>
                                     <command></command>
                                     <packageName></packageName>
                                     <regex>^crs$</regex>
@@ -3274,6 +3336,118 @@ send(&quot; &quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
                                     <regex>^bec$</regex>
+                                </Alias>
+                            </AliasGroup>
+                            <AliasGroup isActive="yes" isFolder="yes">
+                                <name>Warmonger</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Knucklestrike</name>
+                                    <script>mtw.al_warmonger(&quot;knucklestrike&quot;)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^knk$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Gutshot</name>
+                                    <script>mtw.al_warmonger(&quot;gutshot&quot;)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^gts$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Crescent Slash</name>
+                                    <script>mtw.al_warmonger(&quot;crescentslash&quot;)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^crs$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Harrow</name>
+                                    <script>mtw.al_warmonger(&quot;harrow&quot;)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^hrw$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Gore</name>
+                                    <script>mtw.al_warmonger(&quot;gore&quot;)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^gr$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Legsweep</name>
+                                    <script>mtw.al_warmonger(&quot;legsweep&quot;)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^lsw$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Staff Spin</name>
+                                    <script>mtw.al_do_warmonger(&quot;staffspin&quot;)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^spn$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Final Moments</name>
+                                    <script>if mtw.skills.warmongering then
+if matches[2] == &quot;m&quot; then
+mtw.set_balance(&quot;finalmoments &quot;..mtw.target)
+elseif matches[2] == &quot;r&quot; then
+mtw.final_moments.withdraw_weapon1 = false
+mtw.final_moments.run_through1 = true
+cecho(&quot;&lt;yellow&gt;\nFinal moments action: Running Through ON!&quot;)
+elseif matches[2] == &quot;w&quot; then
+mtw.final_moments.withdraw_weapon1 = true
+mtw.final_moments.run_through1 = false
+cecho(&quot;&lt;yellow&gt;\nFinal moments action: Withdrawing Weapon ON!&quot;)
+end
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^fm(.*)$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Spirit Brand</name>
+                                    <script>if mtw.skills.warmongering then
+
+local spiritbrandactions = { &quot;t&quot;, &quot;w&quot;, &quot;a&quot;, &quot;m&quot;, &quot;s&quot;, &quot;d&quot;, &quot;r&quot;, &quot;c&quot;, &quot;h&quot;, &quot;&quot; }
+
+for i in ipairs(spiritbrandactions) do
+if matches[2] == spiritbrandactions[i] then
+if matches[2] == &quot;t&quot; then
+mtw.set_balance(&quot;tyranny on&quot;)
+elseif matches[2] == &quot;w&quot; then
+ mtw.set_balance(&quot;spiritbrand wipe&quot;)
+elseif matches[2] == &quot;m&quot; then
+ mtw.set_balance(&quot;miasma&quot;)
+elseif matches[2] == &quot;s&quot; then
+ mtw.set_balance(&quot;dragonstare &quot;..mtw.target)
+elseif matches[2] == &quot;d&quot; then
+ mtw.set_balance(&quot;drain &quot;..mtw.target)
+elseif matches[2] == &quot;r&quot; then
+ mtw.set_balance(&quot;spiritbrand release &quot;..mtw.target)
+elseif matches[2] == &quot;a&quot; then
+ mtw.set_balance(&quot;spiritbrand assess&quot;)
+elseif matches[2] == &quot;c&quot; then
+ mtw.set_balance(&quot;clanwill&quot;)
+elseif matches[2] == &quot;h&quot; then
+ mtw.set_balance(&quot;heatvision on&quot;)
+ elseif matches[2] == &quot;&quot; then
+  mtw.set_balance(&quot;spiritbrand trace&quot;)
+end
+end
+end
+
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^sb(.*)$</regex>
                                 </Alias>
                             </AliasGroup>
                         </AliasGroup>
@@ -4214,7 +4388,7 @@ send(&quot; &quot;)</script>
                                         <Alias isActive="yes" isFolder="no">
                                             <name>Passive</name>
                                             <script></script>
-                                            <command>order demon passive</command>
+                                            <command>order thrall passive</command>
                                             <packageName></packageName>
                                             <regex>^odp$</regex>
                                         </Alias>
@@ -4277,13 +4451,13 @@ send(&quot; &quot;)</script>
                                     <regex>^bnd$</regex>
                                 </Alias>
                             </AliasGroup>
-                            <AliasGroup isActive="yes" isFolder="yes">
+                            <AliasGroup isActive="no" isFolder="yes">
                                 <name>Psionics</name>
                                 <script></script>
                                 <command></command>
                                 <packageName></packageName>
                                 <regex></regex>
-                                <AliasGroup isActive="yes" isFolder="yes">
+                                <AliasGroup isActive="no" isFolder="yes">
                                     <name>Deaden</name>
                                     <script></script>
                                     <command></command>
@@ -4360,7 +4534,7 @@ send(&quot; &quot;)</script>
                                         <regex>^aph$</regex>
                                     </Alias>
                                 </AliasGroup>
-                                <AliasGroup isActive="yes" isFolder="yes">
+                                <AliasGroup isActive="no" isFolder="yes">
                                     <name>Overload</name>
                                     <script></script>
                                     <command></command>
@@ -4437,7 +4611,7 @@ send(&quot; &quot;)</script>
                                         <regex>^imp$</regex>
                                     </Alias>
                                 </AliasGroup>
-                                <AliasGroup isActive="yes" isFolder="yes">
+                                <AliasGroup isActive="no" isFolder="yes">
                                     <name>Amplify</name>
                                     <script></script>
                                     <command></command>
@@ -4928,7 +5102,7 @@ send(&quot; &quot;)</script>
                                     <regex>^boon$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
-                                    <name>illuminated word	</name>
+                                    <name>illuminated word  </name>
                                     <script>mtw.al_pray_of(&quot;illuminated word&quot;,matches)</script>
                                     <command></command>
                                     <packageName></packageName>
@@ -4949,7 +5123,7 @@ send(&quot; &quot;)</script>
                                     <regex>^hsl$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
-                                    <name>righteous word    	</name>
+                                    <name>righteous word        </name>
                                     <script>mtw.al_pray_of(&quot;righteous word&quot;,matches)</script>
                                     <command></command>
                                     <packageName></packageName>
@@ -4970,7 +5144,7 @@ send(&quot; &quot;)</script>
                                     <regex>^mvng$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
-                                    <name>blessed word 	</name>
+                                    <name>blessed word  </name>
                                     <script>mtw.al_pray_of(&quot;blessed word&quot;,matches)</script>
                                     <command></command>
                                     <packageName></packageName>
@@ -5041,7 +5215,7 @@ send(&quot; &quot;)</script>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>smokescreen</name>
-                                    <script>mtw.al_do_pyro(&quot;smokescreen&quot;)</script>
+                                    <script>mtw.al_do_pyro(&quot;smokescreen on&quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
                                     <regex>^sms$</regex>
@@ -5709,7 +5883,7 @@ send(&quot; &quot;)</script>
                                     <script>mtw.atk_hema(&quot;horror &quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^shor$</regex>
+                                    <regex>^hor$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>Heart of Greed</name>
@@ -6268,7 +6442,7 @@ send(&quot; &quot;)</script>
                         </Alias>
                         <Alias isActive="yes" isFolder="no">
                             <name>expandable IH</name>
-                            <script>mtw.gui.change_param(&quot;ih_expandable&quot;, matches[2] == "y")
+                            <script>mtw.gui.change_param(&quot;ih_expandable&quot;, matches[2] == &quot;y&quot;)
 mtw.gui.update_IH()</script>
                             <command></command>
                             <packageName></packageName>
