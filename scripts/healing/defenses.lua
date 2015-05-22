@@ -104,7 +104,7 @@ def_warcry = {defense = "call to war", type = "normal", effect = "Increased heal
 def_bloodthirst = {defense = "", type = "normal", effect = "Passively regenerating health", skill = "Bloodthirst", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_aggressive_stance = {defense = "", type = "normal", effect = "10% increased damage, 5% increased precision, taking 10% more damage", skill = "Aggressive Stance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_defensive_stance = {defense = "", type = "normal", effect = "10% damage resistance, 10% less damage dealt	", skill = "Defensive Stance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_lightning_stance = {defense = "", type = "normal", effect = "15% increased attack speed, 20% less damage dealt", skill = "Lightning Stance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_lightning_stance = {defense = "", type = "normal", effect = "15% increased evasion, 20% less damage dealt", skill = "Lightning Stance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_stand_ground = {defense = "", type = "normal", effect = "Resisting forced movement", skill = "Stand Ground", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_tenacity = {defense = "focused tenacity", type = "normal", effect = "Immune to knockdown - may be stripped", skill = "Tenacity", balance = {needyequilibriumtake = "tenacity"}, state = "down", needit = false, timer = createStopWatch()},
 def_shielding = {defense = "", type = "normal", effect = "Intercepting attacks against target", skill = "Shield of the Weak", balance = {}, state = "down", needit = false, timer = createStopWatch()},
@@ -116,6 +116,9 @@ def_brutal_savagery = {defense = "", type = "normal", effect = "Passively regene
 def_greenburst = {defense = "", type = "normal", effect = "", skill = "Greenburst", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_phoenix_crouching = {defense = "", type = "normal", effect = "", skill = "Phoenix Crouching", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_serenity = {defense = "", type = "normal", effect = "Deflecting and reflecting ranged attacks", skill = "Serenity", balance = {balanceneed = "serenity"}, state = "down", needit = false, timer = createStopWatch()},
+--Soldier: Warmongering
+def_heatvision = {defense = "heatvision", type = "normal", effect = "See through ashfall", skill = "Heatvision", balance = {balancetake = "heatvision on"}, state = "down", needit = false, timer = createStopWatch()},
+def_tyranny = {defense = "tyranny", type = "important", effect = "Passive afflictions", skill = "Tyranny", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Righteousness
 --Priest: Faith
 def_divine_armor = {defense = "divine armor", type = "normal", effect = "Increased damage resistance", skill = "Divine Armor", balance = {needyequilibriumtake = "pray for divine armor"}, state = "down", needit = false, timer = createStopWatch()},
@@ -383,6 +386,27 @@ def_immunity = "once",
 def_serenity = "once",
 def_censer = "once",
 def_arrow = "once",
+},
+
+warmonger = {
+def_rose = "on",
+def_thirdeye = "once",
+def_skywatch = "once",
+def_deathsense = "once",
+def_nightvision = "once",
+def_insomnia = "on",
+--def_forboding = "once",
+--def_premonition = "once",
+def_hourglass = "on",
+def_selfishness = "on",
+def_grip = "on",
+def_enrage = "on",
+def_warcry = "on",
+def_tenacity = "on",
+def_immunity = "once",
+--def_serenity = "once",
+--def_censer = "once",
+--def_arrow = "once",
 },
 
 rogue = {

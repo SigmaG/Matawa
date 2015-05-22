@@ -194,6 +194,11 @@ mtw.anach = false
 mtw.my_time = 0
 mtw.aff_color = ""
 
+mtw.final_moments = {
+run_through1 = false,
+withdraw_weapon1 = true,
+}
+
 --GATHERING STUFF
 mtw.mining = {
 material = "none",
@@ -374,6 +379,7 @@ mtw.weapons = {
 "ax",
 "bone",
 "halberd",
+"guan"
 }
 
 mtw.offweapons = {

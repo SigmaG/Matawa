@@ -4538,6 +4538,7 @@ end
 
 function mtw.trigger_832(matches,multimatches)
 mtw.attack_hit(matches[2], "rend")
+cecho("<red>\n SUCCESS: You REND "..matches[2].."!")
 end
 
 function mtw.trigger_833(matches,multimatches)
@@ -10207,18 +10208,17 @@ function mtw.trigger_2030(matches,multimatches)
 end
 
 function mtw.trigger_2036(matches,multimatches)
+ if mtw.defenses.def_hiding.needit then
+   mtw.defenses.def_hiding.needit = false
+   echo("\nNo longer keeping hide.")
+   mtw.def_take("hiding")
+   send(" ")
+ end
 
-if mtw.defenses.def_hiding.needit then
- mtw.defenses.def_hiding.needit = false
- echo("\nNo longer keeping hide.")
- mtw.def_take("hiding")
- send(" ")
-end
-
-if mtw.toggles.hiding then
- mtw.toggle("hiding")
- send(" ")
-end
+ if mtw.toggles.hiding then
+   mtw.toggle("hiding")
+   send(" ")
+ end
 
 end
 
