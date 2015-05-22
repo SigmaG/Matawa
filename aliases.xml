@@ -2962,7 +2962,7 @@ send(&quot; &quot;)</script>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>gutsmash</name>
-                                    <script>mtw.al_soldier(&quot;gutsmash&quot;)</script>
+                                    <script>mtw.al_berserker(&quot;gutsmash&quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
                                     <regex>^gts$</regex>
