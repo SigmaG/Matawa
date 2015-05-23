@@ -64,9 +64,7 @@ end
 function mtw.magician_bash()
  if table.contains(mtw.skills, "Anachronize") and mtw.toggles.anachronizing and mtw.balance.anachronize and mtw.vitals.current.magic >= 3000 and not mtw.status.combat then
   mtw.send("cast anachronize")
- end
-
- if (mtw.have_def("grip") or not mtw.toggles.gripping) and not mtw.need_wield or not mtw.need_offwield then
+ elseif (mtw.have_def("grip") or not mtw.toggles.gripping) and not mtw.need_wield or not mtw.need_offwield then
   if not mtw.used.ignite and mtw.toggles.igniting and table.contains(mtw.skills, "Ignite") then
    mtw.send("cast ignite "..mtw.bashing.target)
    elseif mtw.used.ignite and table.contains(mtw.skills, "Immolate") and mtw.toggles.immolating and (mtw.enemy_health == "<red> 0-10%" or mtw.enemy_health == "<red> 10-25%") then
@@ -76,16 +74,14 @@ function mtw.magician_bash()
    elseif mtw.balance.barrage and table.contains(mtw.skills, "Eldritch Barrage") and mtw.toggles.barraging and (mtw.vitals.cadence >= 1 or mtw.defenses.def_stormfury.state ~= "deffed") and mtw.bashing.engaged then
    mtw.send("cast eldritch barrage "..mtw.bashing.target)
    elseif mtw.toggles.spiking and table.contains(mtw.skills, "Ice Spikes") then
-   if mtw.defenses.def_stormfury.state == "deffed" then
-    if mtw.vitals.cadence == 3 and getStopWatchTime(mtw.last_lance) <= 20 then
+   if mtw.defenses.def_stormfury.state == "deffed" and mtw.vitals.cadence == 3 and getStopWatchTime(mtw.last_lance) <= 20 then
      mtw.send("cast ice spikes "..mtw.bashing.target)
-     else
+     elseif mtw.defenses.def_stormfury.state == "deffed" then
      mtw.send("cast stormlance "..mtw.bashing.target)
-     end
-     else
+     elseif mtw.defenses.def_stormfury.state ~= "deffed" then
      mtw.send("cast ice spikes "..mtw.bashing.target)
    end
-   elseif table.contains(mtw.skills, "Balefire") and mtw.vitals.cadence >= 1 and not mtw.used.balefire and not mtw.casted.balefire then
+   elseif table.contains(mtw.skills, "Balefire") and mtw.defenses.def_stormfury.state == "deffed" and mtw.vitals.cadence >= 1 and not mtw.used.balefire and not mtw.casted.balefire then
    mtw.send("cast balefire "..mtw.bashing.target)
    elseif table.contains(mtw.skills, "Balefire") and mtw.toggles.balefiring then
    mtw.send("cast balefire "..mtw.bashing.target)

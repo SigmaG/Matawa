@@ -380,11 +380,12 @@ end
 
 function mtw.trigger_2031(matches,multimatches)
 mtw.used.balefire = true
-mtw.casted.balefire = false
+--mtw.casted.balefire = false
 end
 
 function mtw.trigger_2032(matches,multimatches)
 mtw.casted.balefire = true
+tempTimer(mtw.delay(), [[mtw.used.balefire = false]])
 end
 
 function mtw.trigger_2033(matches,multimatches)
