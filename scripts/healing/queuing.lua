@@ -182,7 +182,7 @@ mtw.priorities = {
 "aff_asthma",
 "aff_somnolence",
 "aff_exhaustion",
---"aff_headache",
+"aff_headache",
 "aff_sundered_armor",
 "aff_holy_shock",
 "aff_arcane_fire_3",
@@ -192,7 +192,7 @@ mtw.priorities = {
 "aff_dementia_1",
 "aff_arcane_fire_2",
 "aff_arcane_fire_1",
---"aff_burns_1",
+"aff_burns_1",
 "aff_deaf",
 
 "def_myrrh",
