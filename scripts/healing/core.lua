@@ -100,8 +100,8 @@ function mtw.do_bashing()
   if mtw.bashing.targeted then
    mtw.waiting.balance = true
    --tempTimer(0.5, [[mtw.waiting.balance = false]])
-   tempTimer(mtw.delay()-math.floor(getNetworkLatency()), [[mtw.waiting.balance = false]])
-   tempTimer(mtw.delay()-math.floor(getNetworkLatency()), [[mtw.waiting.bash = false]])
+   tempTimer((0.5-math.floor(getNetworkLatency())), [[mtw.waiting.balance = false]])
+   tempTimer((mtw.delay()-math.floor(getNetworkLatency())), [[mtw.waiting.bash = false]])
    mtw.bashing_function()
   end
  end
