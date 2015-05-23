@@ -81,7 +81,7 @@ function mtw.magician_bash()
      elseif mtw.defenses.def_stormfury.state ~= "deffed" then
      mtw.send("cast ice spikes "..mtw.bashing.target)
    end
-   elseif table.contains(mtw.skills, "Balefire") and mtw.defenses.def_stormfury.state == "deffed" and mtw.vitals.cadence >= 1 and not mtw.used.balefire and not mtw.casted.balefire then
+   elseif table.contains(mtw.skills, "Balefire") and not mtw.toggles.balefiring and mtw.defenses.def_stormfury.state == "deffed" and mtw.vitals.cadence >= 1 and not mtw.casted.balefire then
    mtw.send("cast balefire "..mtw.bashing.target)
    elseif table.contains(mtw.skills, "Balefire") and mtw.toggles.balefiring then
    mtw.send("cast balefire "..mtw.bashing.target)
