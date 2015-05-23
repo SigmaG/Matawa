@@ -3829,7 +3829,7 @@ end
 
 function mtw.trigger_680(matches,multimatches)
 mtw.def_gain("grip")
---mtw.waiting.balance = false
+tempTimer(0.25, [[if mtw.balance.balance and mtw.waiting.balance then mtw.waiting.balance = false end]])
 end
 
 function mtw.trigger_681(matches,multimatches)

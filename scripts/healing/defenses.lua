@@ -96,7 +96,7 @@ def_corpus_callosum = {defense = "amplified corpus callosum", type = "normal", e
 def_hippocampus = {defense = "amplified hippocampus", type = "normal", effect = "fear immunity", balance = {balanceneed = "psi amplify hippocampus"}, state = "down", needit = false, timer = createStopWatch()},
 def_cerebral_cortex = {defense = "amplified cerebral cortex", type = "normal", effect = "drunken speech immunity", balance = {balanceneed = "psi amplify cortex"}, state = "down", needit = false, timer = createStopWatch()},
 --Soldier: Arms
-def_grip = {defense = "", type = "normal", effect = "One-time immunity to DISARM", balance = {balanceneed = "grip"}, state = "down", needit = false, timer = createStopWatch()},
+def_grip = {defense = "grip", type = "normal", effect = "One-time immunity to DISARM", balance = {balanceneed = "grip"}, state = "down", needit = false, timer = createStopWatch()},
 def_berserking = {defense = "", type = "normal", effect = "Increases damage delt and taken", skill = "Berserking", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_enrage = {defense = "", type = "normal", effect = "Passively regenerating adrenaline", skill = "Enrage", balance = {equilibriumtake = "rage"}, state = "down", needit = false, timer = createStopWatch()},
 --Soldier: Warcraft
