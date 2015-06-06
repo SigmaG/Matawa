@@ -538,13 +538,6 @@
                                 <regex>^tret$</regex>
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
-                                <name>bloodsensing</name>
-                                <script>mtw.toggle(&quot;bloodsensing&quot;)</script>
-                                <command></command>
-                                <packageName></packageName>
-                                <regex>^tbds$</regex>
-                            </Alias>
-                            <Alias isActive="yes" isFolder="no">
                                 <name>hiding</name>
                                 <script>mtw.toggle(&quot;hiding&quot;)</script>
                                 <command></command>
@@ -4458,13 +4451,13 @@ end</script>
                                     <regex>^bnd$</regex>
                                 </Alias>
                             </AliasGroup>
-                            <AliasGroup isActive="no" isFolder="yes">
+                            <AliasGroup isActive="yes" isFolder="yes">
                                 <name>Psionics</name>
                                 <script></script>
                                 <command></command>
                                 <packageName></packageName>
                                 <regex></regex>
-                                <AliasGroup isActive="no" isFolder="yes">
+                                <AliasGroup isActive="yes" isFolder="yes">
                                     <name>Deaden</name>
                                     <script></script>
                                     <command></command>
@@ -4541,7 +4534,7 @@ end</script>
                                         <regex>^aph$</regex>
                                     </Alias>
                                 </AliasGroup>
-                                <AliasGroup isActive="no" isFolder="yes">
+                                <AliasGroup isActive="yes" isFolder="yes">
                                     <name>Overload</name>
                                     <script></script>
                                     <command></command>
@@ -4618,7 +4611,7 @@ end</script>
                                         <regex>^imp$</regex>
                                     </Alias>
                                 </AliasGroup>
-                                <AliasGroup isActive="no" isFolder="yes">
+                                <AliasGroup isActive="yes" isFolder="yes">
                                     <name>Amplify</name>
                                     <script></script>
                                     <command></command>
@@ -5257,10 +5250,10 @@ end</script>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>firewalls</name>
-                                    <script>mtw.al_do_pyro(&quot;firewalls&quot;)</script>
+                                    <script>mtw.al_do_pyro(&quot;firewall &quot;..matches[2])</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^fw$</regex>
+                                    <regex>^fw (.*)$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>ashfall</name>
@@ -6131,6 +6124,219 @@ end</script>
                                     </Alias>
                                 </AliasGroup>
                             </AliasGroup>
+                            <AliasGroup isActive="yes" isFolder="yes">
+                                <name>Conviction</name>
+                                <script></script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex></regex>
+                                <AliasGroup isActive="yes" isFolder="yes">
+                                    <name>Attacks</name>
+                                    <script></script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex></regex>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Divinestrike</name>
+                                        <script>mtw.atk_conviction(&quot;divinestrike &quot;)</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^dvs$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Blasphemy</name>
+                                        <script>mtw.atk_conviction(&quot;blasphemy &quot;)</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^bas$</regex>
+                                    </Alias>
+                                </AliasGroup>
+                                <AliasGroup isActive="yes" isFolder="yes">
+                                    <name>Healing and Defenses</name>
+                                    <script></script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex></regex>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Zealotry</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+if matches[2] == &quot;&quot; then
+mtw.set_balance(&quot;castigate zeal&quot;)
+else
+mtw.set_balance(&quot;castigate zeal &quot;..matches[2])
+end
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^czl(.*)$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Blessed Water</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+if matches[2] == &quot;&quot; then
+mtw.set_balance(&quot;castigate replenish&quot;)
+else
+mtw.set_balance(&quot;castigate replenish &quot;..matches[2])
+end
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^blw(.*)$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Enlightenment</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+if matches[2] == &quot;&quot; then
+mtw.set_balance(&quot;castigate enlighten&quot;)
+else
+mtw.set_balance(&quot;castigate enlighten &quot;..matches[2])
+end
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^cen(.*)$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Saintly Protection</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+mtw.set_balance(&quot;castigate protection&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^csp$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Heavenly Chorus</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+mtw.set_balance(&quot;castigate chorus&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^chc$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Blood Sacrament</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+mtw.set_balance(&quot;castigate sacrament &quot;..matches[2])
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^cbs (\w+)$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Righteous Fervor</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+mtw.set_balance(&quot;castigate fervor &quot;..matches[2])
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^crf (\w+)$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Death's Veneration</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+mtw.set_balance(&quot;castigate venerate &quot;..matches[2])
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^cdv (\w+)$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Twilight Devotion</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+mtw.set_balance(&quot;castigate devotion &quot;..matches[2])
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^ctd (\w+)$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Stellar Combustion</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+mtw.set_balance(&quot;castigate combustion &quot;..matches[2])
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^csc (\w+)$</regex>
+                                    </Alias>
+                                </AliasGroup>
+                                <AliasGroup isActive="yes" isFolder="yes">
+                                    <name>Utility</name>
+                                    <script></script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex></regex>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Pious Hymn</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+if matches[2] == &quot;&quot; then
+mtw.set_balance(&quot;castigate hymn &quot;..mtw.target)
+else
+mtw.set_balance(&quot;castigate hymn &quot;..matches[2])
+end
+end
+</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^phm(.*)$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Soulsense</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+mtw.set_balance(&quot;castigate soulsense&quot;)
+end
+</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^css$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Puritan Light</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+mtw.set_balance(&quot;castigate light&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^cpl$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Holy Silence</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+mtw.set_balance(&quot;castigate silence&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^chs$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Holy Silence Dispel</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+mtw.set_balance(&quot;castigate dissolve silence&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^chsd$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Joyous Courage</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+mtw.set_balance(&quot;castigate courage&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^cjc$</regex>
+                                    </Alias>
+                                    <Alias isActive="yes" isFolder="no">
+                                        <name>Joyous Courage Dispel</name>
+                                        <script>if table.contains(mtw.skills, &quot;conviction&quot;) then
+mtw.set_balance(&quot;castigate dissolve courage&quot;)
+end</script>
+                                        <command></command>
+                                        <packageName></packageName>
+                                        <regex>^cjcd$</regex>
+                                    </Alias>
+                                </AliasGroup>
+                            </AliasGroup>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
                             <name>fighting</name>
@@ -6508,10 +6714,6 @@ mtw.gui.update_who_here()</script>
                     <regex>^hidechat$</regex>
                 </Alias>
                 <Alias isActive="no" isFolder="no">
-                    <name>show chat</name>
-                    <script>demonnic.chat.container:show()</script>
-                    <command></command>
-                    <packageName></packageName>
                     <regex>^showchat$</regex>
                 </Alias>
             </AliasGroup>

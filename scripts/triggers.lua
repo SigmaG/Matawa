@@ -3829,7 +3829,8 @@ end
 
 function mtw.trigger_680(matches,multimatches)
 mtw.def_gain("grip")
-tempTimer(0.25, [[if mtw.balance.balance and mtw.waiting.balance then mtw.waiting.balance = false end]])
+send(" ")
+tempTimer(1.00, [[if mtw.balance.balance and mtw.waiting.balance then mtw.waiting.balance = false send(" ") end]])
 end
 
 function mtw.trigger_681(matches,multimatches)
@@ -9921,7 +9922,7 @@ mtw.atk_hit(matches[2], nil, "bold_smite")
 end
 
 function mtw.trigger_1971(matches,multimatches)
-mtw.atk_defend(matches[2], nil, "bold_smite", matches[4])
+mtw.atk_defend(matches[2], nil, "bold_smite", matches[5])
 end
 
 function mtw.trigger_1972(matches,multimatches)
@@ -9937,7 +9938,7 @@ mtw.attack_hit(matches[2], "bold_smite")
 end
 
 function mtw.trigger_1975(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "bold_smite", matches[4])
+mtw.attack_defend(matches[2], nil, "bold_smite", matches[5])
 end
 
 function mtw.trigger_1976(matches,multimatches)
@@ -9953,7 +9954,7 @@ mtw.atk_hit(matches[2], nil, "crushing_smite")
 end
 
 function mtw.trigger_1979(matches,multimatches)
-mtw.atk_defend(matches[2], nil, "crushing_smite", matches[4])
+mtw.atk_defend(matches[2], nil, "crushing_smite", matches[5])
 end
 
 function mtw.trigger_1980(matches,multimatches)
@@ -9961,7 +9962,7 @@ mtw.attack_start(matches[3], "crushing_smite")
 end
 
 function mtw.trigger_1981(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "crushing_smite", matches[4])
+mtw.attack_defend(matches[2], nil, "crushing_smite", matches[5])
 end
 
 function mtw.trigger_1982(matches,multimatches)
@@ -9981,11 +9982,11 @@ mtw.atk_start(matches[2], matches[3], "virtuous_smite")
 end
 
 function mtw.trigger_1986(matches,multimatches)
-mtw.atk_hit(matches[2], nil, "virtuous_smite")
+mtw.atk_hit(matches[2], matches[4], "virtuous_smite")
 end
 
 function mtw.trigger_1987(matches,multimatches)
-mtw.atk_defend(matches[2], nil, "virtuous_smite", matches[4])
+mtw.atk_defend(matches[2], matches[4], "virtuous_smite", matches[5])
 end
 
 function mtw.trigger_1988(matches,multimatches)
@@ -9993,11 +9994,11 @@ mtw.attack_start(matches[3], "virtuous_smite")
 end
 
 function mtw.trigger_1989(matches,multimatches)
-mtw.attack_hit(matches[2], "virtuous_smite")
+mtw.attack_hit(matches[3], "virtuous_smite")
 end
 
 function mtw.trigger_1990(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "virtuous_smite", matches[4])
+mtw.attack_defend(matches[3], matches[2], "virtuous_smite", matches[5])
 end
 
 function mtw.trigger_1991(matches,multimatches)
@@ -10013,7 +10014,7 @@ mtw.attack_start(matches[2], "revelation")
 end
 
 function mtw.trigger_1994(matches,multimatches)
-mtw.attack_hit(matches[2], "revelation")
+mtw.attack_hit(matches[3], "revelation")
 end
 
 function mtw.trigger_1995(matches,multimatches)
