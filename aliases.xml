@@ -5258,9 +5258,9 @@ send(&quot; &quot;)</script>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>greater heal</name>
-                                    <script></script>
+                                    <script>mtw.al_thana(&quot;greater heal&quot;)</script>
                                     <command></command>
-                                    <packageName></packageName>
+                                    <packageName>^tgh(.*)$</packageName>
                                     <regex></regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">

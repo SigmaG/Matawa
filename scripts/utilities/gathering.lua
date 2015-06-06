@@ -45,7 +45,7 @@ if mtw.toggles.mining then
  cecho("\n<red>-----------------------")
  cecho("\n<red>   "..matches[2].." depleted")
  cecho("\n<red>-----------------------")
- send("vin 50 "..mtw.mining.material)
+ send("vin 50 "..mtw.mining.material.."ore")
  mtw.mining.found = false
  mtw.mining.material = "none"
 end
