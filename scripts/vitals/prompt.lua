@@ -78,7 +78,7 @@ if not mtw.status.combat and mtw.balance.balance and not mtw.waiting.balance and
 end
 
  if mtw.status.combat and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") then
-  if mtw.toggles.berserking and mtw.balance.balance and not mtw.waiting.balance and mtw.not_aff("prone") and mtw.not_entangled() then
+  if mtw.toggles.berserking and mtw.balance.balance and not mtw.waiting.balance and mtw.not_aff("prone") and mtw.not_entangled() and mtw.toggles.bashing then
    if mtw.my.class == "soldier" and table.contains(mtw.skills, "Berserking") and mtw.defenses.def_berserking.state ~= "deffed" and not berserk_sent then
     mtw.send("berserk")
     berserk_sent = true
