@@ -693,6 +693,28 @@ if table.contains(mtw.skills, "crusading") then
 end
 end
 
+function mtw.atk_conviction(skill)
+if table.contains(mtw.skills, "conviction") then
+ mtw.set_balance("castigate "..skill.." "..mtw.target)
+end
+end
+
+function mtw.hymn_alias(matches)
+if table.contains(mtw.skills, "conviction") then
+ if matches[2] == "" then
+  mtw.set_balance("castigate hymn "..mtw.target)
+ else
+  mtw.set_balance("castigate hymn "..matches[2])
+ end
+end
+end
+
+function mtw.al_do_conviction(s)
+if table.contains(mtw.skills, "crusading") then
+ mtw.set_balance(s)
+end
+end
+
 -- fighting and vigilance aliases
 
 function mtw.perfect_defense_alias()
