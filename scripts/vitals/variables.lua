@@ -362,6 +362,7 @@ mtw.tutors = {
 --Weapon types list
 mtw.weapons = {
 "saber",
+"sabre",
 "longsword",
 "rapier",
 "flail",
@@ -380,12 +381,13 @@ mtw.weapons = {
 "ax",
 "bone",
 "halberd",
-"guan"
+"guan",
 }
 
 mtw.offweapons = {
 "dagger",
 "sai",
+"katar",
 "poniard",
 "shield",
 "Shield",
