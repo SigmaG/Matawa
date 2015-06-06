@@ -74,14 +74,16 @@ function mtw.magician_bash()
    elseif mtw.balance.barrage and table.contains(mtw.skills, "Eldritch Barrage") and mtw.toggles.barraging and (mtw.vitals.cadence >= 1 or mtw.defenses.def_stormfury.state ~= "deffed") and mtw.bashing.engaged then
    mtw.send("cast eldritch barrage "..mtw.bashing.target)
    elseif mtw.toggles.spiking and table.contains(mtw.skills, "Ice Spikes") then
-   if mtw.defenses.def_stormfury.state == "deffed" and mtw.vitals.cadence == 3 and getStopWatchTime(mtw.last_lance) <= 20 then
-     mtw.send("cast ice spikes "..mtw.bashing.target)
-     elseif mtw.defenses.def_stormfury.state == "deffed" then
-     mtw.send("cast stormlance "..mtw.bashing.target)
-     elseif mtw.defenses.def_stormfury.state ~= "deffed" then
-     mtw.send("cast ice spikes "..mtw.bashing.target)
-   end
-   elseif table.contains(mtw.skills, "Balefire") and not mtw.toggles.balefiring and mtw.defenses.def_stormfury.state == "deffed" and mtw.vitals.cadence >= 1 and not mtw.casted.balefire then
+    if mtw.defenses.def_stormfury.state == "deffed" then
+      if mtw.vitals.cadence == 3 and getStopWatchTime(mtw.last_lance) <= 20 then
+       mtw.send("cast ice spikes "..mtw.bashing.target)
+      else
+       mtw.send("cast stormlance "..mtw.bashing.target)
+      end
+    else
+      mtw.send("cast ice spikes "..mtw.bashing.target)
+    end
+   elseif table.contains(mtw.skills, "Balefire") and mtw.vitals.percent.magic <= 80 and mtw.vitals.cadence >= 1 and not mtw.toggles.balefiring and not mtw.casted.balefire and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" then
    mtw.send("cast balefire "..mtw.bashing.target)
    elseif table.contains(mtw.skills, "Balefire") and mtw.toggles.balefiring then
    mtw.send("cast balefire "..mtw.bashing.target)
