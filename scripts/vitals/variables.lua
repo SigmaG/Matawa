@@ -28,6 +28,8 @@ defending = true,
 focusing = true,
 overdriving = true,
 standing = true,
+contorting = false,
+mmrejecting = false,
 debug = false,
 
 bashing = false,
@@ -58,6 +60,7 @@ shadowmending = true,
 hereticing = false,
 igniting = false,
 flourishing = true,
+prophesying = true,
 anachronizing = false,
 immolating = false,
 mindblasting = true,
@@ -72,7 +75,10 @@ swording = true,
 balefiring = false,
 palming = false,
 revitalizing = true,
+despraying = true,
 raking = true,
+divinestriking = false,
+knifing = false,
 --Name/numeric targeting
 generics = false,
 --Bashing options
@@ -93,6 +99,7 @@ rewall = false,
 freezing = false,
 scrying = false,
 gripping = false,
+verdicting = true,
 --Keep pack closed
 closing = true,
 --Repeat the same queued attack
@@ -164,6 +171,7 @@ mtw.last_item = "none"
 mtw.units = {}
 
 mtw.last_lance = createStopWatch()
+mtw.last_bleedtic = createStopWatch()
 
 mtw.losingall = false
 mtw.people_online = {}
@@ -187,6 +195,11 @@ mtw.stand_queued = false
 mtw.anach = false
 mtw.my_time = 0
 mtw.aff_color = ""
+
+mtw.final_moments = {
+run_through1 = false,
+withdraw_weapon1 = true,
+}
 
 --GATHERING STUFF
 mtw.mining = {
@@ -366,12 +379,17 @@ mtw.weapons = {
 "pole",
 "pick",
 "ax",
+"bone",
+"halberd",
+"guan"
 }
 
 mtw.offweapons = {
 "dagger",
+"sai",
 "poniard",
 "shield",
+"Shield",
 }
 
 --status
@@ -425,6 +443,7 @@ roar = true,
 overdrive = true,
 focus = true,
 flourish = true,
+prophesy = true,
 anachronize = true,
 barrage = true,
 canto = true,
@@ -437,6 +456,8 @@ perfect = true,
 desperate = true,
 rage = true,
 immunity = true,
+secondwind = true,
+hallowed_verdict = true,
 }
 
 mtw.waiting = {
@@ -450,6 +471,7 @@ stand = false,
 writhe = false,
 overdrive = false,
 flourish = false,
+prophesy = false,
 ih = false,
 slow = false,
 sent = false,
@@ -458,6 +480,8 @@ recover = false,
 wield = false,
 loot = false,
 bash = false,
+secondwind = false,
+hallowed_verdict = false,
 }
 
 --Balance reset timers
@@ -467,6 +491,7 @@ equilibrium = {timer = createStopWatch(), cap = 0},
 offhand = {timer = createStopWatch(), cap = 22},
 overdrive = {timer = createStopWatch(), cap = 5},
 focus = {timer = createStopWatch(), cap = 5},
+prophesy = {timer = createStopWatch(), cap = 5},
 flourish = {timer = createStopWatch(), cap = 6},
 anachronize = {timer = createStopWatch(), cap = 100},
 barrage = {timer = createStopWatch(), cap = 60},
@@ -480,6 +505,9 @@ desperate = {timer = createStopWatch(), cap = 125},
 rage = {timer = createStopWatch(), cap = 200},
 immunity = {timer = createStopWatch(), cap = 125},
 psi = {timer = createStopWatch(), cap = 18},
+secondwind = {timer = createStopWatch(), cap = 35},
+refrain = {timer = createStopWatch(), cap = 200},
+hallowed_verdict = {timer = createStopWatch(), cap = 30},
 }
 
 --Healing command reset tracking
@@ -509,6 +537,8 @@ wp = false,
 whohere = false,
 qw = false,
 prelude = false,
+contort = false,
+writhe = false,
 inv = false
 }
 

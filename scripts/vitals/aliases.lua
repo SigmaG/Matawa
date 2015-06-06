@@ -77,6 +77,8 @@ function mtw.toggles_alias()
  mtw.disp_toggle("closing", "tcl: closing pack")
  mtw.disp_toggle("looping", "tlp: looping a single attack")
  mtw.disp_toggle("countering", "tcoun: use of counter or inquartata")
+ mtw.disp_toggle("contorting", "tcr: use contort instead of writhe")
+ mtw.disp_toggle("mmrejecting", "tmm: reject mindmeld")
  echo("\nDisplay Toggles:")
  mtw.disp_toggle("dispprompt", "tdp: display prompt or not")
  mtw.disp_toggle("percents", "tpr: numbers/percents on prompt")
@@ -114,6 +116,7 @@ function mtw.toggles_alias()
   mtw.disp_toggle("freezing", "tfrz: maintain freezing the ground")
  elseif mtw.my.class == "priest" then
   mtw.disp_toggle("liturgy", "tlit: liturgy when available")
+  mtw.disp_toggle("desp-praying", "tdesp: toggle desperate prayer")
  end
  send(" ")
 end
@@ -165,6 +168,7 @@ function mtw.bashing_aliases()
   mtw.disp_toggle("revitalizing", "trv: toggle revitalizing")
   if table.contains(mtw.skills, "bloodlore") then
    mtw.disp_toggle("savaging", "tsv: toggle savaging")
+   mtw.disp_toggle("knifing", "tkni: toggle blood knifing")
    mtw.disp_toggle("bloodsensing", "tbds: toggle bloodsensing (send bloodsense before every attack)")
   end
   if table.contains(mtw.skills, "shadoweaving") then
@@ -172,6 +176,10 @@ function mtw.bashing_aliases()
   end
   if table.contains(mtw.skills, "crusading") then
    mtw.disp_toggle("dominating", "tdom: toggle dominating strike")
+  end
+  if table.contains(mtw.skills, "conviction") then
+   mtw.disp_toggle("divinestriking", "tdiv: toggle divine strike")
+   mtw.disp_toggle("prophesying", "tpro: toggle prophesy")
   end
  elseif mtw.my.class == "magician" then
   mtw.disp_toggle("igniting", "tigt: toggle igniting")

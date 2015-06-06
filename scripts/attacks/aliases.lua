@@ -88,6 +88,43 @@ function mtw.al_do_soldier(s)
  end
 end
 
+function mtw.al_warmonger(skill)
+ if mtw.my.class == "soldier" and mtw.skills.warmongering then
+  mtw.set_balance(skill .. " "..mtw.target)
+ end
+end
+
+function mtw.al_do_warmonger(s)
+ if mtw.my.class == "soldier" and mtw.skills.warmongering then
+  mtw.set_balance(s)
+ end
+end
+
+function mtw.al_berserker(skill)
+ if mtw.my.class == "soldier" and mtw.skills.brutality then
+  mtw.set_balance(skill .. " "..mtw.target)
+ end
+end
+
+function mtw.al_do_berserker(s)
+ if mtw.my.class == "soldier" and mtw.skills.brutality then
+  mtw.set_balance(s)
+ end
+end
+
+function mtw.al_swordmaster(skill)
+ if mtw.my.class == "soldier" and mtw.skills.swordmastery then
+  mtw.set_balance(skill .. " "..mtw.target)
+ end
+end
+
+function mtw.al_do_swordmaster(s)
+ if mtw.my.class == "soldier" and mtw.skills.swordmastery then
+  mtw.set_balance(s)
+ end
+end
+
+
 function mtw.last_stand_alias()
 if mtw.balance.last_stand then
  mtw.defenses["def_last_stand"].needit = true

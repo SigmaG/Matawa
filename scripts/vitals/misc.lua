@@ -104,6 +104,7 @@ function mtw.not_entangled()
     mtw.not_aff("earthbind") and
     mtw.not_aff("feed") and
     mtw.not_aff("oubliette") and
+    mtw.not_aff("umbral_beckoned") and
     mtw.not_aff("hogtie") and
     mtw.not_aff("hostage")) or
     mtw.have_aff("dystrophy") then
@@ -250,6 +251,9 @@ function mtw.enemy_afflictions()
  if mtw.afflictions.aff_atoning.assess and mtw.afflictions.aff_heresy and mtw.afflictions.aff_retribution.assess then
   cecho("\n<red>===Enemy CAN BE JUDGED!")
  end
+ if (mtw.afflictions.aff_hamstrung.assess) and (mtw.afflictions.aff_bleeding_3.assess or mtw.afflictions.aff_bleeding_4.assess or mtw.afflictions.aff_bleeding_5.assess) and (mtw.afflictions.aff_severed_nerves_2.assess or mtw.afflictions.aff_severed_nerves_3.assess or mtw.afflictions.aff_severed_nerves_4.assess or mtw.afflictions.aff_severed_nerves_5.assess) then
+  cecho("\n<red>===Enemy CAN BE COUP DE GRACED!")
+ end
  if mtw.afflictions.aff_tainted_aura.assess or mtw.afflictions.aff_depression.assess then
   cecho("\n<red>===Enemy can't OVERDRIVE!")
  end
@@ -312,6 +316,7 @@ function mtw.reset_affwaiting()
  end
 end
 function mtw.reset_defenses()
+ mtw.load_def("none")
  for i in pairs(mtw.defenses) do
   mtw.def_remove(i)
  end
@@ -323,7 +328,9 @@ function mtw.soft_reset()
  for i in pairs(mtw.reject) do
   mtw.reject[i] = "none"
  end
- mtw.status.writhing = false
+ --mtw.status.writhing = false
+ --moving status.writhing from soft reset to hard reset
+ --blackout while writhing causes problems
  mtw.status.clotting = false
  mtw.status.combat = false
  mtw.status.defending = false
@@ -349,6 +356,9 @@ function mtw.reset_all()
 
  mtw.recovering_balance = false
  mtw.recovering_equilibrium = false
+ --temp test--
+ mtw.status.writhing = false
+ ----
 
  mtw.toggles.bashing = false
  mtw.bashing.targeted = false
@@ -396,13 +406,19 @@ function mtw.check_recklessness()
   end
  end
 
+ if candidate and not mtw.status.combat and not mtw.check.long_reckless then -- for out of combat recklessness check, we use long reckless check
+  mtw.check.long_reckless = true
+ end
+
  if not candidate then
-  if mtw.vitals.adrenaline == -1 and not mtw.status.combat then
+   if mtw.vitals.adrenaline == -1 and not mtw.status.combat then
    tempTimer(2,[[if mtw.vitals.adrenaline == -1 then mtw.vitals.adrenaline = 5 end]])
+   if mtw.vitals.adrenaline == -1 then mtw.vitals.adrenaline = 5 end
   end
-  mtw.aff_remove("recklessness")
+  --mtw.aff_remove("recklessness")
   mtw.check.reckless = false
   mtw.check.long_reckless = false
+  mtw.check.long_reckless_waiting = false
   if mtw.timer_reckless then
    killTimer(mtw.timer_reckless)
    mtw.timer_reckless = nil
@@ -410,19 +426,23 @@ function mtw.check_recklessness()
   return
  end
 
- if mtw.check.reckless and mtw.status.combat then
-  mtw.aff_have("recklessness")
-  mtw.check.reckless = false
- else
-  if not mtw.check.long_reckless then -- we want to start the check only once
-   mtw.check.long_reckless = true
-   tempTimer(0.1,[[mtw.delete_prompt = true;send(" ",false)]])
-   tempTimer(0.4,[[mtw.delete_prompt = true;send(" ",false)]])
-   tempTimer(0.7,[[mtw.delete_prompt = true;send(" ",false)]])
-   tempTimer(1.0,[[mtw.delete_prompt = true;send(" ",false)]])
-   tempTimer(1.3,[[mtw.delete_prompt = true;send(" ",false)]])
-   mtw.timer_reckless = tempTimer(1.5,[[mtw.end_reckless_check()]])
-  end
+ if mtw.check.reckless then -- System already sets check.reckless to true when players take damage
+   mtw.aff_have("recklessness")
+   mtw.check.reckless = false
+ end
+ -- Therefore, we want to keep check.reckless separate from mtw.check.long_reckless
+ if mtw.check.long_reckless and not mtw.check.long_reckless_waiting then -- we want to start the long reckless check only once
+    mtw.check.long_reckless_waiting = true
+    tempTimer(0.5,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(1,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(1.5,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(2,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(2.5,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(3,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(3.5,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(4,[[mtw.delete_prompt = true;send(" ",false)]])
+    tempTimer(4.5,[[mtw.delete_prompt = true;send(" ",false)]])
+    mtw.timer_reckless = tempTimer(5,[[mtw.end_reckless_check()]]) -- five seconds is how long it takes adrenaline/guile/faith to decay
  end
 end
 
@@ -430,6 +450,7 @@ function mtw.end_reckless_check()
  if mtw.check.long_reckless then -- this means that no prompt went under 100%
   mtw.aff_have("recklessness")
   mtw.check.long_reckless = false
+  mtw.check.long_reckless_waiting = false
   send(" ",false)
  end
 end
