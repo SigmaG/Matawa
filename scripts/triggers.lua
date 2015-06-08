@@ -9088,7 +9088,7 @@ mtw.attack_start(matches[2], "incinerate")
 end
 
 function mtw.trigger_1846(matches,multimatches)
-mtw.attack_start(matches[2], "incinerate")
+mtw.attack_hit(matches[2], "incinerate")
 end
 
 function mtw.trigger_1847(matches,multimatches)
