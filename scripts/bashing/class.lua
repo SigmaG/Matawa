@@ -53,7 +53,12 @@ function mtw.soldier_bash()
   if mtw.balance.secondwind and mtw.waiting.balance and table.contains(mtw.skills, "Second Wind") then
     mtw.send("secondwind")
   end
- elseif (mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping")) and mtw.balance.balance and not mtw.need_wield then
+ elseif (mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping")) and table.contains(mtw.skills, "Crescent Slash") and mtw.toggles.crescentslashing and not mtw.need_wield then
+  mtw.send("crescentslash "..mtw.bashing.target)
+  if mtw.balance.secondwind and mtw.waiting.balance and table.contains(mtw.skills, "Second Wind") then
+    mtw.send("secondwind")
+  end
+ elseif (mtw.defenses.def_grip.state == "deffed" or not table.contains(mtw.skills, "Gripping")) and not mtw.need_wield then
   mtw.send("slash "..mtw.bashing.target)
   if mtw.balance.secondwind and mtw.waiting.balance and table.contains(mtw.skills, "Second Wind") then
     mtw.send("secondwind")

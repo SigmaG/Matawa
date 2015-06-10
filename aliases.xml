@@ -508,6 +508,13 @@
                                 <packageName></packageName>
                                 <regex>^tkni$</regex>
                             </Alias>
+                            <Alias isActive="yes" isFolder="no">
+                                <name>crescentslashing</name>
+                                <script>mtw.toggle(&quot;crescentslashing&quot;)</script>
+                                <command></command>
+                                <packageName></packageName>
+                                <regex>^tcrs$</regex>
+                            </Alias>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
                             <name>Misc Toggles</name>
