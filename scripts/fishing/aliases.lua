@@ -37,8 +37,19 @@ send(" ")
 end
 
 function mtw.fishing_distance(matches)
-mtw.fishing.distance = matches[2]
-echo("Distance is: "..mtw.fishing.distance)
+local d = matches[2]:lower()
+if d == "" or d == "short" or d == "s" then
+ mtw.fishing.distance = ""
+ echo("Distance is: short")
+elseif d == "l" or d == "long" then
+ mtw.fishing.distance = "long"
+ echo("Distance is: long")
+elseif d == "m" or d == "medium" then
+ mtw.fishing.distance = "medium"
+ echo("Distance is: medium")
+else
+ echo("Invalid choice of distance! Short, medium or long are the options.\n")
+end
 send(" ")
 end
 
