@@ -12,6 +12,7 @@ function mtw.do_core()
   else
    if mtw.am_functional() and mtw.not_aff("sleep") then
 --    mtw.do_action()
+    mtw.do_counter()
     mtw.do_balance()
     mtw.do_equil()
     if table.contains(mtw.skills, "psionics") then
@@ -62,7 +63,6 @@ function mtw.do_healing()
     mtw.do_loot()
    end
    mtw.do_diag()
-   mtw.do_counter()
    mtw.do_queue()
    mtw.do_stuff()
    if mtw.balance.equilibrium and not mtw.waiting.equilibrium then
