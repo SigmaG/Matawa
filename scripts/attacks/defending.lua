@@ -338,9 +338,11 @@ function mtw.atk_defended(attacker, defense)
   cecho("<purple>\nYou: <green>"..defense.." <purple>"..attacker.."!")
  end
 --Indicate that a defense was recently used, enabling counter attacks
- mtw.recent_defend = true
+ if not mtw.recent_defend then
+  mtw.recent_defend = true
 --Clear the counter attack window when it expires
- tempTimer(5, [[mtw.recent_defend = false]])
+  tempTimer(1, [[mtw.recent_defend = false]])
+ end
  if defense == "BLOCK" and table.contains(mtw.skills, "Shield Smash") then
   cecho("<blue>\nSHIELD SMASH NOW!!")
   cecho("<blue>\nSHIELD SMASH NOW!!")
