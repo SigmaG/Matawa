@@ -168,12 +168,12 @@ function mtw.priest_bash()
    mtw.send("deathcall exorcism "..mtw.bashing.target)
   elseif mtw.vitals.current.faith > 100 and table.contains(mtw.skills, "Torturous Whip") and mtw.toggles.lashing then
    mtw.send("shadowcall lash "..mtw.bashing.target)
+  elseif mtw.vitals.current.faith > 200 and mtw.toggles.swording and table.contains(mtw.skills, "Holy Sword") and mtw.enemy_health ~= "<red> 0-10%" then
+   mtw.send("smite "..mtw.bashing.target.." with holy sword")
   elseif mtw.vitals.current.faith > 100 and table.contains(mtw.skills, "Knife of Woe") and mtw.toggles.knifing and (bleeding_state == true or mtw.used.savage) then
    mtw.send("bloodcall knife "..mtw.bashing.target)
   elseif mtw.vitals.current.faith > 100 and table.contains(mtw.skills, "Divinestrike") and mtw.toggles.divinestriking then
    mtw.send("castigate divinestrike "..mtw.bashing.target)
-  elseif mtw.vitals.current.faith > 200 and mtw.toggles.swording and table.contains(mtw.skills, "Holy Sword") and mtw.enemy_health ~= "<red> 0-10%" then
-   mtw.send("smite "..mtw.bashing.target.." with holy sword")
   elseif mtw.vitals.current.faith > 75 and table.contains(mtw.skills, "Zealous Mandate") and mtw.toggles.mandate then
    mtw.send("smite "..mtw.bashing.target.." with zealous mandate")
   elseif (mtw.enemy_health == "<brown> UNDEAD" or mtw.my.area == "a crypt in the Highlands") and table.contains(mtw.skills, "Holy Fire") then
