@@ -245,7 +245,7 @@ function mtw.aff_gain(affliction)
  mtw.aff_have(affliction)
  if affliction == "aff_amnesia" and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") then
   for i = 1,5 do
-   mtw.send("blink")
+   mtw.send("stand")
   end
  end
 end
