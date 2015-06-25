@@ -1394,6 +1394,7 @@ end
 end
 
 function mtw.trigger_196(matches,multimatches)
+mtw.scry_string = ""
 if mtw.scry.found ~= "none" then
  if mtw.scry.call ~= "none" then
   mtw.scry_string = mtw.scry.call
