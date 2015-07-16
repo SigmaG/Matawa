@@ -173,6 +173,8 @@ mtw.units = {}
 mtw.last_lance = createStopWatch()
 mtw.last_bleedtic = createStopWatch()
 
+mtw.timewarp_check = createStopWatch()
+
 mtw.losingall = false
 mtw.people_online = {}
 mtw.people = {}
@@ -484,6 +486,7 @@ loot = false,
 bash = false,
 secondwind = false,
 hallowed_verdict = false,
+did_stuff = false,
 }
 
 --Balance reset timers

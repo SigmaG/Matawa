@@ -2085,8 +2085,12 @@ mtw.aff_have("broken_left_arm")
 mtw.aff_have("broken_right_arm")
 end
 
-function mtw.trigger_311(matches,multimatches)
+function mtw.trigger_311a(matches,multimatches)
 mtw.aff_have("broken_"..matches[2].."_arm")
+end
+
+function mtw.trigger_311b(matches,multimatches)
+mtw.aff_have("broken_"..matches[2].."_leg")
 end
 
 function mtw.trigger_312(matches,multimatches)
@@ -2306,7 +2310,21 @@ mtw.aff_have("concussion")
 end
 
 function mtw.trigger_349(matches,multimatches)
-mtw.aff_have("severed_nerves")
+if mtw.have_aff("severed_nerves_5") then
+ mtw.aff_cure("severed_nerves_5")
+ mtw.aff_have("severed_nerves_4")
+elseif mtw.have_aff("severed_nerves_4") then
+ mtw.aff_cure("severed_nerves_4")
+ mtw.aff_have("severed_nerves_3")
+elseif mtw.have_aff("severed_nerves_3") then
+ mtw.aff_cure("severed_nerves_3")
+ mtw.aff_have("severed_nerves_2")
+elseif mtw.have_aff("severed_nerves_2") then
+ mtw.aff_cure("severed_nerves_2")
+ mtw.aff_have("severed_nerves_1")
+else
+ mtw.aff_cure("severed_nerves_1")
+end
 end
 
 function mtw.trigger_350(matches,multimatches)
@@ -2921,8 +2939,8 @@ function mtw.trigger_473(matches,multimatches)
 --mtw.reset_waiting()
 mtw.aff_have("timewarp")
 mtw.waiting.slow = true
-tempTimer(1.1, [[mtw.waiting.slow = false]])
-tempTimer(1.2, mtw.do_core)
+--tempTimer(1.1, [[mtw.waiting.slow = false]])
+--tempTimer(1.2, mtw.do_core())
 end
 
 function mtw.trigger_474(matches,multimatches)

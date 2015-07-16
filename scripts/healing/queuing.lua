@@ -816,7 +816,11 @@ function mtw.slow_queue()
 --   mtw.do_balance()
 --   mtw.do_equil()
    mtw.do_queue()
+   if not mtw.waiting.slow and not mtw.waiting.did_stuff then
    mtw.do_stuff()
+   mtw.waiting.did_stuff = true
+   tempTimer(mtw.delay(), [[mtw.waiting.did_stuff = false]])
+   end
   end
  end
 end
