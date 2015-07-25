@@ -96,7 +96,7 @@ def_corpus_callosum = {defense = "amplified corpus callosum", type = "normal", e
 def_hippocampus = {defense = "amplified hippocampus", type = "normal", effect = "fear immunity", balance = {balanceneed = "psi amplify hippocampus"}, state = "down", needit = false, timer = createStopWatch()},
 def_cerebral_cortex = {defense = "amplified cerebral cortex", type = "normal", effect = "drunken speech immunity", balance = {balanceneed = "psi amplify cortex"}, state = "down", needit = false, timer = createStopWatch()},
 --Soldier: Arms
-def_grip = {defense = "", type = "normal", effect = "One-time immunity to DISARM", balance = {balanceneed = "grip"}, state = "down", needit = false, timer = createStopWatch()},
+def_grip = {defense = "grip", type = "normal", effect = "One-time immunity to DISARM", balance = {balanceneed = "grip"}, state = "down", needit = false, timer = createStopWatch()},
 def_berserking = {defense = "", type = "normal", effect = "Increases damage delt and taken", skill = "Berserking", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_enrage = {defense = "", type = "normal", effect = "Passively regenerating adrenaline", skill = "Enrage", balance = {equilibriumtake = "rage"}, state = "down", needit = false, timer = createStopWatch()},
 --Soldier: Warcraft
@@ -104,7 +104,7 @@ def_warcry = {defense = "call to war", type = "normal", effect = "Increased heal
 def_bloodthirst = {defense = "", type = "normal", effect = "Passively regenerating health", skill = "Bloodthirst", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_aggressive_stance = {defense = "", type = "normal", effect = "10% increased damage, 5% increased precision, taking 10% more damage", skill = "Aggressive Stance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_defensive_stance = {defense = "", type = "normal", effect = "10% damage resistance, 10% less damage dealt	", skill = "Defensive Stance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
-def_lightning_stance = {defense = "", type = "normal", effect = "15% increased attack speed, 20% less damage dealt", skill = "Lightning Stance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_lightning_stance = {defense = "", type = "normal", effect = "15% increased evasion, 20% less damage dealt", skill = "Lightning Stance", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_stand_ground = {defense = "", type = "normal", effect = "Resisting forced movement", skill = "Stand Ground", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_tenacity = {defense = "focused tenacity", type = "normal", effect = "Immune to knockdown - may be stripped", skill = "Tenacity", balance = {needyequilibriumtake = "tenacity"}, state = "down", needit = false, timer = createStopWatch()},
 def_shielding = {defense = "", type = "normal", effect = "Intercepting attacks against target", skill = "Shield of the Weak", balance = {}, state = "down", needit = false, timer = createStopWatch()},
@@ -116,6 +116,9 @@ def_brutal_savagery = {defense = "", type = "normal", effect = "Passively regene
 def_greenburst = {defense = "", type = "normal", effect = "", skill = "Greenburst", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_phoenix_crouching = {defense = "", type = "normal", effect = "", skill = "Phoenix Crouching", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_serenity = {defense = "", type = "normal", effect = "Deflecting and reflecting ranged attacks", skill = "Serenity", balance = {balanceneed = "serenity"}, state = "down", needit = false, timer = createStopWatch()},
+--Soldier: Warmongering
+def_heatvision = {defense = "heatvision", type = "normal", effect = "See through ashfall", skill = "Heatvision", balance = {balancetake = "heatvision on"}, state = "down", needit = false, timer = createStopWatch()},
+def_tyranny = {defense = "tyranny", type = "important", effect = "Passive afflictions", skill = "Tyranny", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Righteousness
 --Priest: Faith
 def_divine_armor = {defense = "divine armor", type = "normal", effect = "Increased damage resistance", skill = "Divine Armor", balance = {needyequilibriumtake = "pray for divine armor"}, state = "down", needit = false, timer = createStopWatch()},
@@ -124,10 +127,10 @@ def_glorious_word = {defense = "glorious word", type = "normal", effect = "+10 S
 def_divine_mantle = {defense = "", type = "normal", effect = "Increase faith of non-priests in your presence", skill = "Divine Mantle", balance = {needybalancetake = "pray for divine mantle"}, state = "down", needit = false, timer = createStopWatch()},
 def_refuge = {defense = "faithful refuge", type = "normal", effect = "Next attack against you will miss", skill = "Faithful Refuge", balance = {needyequilibriumtake = "pray for faithful refuge"}, state = "down", needit = false, timer = createStopWatch()},
 def_radiant_word = {defense = "radiant word", type = "normal", effect = "+10 Dexterity", skill = "Radiant Word", balance = {needybalancetake = "pray for radiant word"}, state = "down", needit = false, timer = createStopWatch()},
-def_crusader_mantle = {defense = "", type = "normal", effect = "Increase protection received from armor", skill = "Crusader Mantle", balance = {needybalancetake = "pray for crusader mantle"}, state = "down", needit = false, timer = createStopWatch()},
-def_sanctification = {defense = "", type = "important", effect = "Protect your Mantle from assault", skill = "Sanctification", balance = {needybalancetake = "pray for sanctification"}, state = "down", needit = false, timer = createStopWatch()},
-def_spiritshield = {defense = "", type = "normal", effect = "Dramatic increase in damage resistance", skill = "Spiritshield", balance = {needybalancetake = "pray for spiritshield"}, state = "down", needit = false, timer = createStopWatch()},
-def_inspiring_mantle = {defense = "", type = "normal", effect = "Passively regenerates adrenaline", skill = "Inspiring Mantle", balance = {needybalancetake = "pray for inspiring mantle"}, state = "down", needit = false, timer = createStopWatch()},
+def_crusader_mantle = {defense = "crusader mantle", type = "normal", effect = "Increase protection received from armor", skill = "Crusader Mantle", balance = {needybalancetake = "pray for crusader mantle"}, state = "down", needit = false, timer = createStopWatch()},
+def_sanctification = {defense = "sanctification", type = "important", effect = "Protect your Mantle from assault", skill = "Sanctification", balance = {needybalancetake = "pray for sanctification"}, state = "down", needit = false, timer = createStopWatch()},
+def_spiritshield = {defense = "spiritshield", type = "normal", effect = "Dramatic increase in damage resistance", skill = "Spiritshield", balance = {needybalancetake = "pray for spiritshield"}, state = "down", needit = false, timer = createStopWatch()},
+def_inspiring_mantle = {defense = "inspiring mantle", type = "normal", effect = "Passively regenerates adrenaline", skill = "Inspiring Mantle", balance = {needybalancetake = "pray for inspiring mantle"}, state = "down", needit = false, timer = createStopWatch()},
 def_harvest_boon = {defense = "", type = "normal", effect = "Increase experience gains for your party", skill = "Harvest Boon", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 def_illuminated_word = {defense = "illuminated word", type = "normal", effect = "+10 Intelligence", skill = "Illuminated Word", balance = {needybalancetake = "pray for illuminated word"}, state = "down", needit = false, timer = createStopWatch()},
 def_blessed_mantle = {defense = "", type = "normal", effect = "Regenerates health over time", skill = "Blessed Mantle", balance = {needybalancetake = "pray for blessed mantle"}, state = "down", needit = false, timer = createStopWatch()},
@@ -145,9 +148,14 @@ def_deaths_door = {defense = "death's door", type = "normal", effect = "Resurect
 def_flameborne = {defense = "", type = "normal", effect = "", skill = "Flameborne", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Shadoweaving
 --Priest: Bloodlore
-def_bloody_mantle = {defense = "", type = "normal", effect = "", skill = "Bloody Mantle", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_bloody_mantle = {defense = "bloody mantle", type = "normal", effect = "retaliate enemy attacks with hemophilia", skill = "Bloody Mantle", balance = {}, state = "down", needit = false, timer = createStopWatch()},
+def_sanguine_aspect = {defense = "sanguine aspect", type = "normal", effect = "", skill = "Sanguine Aspect", balance = {}, state = "down", needit = false, timer = createStopWatch()},
 --Priest: Crusading
 def_conviction = {defense = "conviction", type = "normal", effect = "5% precision gain when defended", skill = "Conviction", balance = {needybalancetake = "warcall conviction"}, state = "down", needit = false, timer = createStopWatch()},
+--Priest: Conviction
+def_zealotry = {defense = "zealotry", type = "normal", effect = "increased faith reserve", skill = "Zealotry", balance = {needybalancetake = "castigate zeal"}, state = "down", needit = false, timer = createStopWatch()},
+def_ascension = {defense = "graceful ascension", type = "normal", effect = "levitation and one-time knockdown immunity", skill = "Graceful Ascension", balance = {needybalancetake = "castigate ascension"}, state = "down", needit = false, timer = createStopWatch()},
+def_protection = {defense = "saintly protection", type = "normal", effect = "occasionally blocks attacks", skill = "Saintly Protection", balance = {needyequilibriumtake = "castigate protection"}, state = "down", needit = false, timer = createStopWatch()},
 }
 
 --give/take functions
@@ -380,6 +388,27 @@ def_censer = "once",
 def_arrow = "once",
 },
 
+warmonger = {
+def_rose = "on",
+def_thirdeye = "once",
+def_skywatch = "once",
+def_deathsense = "once",
+def_nightvision = "once",
+def_insomnia = "on",
+--def_forboding = "once",
+--def_premonition = "once",
+def_hourglass = "on",
+def_selfishness = "on",
+def_grip = "on",
+def_enrage = "on",
+def_warcry = "on",
+def_tenacity = "on",
+def_immunity = "once",
+--def_serenity = "once",
+--def_censer = "once",
+--def_arrow = "once",
+},
+
 rogue = {
 def_rose = "on",
 def_thirdeye = "once",
@@ -476,6 +505,34 @@ def_inspiring_mantle = "once",
 def_sanctification = "once",
 def_deathsight = "once",
 def_spectral_vision = "once",
+--def_deathwhisper = "once",
+},
+
+mission = {
+def_rose = "on",
+def_thirdeye = "once",
+def_skywatch = "once",
+def_deathsense = "once",
+def_nightvision = "once",
+def_insomnia = "on",
+def_forboding = "once",
+--def_premonition = "once",
+def_hourglass = "once",
+def_selfishness = "on",
+def_grip = "on",
+def_censer = "once",
+def_arrow = "once",
+def_divine_armor = "once",
+def_refuge = "once",
+def_glorious_word = "once",
+def_radiant_word = "once",
+def_illuminated_word = "once",
+def_righteous_word = "once",
+def_blessed_word = "once",
+def_inspiring_mantle = "once",
+def_sanctification = "once",
+def_zealotry = "once",
+def_ascension = "once",
 --def_deathwhisper = "once",
 },
 

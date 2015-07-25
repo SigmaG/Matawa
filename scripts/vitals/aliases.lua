@@ -77,6 +77,8 @@ function mtw.toggles_alias()
  mtw.disp_toggle("closing", "tcl: closing pack")
  mtw.disp_toggle("looping", "tlp: looping a single attack")
  mtw.disp_toggle("countering", "tcoun: use of counter or inquartata")
+ mtw.disp_toggle("contorting", "tcr: to prioritize contorting")
+ mtw.disp_toggle("mmrejecting", "tmm: rejecting mindmeld")
  echo("\nDisplay Toggles:")
  mtw.disp_toggle("dispprompt", "tdp: display prompt or not")
  mtw.disp_toggle("percents", "tpr: numbers/percents on prompt")
@@ -114,6 +116,8 @@ function mtw.toggles_alias()
   mtw.disp_toggle("freezing", "tfrz: maintain freezing the ground")
  elseif mtw.my.class == "priest" then
   mtw.disp_toggle("liturgy", "tlit: liturgy when available")
+  mtw.disp_toggle("revitalizing", "tlit: liturgy when available")
+  mtw.disp_toggle("desp-praying", "tlit: liturgy when available")
  end
  send(" ")
 end
@@ -145,6 +149,9 @@ function mtw.bashing_aliases()
     if table.contains(mtw.skills, "brutality") then
    mtw.disp_toggle("raking", "trk: toggle raking")
   end
+  if table.contains(mtw.skills, "warmongering") then
+   mtw.disp_toggle("crescentslashing", "tcrs: toggle crescentslashing")
+  end
  elseif mtw.my.class == "rogue" then
   mtw.disp_toggle("fleching", "tflh: toggle fleching")
   mtw.disp_toggle("hiding", "thid: toggle hiding")
@@ -165,12 +172,17 @@ function mtw.bashing_aliases()
   mtw.disp_toggle("revitalizing", "trv: toggle revitalizing")
   if table.contains(mtw.skills, "bloodlore") then
    mtw.disp_toggle("savaging", "tsv: toggle savaging")
+   mtw.disp_toggle("blood knifing", "tlit: liturgy when available")
+   mtw.disp_toggle("bloodsensing", "tbds: toggle bloodsensing (send bloodsense before every attack)")
   end
   if table.contains(mtw.skills, "shadoweaving") then
    mtw.disp_toggle("lashing", "tlsh: toggle lashing")
   end
   if table.contains(mtw.skills, "crusading") then
    mtw.disp_toggle("dominating", "tdom: toggle dominating strike")
+  end
+  if table.contains(mtw.skills, "conviction") then
+   mtw.disp_toggle("divinestriking", "tlit: liturgy when available")
   end
  elseif mtw.my.class == "magician" then
   mtw.disp_toggle("igniting", "tigt: toggle igniting")

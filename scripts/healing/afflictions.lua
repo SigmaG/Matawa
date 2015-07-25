@@ -45,7 +45,8 @@ aff_impale = {state = "healed", msg = "impaled", cures = {writhe = "send"}, asse
 aff_earthbind = {state = "healed", msg = "earthbound by grasping claws of stone", cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
 aff_hostage = {state = "healed", msg = "being held hostage", cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
 aff_hogtie = {state = "healed", msg = "", cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
-aff_oubliette = {state = "healed",  msg = "imprisoned in a horrifying oubliette",cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
+aff_oubliette = {state = "healed",  msg = "imprisoned in a horrifying oubliette", cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
+aff_umbral_beckoned = {state = "healed",  msg = "beckoning you haplessly towards their source", cures = {writhe = "send"}, assess = false, effect = "forced movement", timer = createStopWatch()},
 aff_lurker = {state = "healed", msg = "covered in sticky webbing", cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
 aff_feed = {state = "healed", msg = "being fed on by a vampire", cures = {writhe = "send"}, assess = false, effect = "can't od, attacks slowed", timer = createStopWatch()},
 aff_restrained = {state = "healed", msg = "restrained", cures = {writhe = "send"}, assess = false, effect = "entangled", timer = createStopWatch()},
@@ -61,6 +62,16 @@ aff_broken_left_arm = {state = "healed", msg = "hindered by a broken left arm", 
 aff_broken_left_leg = {state = "healed", msg = "hindered by a broken left leg", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
 aff_broken_right_arm = {state = "healed", msg = "hindered by a broken right arm", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
 aff_broken_right_leg = {state = "healed", msg = "hindered by a broken right leg", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
+aff_bruised_limbs_1 = {state = "healed", msg = "wounded by 1 bruise on the limbs", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
+aff_bruised_limbs_2 = {state = "healed", msg = "wounded by 2 bruises on the limbs", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
+aff_bruised_limbs_3 = {state = "healed", msg = "wounded by 3 bruises on the limbs", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
+aff_bruised_limbs_4 = {state = "healed", msg = "wounded by 4 bruises on the limbs", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
+aff_bruised_limbs_5 = {state = "healed", msg = "wounded by 5 bruises on the limbs", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
+aff_bruised_limbs_6 = {state = "healed", msg = "wounded by 6 bruises on the limbs", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
+aff_bruised_limbs_7 = {state = "healed", msg = "wounded by 7 bruises on the limbs", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
+aff_bruised_limbs_8 = {state = "healed", msg = "wounded by 8 bruises on the limbs", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
+aff_bruised_limbs_9 = {state = "healed", msg = "wounded by 9 bruises on the limbs", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
+aff_bruised_limbs_10 = {state = "healed", msg = "wounded by 10 bruises on the limbs", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
 aff_burning_left_arm = {state = "healed", msg = "roasting with a burning left arm", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()}, 
 aff_burning_left_leg = {state = "healed", msg = "roasting with a burning left leg", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()}, 
 aff_burning_right_arm = {state = "healed", msg = "roasting with a burning right arm", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
@@ -95,6 +106,11 @@ aff_severed_nerves_4 = {state = "healed", msg = "suffering from 4 severed nerves
 aff_severed_nerves_5 = {state = "healed", msg = "suffering from 5 severed nerves", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
 aff_severed_tendons = {state = "healed", msg = "suffering from severed tendons", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
 aff_slit_throat  = {state = "healed", msg = "suffering from a slit throat", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
+aff_tainted_wounds_1 = {state = "healed", msg = "suffering from tainted wounds", cures = {focus = "body"}, assess = false, effect = "bleeding", timer = createStopWatch()},
+aff_tainted_wounds_2 = {state = "healed", msg = "suffering from very tainted wounds", cures = {focus = "body"}, assess = false, effect = "vomiting", timer = createStopWatch()},
+aff_tainted_wounds_3 = {state = "healed", msg = "suffering from greatly tainted wounds", cures = {focus = "body"}, assess = false, effect = "weak legs", timer = createStopWatch()},
+aff_tainted_wounds_4 = {state = "healed", msg = "suffering from severely tainted wounds", cures = {focus = "body"}, assess = false, effect = "poisoned blood", timer = createStopWatch()},
+aff_tainted_wounds_5 = {state = "healed", msg = "suffering from terminally tainted wounds", cures = {focus = "body"}, assess = false, effect = "plague", timer = createStopWatch()},
 aff_vomiting = {state = "healed", msg = "sick to your stomach", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
 aff_weak_legs  = {state = "healed", msg = "suffering from weak legs", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
 aff_wither_1 = {state = "healed", msg = "withered", cures = {focus = "body"}, assess = false, effect = "", timer = createStopWatch()},
@@ -171,10 +187,10 @@ aff_ill_omen_4 = {state = "healed", msg = "under 4 marks of ill omen", cures = {
 aff_ill_omen_5 = {state = "healed", msg = "under 5 marks of ill omen", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
 aff_impatience = {state = "healed", msg = "impatient", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
 aff_infirmity_1 = {state = "healed", msg = "infirm", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
-aff_infirmity_2 = {state = "healed", msg = "quite infirm", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
-aff_infirmity_3 = {state = "healed", msg = "very infirm", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
-aff_infirmity_4 = {state = "healed", msg = "extraordinarily infirm", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
-aff_infirmity_5 = {state = "healed", msg = "cripplingly infirm", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
+aff_infirmity_2 = {state = "healed", msg = "quite infirmed", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
+aff_infirmity_3 = {state = "healed", msg = "very infirmed", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
+aff_infirmity_4 = {state = "healed", msg = "extraordinarily infirmed", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
+aff_infirmity_5 = {state = "healed", msg = "cripplingly infirmed", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
 aff_maladroitness = {state = "healed", msg = "extremely maladroit", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
 aff_manaleech = {state = "healed", msg = "cursed with decaying magic", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
 aff_porphyria = {state = "healed", msg = "", cures = {focus = "spirit"}, assess = false, effect = "", timer = createStopWatch()},
@@ -216,7 +232,10 @@ function mtw.aff_timeout(affliction)
 end
 
 function mtw.aff_gain(affliction)
- if mtw.toggles.affecho then
+ if mtw.toggles.affecho and affliction == "burns_1" and mtw.status.vampire == true then
+  deleteLine()
+  tempLineTrigger(1,1,[[if isPrompt() then deleteLine() end]])
+ elseif mtw.toggles.affecho then
   deleteLine()
   cecho("<blue>\nYou: <red>GOT<blue> "..affliction.."!")
  end
@@ -282,7 +301,10 @@ function mtw.aff_diag(affliction)
 end
 
 function mtw.aff_cure(affliction)
- if mtw.toggles.affecho then
+ if mtw.toggles.affecho and affliction == "burns_1" and mtw.status.vampire == true then
+  deleteLine()
+  tempLineTrigger(1,1,[[if isPrompt() then deleteLine() end]])
+ elseif mtw.toggles.affecho then
   deleteLine()
   cecho("<blue>\nYou: <green>HEAL<blue> "..affliction.."!")
  end
