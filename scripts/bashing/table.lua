@@ -152,13 +152,13 @@ local mt2 = {
   if k == "targets" then
    local c = gmcp.Char.Status.city:gsub(" %(.*%)", "")
    if c == "Krondor" then
-    return {"a Goblin Bloodraider", "a Black Slayer of the Northlands", "a Spellweaver Adept", "a Warder of the Queen%'s Guard", "an Elite Natalese Archer", "a High Ranger of the Free Cities"}
+    return {"a goblin bloodraider", "a Black Slayer of the Northlands", "a Spellweaver Adept", "a Warder of the Queen%'s Guard", "an Elite Natalese Archer", "a High Ranger of the Free Cities"}
    elseif c == "Sar-Sargoth" then
     return {"a Royal Lancer of the West", "a Knight%-Captain of Krondor", "a Spellweaver Adept", "a Warder of the Queen%'s Guard", "an Elite Natalese Archer", "a High Ranger of the Free Cities"}
    elseif c == "Elvandar" then
-    return {"a Goblin Bloodraider", "a Black Slayer of the Northlands", "a Royal Lancer of the West", "a Knight%-Captain of Krondor", "an Elite Natalese Archer", "a High Ranger of the Free Cities"}
+    return {"a goblin bloodraider", "a Black Slayer of the Northlands", "a Royal Lancer of the West", "a Knight%-Captain of Krondor", "an Elite Natalese Archer", "a High Ranger of the Free Cities"}
    else
-    return {"a Goblin Bloodraider", "a Black Slayer of the Northlands", "a Royal Lancer of the West", "a Knight%-Captain of Krondor", "a Spellweaver Adept", "a Warder of the Queen%'s Guard"}
+    return {"a goblin bloodraider", "a Black Slayer of the Northlands", "a Royal Lancer of the West", "a Knight%-Captain of Krondor", "a Spellweaver Adept", "a Warder of the Queen%'s Guard"}
    end
   else
    return nil
