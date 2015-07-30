@@ -49,6 +49,14 @@ end
 if mtw.have_aff("blackout") then 
  tempLineTrigger(1,1,[[if not isPrompt() then mtw.afflictions.aff_blackout.state = "healed" mtw.queue_diag() mtw.soft_reset() end]])
 end
+
+--Timewarp check
+
+if mtw.have_slow() and (getStopWatchTime(mtw.timewarp_check) > 1) then
+ mtw.waiting.slow = false
+ mtw.do_core()
+end
+
 end
 
 function mtw.trigger_2(matches,multimatches)
@@ -5995,7 +6003,7 @@ mtw.attack_start(matches[3], "puncture")
 end
 
 function mtw.trigger_1172(matches,multimatches)
-mtw.attack_hit(matches[2], "puncture", nil)
+mtw.attack_hit(matches[2], "puncture", matches[4])
 cecho("<brown>\nYou: STRIPPED <green>"..matches[6])
 end
 
@@ -10229,18 +10237,17 @@ function mtw.trigger_2030(matches,multimatches)
 end
 
 function mtw.trigger_2036(matches,multimatches)
+ mtw.def_remove("hiding")
+ 
  if mtw.defenses.def_hiding.needit then
    mtw.defenses.def_hiding.needit = false
    echo("\nNo longer keeping hide.")
-   mtw.def_take("hiding")
-   send(" ")
  end
 
  if mtw.toggles.hiding then
    mtw.toggle("hiding")
-   send(" ")
  end
-
+   send(" ")
 end
 
 function mtw.trigger_2037(matches,multimatches)
