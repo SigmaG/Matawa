@@ -173,7 +173,11 @@ mtw.units = {}
 mtw.last_lance = createStopWatch()
 mtw.last_bleedtic = createStopWatch()
 
+-- create stopwatch for timewarp check
 mtw.timewarp_check = createStopWatch()
+
+-- create stopwatch for bashing check
+mtw.waiting_bashcheck = createStopWatch()
 
 mtw.losingall = false
 mtw.people_online = {}

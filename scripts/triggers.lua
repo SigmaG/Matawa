@@ -57,6 +57,12 @@ if mtw.have_slow() and (getStopWatchTime(mtw.timewarp_check) > 1) then
  mtw.do_core()
 end
 
+--bashing check
+if mtw.waiting.bash and (getStopWatchTime(mtw.waiting_bashcheck) > 1) then
+ mtw.waiting.bash = false
+ mtw.do_core()
+end
+
 end
 
 function mtw.trigger_2(matches,multimatches)

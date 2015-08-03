@@ -77,6 +77,7 @@ mtw.priorities = {
 "aff_stupidity",
 "aff_paralysis",
 "aff_chilled_3",
+"aff_fear",
 "aff_hypersomnia",
 "aff_battered",
 "aff_brain_damage_5",
@@ -103,7 +104,6 @@ mtw.priorities = {
 "aff_bleeding_1",
 
 --====High Priority (T2)====--
-"aff_fear",
 "aff_hypochondria",
 "aff_disloyalty",
 "aff_magic_35",
