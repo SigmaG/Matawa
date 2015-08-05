@@ -3,14 +3,14 @@ function mtw.trigger_1(matches,multimatches)
 
 --Set some values
 mtw.see_illusion = false
-mtw.my.stats = matches[8]
+mtw.my.stats = matches[9]
 mtw.waitingforprompt = false
-if matches[7] == "" then
+if matches[8] == "" then
  mtw.status.vampire = false
 else
  mtw.status.vampire = true
 end
-if string.find(matches[9], "-VOTE!-") then
+if string.find(matches[10], "-VOTE!-") then
  if not mtw.vote then
   tempTimer(600, [[if mtw.vote then mtw.voted = false end]])
  end
@@ -20,11 +20,19 @@ else
  mtw.voted = true
 end
 
-mtw.vitals.blood = tonumber(matches[7])
+mtw.vitals.spirit = tonumber(matches[7])
+
+if matches[8] == "" then
+ mtw.status.vampire = false
+else
+ mtw.status.vampire = true
+end
+
+mtw.vitals.blood = tonumber(matches[8])
 
 mtw.enemy_health = ""
 for i in pairs(mtw.health_table) do
- if string.find(matches[9], i) then
+ if string.find(matches[10], i) then
   mtw.enemy_health = mtw.health_table[i]
  end
 end

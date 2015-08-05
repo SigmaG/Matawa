@@ -39,6 +39,12 @@ function gmcp_vitals()
   mtw.vitals.percent.faith = math.floor((mtw.vitals.current.faith/mtw.vitals.max.faith)*100)
   mtw.vitals.loss.faith = mtw.vitals.current.faith - mtw.vitals.old.faith
   mtw.vitals.old.faith = mtw.vitals.current.faith
+-- elseif mtw.my.class == "soldier" and (table.contains(mtw.skills, "warmongering")) then
+--  mtw.vitals.current.spirit = tonumber(gmcp.Char.Vitals.sp)
+--  mtw.vitals.max.spirit = tonumber(gmcp.Char.Vitals.maxsp)
+--  mtw.vitals.percent.spirit = math.floor((mtw.vitals.current.spirit/mtw.vitals.max.spirit)*100)
+--  mtw.vitals.loss.spirit = mtw.vitals.current.spirit - mtw.vitals.old.spirit
+--  mtw.vitals.old.spirit = mtw.vitals.current.spirit
  end
 
  if mtw.have_aff("recklessness") and mtw.toggles.bashing then

@@ -147,7 +147,7 @@ function mtw.prompt_display()
   cecho("<yellow>["..mtw.my.name.."] ")
  end
 
---Display vitals (health, endurance, magic, guile, faith, xp)
+--Display vitals (health, endurance, magic, guile, faith, spirit, xp)
  if mtw.toggles.percents then
   cecho(mtw.coloring(mtw.vitals.percent.health)..mtw.vitals.percent.health.."%h, ")
  else
@@ -166,6 +166,8 @@ function mtw.prompt_display()
   cecho(mtw.coloring(mtw.vitals.percent.faith)..mtw.vitals.current.faith.."f, ")
  elseif table.contains(mtw.skills, "swordmastery") then
   cecho(mtw.coloring(mtw.vitals.percent.magic)..mtw.vitals.current.magic.."m, ")
+ elseif table.contains(mtw.skills, "warmongering") then
+  cecho("<dark_orange>"..(mtw.vitals.spirit).."s, ")
  end
  cecho("<dark_green>"..mtw.vitals.xp.."x ")
 
