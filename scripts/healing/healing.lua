@@ -174,7 +174,7 @@ end
 function mtw.do_writhe(current)
  if mtw.have_aff(current) then
   if (not mtw.status.writhing) and (not mtw.waiting.writhe) and mtw.not_aff("dystrophy") then
-   if table.contains(mtw.skills, "Contort") and mtw.vitals.adrenaline >= 20 and mtw.balance.equilibrium and not mtw.waiting.equilibrium then
+   if table.contains(mtw.skills, "Contort") and mtw.vitals.adrenaline >= 20 and mtw.balance.balance and (not mtw.waiting.balance) and mtw.balance.equilibrium and not mtw.waiting.equilibrium then
     if mtw.not_slow() then
      echo("(contort)")
     end
