@@ -85,7 +85,7 @@ atk_eclipse_over_water = {def = "none", class = "soldier", aff = "horror sun_all
 atk_knucklestrike = {def = "block", class = "soldier", aff = "disarm", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_gutshot = {def = "dodge", class = "soldier", aff = "stun", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_gore = {def = "duck", class = "soldier", aff = "burst_organs", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
-atk_harrow = {def = "jump", class = "soldier", aff = "cut_tendon", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_harrow = {def = "jump", class = "soldier", aff = "harrowed", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_legsweep = {def = "block", class = "soldier", aff = "hamstrung prone", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_crescent_slash = {def = "parry", class = "soldier", aff = "concussion bleeding", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_final_moments = {def = "none", class = "soldier", aff = "death", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},

@@ -624,7 +624,10 @@
                             </Alias>
                             <Alias isActive="yes" isFolder="no">
                                 <name>gripping</name>
-                                <script>mtw.toggle(&quot;gripping&quot;)</script>
+                                <script>mtw.toggle(&quot;gripping&quot;)
+if not mtw.toggles.gripping and mtw.defenses.def_grip.needit then
+mtw.defenses.def_grip.needit = false
+end</script>
                                 <command></command>
                                 <packageName></packageName>
                                 <regex>^tgr$</regex>
