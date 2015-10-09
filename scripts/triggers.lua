@@ -6391,6 +6391,13 @@ end
 
 function mtw.trigger_1261(matches,multimatches)
 mtw.recent_defend = false
+
+ if mtw.toggles.bashing then
+  deleteLine()
+  mtw.waiting.balance = false
+  mtw.waiting.bash = false
+ end
+ 
 end
 
 function mtw.trigger_1262(matches,multimatches)

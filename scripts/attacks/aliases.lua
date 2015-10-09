@@ -340,13 +340,17 @@ end
 
 function mtw.al_psion(skill)
 if table.contains(mtw.skills, "psionics") then
- mtw.set_psi(skill.." "..mtw.target)
+  if mtw.my.name ~= "Rosalia" then
+   mtw.set_psi(skill.." "..mtw.target)
+  end
 end
 end
 
 function mtw.al_do_psion(s)
 if table.contains(mtw.skills, "psionics") then
- mtw.set_psi(s)
+  if mtw.my.name ~= "Rosalia" then
+   mtw.set_psi(s)
+  end
 end
 end
 

@@ -107,7 +107,7 @@ function mtw.do_bashing()
    mtw.bashing_function()
   end
  end
- if mtw.balance.psi and not mtw.waiting.psi and table.contains(mtw.skills, "Mindblast") and mtw.bashing.targeted and mtw.bashing.engaged and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and mtw.toggles.mindblasting then
+ if mtw.balance.psi and not mtw.waiting.psi and table.contains(mtw.skills, "Mindblast") and mtw.bashing.targeted and mtw.bashing.engaged and (mtw.enemy_health ~= "<red> 0-10%" or mtw.enemy_health ~= "<red> 10-25%") and mtw.toggles.mindblasting then
   mtw.waiting.psi = true
   tempTimer(1, [[mtw.waiting.psi = false]])
   mtw.send("psi mindblast "..mtw.bashing.target)

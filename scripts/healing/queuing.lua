@@ -404,6 +404,7 @@ mtw.priorities = {
 "atk_eclipse_over_water",
 --Soldier: Warmongering
 "atk_gutshot",
+"atk_goad",
 "atk_gore",
 "atk_crescent_slash",
 "atk_knucklestrike",
