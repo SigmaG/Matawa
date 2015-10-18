@@ -9097,10 +9097,10 @@ end
 
 function mtw.trigger_1839(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "melt")
-for i in pairs(defenses) do
- if defenses[i].defense == matches[3] then
+for i in pairs(mtw.defenses) do
+ if mtw.defenses[i].defense == matches[3] then
   cecho("<brown>\nStripped "..i)
-  def_remove(i)
+  mtw.def_remove(i)
  end
 end
 end
@@ -9114,7 +9114,7 @@ mtw.attack_start(matches[2], "melt")
 end
 
 function mtw.trigger_1842(matches,multimatches)
-mtw.attack_start(matches[2], "melt")
+mtw.attack_hit(matches[2], "melt")
 --for i in pairs(defenses) do
  if matches[4] ~= nil then
   cecho("<brown>\nStripped "..matches[4])
@@ -9127,7 +9127,7 @@ mtw.attack_start(matches[2], "eruption")
 end
 
 function mtw.trigger_1844(matches,multimatches)
-mtw.attack_start(mtw.target, "eruption")
+mtw.attack_hit(mtw.target, "eruption")
 end
 
 function mtw.trigger_1845(matches,multimatches)

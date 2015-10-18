@@ -5207,7 +5207,7 @@ end</script>
                                     <script>mtw.al_pyro(&quot;immolate&quot;)</script>
                                     <command></command>
                                     <packageName></packageName>
-                                    <regex>^imo$</regex>
+                                    <regex>^pim$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
                                     <name>flameborne</name>
@@ -5383,6 +5383,13 @@ end</script>
                                     <command></command>
                                     <packageName></packageName>
                                     <regex>^endf$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>engulf</name>
+                                    <script>mtw.al_pyro(&quot;engulf &quot;)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^enf$</regex>
                                 </Alias>
                             </AliasGroup>
                             <AliasGroup isActive="yes" isFolder="yes">
