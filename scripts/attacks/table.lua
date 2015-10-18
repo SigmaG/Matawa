@@ -25,7 +25,7 @@ atk_impale = {def = "dodge", class = "soldier", aff = "impaled", getting_hit = f
 atk_bind = {def = "block", class = "soldier", aff = "equilloss", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_batter = {def = "duck", class = "soldier", aff = "battered", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_assault = {def = "parry", class = "soldier", aff = "damage", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
-atk_rupture = {def = "jump", class = "soldier", aff = "bleeding", getting_hit = fgloalse, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
+atk_rupture = {def = "jump", class = "soldier", aff = "bleeding", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_rend = {def = "instant", class = "soldier", aff = "bleeding", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_enervating_jab = {def = "dodge", class = "soldier", aff = "exhaustion", getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
 atk_enfeeble = {def = "duck", class = "soldier", aff = "infirm", aff_def = "infirm" , getting_hit = false, attacker = "none", defend_now = false, delay = 3, hitting_with = false, targeting = "none", timer = createStopWatch()},
