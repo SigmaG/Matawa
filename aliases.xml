@@ -3004,6 +3004,13 @@ send(&quot; &quot;)</script>
                                     <regex>^st ag$</regex>
                                 </Alias>
                                 <Alias isActive="yes" isFolder="no">
+                                    <name>Stance: None</name>
+                                    <script>mtw.stance_alias(matches)</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^st no$</regex>
+                                </Alias>
+                                <Alias isActive="yes" isFolder="no">
                                     <name>Shield of the Weak</name>
                                     <script>mtw.al_do_soldier(&quot;shield &quot;..matches[2])</script>
                                     <command></command>
@@ -3459,6 +3466,17 @@ end</script>
                                     <packageName></packageName>
                                     <regex>^sb(.*)$</regex>
                                 </Alias>
+                                <Alias isActive="yes" isFolder="no">
+                                    <name>Heatvision</name>
+                                    <script>if mtw.have_def(&quot;heatvision&quot;) then
+mtw.set_balance(&quot;heatvision off&quot;)
+else
+mtw.set_balance(&quot;heatvision on&quot;)
+end</script>
+                                    <command></command>
+                                    <packageName></packageName>
+                                    <regex>^htv$</regex>
+                                </Alias>
                             </AliasGroup>
                         </AliasGroup>
                         <AliasGroup isActive="yes" isFolder="yes">
@@ -3897,7 +3915,7 @@ end</script>
                                         <script>mtw.al_do_mage(&quot;cast flood &quot;)</script>
                                         <command></command>
                                         <packageName></packageName>
-                                        <regex>^flood$</regex>
+                                        <regex>^fld$</regex>
                                     </Alias>
                                     <Alias isActive="yes" isFolder="no">
                                         <name>freeze</name>
@@ -6731,6 +6749,10 @@ mtw.gui.update_who_here()</script>
                     <regex>^hidechat$</regex>
                 </Alias>
                 <Alias isActive="no" isFolder="no">
+                    <name></name>
+                    <script></script>
+                    <command></command>
+                    <packageName></packageName>
                     <regex>^showchat$</regex>
                 </Alias>
             </AliasGroup>

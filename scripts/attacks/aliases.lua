@@ -161,6 +161,8 @@ if mtw.my.class == "soldier" then
   mtw.set_equil("stance defensive")
  elseif matches[1] == "st ag" then
   mtw.set_equil("stance aggressive")
+ elseif matches[1] == "st no" then
+  mtw.set_equil("stance none")
  end
 end
 end
