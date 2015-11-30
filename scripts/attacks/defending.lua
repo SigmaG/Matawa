@@ -70,7 +70,8 @@ function mtw.atk_start(attacker, weapon, attack)
 --Check if the attacker is anachronized, adjust defense delays accordingly
  for z in pairs(mtw.anachronized) do
   if attacker == mtw.anachronized[z] then
-   mtw.defending.delay = math.floor(mtw.defending.delay/2)
+   --mtw.defending.delay = math.floor(mtw.defending.delay/2)
+   mtw.defending.delay = math.floor(mtw.defending.delay/2)-0.25-math.floor(getNetworkLatency()/2)
   end
  end
  if attack == "atk_shield_smash" then
@@ -98,6 +99,9 @@ function mtw.atk_start(attacker, weapon, attack)
  mtw.people[attacker] = mtw.my.name
  if mtw.my.class == "rogue" and table.contains(mtw.skills, "Flourish") and mtw.toggles.flourishing and mtw.balance.flourish then
   mtw.set_balance("flourish "..attacker)
+ end
+ if mtw.my.class == "priest" and table.contains(mtw.skills, "Prophet's Sight") and mtw.toggles.prophesying and mtw.balance.prophesy then
+  mtw.set_balance("castigate prophesy "..attacker)
  end
 raiseEvent("mtw.atk.start", attacker, weapon, attack)
 end

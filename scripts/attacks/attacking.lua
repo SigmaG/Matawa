@@ -76,7 +76,9 @@ function mtw.attack_hit(hitting, curattk, weapon)
  if curattk:find("burst",1,true) or curattk:find("wisp",1,true) then
   mtw.balance_lose("offhand")
  end
- if mtw.attacks[curattk]["hitting_with"] or mtw.attacks[curattk].def == "instant" then
+ if mtw.attacks[curattk]["hitting_with"] or mtw.attacks[curattk].def == "instant" or getStopWatchTime(mtw.balance_timers.secondwind.timer) < 4 then
+--secondwind timer added here as a quickfix for two attacks being sent simulaneously when using secondwind
+--(cont. from above) ideally we'd have two getting hits or something to keep track of a second attack being sent when secondwind is used
 --Replace line with outgoing attack echo, if necessary
   if mtw.toggles.atkecho then
    deleteLine()

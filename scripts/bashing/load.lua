@@ -9,10 +9,10 @@ function mtw.load_targets(area)
  if mtw.areas[area] then
    mtw.area_found = true
    mtw.bashing.target_type = "long"
-   for i,v in ipairs(mtw.areas[area].targets) do
+   for i,v in ipairs(mtw.areas.generic.targets) do
     table.insert(mtw.possible_targets, v)
    end
-   for i,v in ipairs(mtw.areas.generic.targets) do
+   for i,v in ipairs(mtw.areas[area].targets) do
     table.insert(mtw.possible_targets, v)
    end
    if mtw.areas[area].level then

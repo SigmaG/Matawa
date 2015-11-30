@@ -174,22 +174,36 @@ end
 function mtw.do_writhe(current)
  if mtw.have_aff(current) then
   if (not mtw.status.writhing) and (not mtw.waiting.writhe) and mtw.not_aff("dystrophy") then
-   if table.contains(mtw.skills, "Contort") and mtw.vitals.adrenaline >= 20 and mtw.balance.equilibrium and not mtw.waiting.equilibrium then
+   if table.contains(mtw.skills, "Contort") and mtw.vitals.adrenaline >= 20 and mtw.balance.balance and (not mtw.waiting.balance) and mtw.balance.equilibrium and not mtw.waiting.equilibrium then
     if mtw.not_slow() then
      echo("(contort)")
     end
-    mtw.send("contort")
+    tempTimer(mtw.delay(), [[mtw.sent.contort = false]])
+    if mtw.sent.contort == false then
+     mtw.sent.contort = true
+     mtw.send("contort")
+    end
    else
+    if mtw.toggles.contorting and mtw.vitals.adrenaline >= 20 then
+     return
+    end
     if mtw.not_slow() then
      echo("(writhe)")
     end
-    mtw.send("writhe")
+    tempTimer(mtw.delay(), [[mtw.sent.writhe = false]])
+    if mtw.sent.writhe == false then
+     mtw.sent.writhe = true
+     mtw.send("writhe")
+    end
    end
    if mtw.not_slow() then
     if table.contains(mtw.skills, "Contort") and mtw.vitals.adrenaline >= 20 then
      mtw.last_type = "contort"
      mtw.last_item = "send"
     else
+    if mtw.toggles.contorting and mtw.vitals.adrenaline >= 20 then
+     return
+    end
      mtw.last_type = "writhe"
      mtw.last_item = "send"    
     end
@@ -277,11 +291,11 @@ end
 function mtw.do_reject(current)
  if mtw.have_aff(current) then
   if mtw.balance.equilibrium and (not mtw.waiting.equilibrium) then
---Ignore mindmeld if afflicted with mental afflictions
+--Ignore mindmeld if afflicted with mental afflictions or if mmrejecting is toggled
    if current == "aff_mindmeld" then
     for i in pairs(mtw.afflictions) do
      if mtw.afflictions[i].cures.focus ~= nil then
-      if mtw.afflictions[i].cures.focus == "mind" and mtw.afflictions[i].state ~= "healed" then
+      if (mtw.afflictions[i].cures.focus == "mind" and mtw.afflictions[i].state ~= "healed") or mtw.toggles.mmrejecting then
        return
       end
      end

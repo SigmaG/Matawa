@@ -4,8 +4,8 @@
 function mtw.deepshroud_alias()
  if mtw.my.class == "rogue" then
   send("deepshroud",false)
-  mtw.prechanneling.deepshroud = true
-  tempTimer(mtw.delay(),[[mtw.prechanneling.deepshroud = false]])
+  mtw.prechanneling.deepshrouding = true
+  tempTimer(mtw.delay(),[[mtw.prechanneling.deepshrouding = false]])
  end
 end
 
@@ -88,6 +88,43 @@ function mtw.al_do_soldier(s)
  end
 end
 
+function mtw.al_warmonger(skill)
+ if mtw.my.class == "soldier" and mtw.skills.warmongering then
+  mtw.set_balance(skill .. " "..mtw.target)
+ end
+end
+
+function mtw.al_do_warmonger(s)
+ if mtw.my.class == "soldier" and mtw.skills.warmongering then
+  mtw.set_balance(s)
+ end
+end
+
+function mtw.al_berserker(skill)
+ if mtw.my.class == "soldier" and mtw.skills.brutality then
+  mtw.set_balance(skill .. " "..mtw.target)
+ end
+end
+
+function mtw.al_do_berserker(s)
+ if mtw.my.class == "soldier" and mtw.skills.brutality then
+  mtw.set_balance(s)
+ end
+end
+
+function mtw.al_swordmaster(skill)
+ if mtw.my.class == "soldier" and mtw.skills.swordmastery then
+  mtw.set_balance(skill .. " "..mtw.target)
+ end
+end
+
+function mtw.al_do_swordmaster(s)
+ if mtw.my.class == "soldier" and mtw.skills.swordmastery then
+  mtw.set_balance(s)
+ end
+end
+
+
 function mtw.last_stand_alias()
 if mtw.balance.last_stand then
  mtw.defenses["def_last_stand"].needit = true
@@ -124,6 +161,8 @@ if mtw.my.class == "soldier" then
   mtw.set_equil("stance defensive")
  elseif matches[1] == "st ag" then
   mtw.set_equil("stance aggressive")
+ elseif matches[1] == "st no" then
+  mtw.set_equil("stance none")
  end
 end
 end
@@ -303,13 +342,17 @@ end
 
 function mtw.al_psion(skill)
 if table.contains(mtw.skills, "psionics") then
- mtw.set_psi(skill.." "..mtw.target)
+  if mtw.my.name ~= "Rosalia" then
+   mtw.set_psi(skill.." "..mtw.target)
+  end
 end
 end
 
 function mtw.al_do_psion(s)
 if table.contains(mtw.skills, "psionics") then
- mtw.set_psi(s)
+  if mtw.my.name ~= "Rosalia" then
+   mtw.set_psi(s)
+  end
 end
 end
 
@@ -318,6 +361,9 @@ end
 
 function mtw.al_smite(skill)
 if mtw.my.class == "priest" then
+ if mtw.toggles.bloodsensing and table.contains(mtw.skills, "Bloodsense") then
+  mtw.next.bloodsense = true
+ end
  mtw.set_balance("smite ".. mtw.target .." with "..skill)
 end
 end
@@ -516,6 +562,9 @@ end
 
 function mtw.atk_hema(skill)
 if mtw.my.class == "priest" then
+ if mtw.toggles.bloodsensing and table.contains(mtw.skills, "Bloodsense") then
+  mtw.next.bloodsense = true
+ end
  mtw.set_balance("bloodcall "..skill.." "..mtw.target)
 end
 end
@@ -647,6 +696,28 @@ if table.contains(mtw.skills, "crusading") then
  else
   mtw.set_balance("warcall crusadesight "..matches[2])
  end
+end
+end
+
+function mtw.atk_conviction(skill)
+if table.contains(mtw.skills, "conviction") then
+ mtw.set_balance("castigate "..skill.." "..mtw.target)
+end
+end
+
+function mtw.hymn_alias(matches)
+if table.contains(mtw.skills, "conviction") then
+ if matches[2] == "" then
+  mtw.set_balance("castigate hymn "..mtw.target)
+ else
+  mtw.set_balance("castigate hymn "..matches[2])
+ end
+end
+end
+
+function mtw.al_do_conviction(s)
+if table.contains(mtw.skills, "crusading") then
+ mtw.set_balance(s)
 end
 end
 

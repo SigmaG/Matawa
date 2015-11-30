@@ -99,12 +99,15 @@ function mtw.do_bashing()
  if mtw.balance.balance and not mtw.waiting.balance and not mtw.waiting.bash then
   if mtw.bashing.targeted then
    mtw.waiting.balance = true
-   tempTimer(0.5, [[mtw.waiting.balance = false]])
-   tempTimer(mtw.delay(), [[mtw.waiting.bash = false]])
+   mtw.waiting.bash = true
+   tempTimer((0.5-math.floor(getNetworkLatency())), [[mtw.waiting.balance = false]])
+   resetStopWatch(mtw.waiting_bashcheck)
+   startStopWatch(mtw.waiting_bashcheck)
+   --tempTimer((mtw.delay()-math.floor(getNetworkLatency())), [[mtw.waiting.bash = false]])
    mtw.bashing_function()
   end
  end
- if mtw.balance.psi and not mtw.waiting.psi and table.contains(mtw.skills, "Mindblast") and mtw.bashing.targeted and mtw.bashing.engaged and mtw.enemy_health ~= "<red> 0-10%" and mtw.enemy_health ~= "<red> 10-25%" and mtw.toggles.mindblasting then
+ if mtw.balance.psi and not mtw.waiting.psi and table.contains(mtw.skills, "Mindblast") and mtw.bashing.targeted and mtw.bashing.engaged and (mtw.enemy_health ~= "<red> 0-10%" or mtw.enemy_health ~= "<red> 10-25%") and mtw.toggles.mindblasting then
   mtw.waiting.psi = true
   tempTimer(1, [[mtw.waiting.psi = false]])
   mtw.send("psi mindblast "..mtw.bashing.target)

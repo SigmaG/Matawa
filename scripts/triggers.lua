@@ -3,14 +3,14 @@ function mtw.trigger_1(matches,multimatches)
 
 --Set some values
 mtw.see_illusion = false
-mtw.my.stats = matches[8]
+mtw.my.stats = matches[9]
 mtw.waitingforprompt = false
-if matches[7] == "" then
+if matches[8] == "" then
  mtw.status.vampire = false
 else
  mtw.status.vampire = true
 end
-if string.find(matches[9], "-VOTE!-") then
+if string.find(matches[10], "-VOTE!-") then
  if not mtw.vote then
   tempTimer(600, [[if mtw.vote then mtw.voted = false end]])
  end
@@ -20,11 +20,19 @@ else
  mtw.voted = true
 end
 
-mtw.vitals.blood = tonumber(matches[7])
+mtw.vitals.spirit = tonumber(matches[7])
+
+if matches[8] == "" then
+ mtw.status.vampire = false
+else
+ mtw.status.vampire = true
+end
+
+mtw.vitals.blood = tonumber(matches[8])
 
 mtw.enemy_health = ""
 for i in pairs(mtw.health_table) do
- if string.find(matches[9], i) then
+ if string.find(matches[10], i) then
   mtw.enemy_health = mtw.health_table[i]
  end
 end
@@ -49,6 +57,20 @@ end
 if mtw.have_aff("blackout") then 
  tempLineTrigger(1,1,[[if not isPrompt() then mtw.afflictions.aff_blackout.state = "healed" mtw.queue_diag() mtw.soft_reset() end]])
 end
+
+--Timewarp check
+
+if mtw.have_slow() and (getStopWatchTime(mtw.timewarp_check) > 1) then
+ mtw.waiting.slow = false
+ mtw.do_core()
+end
+
+--bashing check
+if mtw.waiting.bash and (getStopWatchTime(mtw.waiting_bashcheck) > 1) then
+ mtw.waiting.bash = false
+ mtw.do_core()
+end
+
 end
 
 function mtw.trigger_2(matches,multimatches)
@@ -380,11 +402,12 @@ end
 
 function mtw.trigger_2031(matches,multimatches)
 mtw.used.balefire = true
-mtw.casted.balefire = false
+--mtw.casted.balefire = false
 end
 
 function mtw.trigger_2032(matches,multimatches)
 mtw.casted.balefire = true
+tempTimer(mtw.delay(), [[mtw.used.balefire = false]])
 end
 
 function mtw.trigger_2033(matches,multimatches)
@@ -500,8 +523,8 @@ if string.find(matches[2], " ") then
  mtw.crits.hits = mtw.crits.hits+1
  mtw.bashing.engaged = true
 end
-if mtw.toggles.bashing and (not mtw.toggles.bleeding) and mtw.vitals.adrenaline <= 15 then
- send("clot;clot;clot;clot;clot")
+if mtw.toggles.bashing and (not mtw.toggles.bleeding) and mtw.vitals.adrenaline >= 5 and mtw.vitals.adrenaline <= 15 then
+ send("clot")
 end
 end
 
@@ -581,7 +604,7 @@ end
 
 function mtw.trigger_91(matches,multimatches)
 if matches[2] == mtw.target then
- set_attack("touch serpent "..mtw.target)
+ mtw.set_balance("touch serpent "..mtw.target)
 end
 if mtw.toggles.cdecho then 
  if matches[2] == mtw.target then
@@ -919,7 +942,7 @@ send("vin heartstone" )
 end
 
 function mtw.trigger_136(matches,multimatches)
-send( "bqa cast timeshift " ..matches[2])
+--send( "bqa cast timeshift " ..matches[2])
 expandAlias( "t " ..matches[2])
 end
 
@@ -1434,6 +1457,7 @@ if mtw.toggles.cdecho then
  deleteLine()
  cecho("\n<green>=====<red>VERDICT/KNEEL<green> READY=====\n")
 end
+mtw.balance_regain("hallowed_verdict")
 end
 
 function mtw.trigger_202(matches,multimatches)
@@ -1654,6 +1678,7 @@ if table.contains(mtw.skills, "Avatar of War") then
  mtw.reset_affwaiting()
  mtw.reset_affliction()
  mtw.reset_defenses()
+ mtw.load_def("none")
 end
 end
 
@@ -2082,8 +2107,12 @@ mtw.aff_have("broken_left_arm")
 mtw.aff_have("broken_right_arm")
 end
 
-function mtw.trigger_311(matches,multimatches)
+function mtw.trigger_311a(matches,multimatches)
 mtw.aff_have("broken_"..matches[2].."_arm")
+end
+
+function mtw.trigger_311b(matches,multimatches)
+mtw.aff_have("broken_"..matches[2].."_leg")
 end
 
 function mtw.trigger_312(matches,multimatches)
@@ -2303,7 +2332,21 @@ mtw.aff_have("concussion")
 end
 
 function mtw.trigger_349(matches,multimatches)
-mtw.aff_have("severed_nerves")
+if mtw.have_aff("severed_nerves_5") then
+ mtw.aff_cure("severed_nerves_5")
+ mtw.aff_have("severed_nerves_4")
+elseif mtw.have_aff("severed_nerves_4") then
+ mtw.aff_cure("severed_nerves_4")
+ mtw.aff_have("severed_nerves_3")
+elseif mtw.have_aff("severed_nerves_3") then
+ mtw.aff_cure("severed_nerves_3")
+ mtw.aff_have("severed_nerves_2")
+elseif mtw.have_aff("severed_nerves_2") then
+ mtw.aff_cure("severed_nerves_2")
+ mtw.aff_have("severed_nerves_1")
+else
+ mtw.aff_cure("severed_nerves_1")
+end
 end
 
 function mtw.trigger_350(matches,multimatches)
@@ -2659,7 +2702,7 @@ elseif mtw.have_aff("infirmity_3") then
 elseif mtw.have_aff("infirmity_2") then
  mtw.aff_cure("infirmity_2")
  mtw.aff_have("infirmity_1")
-else
+elseif mtw.have_aff("infirmity_1") then
  mtw.aff_cure("infirmity_1")
 end
 end
@@ -2787,7 +2830,7 @@ end
 
 function mtw.trigger_448(matches,multimatches)
 if mtw.not_aff("bleeding_2") and mtw.not_aff("bleeding_3") and mtw.not_aff("bleeding_4") and mtw.not_aff("bleeding_5") then
-mtw.aff_have("bleeding_1")
+--mtw.aff_have("bleeding_1")
 end
 end
 
@@ -2918,8 +2961,8 @@ function mtw.trigger_473(matches,multimatches)
 --mtw.reset_waiting()
 mtw.aff_have("timewarp")
 mtw.waiting.slow = true
-tempTimer(1.1, [[mtw.waiting.slow = false]])
-tempTimer(1.2, mtw.do_core)
+--tempTimer(1.1, [[mtw.waiting.slow = false]])
+--tempTimer(1.2, mtw.do_core())
 end
 
 function mtw.trigger_474(matches,multimatches)
@@ -2936,6 +2979,9 @@ cecho("\n<red>********<blue>INCOMING TIMEWARP!<red>***********")
 cecho("\n<red>*************************************")
  if string.find(mtw.target, matches[3]) and mtw.my.class == "rogue" and mtw.status.combat and mtw.toggles.flourishing then
   mtw.set_balance("flourish "..matches[3])
+ end
+ if string.find(mtw.target, matches[2]) and mtw.my.class == "priest" and mtw.toggles.prophesying then
+  mtw.set_balance("castigate prophesy "..matches[2])
  end
 end
 
@@ -2966,12 +3012,11 @@ mtw.atk_hit(matches[2], nil, "shadowstorm")
 mtw.aff_have("blind")
 mtw.aff_have("disoriented")
 mtw.aff_have("fear")
-mtw.aff_have("epilepsy")
+mtw.aff_have("anemia")
 mtw.aff_have("maladroitness")
 mtw.aff_have("terror")
 mtw.aff_have("sun_allergy")
 mtw.aff_have("paralysis")
-mtw.aff_have("dystrophy")
 end
 
 function mtw.trigger_483(matches,multimatches)
@@ -3824,6 +3869,8 @@ end
 
 function mtw.trigger_680(matches,multimatches)
 mtw.def_gain("grip")
+send(" ")
+tempTimer(1.00, [[if mtw.balance.balance and mtw.waiting.balance then mtw.waiting.balance = false send(" ") end]])
 end
 
 function mtw.trigger_681(matches,multimatches)
@@ -4534,6 +4581,7 @@ end
 
 function mtw.trigger_832(matches,multimatches)
 mtw.attack_hit(matches[2], "rend")
+cecho("<red>\n SUCCESS: You REND "..matches[2].."!")
 end
 
 function mtw.trigger_833(matches,multimatches)
@@ -4861,7 +4909,7 @@ end
 
 function mtw.trigger_911(matches,multimatches)
 mtw.atk_hit(matches[2], matches[3], "blackeye")
---mtw.aff_have("blind")
+mtw.aff_have("blind")
 mtw.aff_have("blackout")
 end
 
@@ -5969,7 +6017,7 @@ mtw.attack_start(matches[3], "puncture")
 end
 
 function mtw.trigger_1172(matches,multimatches)
-mtw.attack_hit(matches[2], "puncture", nil)
+mtw.attack_hit(matches[2], "puncture", matches[4])
 cecho("<brown>\nYou: STRIPPED <green>"..matches[6])
 end
 
@@ -6343,6 +6391,13 @@ end
 
 function mtw.trigger_1261(matches,multimatches)
 mtw.recent_defend = false
+
+ if mtw.toggles.bashing then
+  deleteLine()
+  mtw.waiting.balance = false
+  mtw.waiting.bash = false
+ end
+ 
 end
 
 function mtw.trigger_1262(matches,multimatches)
@@ -7458,6 +7513,9 @@ end
 if string.find(mtw.target, matches[2]) and mtw.my.class == "rogue" and mtw.toggles.flourishing then
  mtw.set_balance("flourish "..matches[2])
 end
+if string.find(mtw.target, matches[2]) and mtw.my.class == "priest" and mtw.toggles.prophesying then
+ mtw.set_balance("castigate prophesy "..matches[2])
+end
 end
 
 function mtw.trigger_1520(matches,multimatches)
@@ -7641,7 +7699,7 @@ mtw.attack_hit(matches[3], "scabies")
 end
 
 function mtw.trigger_1564(matches,multimatches)
-attack_defend(matches[3], nil, "scabies", matches[7])
+mtw.attack_defend(matches[3], nil, "scabies", matches[7])
 end
 
 function mtw.trigger_1565(matches,multimatches)
@@ -8011,7 +8069,7 @@ mtw.atk_start(matches[2], nil, "mandate")
 end
 
 function mtw.trigger_1654(matches,multimatches)
-mtw.atk_hit(matches[2], matches[3], "mandate")
+mtw.atk_hit(matches[2], nil, "mandate")
 end
 
 function mtw.trigger_1655(matches,multimatches)
@@ -8060,9 +8118,9 @@ end
 
 function mtw.trigger_1666(matches,multimatches)
 mtw.attack_hit(matches[3], "kneel")
-if mtw.my.name == "Kor" and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") then
- mtw.send("smite "..matches[3].." with verdict")
-end
+--if mtw.my.name == "Kor" and mtw.not_aff("timewarp") and mtw.not_aff("divine_censure") then
+-- mtw.send("smite "..matches[3].." with verdict")
+--end
 end
 
 function mtw.trigger_1667(matches,multimatches)
@@ -8127,7 +8185,7 @@ mtw.attack_hit(matches[2], "spirit_wrack")
 end
 
 function mtw.trigger_1682(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "spirit_wrack", matches[4])
+mtw.attack_defend(matches[2], nil, "spirit_wrack", matches[5])
 end
 
 function mtw.trigger_1683(matches,multimatches)
@@ -8269,7 +8327,7 @@ mtw.atk_defend(matches[2], nil, "retribution", matches[5])
 end
 
 function mtw.trigger_1716(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "retribution", matches[4])
+mtw.attack_defend(matches[3], nil, "retribution", matches[5])
 end
 
 function mtw.trigger_1717(matches,multimatches)
@@ -8297,7 +8355,7 @@ mtw.atk_defend(matches[2], matches[3], "sword_spirit", matches[4])
 end
 
 function mtw.trigger_1723(matches,multimatches)
-mtw.attack_start(matches[2], "sword_spirit")
+mtw.attack_start(matches[3], "sword_spirit")
 end
 
 function mtw.trigger_1724(matches,multimatches)
@@ -8536,11 +8594,13 @@ end
 
 function mtw.trigger_1781(matches,multimatches)
 mtw.attack_hit(matches[2], "verdict")
+mtw.balance_lose("hallowed_verdict")
 end
 
 function mtw.trigger_1782(matches,multimatches)
 deleteLine()
 cecho("\n<green>*************VERDICT**************")
+mtw.balance_regain("hallowed_verdict")
 end
 
 function mtw.trigger_1783(matches,multimatches)
@@ -8973,7 +9033,7 @@ mtw.attack_start(matches[2], "pimmolate")
 end
 
 function mtw.trigger_1825(matches,multimatches)
-mtw.attack_start(matches[2], "pimmolate")
+mtw.attack_hit(matches[2], "pimmolate")
 end
 
 function mtw.trigger_1826(matches,multimatches)
@@ -9024,11 +9084,11 @@ mtw.atk_defend(matches[2], nil, "embers", matches[4])
 end
 
 function mtw.trigger_1836(matches,multimatches)
-mtw.attack_start(matches[3], "burningembers")
+mtw.attack_start(matches[3], "embers")
 end
 
 function mtw.trigger_1837(matches,multimatches)
-mtw.attack_hit(matches[2], "burningembers")
+mtw.attack_hit(matches[2], "embers")
 end
 
 function mtw.trigger_1838(matches,multimatches)
@@ -9037,10 +9097,10 @@ end
 
 function mtw.trigger_1839(matches,multimatches)
 mtw.atk_hit(matches[2], nil, "melt")
-for i in pairs(defenses) do
- if defenses[i].defense == matches[3] then
+for i in pairs(mtw.defenses) do
+ if mtw.defenses[i].defense == matches[3] then
   cecho("<brown>\nStripped "..i)
-  def_remove(i)
+  mtw.def_remove(i)
  end
 end
 end
@@ -9054,7 +9114,7 @@ mtw.attack_start(matches[2], "melt")
 end
 
 function mtw.trigger_1842(matches,multimatches)
-mtw.attack_start(matches[2], "melt")
+mtw.attack_hit(matches[2], "melt")
 --for i in pairs(defenses) do
  if matches[4] ~= nil then
   cecho("<brown>\nStripped "..matches[4])
@@ -9067,7 +9127,7 @@ mtw.attack_start(matches[2], "eruption")
 end
 
 function mtw.trigger_1844(matches,multimatches)
-mtw.attack_start(mtw.target, "eruption")
+mtw.attack_hit(mtw.target, "eruption")
 end
 
 function mtw.trigger_1845(matches,multimatches)
@@ -9075,7 +9135,7 @@ mtw.attack_start(matches[2], "incinerate")
 end
 
 function mtw.trigger_1846(matches,multimatches)
-mtw.attack_start(matches[2], "incinerate")
+mtw.attack_hit(matches[2], "incinerate")
 end
 
 function mtw.trigger_1847(matches,multimatches)
@@ -9909,7 +9969,7 @@ mtw.atk_hit(matches[2], nil, "bold_smite")
 end
 
 function mtw.trigger_1971(matches,multimatches)
-mtw.atk_defend(matches[2], nil, "bold_smite", matches[4])
+mtw.atk_defend(matches[2], nil, "bold_smite", matches[5])
 end
 
 function mtw.trigger_1972(matches,multimatches)
@@ -9925,7 +9985,7 @@ mtw.attack_hit(matches[2], "bold_smite")
 end
 
 function mtw.trigger_1975(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "bold_smite", matches[4])
+mtw.attack_defend(matches[2], nil, "bold_smite", matches[5])
 end
 
 function mtw.trigger_1976(matches,multimatches)
@@ -9941,7 +10001,7 @@ mtw.atk_hit(matches[2], nil, "crushing_smite")
 end
 
 function mtw.trigger_1979(matches,multimatches)
-mtw.atk_defend(matches[2], nil, "crushing_smite", matches[4])
+mtw.atk_defend(matches[2], nil, "crushing_smite", matches[5])
 end
 
 function mtw.trigger_1980(matches,multimatches)
@@ -9949,7 +10009,7 @@ mtw.attack_start(matches[3], "crushing_smite")
 end
 
 function mtw.trigger_1981(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "crushing_smite", matches[4])
+mtw.attack_defend(matches[2], nil, "crushing_smite", matches[5])
 end
 
 function mtw.trigger_1982(matches,multimatches)
@@ -9969,11 +10029,11 @@ mtw.atk_start(matches[2], matches[3], "virtuous_smite")
 end
 
 function mtw.trigger_1986(matches,multimatches)
-mtw.atk_hit(matches[2], nil, "virtuous_smite")
+mtw.atk_hit(matches[2], matches[4], "virtuous_smite")
 end
 
 function mtw.trigger_1987(matches,multimatches)
-mtw.atk_defend(matches[2], nil, "virtuous_smite", matches[4])
+mtw.atk_defend(matches[2], matches[4], "virtuous_smite", matches[5])
 end
 
 function mtw.trigger_1988(matches,multimatches)
@@ -9981,11 +10041,11 @@ mtw.attack_start(matches[3], "virtuous_smite")
 end
 
 function mtw.trigger_1989(matches,multimatches)
-mtw.attack_hit(matches[2], "virtuous_smite")
+mtw.attack_hit(matches[3], "virtuous_smite")
 end
 
 function mtw.trigger_1990(matches,multimatches)
-mtw.attack_defend(matches[2], nil, "virtuous_smite", matches[4])
+mtw.attack_defend(matches[3], matches[2], "virtuous_smite", matches[5])
 end
 
 function mtw.trigger_1991(matches,multimatches)
@@ -10001,7 +10061,7 @@ mtw.attack_start(matches[2], "revelation")
 end
 
 function mtw.trigger_1994(matches,multimatches)
-mtw.attack_hit(matches[2], "revelation")
+mtw.attack_hit(matches[3], "revelation")
 end
 
 function mtw.trigger_1995(matches,multimatches)
@@ -10187,6 +10247,9 @@ function mtw.trigger_2029(matches,multimatches)
  if string.find(mtw.target, matches[2]) and mtw.my.class == "rogue" and mtw.status.combat and mtw.toggles.flourishing then
   mtw.set_balance("flourish "..matches[2])
  end
+ if string.find(mtw.target, matches[2]) and mtw.my.class == "priest" and mtw.toggles.prophesying then
+  mtw.set_balance("castigate prophesy "..matches[2])
+ end
 end
 
 function mtw.trigger_2030(matches,multimatches)
@@ -10195,18 +10258,17 @@ function mtw.trigger_2030(matches,multimatches)
 end
 
 function mtw.trigger_2036(matches,multimatches)
+ mtw.def_remove("hiding")
+ 
+ if mtw.defenses.def_hiding.needit then
+   mtw.defenses.def_hiding.needit = false
+   echo("\nNo longer keeping hide.")
+ end
 
-if mtw.defenses.def_hiding.needit then
- mtw.defenses.def_hiding.needit = false
- echo("\nNo longer keeping hide.")
- send(" ")
-end
-
-if mtw.toggles.hiding then
- mtw.toggle("hiding")
- send(" ")
-end
-
+ if mtw.toggles.hiding then
+   mtw.toggle("hiding")
+ end
+   send(" ")
 end
 
 function mtw.trigger_2037(matches,multimatches)
@@ -10229,4 +10291,47 @@ function mtw.trigger_2041(matches,multimatches)
  local comm = multimatches[2][2]
  if comm == "lazuli" then comm = "lapis" end
  send("vin "..comm)
+end
+
+function mtw.trigger_2042(matches,multimatches)
+ mtw.def_def("sanguine_aspect")
+end
+
+function mtw.trigger_2043(matches,multimatches)
+  mtw.def_gain("sanguine_aspect")
+end
+
+function mtw.trigger_2044(matches,multimatches)
+ mtw.def_take("sanguine_aspect")
+end
+
+function mtw.trigger_2045(matches,multimatches) 
+ cecho("\n<red>*************************************")
+ cecho("\n<red>***<blue>WARNING: UMBRAL BECKON ATTACK!!<red>***")
+ cecho("\n<red>*************************************")
+ mtw.aff_have("umbral_beckoned")
+end
+
+function mtw.trigger_2046(matches,multimatches) 
+ cecho("\n<red>********<blue>WARNING: BEING UMBRAL BECKONED!<red>***********")
+ if mtw.not_entangled() then
+  mtw.aff_have("umbral_beckoned")
+ end
+end
+
+function mtw.trigger_2047(matches,multimatches) 
+ cecho("\n<red>*************************************")
+ cecho("\n<red>******<blue>ALERT: UMBRAL BECKON HIT!<red>******")
+ cecho("\n<red>*************************************")
+ mtw.aff_have("blackout")
+ mtw.aff_have("paralysis")
+ mtw.aff_remove("umbral_beckoned")
+end
+
+
+function mtw.trigger_2048(matches,multimatches) 
+ mtw.aff_cure("umbral_beckoned")
+ cecho("\n<red>*************************************")
+ cecho("\n<red>***<blue>SUCCESS: ESCAPED UMBRAL BECKON!<red>***")
+ cecho("\n<red>*************************************")
 end

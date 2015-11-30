@@ -39,6 +39,12 @@ function gmcp_vitals()
   mtw.vitals.percent.faith = math.floor((mtw.vitals.current.faith/mtw.vitals.max.faith)*100)
   mtw.vitals.loss.faith = mtw.vitals.current.faith - mtw.vitals.old.faith
   mtw.vitals.old.faith = mtw.vitals.current.faith
+-- elseif mtw.my.class == "soldier" and (table.contains(mtw.skills, "warmongering")) then
+--  mtw.vitals.current.spirit = tonumber(gmcp.Char.Vitals.sp)
+--  mtw.vitals.max.spirit = tonumber(gmcp.Char.Vitals.maxsp)
+--  mtw.vitals.percent.spirit = math.floor((mtw.vitals.current.spirit/mtw.vitals.max.spirit)*100)
+--  mtw.vitals.loss.spirit = mtw.vitals.current.spirit - mtw.vitals.old.spirit
+--  mtw.vitals.old.spirit = mtw.vitals.current.spirit
  end
 
  if mtw.have_aff("recklessness") and mtw.toggles.bashing then
@@ -150,6 +156,7 @@ function gmcp_room()
  end
 
  mtw.gui.update_location_bar()
+ player_resetIgnore()
 end
 
 
@@ -210,23 +217,48 @@ end
 
 function gmcp_players_in_room()
  mtw.gui.update_who_here()
+ --work in progress below--
+ in_room_players = {}
+  for i, playertable in ipairs(gmcp.Room.Players) do
+   in_room_players[i] = playertable.name
+  end
 end
 
 function gmcp_add_player_in_room()
  mtw.remove_player(gmcp.Room.AddPlayer.name)
  table.insert(gmcp.Room.Players, gmcp.Room.AddPlayer)
  mtw.gui.update_who_here()
+ --work in progress blow--
+  for id,name in ipairs(in_room_players) do
+    if name ~= gmcp.Room.AddPlayer then
+      table.insert(in_room_players, gmcp.Room.AddPlayer.name)
+      return
+    end
+  end
 end
 
 function gmcp_rm_player_in_room()
  mtw.remove_player(gmcp.Room.RemovePlayer)
  mtw.gui.update_who_here()
+--work in progress below--
+  skiproom = false
+ for _, v in ipairs(in_room_players) do
+  if not ignore_players[v] then
+   skiproom = true
+  end
+ end
 end
 
 function mtw.remove_player(name)
  for k,v in pairs(gmcp.Room.Players) do
   if v.name == name then
    table.remove(gmcp.Room.Players, k)
+  end
+ end
+--work in progress below--
+ for id,name in ipairs(in_room_players) do
+  if name == gmcp.Room.RemovePlayer then
+   table.remove(in_room_players, id)
   end
  end
 end
